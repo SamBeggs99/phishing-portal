@@ -248,14 +248,18 @@ export async function renderITModule(moduleId) {
       ${vpnTrouble}${homeRouter}
       ${barracuda}${whatHappensNext}${whenInDoubt}`;
     const checkInHTML = renderCheckIn(t.checkIn, ui);
+    const additionalGuidance = renderExpandableGroup(
+      m.showMoreGuidance || "Optional practice and examples",
+      [story, redFlagSpotter, extras, microScenario, deeper, checkInHTML]
+    );
     const variant = t.layoutVariant || "default";
     const orderedSections = variant === "story-first"
-      ? [hero, story, summary, flagsAndSteps, redFlagSpotter, extras, microScenario, deeper, checkInHTML]
+      ? [hero, summary, flagsAndSteps, additionalGuidance]
       : variant === "scenario-first"
-        ? [quickTakeaway, hero, microScenario, redFlagSpotter, summary, flagsAndSteps, extras, story, deeper, checkInHTML]
+        ? [quickTakeaway, hero, summary, flagsAndSteps, additionalGuidance]
         : variant === "mission"
-          ? [hero, missionMode, quickTakeaway, summary, flagsAndSteps, redFlagSpotter, extras, story, microScenario, deeper, checkInHTML]
-        : [quickTakeaway, hero, summary, story, flagsAndSteps, extras, redFlagSpotter, microScenario, deeper, checkInHTML];
+          ? [hero, missionMode, quickTakeaway, summary, flagsAndSteps, additionalGuidance]
+        : [quickTakeaway, hero, summary, flagsAndSteps, additionalGuidance];
 
     document.getElementById("module-root").innerHTML = `
     <div class="module-body">
@@ -274,6 +278,18 @@ export async function renderITModule(moduleId) {
       root.innerHTML = `<p class="small-note">We couldn't render this module right now. Please refresh the page. If the problem continues, contact IT.</p>`;
     }
   }
+}
+
+function renderExpandableGroup(label, sections) {
+  const content = (sections || []).filter(Boolean).join("");
+  if (!content) return "";
+  return `
+    <details>
+      <summary>${escapeHtml(label || "Show more")}</summary>
+      <div class="details-body">
+        ${content}
+      </div>
+    </details>`;
 }
 
 function initMicroScenario(scenario, ui) {

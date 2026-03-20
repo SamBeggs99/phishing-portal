@@ -94,20 +94,36 @@ function renderStandard(topic, m) {
         <ul class="list-clean">${steps || "<li>See module content</li>"}</ul>
       </div>
     </div>`;
+  const additionalGuidance = renderExpandableGroup(
+    m.showMoreGuidance || "Optional practice and examples",
+    [story, redFlagSpotter, microScenario, deeper, checkInHTML]
+  );
 
   const variant = topic.layoutVariant || "default";
   const orderedSections = variant === "story-first"
-    ? [hero, story, summary, flagsAndSteps, redFlagSpotter, microScenario, deeper, checkInHTML]
+    ? [hero, summary, flagsAndSteps, additionalGuidance]
     : variant === "scenario-first"
-      ? [quickTakeaway, hero, microScenario, redFlagSpotter, summary, flagsAndSteps, story, deeper, checkInHTML]
+      ? [quickTakeaway, hero, summary, flagsAndSteps, additionalGuidance]
       : variant === "mission"
-        ? [hero, missionMode, quickTakeaway, summary, flagsAndSteps, redFlagSpotter, story, microScenario, deeper, checkInHTML]
-      : [quickTakeaway, hero, summary, story, flagsAndSteps, redFlagSpotter, microScenario, deeper, checkInHTML];
+        ? [hero, missionMode, quickTakeaway, summary, flagsAndSteps, additionalGuidance]
+      : [quickTakeaway, hero, summary, flagsAndSteps, additionalGuidance];
 
   return `
     <div class="module-body">
       ${orderedSections.filter(Boolean).join("")}
     </div>`;
+}
+
+function renderExpandableGroup(label, sections) {
+  const body = (sections || []).filter(Boolean).join("");
+  if (!body) return "";
+  return `
+    <details>
+      <summary>${escapeHtml(label || "Show more")}</summary>
+      <div class="details-body">
+        ${body}
+      </div>
+    </details>`;
 }
 
 function initMicroScenario(scenario, ui) {
@@ -323,6 +339,10 @@ function renderTypes(topic, m) {
       </div>
     </details>` : "";
   const checkInHTML = renderCheckIn(topic.checkIn, { module: m });
+  const additionalGuidance = renderExpandableGroup(
+    m.showMoreGuidance || "Optional practice and examples",
+    [deeper, checkInHTML]
+  );
 
   return `
     <div class="module-body">
@@ -330,7 +350,6 @@ function renderTypes(topic, m) {
         <p style="font-size:15px;color:var(--text-2);line-height:1.75;">${escapeHtml(topic.summary || "")}</p>
       </div>
       <div class="grid-2">${types}</div>
-      ${deeper}
-      ${checkInHTML}
+      ${additionalGuidance}
     </div>`;
 }
