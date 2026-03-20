@@ -306,6 +306,40 @@ main { padding: 42px 0 88px; }
   white-space: nowrap;
   transition: color var(--transition), text-shadow var(--transition);
 }
+.path-rail-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 132px;
+}
+.path-rail-step {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 7px 8px;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 8px;
+  background: rgba(30,33,31,0.78);
+  transition: border-color var(--transition), background var(--transition), transform var(--transition);
+  pointer-events: auto;
+}
+.path-rail-step:hover {
+  border-color: var(--border-red);
+  background: rgba(171,35,40,0.1);
+  transform: translateX(1px);
+}
+.path-rail-step-num {
+  font-family: var(--mono);
+  font-size: 8.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(171,35,40,0.9);
+}
+.path-rail-step-title {
+  font-size: 11px;
+  color: var(--text-2);
+  line-height: 1.35;
+}
 .page-path-rail.active {
   filter: brightness(1.05);
 }
@@ -316,6 +350,9 @@ main { padding: 42px 0 88px; }
 .page-path-rail.active .path-rail-label {
   color: rgba(240,241,240,0.78);
   text-shadow: 0 0 12px rgba(171,35,40,0.22);
+}
+.page-path-rail.active .path-rail-step {
+  border-color: rgba(171,35,40,0.2);
 }
 .path-step {
   background: linear-gradient(180deg, rgba(37,40,38,0.72), rgba(30,33,31,0.9));

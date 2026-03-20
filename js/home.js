@@ -45,6 +45,7 @@ async function init() {
 
   // Path steps
   const pathSteps = document.querySelectorAll(".path-step");
+  const railStepTitles = document.querySelectorAll(".path-rail-step-title");
   const pathData = [
     { num: "Step 01", title: h.step1Title, desc: h.step1Desc },
     { num: "Step 02", title: h.step2Title, desc: h.step2Desc },
@@ -57,6 +58,10 @@ async function init() {
     const d = el.querySelector("p");
     if (t && pathData[i].title) t.textContent = pathData[i].title;
     if (d && pathData[i].desc) d.textContent = pathData[i].desc;
+  });
+  railStepTitles.forEach((el, i) => {
+    if (!pathData[i]) return;
+    if (pathData[i].title) el.textContent = pathData[i].title;
   });
 
   // Game section
