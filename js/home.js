@@ -1,6 +1,6 @@
-import { setActiveNav, initMobileNav, updateProgressBar, applyCompletionToCards } from "./js/shared.js";
-import { getHeaderHTML, getFooterHTML } from "./js/header.js";
-import { initI18n, getUI } from "./js/i18n.js";
+import { setActiveNav, initMobileNav, updateProgressBar, applyCompletionToCards } from "./shared.js";
+import { getHeaderHTML, getFooterHTML } from "./header.js";
+import { initI18n, getUI } from "./i18n.js";
 import { initMatrixBackground } from "./background-matrix.js";
 
 async function init() {

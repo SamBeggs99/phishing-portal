@@ -134,6 +134,7 @@ function renderMissionSurprise(missionHTML) {
   return `
     <div id="mission-surprise-overlay" class="mission-surprise-overlay hidden" role="dialog" aria-modal="true" aria-label="Mission Mode">
       <div id="mission-surprise-panel" class="mission-surprise-panel hidden">
+        <button class="mission-surprise-close" id="mission-surprise-close" type="button" aria-label="Close mission">×</button>
         <div class="mission-surprise-head">
           <div class="mono-label" style="margin-bottom:4px;">Random mission</div>
           <p class="small-note">Mission triggered. Complete this challenge to continue.</p>
@@ -148,7 +149,8 @@ function initMissionSurprise(moduleKey, mission) {
   if (!mission?.steps?.length) return;
   const overlay = document.getElementById("mission-surprise-overlay");
   const panel = document.getElementById("mission-surprise-panel");
-  if (!overlay || !panel) return;
+  const closeBtn = document.getElementById("mission-surprise-close");
+  if (!overlay || !panel || !closeBtn) return;
 
   const seenKey = `mission_prompt_seen_${moduleKey}`;
   if (sessionStorage.getItem(seenKey) === "1") return;
@@ -160,6 +162,13 @@ function initMissionSurprise(moduleKey, mission) {
     panel.classList.remove("hidden");
     document.body.classList.add("mission-lock");
   }, delayMs);
+
+  closeBtn.addEventListener("click", () => {
+    overlay.classList.add("hidden");
+    panel.classList.add("hidden");
+    document.body.classList.remove("mission-lock");
+    sessionStorage.setItem(seenKey, "1");
+  });
 }
 
 function initMicroScenario(scenario, ui) {

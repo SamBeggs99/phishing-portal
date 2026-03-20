@@ -306,7 +306,7 @@ main { padding: 42px 0 88px; }
 }
 .path-rail-line {
   width: 1px;
-  height: 112px;
+  height: 84px;
   background: linear-gradient(180deg, rgba(171,35,40,0.55), rgba(171,35,40,0.12));
   transition: background var(--transition), box-shadow var(--transition);
   margin-left: 8px;
@@ -322,7 +322,7 @@ main { padding: 42px 0 88px; }
   white-space: nowrap;
   transition: color var(--transition), text-shadow var(--transition);
   margin-left: 3px;
-  margin-top: 76px;
+  margin-top: 28px;
 }
 .path-rail-steps {
   display: flex;
@@ -330,7 +330,7 @@ main { padding: 42px 0 88px; }
   gap: 8px;
   width: 132px;
   margin-left: 36px;
-  margin-top: -4px;
+  margin-top: 28px;
 }
 .path-rail-step {
   display: flex;
@@ -657,7 +657,7 @@ main { padding: 42px 0 88px; }
   position: fixed;
   inset: 0;
   z-index: 400;
-  background: rgba(0,0,0,0.62);
+  background: rgba(0,0,0,0.36);
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
   display: flex;
@@ -669,9 +669,33 @@ main { padding: 42px 0 88px; }
   width: min(760px, 94vw);
   max-height: 88vh;
   overflow: auto;
+  position: relative;
 }
 .mission-surprise-head {
   margin-bottom: 10px;
+  padding-right: 28px;
+}
+.mission-surprise-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.05);
+  color: var(--text-2);
+  font-size: 18px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition);
+}
+.mission-surprise-close:hover {
+  color: var(--text);
+  border-color: var(--border-red);
+  background: rgba(171,35,40,0.12);
 }
 .mission-steps {
   display: flex;
