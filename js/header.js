@@ -28,7 +28,6 @@ export function getHeaderHTML({ rootPrefix = ".", ui = null } = {}) {
     </a>
 
     <div class="nav-actions">
-      <a class="home-shortcut" href="${r}/index.html" aria-label="Go to home page">⌂ ${n.home || "Home"}</a>
       <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
       </button>
