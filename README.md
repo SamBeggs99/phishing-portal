@@ -152,6 +152,8 @@ Update `TOTAL_MODULES` in `js/shared.js` when adding new modules to keep the pro
 
 The portal supports four languages: English, Brazilian Portuguese (PT), Simplified Chinese (ZH), and Latin American Spanish (ES).
 
+**Current rollout mode:** Translations are currently feature-flagged OFF at runtime, so the site runs English-only for stability. To re-enable language switching, set `ENABLE_TRANSLATIONS = true` in `js/i18n.js`.
+
 ### How it works
 
 1. The language switcher (EN · PT · 中文 · ES) lives in the header on every page

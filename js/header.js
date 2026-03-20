@@ -3,6 +3,7 @@ export function getHeaderHTML({ rootPrefix = ".", ui = null } = {}) {
   const n = ui?.nav || {};
   const p = ui?.progress || {};
   const lang = ui?.lang || "EN";
+  const i18nEnabled = ui?.i18nEnabled !== false;
 
   const progressTpl = p.count || "{n} / {total} modules";
 
@@ -42,13 +43,14 @@ export function getHeaderHTML({ rootPrefix = ".", ui = null } = {}) {
       <a data-nav="true" href="${r}/modules/it-security/index.html">${n.itModules || "IT Modules"}</a>
       <div class="nav-divider"></div>
       <a data-nav="true" href="${r}/quiz.html" class="nav-quiz-link">${n.quiz || "Quiz"}</a>
+      ${i18nEnabled ? `
       <div class="nav-divider"></div>
       <div class="lang-switcher" role="group" aria-label="Language">
         <button class="lang-btn${lang==="EN"?" active":""}" onclick="window.__setLang('en')" title="English">EN</button>
         <button class="lang-btn${lang==="PT"?" active":""}" onclick="window.__setLang('pt')" title="Português">PT</button>
         <button class="lang-btn${lang==="中文"?" active":""}" onclick="window.__setLang('zh')" title="中文">中文</button>
         <button class="lang-btn${lang==="ES"?" active":""}" onclick="window.__setLang('es')" title="Español">ES</button>
-      </div>
+      </div>` : ""}
     </nav>
   </div>
 
@@ -59,12 +61,12 @@ export function getHeaderHTML({ rootPrefix = ".", ui = null } = {}) {
     <a data-nav="true" href="${r}/stories.html">${n.stories || "Stories"}</a>
     <a data-nav="true" href="${r}/modules/it-security/index.html">${n.itSecurity || "IT Security"} — ${n.itModules || "Modules"}</a>
     <a data-nav="true" href="${r}/quiz.html">${n.quiz || "Quiz"}</a>
-    <div style="padding:10px 20px;display:flex;gap:6px;">
+    ${i18nEnabled ? `<div style="padding:10px 20px;display:flex;gap:6px;">
       <button class="lang-btn${lang==="EN"?" active":""}" onclick="window.__setLang('en')">EN</button>
       <button class="lang-btn${lang==="PT"?" active":""}" onclick="window.__setLang('pt')">PT</button>
       <button class="lang-btn${lang==="中文"?" active":""}" onclick="window.__setLang('zh')">中文</button>
       <button class="lang-btn${lang==="ES"?" active":""}" onclick="window.__setLang('es')">ES</button>
-    </div>
+    </div>` : ""}
   </nav>
 </header>
 
