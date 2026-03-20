@@ -89,52 +89,119 @@ async function init() {
   const certSection = document.getElementById("certificate-section");
   const certContainer = document.getElementById("certificate-container");
   const dlBtn2 = document.getElementById("download-certificate");
+  let shuffledQuestions = [];
+  let currentQuestionIndex = 0;
+  let answers = [];
 
   const saved = localStorage.getItem("pac_quiz_name");
   if (saved && nameInput2 && !nameInput2.value) nameInput2.value = saved;
-  if (progressDisplay) progressDisplay.textContent = (q.progressDisplay || "{n} questions · {threshold}% to pass").replace("{n}", questions.length).replace("{threshold}", threshold);
-
-  renderQuestions();
-  certSection.classList.add("hidden");
-
-  function renderQuestions() {
-    questionsEl.innerHTML = "";
-    questions.forEach((ques, i) => {
-      const div = document.createElement("div");
-      div.className = "quiz-question";
-      div.innerHTML = `
-        <h3>${(q.questionOf || "Question {n} of {total}").replace("{n}", i+1).replace("{total}", questions.length)}</h3>
-        <p>${escapeHtml(ques.question)}</p>
-        <div class="choices">
-          ${ques.choices.map(c => `
-            <label class="choice" for="q${i}-${c.id}">
-              <input type="radio" id="q${i}-${c.id}" name="question-${i}" value="${c.id}" required/>
-              <div>
-                <div class="choice-label">${escapeHtml(c.label)}</div>
-                ${c.hint ? `<div class="choice-hint">${escapeHtml(c.hint)}</div>` : ""}
-              </div>
-            </label>`).join("")}
-        </div>`;
-      questionsEl.appendChild(div);
-    });
+  if (progressDisplay) {
+    progressDisplay.textContent = (q.progressDisplay || "{n} questions · {threshold}% to pass")
+      .replace("{n}", questions.length)
+      .replace("{threshold}", threshold);
   }
 
-  form.addEventListener("submit", e => {
-    e.preventDefault();
+  resetAttempt();
+  certSection.classList.add("hidden");
+
+  function shuffle(list) {
+    const arr = [...list];
+    for (let i = arr.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+  function resetAttempt() {
+    shuffledQuestions = shuffle(questions);
+    currentQuestionIndex = 0;
+    answers = Array(shuffledQuestions.length).fill(null);
+    renderCurrentQuestion();
+  }
+
+  function renderCurrentQuestion() {
+    const ques = shuffledQuestions[currentQuestionIndex];
+    const selected = answers[currentQuestionIndex];
+    const total = shuffledQuestions.length;
+    const isFirst = currentQuestionIndex === 0;
+    const isLast = currentQuestionIndex === total - 1;
+    const progress = Math.round(((currentQuestionIndex + 1) / total) * 100);
+
+    questionsEl.innerHTML = `
+      <div class="quiz-question">
+        <h3>${(q.questionOf || "Question {n} of {total}").replace("{n}", currentQuestionIndex + 1).replace("{total}", total)}</h3>
+        <p>${escapeHtml(ques.question)}</p>
+        <div class="choices">
+          ${ques.choices.map((c, ci) => {
+            const id = `q-${currentQuestionIndex}-${ci}`;
+            return `
+              <label class="choice" for="${id}">
+                <input type="radio" id="${id}" name="question-current" value="${escapeHtml(c.id)}" ${selected === c.id ? "checked" : ""}/>
+                <div>
+                  <div class="choice-label">${escapeHtml(c.label)}</div>
+                  ${c.hint ? `<div class="choice-hint">${escapeHtml(c.hint)}</div>` : ""}
+                </div>
+              </label>`;
+          }).join("")}
+        </div>
+        <div class="flex-row" style="margin-top:14px;justify-content:space-between;">
+          <button class="btn sm" id="quiz-prev" type="button" ${isFirst ? "disabled" : ""}>← ${q.prevBtn || "Previous"}</button>
+          <div class="small-note" style="font-size:12px;">${q.progressLabel || "Progress"}: ${progress}%</div>
+          ${isLast
+            ? `<button class="btn primary sm" id="quiz-submit-final" type="button">${q.submitBtn || "Submit Quiz"}</button>`
+            : `<button class="btn primary sm" id="quiz-next" type="button">${q.nextBtn || "Next"} →</button>`}
+        </div>
+      </div>`;
+
+    const choiceInputs = questionsEl.querySelectorAll("input[name='question-current']");
+    choiceInputs.forEach(input => {
+      input.addEventListener("change", () => {
+        answers[currentQuestionIndex] = input.value;
+      });
+    });
+
+    const prevBtn = document.getElementById("quiz-prev");
+    if (prevBtn) {
+      prevBtn.addEventListener("click", () => {
+        if (currentQuestionIndex === 0) return;
+        currentQuestionIndex -= 1;
+        renderCurrentQuestion();
+      });
+    }
+
+    const nextBtn = document.getElementById("quiz-next");
+    if (nextBtn) {
+      nextBtn.addEventListener("click", () => {
+        if (!answers[currentQuestionIndex]) {
+          showResult("fail", q.answerRequired || "Please choose an answer before continuing.");
+          return;
+        }
+        currentQuestionIndex += 1;
+        renderCurrentQuestion();
+      });
+    }
+
+    const submitFinalBtn = document.getElementById("quiz-submit-final");
+    if (submitFinalBtn) {
+      submitFinalBtn.addEventListener("click", submitQuiz);
+    }
+  }
+
+  function submitQuiz() {
     const name = nameInput2.value.trim();
     if (!name) { showResult("fail", q.nameNote || "Please enter your name."); return; }
     localStorage.setItem("pac_quiz_name", name);
 
-    const answers = questions.map((_, i) => document.querySelector(`input[name="question-${i}"]:checked`)?.value ?? null);
     const unanswered = answers.filter(a => a === null).length;
     if (unanswered) { showResult("fail", `${unanswered} unanswered`); return; }
 
-    const correct = questions.filter((ques, i) => answers[i] === ques.correctChoiceId).length;
-    const pct = Math.round((correct / questions.length) * 100);
+    const correct = shuffledQuestions.filter((ques, i) => answers[i] === ques.correctChoiceId).length;
+    const pct = Math.round((correct / shuffledQuestions.length) * 100);
     const passed = pct >= threshold;
 
     const bodyTpl = passed ? (q.passBody || "You scored {pct}% ({correct}/{total} correct). Minimum: {threshold}%.") : (q.failBody || "You scored {pct}% ({correct}/{total} correct). Minimum: {threshold}%.");
-    const body = bodyTpl.replace("{pct}", pct).replace("{correct}", correct).replace("{total}", questions.length).replace("{threshold}", threshold);
+    const body = bodyTpl.replace("{pct}", pct).replace("{correct}", correct).replace("{total}", shuffledQuestions.length).replace("{threshold}", threshold);
 
     resultEl.className = `result ${passed ? "pass" : "fail"}`;
     resultEl.innerHTML = `
@@ -153,12 +220,14 @@ async function init() {
       certSection.classList.add("hidden");
     }
     resultEl.scrollIntoView({ behavior: "smooth", block: "start" });
-  });
+  }
+
+  form.addEventListener("submit", e => e.preventDefault());
 
   document.getElementById("quiz-restart")?.addEventListener("click", () => {
     resultEl.className = "result"; resultEl.innerHTML = "";
     certSection.classList.add("hidden");
-    renderQuestions();
+    resetAttempt();
     nameInput2.focus();
     window.scrollTo({ top: 0, behavior: "smooth" });
   });

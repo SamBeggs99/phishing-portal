@@ -1,7 +1,6 @@
 import { setActiveNav, initMobileNav, updateProgressBar, applyCompletionToCards } from "./shared.js";
 import { getHeaderHTML, getFooterHTML } from "./header.js";
 import { initI18n, getUI } from "./i18n.js";
-import { initMatrixBackground } from "./background-matrix.js";
 
 async function init() {
   const ui = await initI18n(".");
@@ -13,7 +12,6 @@ async function init() {
   initMobileNav();
   updateProgressBar();
   applyCompletionToCards();
-  initMatrixBackground(document.getElementById("matrix-bg"));
 
   const h = ui.home || {};
   const n = ui.nav || {};

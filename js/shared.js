@@ -1,3 +1,5 @@
+import { initMatrixBackground } from "./background-matrix.js";
+
 export function escapeHtml(value) {
   const str = String(value ?? "");
   return str
@@ -9,6 +11,7 @@ export function escapeHtml(value) {
 }
 
 export function setActiveNav() {
+  ensureSiteBackground();
   const path = window.location.pathname.toLowerCase();
   document.querySelectorAll('a[data-nav="true"]').forEach(a => {
     let href = "";
@@ -16,6 +19,19 @@ export function setActiveNav() {
     const active = path === href || path.endsWith(href);
     active ? a.setAttribute("aria-current", "page") : a.removeAttribute("aria-current");
   });
+}
+
+function ensureSiteBackground() {
+  if (window.__pacMatrixInitDone) return;
+  const existing = document.getElementById("matrix-bg");
+  const canvas = existing || document.createElement("canvas");
+  if (!existing) {
+    canvas.id = "matrix-bg";
+    canvas.setAttribute("aria-hidden", "true");
+    document.body.prepend(canvas);
+  }
+  initMatrixBackground(canvas);
+  window.__pacMatrixInitDone = true;
 }
 
 export function initMobileNav() {
