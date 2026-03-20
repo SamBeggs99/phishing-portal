@@ -680,9 +680,9 @@ main > .section + .section { margin-top: 12px; }
   position: fixed;
   inset: 0;
   z-index: 400;
-  background: rgba(0,0,0,0.36);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+  background: rgba(0,0,0,0.62);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -693,6 +693,11 @@ main > .section + .section { margin-top: 12px; }
   max-height: 88vh;
   overflow: auto;
   position: relative;
+  background: rgba(17,19,18,0.95);
+  border: 1px solid rgba(245,166,35,0.24);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 18px 48px rgba(0,0,0,0.62);
+  padding: 16px;
 }
 .mission-surprise-head {
   margin-bottom: 10px;
@@ -726,7 +731,7 @@ main > .section + .section { margin-top: 12px; }
   gap: 10px;
 }
 .mission-step {
-  background: rgba(0,0,0,0.08);
+  background: rgba(9,10,10,0.58);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 12px;

@@ -1005,7 +1005,7 @@
       "type": "standard",
       "badge": "Remote Work",
       "badgeColor": "green",
-      "summary": "Working remotely changes your security environment significantly. Your home network, public Wi-Fi, and personal devices don't have the same protections as PAC's office infrastructure. Using the VPN, securing your home network, and being aware of your physical environment when working in public are essential habits for anyone working outside the office.",
+      "summary": "Working remotely changes your security environment significantly. Password-protected home Wi-Fi is acceptable for work when configured properly. The higher-risk situations are travel and unsecured/open networks (no password), where VPN use is essential before accessing company systems.",
       "story": {
         "title": "The airport lounge that became a data interception point",
         "meta": "Remote work · Public Wi-Fi · Man-in-the-middle attack",
@@ -1037,6 +1037,7 @@
       },
       "redFlags": [
         "Connecting to public Wi-Fi (cafes, airports, hotels) without using the PAC VPN",
+        "Using open Wi-Fi networks with no password for work access",
         "Working on confidential documents in public spaces where your screen can be seen",
         "Using personal devices to access PAC systems without IT approval and proper security controls",
         "Home router still using the default factory password",
@@ -1044,7 +1045,8 @@
         "Approving VPN or MFA prompts you didn't initiate because it seemed like a glitch"
       ],
       "responseSteps": [
-        "Always connect to the PAC VPN before accessing company systems when outside the office — this encrypts your traffic and routes it securely",
+        "At home, use password-protected Wi-Fi (WPA2/WPA3) and keep your router updated before accessing company systems",
+        "When traveling or on public/unsecured Wi-Fi, connect to the PAC VPN before accessing company systems — this encrypts your traffic and protects data in transit",
         "Disconnect from the VPN when working from the PAC office on a trusted internal network — the VPN is required for external connections, not internal ones, and staying connected on a trusted network is unnecessary",
         "If public Wi-Fi is your only option and VPN won't connect, use your phone as a personal hotspot instead",
         "Secure your home router: change the default admin password, use WPA2 or WPA3 encryption, and keep firmware updated",
@@ -1085,15 +1087,15 @@
           "explanation": "Always connect to the PAC VPN before accessing company systems outside the office. The VPN encrypts your traffic so that even if someone intercepts it on public Wi-Fi, they see only unreadable data."
         },
         {
-          "question": "Why is your home Wi-Fi network potentially risky for work without a VPN?",
+          "question": "When is PAC VPN most important for remote work?",
           "choices": [
             {
               "id": "a",
-              "label": "Home networks are always slower than office networks"
+              "label": "Only when working from home"
             },
             {
               "id": "b",
-              "label": "Home routers often have weaker security settings and default passwords"
+              "label": "When traveling or using unsecured/public Wi-Fi networks"
             },
             {
               "id": "c",
@@ -1101,11 +1103,11 @@
             },
             {
               "id": "d",
-              "label": "Home networks can't support encrypted connections"
+              "label": "Never — VPN is optional everywhere"
             }
           ],
           "correctChoiceId": "b",
-          "explanation": "Many home routers still use default passwords and older encryption standards. Without a VPN, traffic on your home network can potentially be intercepted if your router is compromised."
+          "explanation": "Password-protected home Wi-Fi is acceptable when properly secured. VPN becomes critical on travel or open/public networks where interception risk is much higher."
         }
       ],
       "layoutVariant": "mission",
@@ -1170,15 +1172,15 @@
             "bestAction": "Always connect to the PAC VPN before accessing company systems outside the office. The VPN encrypts your traffic so that even if someone intercepts it on public Wi-Fi, they see only unreadable data."
           },
           {
-            "prompt": "Why is your home Wi-Fi network potentially risky for work without a VPN?",
+            "prompt": "When is PAC VPN most important for remote work?",
             "choices": [
               {
                 "id": "a",
-                "label": "Home networks are always slower than office networks"
+                "label": "Only when working from home"
               },
               {
                 "id": "b",
-                "label": "Home routers often have weaker security settings and default passwords"
+                "label": "When traveling or using unsecured/public Wi-Fi networks"
               },
               {
                 "id": "c",
@@ -1186,11 +1188,11 @@
               },
               {
                 "id": "d",
-                "label": "Home networks can't support encrypted connections"
+                "label": "Never — VPN is optional everywhere"
               }
             ],
             "correctChoiceId": "b",
-            "bestAction": "Many home routers still use default passwords and older encryption standards. Without a VPN, traffic on your home network can potentially be intercepted if your router is compromised."
+            "bestAction": "Password-protected home Wi-Fi is acceptable when properly secured. VPN becomes critical on travel or open/public networks where interception risk is much higher."
           }
         ]
       }
