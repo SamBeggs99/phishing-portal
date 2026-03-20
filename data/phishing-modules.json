@@ -10,9 +10,18 @@
           {
             "prompt": "An email says your account will be suspended in 30 minutes unless you verify via link. First move?",
             "choices": [
-              { "id": "a", "label": "Click immediately to avoid lockout" },
-              { "id": "b", "label": "Pause and inspect sender/link details" },
-              { "id": "c", "label": "Forward to team chat for opinions" }
+              {
+                "id": "a",
+                "label": "Click immediately to avoid lockout"
+              },
+              {
+                "id": "b",
+                "label": "Pause and inspect sender/link details"
+              },
+              {
+                "id": "c",
+                "label": "Forward to team chat for opinions"
+              }
             ],
             "correctChoiceId": "b",
             "bestAction": "Pause first. Urgency is the tactic. Check domain and message context before taking any action."
@@ -20,9 +29,18 @@
           {
             "prompt": "The sender domain is close but not exact, and the email says not to contact IT. What next?",
             "choices": [
-              { "id": "a", "label": "Use the link but change password later" },
-              { "id": "b", "label": "Reply asking for a 24-hour extension" },
-              { "id": "c", "label": "Ignore email links and contact IT via known channel" }
+              {
+                "id": "a",
+                "label": "Use the link but change password later"
+              },
+              {
+                "id": "b",
+                "label": "Reply asking for a 24-hour extension"
+              },
+              {
+                "id": "c",
+                "label": "Ignore email links and contact IT via known channel"
+              }
             ],
             "correctChoiceId": "c",
             "bestAction": "Use a trusted channel you already know. Never trust contact paths provided by suspicious emails."
@@ -30,9 +48,18 @@
           {
             "prompt": "You confirmed it's phishing. Final action?",
             "choices": [
-              { "id": "a", "label": "Delete it and move on" },
-              { "id": "b", "label": "Report through official phishing process" },
-              { "id": "c", "label": "Warn only your closest colleagues" }
+              {
+                "id": "a",
+                "label": "Delete it and move on"
+              },
+              {
+                "id": "b",
+                "label": "Report through official phishing process"
+              },
+              {
+                "id": "c",
+                "label": "Warn only your closest colleagues"
+              }
             ],
             "correctChoiceId": "b",
             "bestAction": "Report quickly so IT can block the campaign and protect others."
@@ -275,7 +302,7 @@
           "explanation": "Intimidation works by overriding your instinct to verify. When you're scared of consequences, you comply first — attackers count on that."
         }
       ],
-      "layoutVariant": "story-first",
+      "layoutVariant": "mission",
       "moduleHero": {
         "icon": "⚖️",
         "title": "Fear is the payload",
@@ -308,11 +335,63 @@
           "c"
         ],
         "explanation": "Real legal or HR processes provide context, references, and official channels. Threat-only messaging is a classic intimidation pattern."
+      },
+      "missionMode": {
+        "title": "Intimidation Mission",
+        "brief": "Work through each step and choose the safest response.",
+        "steps": [
+          {
+            "prompt": "An email threatens legal action unless you immediately provide your login credentials. What should you do?",
+            "choices": [
+              {
+                "id": "a",
+                "label": "Provide the credentials to avoid consequences"
+              },
+              {
+                "id": "b",
+                "label": "Ignore the threat and verify the claim through official channels"
+              },
+              {
+                "id": "c",
+                "label": "Reply to ask what the legal action involves"
+              },
+              {
+                "id": "d",
+                "label": "Change your password using the link in the email"
+              }
+            ],
+            "correctChoiceId": "b",
+            "bestAction": "Fear is designed to bypass your judgment. Real legal or HR notices include reference numbers and proper channels — never demand credentials via email."
+          },
+          {
+            "prompt": "What is the main goal of intimidation tactics in phishing?",
+            "choices": [
+              {
+                "id": "a",
+                "label": "To make the email look more official"
+              },
+              {
+                "id": "b",
+                "label": "To stop you from pausing to verify the request"
+              },
+              {
+                "id": "c",
+                "label": "To test whether you read emails carefully"
+              },
+              {
+                "id": "d",
+                "label": "To collect your name and job title"
+              }
+            ],
+            "correctChoiceId": "b",
+            "bestAction": "Intimidation works by overriding your instinct to verify. When you're scared of consequences, you comply first — attackers count on that."
+          }
+        ]
       }
     },
     "scarcity": {
       "type": "standard",
-      "layoutVariant": "scenario-first",
+      "layoutVariant": "mission",
       "moduleHero": {
         "icon": "🎁",
         "title": "Scarcity triggers FOMO",
@@ -449,7 +528,59 @@
           "correctChoiceId": "b",
           "explanation": "Limited-time reward language plus an unfamiliar domain is a classic scarcity phishing pattern."
         }
-      ]
+      ],
+      "missionMode": {
+        "title": "Scarcity Mission",
+        "brief": "Work through each step and choose the safest response.",
+        "steps": [
+          {
+            "prompt": "An email says you're one of only 50 employees to receive a $150 reward — click now before it expires. What do you do?",
+            "choices": [
+              {
+                "id": "a",
+                "label": "Click immediately so you don't miss out"
+              },
+              {
+                "id": "b",
+                "label": "Verify through the HR portal or official internal communications first"
+              },
+              {
+                "id": "c",
+                "label": "Forward to colleagues so they can claim it too"
+              },
+              {
+                "id": "d",
+                "label": "Click but don't enter any personal information"
+              }
+            ],
+            "correctChoiceId": "b",
+            "bestAction": "Scarcity + reward language is designed to trigger FOMO. Verify through official channels before taking any action."
+          },
+          {
+            "prompt": "Which of these is a scarcity-based red flag?",
+            "choices": [
+              {
+                "id": "a",
+                "label": "An email with a clear sender address from your organization"
+              },
+              {
+                "id": "b",
+                "label": "An email offering a limited-time reward from a domain like 'companyrewards25.biz'"
+              },
+              {
+                "id": "c",
+                "label": "An official announcement posted on the company intranet"
+              },
+              {
+                "id": "d",
+                "label": "An email from HR confirming your next training date"
+              }
+            ],
+            "correctChoiceId": "b",
+            "bestAction": "Limited-time reward language plus an unfamiliar domain is a classic scarcity phishing pattern."
+          }
+        ]
+      }
     },
     "authority": {
       "type": "standard",
@@ -557,7 +688,7 @@
           "explanation": "Anything that bypasses normal financial controls is a red flag, regardless of who appears to be asking."
         }
       ],
-      "layoutVariant": "default",
+      "layoutVariant": "mission",
       "moduleHero": {
         "icon": "👔",
         "title": "Authority should never bypass process",
@@ -590,6 +721,58 @@
           "c"
         ],
         "explanation": "Authority attacks weaponize urgency and confidentiality. Legitimate leaders still expect controls to be followed."
+      },
+      "missionMode": {
+        "title": "Authority Mission",
+        "brief": "Work through each step and choose the safest response.",
+        "steps": [
+          {
+            "prompt": "Your CFO emails asking you to urgently buy gift cards and send the codes, keeping it secret from normal channels. What is the right response?",
+            "choices": [
+              {
+                "id": "a",
+                "label": "Purchase the cards — questioning the CFO could be embarrassing"
+              },
+              {
+                "id": "b",
+                "label": "Verify by contacting the CFO directly through a method you already trust"
+              },
+              {
+                "id": "c",
+                "label": "Reply to the email asking for a purchase order number"
+              },
+              {
+                "id": "d",
+                "label": "Buy the cards and notify finance after"
+              }
+            ],
+            "correctChoiceId": "b",
+            "bestAction": "Authority pressure is the tactic here. Verify through a separate known channel before acting."
+          },
+          {
+            "prompt": "PAC leadership or IT will never ask you to do which of the following via email?",
+            "choices": [
+              {
+                "id": "a",
+                "label": "Reset your password after you requested a reset"
+              },
+              {
+                "id": "b",
+                "label": "Click a link to join a scheduled meeting"
+              },
+              {
+                "id": "c",
+                "label": "Purchase gift cards or wire money without a formal approval process"
+              },
+              {
+                "id": "d",
+                "label": "Review a document shared on the company's approved system"
+              }
+            ],
+            "correctChoiceId": "c",
+            "bestAction": "Anything that bypasses normal financial controls is a red flag, regardless of who appears to be asking."
+          }
+        ]
       }
     },
     "types-of-phishing": {

@@ -99,7 +99,7 @@
           "explanation": "An approved password manager is the only secure way to store passwords. Written passwords — wherever they are — are a physical security risk."
         }
       ],
-      "layoutVariant": "default",
+      "layoutVariant": "mission",
       "moduleHero": {
         "icon": "🧼",
         "title": "Physical habits protect digital systems",
@@ -132,6 +132,58 @@
           "c"
         ],
         "explanation": "Short absences are enough for data exposure. Lock screens and secure documents every time."
+      },
+      "missionMode": {
+        "title": "Clean Desk Mission",
+        "brief": "Work through each step and choose the safest response.",
+        "steps": [
+          {
+            "prompt": "You're stepping away from your desk for 10 minutes. What should you do with your computer?",
+            "choices": [
+              {
+                "id": "a",
+                "label": "Leave it open — you'll be back in a few minutes"
+              },
+              {
+                "id": "b",
+                "label": "Lock your screen before stepping away"
+              },
+              {
+                "id": "c",
+                "label": "Close the lid but don't lock it"
+              },
+              {
+                "id": "d",
+                "label": "Log out completely each time"
+              }
+            ],
+            "correctChoiceId": "b",
+            "bestAction": "Always lock your screen when leaving your desk — even briefly. Windows: Win+L. Mac: Cmd+Ctrl+Q. A few seconds is all it takes for someone to access an unlocked computer."
+          },
+          {
+            "prompt": "Where should you store a password you need to remember for a shared system?",
+            "choices": [
+              {
+                "id": "a",
+                "label": "On a sticky note attached to your monitor"
+              },
+              {
+                "id": "b",
+                "label": "In a note on your phone"
+              },
+              {
+                "id": "c",
+                "label": "In an approved password manager"
+              },
+              {
+                "id": "d",
+                "label": "Written in a notebook in your desk drawer"
+              }
+            ],
+            "correctChoiceId": "c",
+            "bestAction": "An approved password manager is the only secure way to store passwords. Written passwords — wherever they are — are a physical security risk."
+          }
+        ]
       }
     },
     "password-hygiene": {
@@ -254,7 +306,7 @@
           "explanation": "MFA is the single most effective control against credential-based attacks. Even with your password, an attacker cannot access your account without the second factor you control."
         }
       ],
-      "layoutVariant": "story-first",
+      "layoutVariant": "mission",
       "moduleHero": {
         "icon": "🔐",
         "title": "Reuse turns one breach into many",
@@ -287,6 +339,50 @@
           "c"
         ],
         "explanation": "Password reuse is multiplier risk. One leaked credential pair can unlock several services."
+      },
+      "missionMode": {
+        "title": "Password Hygiene Mission",
+        "brief": "Work through each step and choose the safest response.",
+        "steps": [
+          {
+            "prompt": "Which of the following is the strongest password?",
+            "choices": [
+              {
+                "id": "a",
+                "label": "P@ssw0rd1!"
+              },
+              {
+                "id": "b",
+                "label": "Welcome2024"
+              },
+              {
+                "id": "c",
+                "label": "coffee-bridge-sunset-lamp"
+              },
+              {
+                "id": "d",
+                "label": "John1985!"
+              }
+            ],
+            "correctChoiceId": "c",
+            "bestAction": "A long passphrase using random words is significantly stronger than a short complex password. Length matters more than symbol substitution — cracking tools test billions of combinations per second."
+          },
+          {
+            "prompt": "MFA (Multi-Factor Authentication) protects your account even if your password is stolen.",
+            "choices": [
+              {
+                "id": "a",
+                "label": "True — an attacker still needs your second factor to get in"
+              },
+              {
+                "id": "b",
+                "label": "False — a stolen password is always enough to access your account"
+              }
+            ],
+            "correctChoiceId": "a",
+            "bestAction": "MFA is the single most effective control against credential-based attacks. Even with your password, an attacker cannot access your account without the second factor you control."
+          }
+        ]
       }
     },
     "acceptable-use": {
@@ -434,7 +530,7 @@
           "explanation": "Personal accounts don't have the security controls, encryption, backup, and breach detection that approved PAC systems do. A personal account breach becomes a company data breach."
         }
       ],
-      "layoutVariant": "scenario-first",
+      "layoutVariant": "mission",
       "moduleHero": {
         "icon": "📜",
         "title": "Approved tools are security controls",
@@ -467,6 +563,58 @@
           "c"
         ],
         "explanation": "Intent does not remove risk. Shadow IT bypasses encryption, monitoring, and retention controls."
+      },
+      "missionMode": {
+        "title": "Acceptable Use Mission",
+        "brief": "Work through each step and choose the safest response.",
+        "steps": [
+          {
+            "prompt": "The company's approved file-sharing platform is slow. What should you do?",
+            "choices": [
+              {
+                "id": "a",
+                "label": "Use your personal Dropbox temporarily — it's faster"
+              },
+              {
+                "id": "b",
+                "label": "Email files to your personal account to work from home"
+              },
+              {
+                "id": "c",
+                "label": "Raise the issue with IT so the approved platform can be improved"
+              },
+              {
+                "id": "d",
+                "label": "Use a free transfer site just this once"
+              }
+            ],
+            "correctChoiceId": "c",
+            "bestAction": "The right answer to a slow approved tool is fixing the tool — not working around it. Shadow IT creates invisible risks that bypass all organizational security controls."
+          },
+          {
+            "prompt": "Using personal cloud storage for company files mainly risks:",
+            "choices": [
+              {
+                "id": "a",
+                "label": "Slower file access speeds"
+              },
+              {
+                "id": "b",
+                "label": "Company data being exposed if your personal account is breached"
+              },
+              {
+                "id": "c",
+                "label": "Running out of storage space"
+              },
+              {
+                "id": "d",
+                "label": "Files being in the wrong format"
+              }
+            ],
+            "correctChoiceId": "b",
+            "bestAction": "Personal accounts don't have the security controls, encryption, backup, and breach detection that approved PAC systems do. A personal account breach becomes a company data breach."
+          }
+        ]
       }
     },
     "physical-security": {
@@ -578,7 +726,7 @@
           "explanation": "Unknown USB drives are a classic attack vector — they can install malware silently just by being plugged in. Never insert an unknown drive. Hand it directly to IT."
         }
       ],
-      "layoutVariant": "default",
+      "layoutVariant": "mission",
       "moduleHero": {
         "icon": "🏢",
         "title": "Doors and badges are security systems",
@@ -611,6 +759,58 @@
           "c"
         ],
         "explanation": "Attackers often rely on politeness cues. Secure areas require individual badge authentication."
+      },
+      "missionMode": {
+        "title": "Physical Security Mission",
+        "brief": "Work through each step and choose the safest response.",
+        "steps": [
+          {
+            "prompt": "A well-dressed person is carrying a large box and asks you to hold the door to a secure area. What do you do?",
+            "choices": [
+              {
+                "id": "a",
+                "label": "Hold the door — it would be rude not to help"
+              },
+              {
+                "id": "b",
+                "label": "Hold the door if they look like they work there"
+              },
+              {
+                "id": "c",
+                "label": "Politely direct them to reception and badge in separately"
+              },
+              {
+                "id": "d",
+                "label": "Ask them their name before holding the door"
+              }
+            ],
+            "correctChoiceId": "c",
+            "bestAction": "Every person entering a secure area must badge in individually — no exceptions. Tailgating is one of the most common physical attack methods, and it relies entirely on people being polite."
+          },
+          {
+            "prompt": "You find a USB drive in the car park with 'PAC Payroll 2024' written on it. What should you do?",
+            "choices": [
+              {
+                "id": "a",
+                "label": "Plug it in to see what's on it and return it to the right person"
+              },
+              {
+                "id": "b",
+                "label": "Hand it to IT or your security team without plugging it in"
+              },
+              {
+                "id": "c",
+                "label": "Leave it where you found it"
+              },
+              {
+                "id": "d",
+                "label": "Put it in a lost property box"
+              }
+            ],
+            "correctChoiceId": "b",
+            "bestAction": "Unknown USB drives are a classic attack vector — they can install malware silently just by being plugged in. Never insert an unknown drive. Hand it directly to IT."
+          }
+        ]
       }
     },
     "social-media": {
@@ -714,7 +914,7 @@
           "explanation": "Attackers use publicly available information — your role, your manager, your projects, your connections — to craft convincing spear phishing attacks. Be intentional about what you share."
         }
       ],
-      "layoutVariant": "story-first",
+      "layoutVariant": "mission",
       "moduleHero": {
         "icon": "🌐",
         "title": "Public posts fuel targeted attacks",
@@ -747,6 +947,58 @@
           "c"
         ],
         "explanation": "Attackers combine public timing, project context, and org details to build believable fraud narratives."
+      },
+      "missionMode": {
+        "title": "Social Media Mission",
+        "brief": "Work through each step and choose the safest response.",
+        "steps": [
+          {
+            "prompt": "You've just closed a major deal. When is it safe to post about it on LinkedIn?",
+            "choices": [
+              {
+                "id": "a",
+                "label": "Immediately — celebrating wins builds the company profile"
+              },
+              {
+                "id": "b",
+                "label": "Once the information is publicly announced and your manager approves"
+              },
+              {
+                "id": "c",
+                "label": "Never — all deal information must stay private permanently"
+              },
+              {
+                "id": "d",
+                "label": "After 24 hours"
+              }
+            ],
+            "correctChoiceId": "b",
+            "bestAction": "Celebrate wins — but wait until the information is legitimately public and approved for sharing. Premature posts about deals, clients, or projects give attackers information they can weaponize."
+          },
+          {
+            "prompt": "An attacker researching PAC employees could find which of the following on LinkedIn?",
+            "choices": [
+              {
+                "id": "a",
+                "label": "Your system passwords"
+              },
+              {
+                "id": "b",
+                "label": "Your manager's name, role, and current projects you've mentioned"
+              },
+              {
+                "id": "c",
+                "label": "Your Microsoft 365 credentials"
+              },
+              {
+                "id": "d",
+                "label": "PAC's internal network configuration"
+              }
+            ],
+            "correctChoiceId": "b",
+            "bestAction": "Attackers use publicly available information — your role, your manager, your projects, your connections — to craft convincing spear phishing attacks. Be intentional about what you share."
+          }
+        ]
       }
     },
     "remote-vpn": {
@@ -856,7 +1108,7 @@
           "explanation": "Many home routers still use default passwords and older encryption standards. Without a VPN, traffic on your home network can potentially be intercepted if your router is compromised."
         }
       ],
-      "layoutVariant": "scenario-first",
+      "layoutVariant": "mission",
       "moduleHero": {
         "icon": "📡",
         "title": "Remote convenience needs stronger controls",
@@ -889,6 +1141,58 @@
           "c"
         ],
         "explanation": "Public Wi-Fi plus no VPN creates avoidable interception risk for credentials and data."
+      },
+      "missionMode": {
+        "title": "Remote Vpn Mission",
+        "brief": "Work through each step and choose the safest response.",
+        "steps": [
+          {
+            "prompt": "You're at a coffee shop and need to access a confidential project document. What should you do?",
+            "choices": [
+              {
+                "id": "a",
+                "label": "Use the café's free Wi-Fi — it's convenient and fast"
+              },
+              {
+                "id": "b",
+                "label": "Connect to the PAC VPN first, then access the document"
+              },
+              {
+                "id": "c",
+                "label": "Use the café Wi-Fi but only look at non-sensitive files"
+              },
+              {
+                "id": "d",
+                "label": "Wait until you're home to access any work files"
+              }
+            ],
+            "correctChoiceId": "b",
+            "bestAction": "Always connect to the PAC VPN before accessing company systems outside the office. The VPN encrypts your traffic so that even if someone intercepts it on public Wi-Fi, they see only unreadable data."
+          },
+          {
+            "prompt": "Why is your home Wi-Fi network potentially risky for work without a VPN?",
+            "choices": [
+              {
+                "id": "a",
+                "label": "Home networks are always slower than office networks"
+              },
+              {
+                "id": "b",
+                "label": "Home routers often have weaker security settings and default passwords"
+              },
+              {
+                "id": "c",
+                "label": "Working from home is against company policy"
+              },
+              {
+                "id": "d",
+                "label": "Home networks can't support encrypted connections"
+              }
+            ],
+            "correctChoiceId": "b",
+            "bestAction": "Many home routers still use default passwords and older encryption standards. Without a VPN, traffic on your home network can potentially be intercepted if your router is compromised."
+          }
+        ]
       }
     },
     "ai-acceptable-use": {
@@ -1044,7 +1348,7 @@
           "explanation": "Only Public data may be used with external AI tools. Private data requires Microsoft Copilot in M365. Restricted data requires explicit IT approval — and even then, no external AI tools."
         }
       ],
-      "layoutVariant": "default",
+      "layoutVariant": "mission",
       "moduleHero": {
         "icon": "🤖",
         "title": "Data classification comes before AI prompts",
@@ -1077,6 +1381,58 @@
           "c"
         ],
         "explanation": "Restricted data must stay within approved boundaries. External AI use can create irreversible disclosure risk."
+      },
+      "missionMode": {
+        "title": "Ai Acceptable Use Mission",
+        "brief": "Work through each step and choose the safest response.",
+        "steps": [
+          {
+            "prompt": "You need to summarise a client contract to prepare for a meeting. Which approach is correct?",
+            "choices": [
+              {
+                "id": "a",
+                "label": "Paste the contract into ChatGPT — it's faster and the summary is just for you"
+              },
+              {
+                "id": "b",
+                "label": "Use Microsoft Copilot within M365 — client contracts are Restricted data"
+              },
+              {
+                "id": "c",
+                "label": "Use any AI tool as long as you don't share the summary externally"
+              },
+              {
+                "id": "d",
+                "label": "Email the contract to a colleague to summarise it instead"
+              }
+            ],
+            "correctChoiceId": "b",
+            "bestAction": "Client contracts are Restricted data. Only Microsoft Copilot within PAC's M365 environment is approved for this use. External AI tools like ChatGPT transmit data to third-party servers permanently — there is no way to retrieve it."
+          },
+          {
+            "prompt": "Under PAC's Data Classification Framework, which type of data may be used with external AI tools (ChatGPT, Gemini, etc.)?",
+            "choices": [
+              {
+                "id": "a",
+                "label": "Private — internal processes and employee information"
+              },
+              {
+                "id": "b",
+                "label": "Restricted — client data and financial records"
+              },
+              {
+                "id": "c",
+                "label": "Public — information already approved for public release"
+              },
+              {
+                "id": "d",
+                "label": "All data, as long as you use a paid AI subscription"
+              }
+            ],
+            "correctChoiceId": "c",
+            "bestAction": "Only Public data may be used with external AI tools. Private data requires Microsoft Copilot in M365. Restricted data requires explicit IT approval — and even then, no external AI tools."
+          }
+        ]
       }
     },
     "incident-reporting": {
@@ -1216,7 +1572,7 @@
           "explanation": "No-blame means early reporting is encouraged and supported — especially when you're unsure."
         }
       ],
-      "layoutVariant": "story-first",
+      "layoutVariant": "mission",
       "moduleHero": {
         "icon": "🚨",
         "title": "Speed is the control",
@@ -1249,6 +1605,58 @@
           "c"
         ],
         "explanation": "Containment depends on immediate reporting. Quiet self-remediation delays response and increases blast radius."
+      },
+      "missionMode": {
+        "title": "Incident Reporting Mission",
+        "brief": "Work through each step and choose the safest response.",
+        "steps": [
+          {
+            "prompt": "You clicked a link in an email and the page asked for your credentials. You entered them before realizing it looked suspicious. What do you do?",
+            "choices": [
+              {
+                "id": "a",
+                "label": "Change your password quietly and hope nothing happens"
+              },
+              {
+                "id": "b",
+                "label": "Wait to see if anything unusual happens before reporting"
+              },
+              {
+                "id": "c",
+                "label": "Contact IT immediately and report what happened"
+              },
+              {
+                "id": "d",
+                "label": "Delete the email and the browser history"
+              }
+            ],
+            "correctChoiceId": "c",
+            "bestAction": "Report immediately. The goal is fast containment, not silent cleanup."
+          },
+          {
+            "prompt": "PAC operates a no-blame incident reporting culture. What does this mean in practice?",
+            "choices": [
+              {
+                "id": "a",
+                "label": "Mistakes are ignored and never investigated"
+              },
+              {
+                "id": "b",
+                "label": "If you report an incident honestly, you will be supported — not punished"
+              },
+              {
+                "id": "c",
+                "label": "Only IT staff are required to report security incidents"
+              },
+              {
+                "id": "d",
+                "label": "Reports are only needed for serious breaches, not minor incidents"
+              }
+            ],
+            "correctChoiceId": "b",
+            "bestAction": "No-blame means early reporting is encouraged and supported — especially when you're unsure."
+          }
+        ]
       }
     }
   }
