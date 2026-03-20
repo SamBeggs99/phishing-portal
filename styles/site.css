@@ -535,6 +535,40 @@ main { padding: 42px 0 88px; }
   padding: 4px 9px;
   white-space: nowrap;
 }
+.mission-surprise-toast {
+  position: sticky;
+  top: 72px;
+  z-index: 30;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  background: rgba(245,166,35,0.09);
+  border: 1px solid rgba(245,166,35,0.28);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  animation: mission-pulse 2.2s ease-in-out infinite;
+}
+.mission-surprise-copy {
+  min-width: 0;
+}
+.mission-surprise-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+@keyframes mission-pulse {
+  0%, 100% {
+    box-shadow: var(--shadow);
+    border-color: rgba(245,166,35,0.28);
+  }
+  50% {
+    box-shadow: 0 10px 24px rgba(245,166,35,0.26);
+    border-color: rgba(245,166,35,0.42);
+  }
+}
 .mission-steps {
   display: flex;
   flex-direction: column;
@@ -776,6 +810,15 @@ footer {
   .qref-grid { grid-template-columns: 1fr; }
   .grid-2, .grid-3 { grid-template-columns: 1fr; }
   .facts-strip { grid-template-columns: 1fr; }
+  .mission-surprise-toast {
+    top: 64px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .mission-surprise-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
   .game-frame { height: 500px; }
 }
 @media (max-width: 600px) {

@@ -26,6 +26,7 @@ export async function renderPhishingModule(topicId) {
     initMicroScenario(getMicroScenario(topic), ui);
     initRedFlagSpotter(topic.redFlagSpotter, ui);
     initMissionMode(topic.missionMode, ui);
+    initMissionSurprise(topicId, topic.missionMode);
     initCheckIn(topic.checkIn, ui);
     setTimeout(() => markModuleComplete(topicId), 8000);
   } catch (err) {
@@ -63,6 +64,7 @@ function renderStandard(topic, m) {
     </div>` : "";
   const redFlagSpotter = renderRedFlagSpotter(topic.redFlagSpotter);
   const missionMode = renderMissionMode(topic.missionMode);
+  const missionSurprise = renderMissionSurprise(missionMode);
   const story = topic.story ? `
     <div class="content-section tone-neutral">
       <div class="mono-label" style="margin-bottom:8px;">${escapeHtml(m.realStory || "Real-world story")}</div>
@@ -105,11 +107,12 @@ function renderStandard(topic, m) {
     : variant === "scenario-first"
       ? [quickTakeaway, hero, summary, flagsAndSteps, additionalGuidance]
       : variant === "mission"
-        ? [hero, missionMode, quickTakeaway, summary, flagsAndSteps, additionalGuidance]
+        ? [hero, quickTakeaway, summary, flagsAndSteps, additionalGuidance]
       : [quickTakeaway, hero, summary, flagsAndSteps, additionalGuidance];
 
   return `
     <div class="module-body">
+      ${missionSurprise}
       ${orderedSections.filter(Boolean).join("")}
     </div>`;
 }
@@ -124,6 +127,59 @@ function renderExpandableGroup(label, sections) {
         ${body}
       </div>
     </details>`;
+}
+
+function renderMissionSurprise(missionHTML) {
+  if (!missionHTML) return "";
+  return `
+    <div id="mission-surprise-toast" class="mission-surprise-toast hidden">
+      <div class="mission-surprise-copy">
+        <div class="mono-label" style="margin-bottom:4px;">Random mission</div>
+        <p class="small-note">A quick scenario challenge is available now.</p>
+      </div>
+      <div class="mission-surprise-actions">
+        <button class="btn primary sm" id="mission-surprise-open" type="button">Start mission</button>
+        <button class="btn sm" id="mission-surprise-dismiss" type="button">Not now</button>
+      </div>
+    </div>
+    <div id="mission-surprise-panel" class="hidden">
+      ${missionHTML}
+    </div>`;
+}
+
+function initMissionSurprise(moduleKey, mission) {
+  if (!mission?.steps?.length) return;
+  const toast = document.getElementById("mission-surprise-toast");
+  const openBtn = document.getElementById("mission-surprise-open");
+  const dismissBtn = document.getElementById("mission-surprise-dismiss");
+  const panel = document.getElementById("mission-surprise-panel");
+  if (!toast || !openBtn || !dismissBtn || !panel) return;
+
+  const seenKey = `mission_prompt_seen_${moduleKey}`;
+  if (sessionStorage.getItem(seenKey) === "1") return;
+
+  const delayMs = (Math.floor(Math.random() * 21) + 10) * 1000;
+  setTimeout(() => {
+    if (sessionStorage.getItem(seenKey) === "1") return;
+    toast.classList.remove("hidden");
+    setTimeout(() => {
+      if (sessionStorage.getItem(seenKey) === "1") return;
+      toast.classList.add("hidden");
+      sessionStorage.setItem(seenKey, "1");
+    }, 12000);
+  }, delayMs);
+
+  openBtn.addEventListener("click", () => {
+    toast.classList.add("hidden");
+    panel.classList.remove("hidden");
+    panel.scrollIntoView({ behavior: "smooth", block: "start" });
+    sessionStorage.setItem(seenKey, "1");
+  });
+
+  dismissBtn.addEventListener("click", () => {
+    toast.classList.add("hidden");
+    sessionStorage.setItem(seenKey, "1");
+  });
 }
 
 function initMicroScenario(scenario, ui) {
@@ -318,6 +374,10 @@ function initMissionMode(mission, ui) {
     });
     score.textContent = `${total} / ${mission.steps.length}`;
     submit.disabled = true;
+    setTimeout(() => {
+      const panel = document.getElementById("mission-surprise-panel");
+      if (panel) panel.classList.add("hidden");
+    }, 5000);
   });
 }
 
