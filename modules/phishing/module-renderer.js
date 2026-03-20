@@ -65,12 +65,17 @@ function renderStandard(topic, m) {
   const redFlagSpotter = renderRedFlagSpotter(topic.redFlagSpotter);
   const missionMode = renderMissionMode(topic.missionMode);
   const missionSurprise = renderMissionSurprise(missionMode);
+  const storySignals = topic.story?.signals?.length ? `
+      <div class="mono-label" style="margin:14px 0 8px;">What to notice</div>
+      <ul class="list-clean">${topic.story.signals.map(s => `<li>${escapeHtml(s)}</li>`).join("")}</ul>
+  ` : "";
   const story = topic.story ? `
     <div class="content-section tone-neutral">
       <div class="mono-label" style="margin-bottom:8px;">${escapeHtml(m.realStory || "Real-world story")}</div>
       <h2 style="margin-bottom:4px;">${escapeHtml(topic.story.title)}</h2>
       <div class="mono-label" style="color:var(--text-3);margin-bottom:14px;">${escapeHtml(topic.story.meta)}</div>
       <p class="small-note" style="white-space:pre-wrap;font-size:14px;line-height:1.75;">${escapeHtml(topic.story.text)}</p>
+      ${storySignals}
     </div>` : "";
   const deeper = topic.deeperLearning ? `
     <details>
