@@ -38,8 +38,10 @@ async function init() {
   statLabels.forEach((el, i) => { if (statKeys[i]) el.textContent = h[statKeys[i]] || el.textContent; });
 
   // Learning path title
-  const pathTitle = document.querySelector(".path-section-label");
+  const pathTitle = document.querySelector(".path-rail-label");
   if (pathTitle) pathTitle.textContent = h.pathTitle || "Your Learning Path";
+
+  initLearningPathRailHighlight();
 
   // Path steps
   const pathSteps = document.querySelectorAll(".path-step");
@@ -112,6 +114,23 @@ async function init() {
   const lang = ui.lang || "EN";
   const titles = { "PT": "Treinamento em Segurança de TI — The PAC Group", "中文": "IT安全培训 — PAC集团", "ES": "Capacitación en Seguridad TI — The PAC Group" };
   if (titles[lang]) document.title = titles[lang];
+}
+
+function initLearningPathRailHighlight() {
+  const shell = document.querySelector(".learning-path-shell");
+  const rail = document.querySelector(".path-rail");
+  if (!shell || !rail || typeof IntersectionObserver === "undefined") return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        rail.classList.toggle("active", entry.isIntersecting);
+      });
+    },
+    { root: null, threshold: 0.2 }
+  );
+
+  observer.observe(shell);
 }
 
 init();
