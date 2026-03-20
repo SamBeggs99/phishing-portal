@@ -4,14 +4,14 @@
       "type": "standard",
       "badge": "Physical Security",
       "badgeColor": "blue",
-      "summary": "Your desk is a data source. Documents left out, credentials written on sticky notes, or a screen left unlocked when you step away can expose sensitive information just as effectively as a cyberattack \u2014 sometimes more so. A clean desk policy isn't about tidiness. It's about ensuring the information you're responsible for doesn't become accessible to the wrong person.",
+      "summary": "Your desk is a data source. Documents left out, credentials written on sticky notes, or a screen left unlocked when you step away can expose sensitive information just as effectively as a cyberattack — sometimes more so. A clean desk policy isn't about tidiness. It's about ensuring the information you're responsible for doesn't become accessible to the wrong person.",
       "story": {
         "title": "The sticky note that cost a company millions",
-        "meta": "Physical security \u00b7 Clean desk \u00b7 Credential exposure",
-        "text": "In 2019, a financial services firm experienced a significant data breach \u2014 not through hacking, but through a single Post-it note. An employee had written their system login credentials on a note stuck to their monitor. A contractor working in the building after hours photographed it with their phone. Within 48 hours, the contractor had accessed client financial records affecting thousands of accounts.\n\nThe employee hadn't done anything malicious. They were just trying to remember a complex password. But one small habit \u2014 one piece of paper \u2014 opened a door that cost the company $4.2 million in breach notifications, legal fees, and remediation.\n\nThe irony? The company had sophisticated cybersecurity controls in place. Their firewall, their MFA, their email filtering \u2014 all working perfectly. None of it mattered because someone wrote a password on a sticky note."
+        "meta": "Physical security · Clean desk · Credential exposure",
+        "text": "In 2019, a financial services firm experienced a significant data breach — not through hacking, but through a single Post-it note. An employee had written their system login credentials on a note stuck to their monitor. A contractor working in the building after hours photographed it with their phone. Within 48 hours, the contractor had accessed client financial records affecting thousands of accounts.\n\nThe employee hadn't done anything malicious. They were just trying to remember a complex password. But one small habit — one piece of paper — opened a door that cost the company $4.2 million in breach notifications, legal fees, and remediation.\n\nThe irony? The company had sophisticated cybersecurity controls in place. Their firewall, their MFA, their email filtering — all working perfectly. None of it mattered because someone wrote a password on a sticky note."
       },
       "redFlags": [
-        "Passwords, PINs, or access codes written anywhere on or near your desk \u2014 sticky notes, notebooks, whiteboards",
+        "Passwords, PINs, or access codes written anywhere on or near your desk — sticky notes, notebooks, whiteboards",
         "Sensitive documents left face-up on your desk when you step away, even briefly",
         "Your computer screen unlocked and visible when you're not at it",
         "Confidential printouts left sitting in the printer or on a shared workspace",
@@ -19,17 +19,17 @@
         "Personal devices (phones, USB drives) left plugged into work computers unattended"
       ],
       "responseSteps": [
-        "Lock your screen every single time you leave your desk \u2014 no exceptions (Windows: Win+L, Mac: Cmd+Ctrl+Q). Make it muscle memory.",
-        "Never write passwords down anywhere. Use an approved password manager instead \u2014 see the Password Hygiene module.",
+        "Lock your screen every single time you leave your desk — no exceptions (Windows: Win+L, Mac: Cmd+Ctrl+Q). Make it muscle memory.",
+        "Never write passwords down anywhere. Use an approved password manager instead — see the Password Hygiene module.",
         "File, shred, or lock away sensitive documents before leaving for the day. Nothing confidential stays on your desk overnight.",
         "Collect printouts immediately after printing. Never leave confidential documents sitting in a shared printer.",
-        "When working in open spaces or coffee shops, position your monitor so it cannot be seen by people passing by \u2014 or use a privacy screen.",
-        "If you spot sensitive information left unattended by a colleague, let them know privately \u2014 it helps everyone."
+        "When working in open spaces or coffee shops, position your monitor so it cannot be seen by people passing by — or use a privacy screen.",
+        "If you spot sensitive information left unattended by a colleague, let them know privately — it helps everyone."
       ],
       "endOfDayChecklist": [
         "Screen locked and session closed",
         "Sensitive documents filed, shredded, or locked away",
-        "Printed materials collected \u2014 nothing left in the printer",
+        "Printed materials collected — nothing left in the printer",
         "Notebook or paper with any notes containing sensitive information stored securely",
         "USB drives, access cards, and physical tokens put away",
         "Desk clear of anything you wouldn't want a stranger to read"
@@ -37,7 +37,7 @@
       "publicSpaces": {
         "title": "Working in public spaces",
         "points": [
-          "In cafes, airports, or shared offices \u2014 position your screen so it faces a wall or away from foot traffic.",
+          "In cafes, airports, or shared offices — position your screen so it faces a wall or away from foot traffic.",
           "A privacy screen filter (a thin film that narrows your screen's viewing angle) costs under $30 and prevents shoulder surfing entirely.",
           "Be aware of who is sitting near you before opening sensitive emails, documents, or financial data.",
           "If you need to take a call involving confidential information, step outside or find a private space."
@@ -48,7 +48,7 @@
         "points": [
           "Organizations spend enormous resources on digital security, but physical exposure bypasses all of it. An unlocked screen in a shared office is a wider door than most network vulnerabilities.",
           "Tailgating (someone following you into a secured area without badging in) and shoulder surfing (reading someone's screen nearby) are the two most common physical attack vectors in corporate environments.",
-          "The clean desk habit is also a privacy and compliance issue. Many industries \u2014 including finance, engineering, and legal \u2014 have regulatory requirements for how physical documents containing sensitive information must be handled."
+          "The clean desk habit is also a privacy and compliance issue. Many industries — including finance, engineering, and legal — have regulatory requirements for how physical documents containing sensitive information must be handled."
         ]
       },
       "checkIn": [
@@ -57,7 +57,7 @@
           "choices": [
             {
               "id": "a",
-              "label": "Leave it open \u2014 you'll be back in a few minutes"
+              "label": "Leave it open — you'll be back in a few minutes"
             },
             {
               "id": "b",
@@ -73,7 +73,7 @@
             }
           ],
           "correctChoiceId": "b",
-          "explanation": "Always lock your screen when leaving your desk \u2014 even briefly. Windows: Win+L. Mac: Cmd+Ctrl+Q. A few seconds is all it takes for someone to access an unlocked computer."
+          "explanation": "Always lock your screen when leaving your desk — even briefly. Windows: Win+L. Mac: Cmd+Ctrl+Q. A few seconds is all it takes for someone to access an unlocked computer."
         },
         {
           "question": "Where should you store a password you need to remember for a shared system?",
@@ -96,88 +96,122 @@
             }
           ],
           "correctChoiceId": "c",
-          "explanation": "An approved password manager is the only secure way to store passwords. Written passwords \u2014 wherever they are \u2014 are a physical security risk."
+          "explanation": "An approved password manager is the only secure way to store passwords. Written passwords — wherever they are — are a physical security risk."
         }
-      ]
+      ],
+      "layoutVariant": "default",
+      "moduleHero": {
+        "icon": "🧼",
+        "title": "Physical habits protect digital systems",
+        "description": "An unlocked screen or exposed document can bypass every technical control you have in place."
+      },
+      "redFlagSpotter": {
+        "title": "Spot the red flag",
+        "prompt": "You leave for a 5-minute meeting and your desk has printed client notes, an unlocked laptop, and a sticky note with a PIN. What must be fixed immediately?",
+        "flags": [
+          {
+            "id": "a",
+            "label": "Unlocked workstation"
+          },
+          {
+            "id": "b",
+            "label": "Sensitive printouts left visible"
+          },
+          {
+            "id": "c",
+            "label": "Credential note on desk"
+          },
+          {
+            "id": "d",
+            "label": "Desk has a coffee mug"
+          }
+        ],
+        "correctFlagIds": [
+          "a",
+          "b",
+          "c"
+        ],
+        "explanation": "Short absences are enough for data exposure. Lock screens and secure documents every time."
+      }
     },
     "password-hygiene": {
       "type": "standard",
       "badge": "Credentials",
       "badgeColor": "red",
-      "summary": "Weak or reused passwords are involved in over 80% of confirmed data breaches. Yet most people still use the same password across multiple accounts, or choose ones that are easy to guess. Good password hygiene isn't about memorizing complex strings \u2014 it's about using the right tools and habits so you never have to trade security for convenience.",
+      "summary": "Weak or reused passwords are involved in over 80% of confirmed data breaches. Yet most people still use the same password across multiple accounts, or choose ones that are easy to guess. Good password hygiene isn't about memorizing complex strings — it's about using the right tools and habits so you never have to trade security for convenience.",
       "story": {
         "title": "One reused password. 117 million accounts exposed.",
-        "meta": "Credential stuffing \u00b7 Password reuse \u00b7 LinkedIn breach",
-        "text": "In 2012, LinkedIn suffered a breach that exposed 6.5 million password hashes. At the time, the company believed the damage was contained. Four years later, in 2016, the real scale emerged: 117 million credentials had actually been stolen.\n\nWhat made this particularly damaging wasn't just LinkedIn. It was the fact that tens of millions of people used the same email and password combination on multiple platforms \u2014 their bank, their email, their company VPN.\n\nAttackers used a technique called credential stuffing: taking the leaked LinkedIn username/password combinations and automatically trying them on hundreds of other websites. For every person who had reused their password, another account fell.\n\nThis is why password reuse is one of the most dangerous habits in digital security. A breach on any one platform becomes a skeleton key to everything else."
+        "meta": "Credential stuffing · Password reuse · LinkedIn breach",
+        "text": "In 2012, LinkedIn suffered a breach that exposed 6.5 million password hashes. At the time, the company believed the damage was contained. Four years later, in 2016, the real scale emerged: 117 million credentials had actually been stolen.\n\nWhat made this particularly damaging wasn't just LinkedIn. It was the fact that tens of millions of people used the same email and password combination on multiple platforms — their bank, their email, their company VPN.\n\nAttackers used a technique called credential stuffing: taking the leaked LinkedIn username/password combinations and automatically trying them on hundreds of other websites. For every person who had reused their password, another account fell.\n\nThis is why password reuse is one of the most dangerous habits in digital security. A breach on any one platform becomes a skeleton key to everything else."
       },
       "passwordStrength": {
         "title": "What makes a password strong",
         "weak": [
           {
             "example": "P@ssw0rd1!",
-            "reason": "Common substitutions \u2014 cracking tools test these first"
+            "reason": "Common substitutions — cracking tools test these first"
           },
           {
             "example": "Welcome2024",
-            "reason": "Predictable pattern \u2014 year + common word"
+            "reason": "Predictable pattern — year + common word"
           },
           {
             "example": "John1985!",
-            "reason": "Personal info \u2014 findable on social media"
+            "reason": "Personal info — findable on social media"
           },
           {
             "example": "CompanyName!",
-            "reason": "Workplace-based \u2014 first thing attackers try"
+            "reason": "Workplace-based — first thing attackers try"
           }
         ],
         "strong": [
           {
             "example": "coffee-bridge-sunset-lamp",
-            "reason": "Four random words \u2014 long, memorable, takes centuries to crack"
+            "reason": "Four random words — long, memorable, takes centuries to crack"
           },
           {
             "example": "river!CLOUD_42_frost",
-            "reason": "Mixed case, symbols, length \u2014 strong even without being a phrase"
+            "reason": "Mixed case, symbols, length — strong even without being a phrase"
           },
           {
             "example": "[Use a password manager]",
-            "reason": "Generates truly random, unique passwords for every account \u2014 the best option"
+            "reason": "Generates truly random, unique passwords for every account — the best option"
           }
         ],
-        "rule": "Length beats complexity. 'correct-horse-battery-staple' is stronger than 'P@$$w0rd!' \u2014 attackers know every substitution trick."
+        "rule": "Length beats complexity. 'correct-horse-battery-staple' is stronger than 'P@$$w0rd!' — attackers know every substitution trick."
       },
       "ifCompromised": {
         "title": "If you think your password has been stolen",
         "steps": [
-          "Change the affected password immediately \u2014 don't wait to be sure",
+          "Change the affected password immediately — don't wait to be sure",
           "Change it on every other account where you used the same password",
-          "Contact IT if the compromised account is a work account \u2014 do this before changing anything so IT can investigate",
+          "Contact IT if the compromised account is a work account — do this before changing anything so IT can investigate",
           "Check haveibeenpwned.com to see if your email appears in known data breaches",
           "Enable MFA on the affected account if you haven't already",
           "Watch for unusual activity on connected accounts for the next few weeks"
         ]
       },
       "redFlags": [
-        "Using the same password on more than one account \u2014 especially if one of them is your work email or VPN",
-        "Passwords based on personal information \u2014 birthdays, pet names, addresses \u2014 findable on social media",
+        "Using the same password on more than one account — especially if one of them is your work email or VPN",
+        "Passwords based on personal information — birthdays, pet names, addresses — findable on social media",
         "Passwords shorter than 12 characters",
         "Sharing your password with a colleague to give them access to something",
         "Not having Multi-Factor Authentication (MFA) enabled on your work accounts",
         "Storing passwords in a plain text file, a note on your phone, or a spreadsheet"
       ],
       "responseSteps": [
-        "Use an approved password manager \u2014 it creates and stores unique complex passwords for every account so you only need to remember one master password",
-        "Enable MFA on every account that supports it, starting with your Microsoft 365 work email \u2014 it's the single most effective security control available to you",
+        "Use an approved password manager — it creates and stores unique complex passwords for every account so you only need to remember one master password",
+        "Enable MFA on every account that supports it, starting with your Microsoft 365 work email — it's the single most effective security control available to you",
         "Never share your password with anyone, including IT. IT staff will never ask for your password.",
         "Use a passphrase for any account without MFA: three or four random unrelated words are more secure than any complex short password",
-        "If you suspect a work password has been compromised, contact IT immediately before changing anything \u2014 they need to investigate first"
+        "If you suspect a work password has been compromised, contact IT immediately before changing anything — they need to investigate first"
       ],
       "deeperLearning": {
-        "title": "How attackers crack passwords \u2014 and why length matters more than complexity",
+        "title": "How attackers crack passwords — and why length matters more than complexity",
         "points": [
           "Modern password-cracking tools can test billions of combinations per second. A short complex password like 'P@ssw0rd' is cracked in under a second. A simple but long passphrase like 'correct-horse-battery-staple' takes centuries.",
-          "Credential stuffing \u2014 using leaked username/password pairs from one breach to try other sites \u2014 is fully automated and runs constantly. If you have ever reused a password, there is a meaningful chance it has already been tried somewhere.",
-          "MFA is the single most effective control against credential-based attacks. Even if an attacker has your password, they cannot access your account without the second factor you control \u2014 your phone, your authenticator app, or your hardware key."
+          "Credential stuffing — using leaked username/password pairs from one breach to try other sites — is fully automated and runs constantly. If you have ever reused a password, there is a meaningful chance it has already been tried somewhere.",
+          "MFA is the single most effective control against credential-based attacks. Even if an attacker has your password, they cannot access your account without the second factor you control — your phone, your authenticator app, or your hardware key."
         ]
       },
       "checkIn": [
@@ -202,37 +236,71 @@
             }
           ],
           "correctChoiceId": "c",
-          "explanation": "A long passphrase using random words is significantly stronger than a short complex password. Length matters more than symbol substitution \u2014 cracking tools test billions of combinations per second."
+          "explanation": "A long passphrase using random words is significantly stronger than a short complex password. Length matters more than symbol substitution — cracking tools test billions of combinations per second."
         },
         {
           "question": "MFA (Multi-Factor Authentication) protects your account even if your password is stolen.",
           "choices": [
             {
               "id": "a",
-              "label": "True \u2014 an attacker still needs your second factor to get in"
+              "label": "True — an attacker still needs your second factor to get in"
             },
             {
               "id": "b",
-              "label": "False \u2014 a stolen password is always enough to access your account"
+              "label": "False — a stolen password is always enough to access your account"
             }
           ],
           "correctChoiceId": "a",
           "explanation": "MFA is the single most effective control against credential-based attacks. Even with your password, an attacker cannot access your account without the second factor you control."
         }
-      ]
+      ],
+      "layoutVariant": "story-first",
+      "moduleHero": {
+        "icon": "🔐",
+        "title": "Reuse turns one breach into many",
+        "description": "Unique passwords plus MFA stop credential stuffing from cascading across your accounts."
+      },
+      "redFlagSpotter": {
+        "title": "Spot the red flag",
+        "prompt": "A teammate says: 'I use the same password for LinkedIn, email, and VPN because it is easier to remember.' Which risks should you flag?",
+        "flags": [
+          {
+            "id": "a",
+            "label": "Cross-account password reuse"
+          },
+          {
+            "id": "b",
+            "label": "Higher credential-stuffing exposure"
+          },
+          {
+            "id": "c",
+            "label": "Single compromise affects multiple systems"
+          },
+          {
+            "id": "d",
+            "label": "Password is easy to remember"
+          }
+        ],
+        "correctFlagIds": [
+          "a",
+          "b",
+          "c"
+        ],
+        "explanation": "Password reuse is multiplier risk. One leaked credential pair can unlock several services."
+      }
     },
     "acceptable-use": {
       "type": "standard",
       "badge": "Policy",
       "badgeColor": "purple",
-      "summary": "PAC provides technology \u2014 computers, email, internet access, software \u2014 to help you do your job. The Acceptable Use Policy defines what these tools are for, what they are not for, and why those boundaries matter. It's not about distrust. It's about protecting you, your colleagues, and the company from risks that come from how technology gets used.",
+      "summary": "PAC provides technology — computers, email, internet access, software — to help you do your job. The Acceptable Use Policy defines what these tools are for, what they are not for, and why those boundaries matter. It's not about distrust. It's about protecting you, your colleagues, and the company from risks that come from how technology gets used.",
       "story": {
         "title": "The personal device that became a company crisis",
-        "meta": "Acceptable use \u00b7 Shadow IT \u00b7 Data leakage",
-        "text": "A project manager at a global engineering firm was frustrated that the company's approved file-sharing platform was slow. So they started using their personal Dropbox account to store and share project files \u2014 including client contracts, site drawings, and confidential cost estimates.\n\nFor months, it worked fine. Then their personal Dropbox account was compromised in a breach unrelated to work. The attacker who accessed the account found several gigabytes of the firm's confidential client data.\n\nThe company faced breach notification obligations in multiple countries. Client relationships were damaged. The project manager didn't lose their job \u2014 they were actually well-regarded \u2014 but the firm spent over $800,000 managing the fallout from a well-intentioned workaround.\n\nThis is what IT teams call shadow IT: technology used outside of approved channels that creates invisible risk. The AUP exists precisely to prevent this kind of situation."
+        "meta": "Acceptable use · Shadow IT · Data leakage",
+        "text": "A project manager at a global engineering firm was frustrated that the company's approved file-sharing platform was slow. So they started using their personal Dropbox account to store and share project files — including client contracts, site drawings, and confidential cost estimates.\n\nFor months, it worked fine. Then their personal Dropbox account was compromised in a breach unrelated to work. The attacker who accessed the account found several gigabytes of the firm's confidential client data.\n\nThe company faced breach notification obligations in multiple countries. Client relationships were damaged. The project manager didn't lose their job — they were actually well-regarded — but the firm spent over $800,000 managing the fallout from a well-intentioned workaround.\n\nThis is what IT teams call shadow IT: technology used outside of approved channels that creates invisible risk. The AUP exists precisely to prevent this kind of situation."
       },
       "yesNo": {
-        "title": "What you can and cannot do \u2014 plain answers",
+        "title": "What you can and cannot do — plain answers",
         "items": [
           {
             "question": "Can I check personal email on my work laptop?",
@@ -289,33 +357,33 @@
       "consequences": {
         "title": "What actually happens when AUP is violated",
         "points": [
-          "The most common consequence is not disciplinary \u2014 it's a data breach affecting you and your colleagues. The Dropbox case in this module's story resulted in client data being exposed, not just a reprimand.",
-          "In regulated industries or for roles handling personal data, individual employees can bear personal legal liability for data handling decisions \u2014 not just the company.",
-          "Intentional misuse of company systems \u2014 accessing systems you're not authorized to use, exfiltrating data, installing unauthorized software \u2014 can result in termination and in serious cases, prosecution.",
+          "The most common consequence is not disciplinary — it's a data breach affecting you and your colleagues. The Dropbox case in this module's story resulted in client data being exposed, not just a reprimand.",
+          "In regulated industries or for roles handling personal data, individual employees can bear personal legal liability for data handling decisions — not just the company.",
+          "Intentional misuse of company systems — accessing systems you're not authorized to use, exfiltrating data, installing unauthorized software — can result in termination and in serious cases, prosecution.",
           "The AUP exists to protect employees as much as the company. If you're using unapproved tools and something goes wrong, the organization has less ability to support you."
         ]
       },
       "redFlags": [
         "Storing company data on personal cloud storage instead of approved PAC systems",
-        "Installing unapproved software on your work computer \u2014 even free, familiar tools",
+        "Installing unapproved software on your work computer — even free, familiar tools",
         "Using your work email to sign up for personal accounts or non-work services",
         "Accessing company systems on personal devices without IT approval and proper security controls",
         "Sharing confidential company or client information via personal messaging apps (WhatsApp, personal iMessage)"
       ],
       "responseSteps": [
-        "Use only PAC-approved platforms for company data \u2014 if you're unsure whether a tool is approved, ask IT before using it",
-        "Use Microsoft 365 (Outlook, Teams, SharePoint, OneDrive for Business) for all work tasks \u2014 it is PAC's mandated platform and the only productivity suite with PAC's full security controls, backup, and compliance coverage",
-        "Keep work data on work systems \u2014 SharePoint, OneDrive for Business, and approved project management tools",
-        "If an approved tool isn't meeting your needs, raise it with IT \u2014 the right answer is fixing the tool, not working around it",
+        "Use only PAC-approved platforms for company data — if you're unsure whether a tool is approved, ask IT before using it",
+        "Use Microsoft 365 (Outlook, Teams, SharePoint, OneDrive for Business) for all work tasks — it is PAC's mandated platform and the only productivity suite with PAC's full security controls, backup, and compliance coverage",
+        "Keep work data on work systems — SharePoint, OneDrive for Business, and approved project management tools",
+        "If an approved tool isn't meeting your needs, raise it with IT — the right answer is fixing the tool, not working around it",
         "Never use personal accounts or devices to bypass a company security control, even temporarily",
-        "If you've already been using unapproved tools, contact IT to help you migrate \u2014 no judgment, just resolution"
+        "If you've already been using unapproved tools, contact IT to help you migrate — no judgment, just resolution"
       ],
       "deeperLearning": {
         "title": "Why AUP compliance protects you personally",
         "points": [
           "When data is handled outside approved systems, the organization loses the ability to protect it. Backup, encryption, access controls, and breach detection all depend on data being where it is supposed to be.",
-          "In many jurisdictions, individual employees can bear personal legal liability for data handling decisions \u2014 not just the company. Using unapproved tools with client or employee data can have personal consequences.",
-          "The AUP is reviewed periodically. If you have a legitimate business need the current policy doesn't accommodate, the policy team wants to hear from you \u2014 it's meant to evolve with how the business actually works."
+          "In many jurisdictions, individual employees can bear personal legal liability for data handling decisions — not just the company. Using unapproved tools with client or employee data can have personal consequences.",
+          "The AUP is reviewed periodically. If you have a legitimate business need the current policy doesn't accommodate, the policy team wants to hear from you — it's meant to evolve with how the business actually works."
         ]
       },
       "checkIn": [
@@ -324,7 +392,7 @@
           "choices": [
             {
               "id": "a",
-              "label": "Use your personal Dropbox temporarily \u2014 it's faster"
+              "label": "Use your personal Dropbox temporarily — it's faster"
             },
             {
               "id": "b",
@@ -340,7 +408,7 @@
             }
           ],
           "correctChoiceId": "c",
-          "explanation": "The right answer to a slow approved tool is fixing the tool \u2014 not working around it. Shadow IT creates invisible risks that bypass all organizational security controls."
+          "explanation": "The right answer to a slow approved tool is fixing the tool — not working around it. Shadow IT creates invisible risks that bypass all organizational security controls."
         },
         {
           "question": "Using personal cloud storage for company files mainly risks:",
@@ -365,17 +433,51 @@
           "correctChoiceId": "b",
           "explanation": "Personal accounts don't have the security controls, encryption, backup, and breach detection that approved PAC systems do. A personal account breach becomes a company data breach."
         }
-      ]
+      ],
+      "layoutVariant": "scenario-first",
+      "moduleHero": {
+        "icon": "📜",
+        "title": "Approved tools are security controls",
+        "description": "Workarounds feel efficient in the moment but create invisible data and compliance risk."
+      },
+      "redFlagSpotter": {
+        "title": "Spot the red flag",
+        "prompt": "An employee moves client files to personal Dropbox because SharePoint feels slow. Which red flags apply?",
+        "flags": [
+          {
+            "id": "a",
+            "label": "Use of unapproved storage for company data"
+          },
+          {
+            "id": "b",
+            "label": "Data leaving monitored security boundary"
+          },
+          {
+            "id": "c",
+            "label": "Potential compliance and contract breach"
+          },
+          {
+            "id": "d",
+            "label": "Trying to improve productivity"
+          }
+        ],
+        "correctFlagIds": [
+          "a",
+          "b",
+          "c"
+        ],
+        "explanation": "Intent does not remove risk. Shadow IT bypasses encryption, monitoring, and retention controls."
+      }
     },
     "physical-security": {
       "type": "standard",
       "badge": "Physical Access",
       "badgeColor": "blue",
-      "summary": "Physical security is the foundation that all other security controls depend on. If someone can walk into a server room, sit at an unattended computer, or access a filing cabinet \u2014 no amount of cybersecurity technology helps. Tailgating, visitor management, and USB drop attacks are among the most important and most commonly overlooked security practices in any organization.",
+      "summary": "Physical security is the foundation that all other security controls depend on. If someone can walk into a server room, sit at an unattended computer, or access a filing cabinet — no amount of cybersecurity technology helps. Tailgating, visitor management, and USB drop attacks are among the most important and most commonly overlooked security practices in any organization.",
       "story": {
         "title": "The man who walked into 14 companies just by acting confident",
-        "meta": "Physical security \u00b7 Tailgating \u00b7 Social engineering",
-        "text": "In a well-documented security audit published in 2018, a professional penetration tester was hired to test the physical security of a Fortune 500 company's offices across four cities. In one day, he walked into 14 separate buildings without a badge, an appointment, or any credentials.\n\nHis method was simple: he dressed professionally, carried a box that looked like it contained IT equipment, and waited near secure entrances for someone to badge in. Every single time, the door was held open for him. No one questioned him. In several buildings, employees even helped him carry his box to an elevator.\n\nOnce inside, he was able to access server rooms, executive offices, and workstations \u2014 in some cases leaving a physical USB device that, in a real attack, would have installed malware.\n\nThe lesson: physical security is not just IT's job. Every employee is part of the access control system."
+        "meta": "Physical security · Tailgating · Social engineering",
+        "text": "In a well-documented security audit published in 2018, a professional penetration tester was hired to test the physical security of a Fortune 500 company's offices across four cities. In one day, he walked into 14 separate buildings without a badge, an appointment, or any credentials.\n\nHis method was simple: he dressed professionally, carried a box that looked like it contained IT equipment, and waited near secure entrances for someone to badge in. Every single time, the door was held open for him. No one questioned him. In several buildings, employees even helped him carry his box to an elevator.\n\nOnce inside, he was able to access server rooms, executive offices, and workstations — in some cases leaving a physical USB device that, in a real attack, would have installed malware.\n\nThe lesson: physical security is not just IT's job. Every employee is part of the access control system."
       },
       "visitorScript": {
         "title": "What to say when someone doesn't have a badge",
@@ -383,11 +485,11 @@
         "phrases": [
           {
             "situation": "Someone is following you through a secure door",
-            "say": "\"Sorry, our policy is that everyone needs to badge in separately \u2014 reception can help you get sorted.\""
+            "say": "\"Sorry, our policy is that everyone needs to badge in separately — reception can help you get sorted.\""
           },
           {
             "situation": "You see someone in a restricted area without a badge",
-            "say": "\"Hi there \u2014 I don't think we've met. Can I help you find who you're looking for?\""
+            "say": "\"Hi there — I don't think we've met. Can I help you find who you're looking for?\""
           },
           {
             "situation": "A contractor or visitor is walking unescorted",
@@ -395,37 +497,37 @@
           },
           {
             "situation": "Someone asks to borrow your badge",
-            "say": "\"I can't lend my badge \u2014 it's tied to my identity in the system. Let me get someone from reception to help instead.\""
+            "say": "\"I can't lend my badge — it's tied to my identity in the system. Let me get someone from reception to help instead.\""
           }
         ],
         "note": "You are never obligated to explain PAC's security policy in detail. A friendly redirect to reception is always the right move."
       },
       "usbDrop": {
-        "title": "USB drop attacks \u2014 don't plug in unknown devices",
-        "body": "Attackers physically leave USB drives in car parks, reception areas, and meeting rooms with labels like 'Payroll 2024' or 'Confidential.' The curiosity is deliberate. Plugging in an unknown USB can install malware silently in seconds \u2014 you don't need to open any files. If you find an unknown USB device anywhere on PAC premises, hand it to IT without plugging it in."
+        "title": "USB drop attacks — don't plug in unknown devices",
+        "body": "Attackers physically leave USB drives in car parks, reception areas, and meeting rooms with labels like 'Payroll 2024' or 'Confidential.' The curiosity is deliberate. Plugging in an unknown USB can install malware silently in seconds — you don't need to open any files. If you find an unknown USB device anywhere on PAC premises, hand it to IT without plugging it in."
       },
       "redFlags": [
-        "Holding a door open for someone you don't recognize \u2014 even if they look official or are carrying equipment",
+        "Holding a door open for someone you don't recognize — even if they look official or are carrying equipment",
         "Allowing visitors to walk through the office unescorted",
         "Finding a USB drive on company premises and plugging it in to see what's on it",
-        "Tailgating yourself \u2014 using someone else's badge access instead of your own",
+        "Tailgating yourself — using someone else's badge access instead of your own",
         "Leaving secure areas propped open for convenience",
         "Not challenging someone who appears to be in an area they shouldn't be"
       ],
       "responseSteps": [
-        "Badge in individually every time \u2014 never hold a secure door open for someone behind you, and politely direct them to reception",
-        "All visitors must be signed in at reception and escorted at all times in secure areas \u2014 this includes contractors, maintenance workers, and delivery personnel",
-        "If you find a USB drive anywhere on PAC premises, hand it directly to IT without plugging it in \u2014 ever",
+        "Badge in individually every time — never hold a secure door open for someone behind you, and politely direct them to reception",
+        "All visitors must be signed in at reception and escorted at all times in secure areas — this includes contractors, maintenance workers, and delivery personnel",
+        "If you find a USB drive anywhere on PAC premises, hand it directly to IT without plugging it in — ever",
         "If you see someone in a restricted area without a visible badge or escort, a friendly redirect to reception is appropriate and expected",
-        "Never lend your access badge to anyone, even temporarily \u2014 your badge is your identity in access logs",
+        "Never lend your access badge to anyone, even temporarily — your badge is your identity in access logs",
         "If your badge is lost or stolen, report it to IT and facilities immediately"
       ],
       "deeperLearning": {
-        "title": "Why tailgating is so effective \u2014 and so easy to prevent",
+        "title": "Why tailgating is so effective — and so easy to prevent",
         "points": [
           "Tailgating works because of genuine human instinct: it feels rude not to hold a door for someone. Attackers rely on social pressure overriding security judgment.",
           "A single uncontrolled physical access event can invalidate millions of dollars of cybersecurity investment. Once someone is physically inside a network perimeter, many digital defenses become significantly less effective.",
-          "The culture shift required is small: from 'always hold the door' to 'always badge in individually.' Most people respond well when the reason is explained \u2014 it's not about being unfriendly, it's about everyone's safety."
+          "The culture shift required is small: from 'always hold the door' to 'always badge in individually.' Most people respond well when the reason is explained — it's not about being unfriendly, it's about everyone's safety."
         ]
       },
       "checkIn": [
@@ -434,7 +536,7 @@
           "choices": [
             {
               "id": "a",
-              "label": "Hold the door \u2014 it would be rude not to help"
+              "label": "Hold the door — it would be rude not to help"
             },
             {
               "id": "b",
@@ -450,7 +552,7 @@
             }
           ],
           "correctChoiceId": "c",
-          "explanation": "Every person entering a secure area must badge in individually \u2014 no exceptions. Tailgating is one of the most common physical attack methods, and it relies entirely on people being polite."
+          "explanation": "Every person entering a secure area must badge in individually — no exceptions. Tailgating is one of the most common physical attack methods, and it relies entirely on people being polite."
         },
         {
           "question": "You find a USB drive in the car park with 'PAC Payroll 2024' written on it. What should you do?",
@@ -473,19 +575,53 @@
             }
           ],
           "correctChoiceId": "b",
-          "explanation": "Unknown USB drives are a classic attack vector \u2014 they can install malware silently just by being plugged in. Never insert an unknown drive. Hand it directly to IT."
+          "explanation": "Unknown USB drives are a classic attack vector — they can install malware silently just by being plugged in. Never insert an unknown drive. Hand it directly to IT."
         }
-      ]
+      ],
+      "layoutVariant": "default",
+      "moduleHero": {
+        "icon": "🏢",
+        "title": "Doors and badges are security systems",
+        "description": "Tailgating and unknown devices are low-tech attacks that still cause high-impact breaches."
+      },
+      "redFlagSpotter": {
+        "title": "Spot the red flag",
+        "prompt": "At reception, an unfamiliar person asks you to hold a secure door while carrying equipment, and you notice no badge. What should you flag?",
+        "flags": [
+          {
+            "id": "a",
+            "label": "No visible badge in controlled area"
+          },
+          {
+            "id": "b",
+            "label": "Request to tailgate through secure access"
+          },
+          {
+            "id": "c",
+            "label": "Social pressure to skip policy"
+          },
+          {
+            "id": "d",
+            "label": "Person carries a heavy box"
+          }
+        ],
+        "correctFlagIds": [
+          "a",
+          "b",
+          "c"
+        ],
+        "explanation": "Attackers often rely on politeness cues. Secure areas require individual badge authentication."
+      }
     },
     "social-media": {
       "type": "standard",
       "badge": "Online Safety",
       "badgeColor": "purple",
-      "summary": "Social media is one of the primary tools attackers use to research targets before a phishing or social engineering attack. Your LinkedIn profile, public posts, and online activity can reveal your role, your manager's name, current projects, travel plans, colleagues, and more \u2014 all of which can be used to craft a convincing, targeted message. This doesn't mean avoiding social media. It means being intentional about what you share.",
+      "summary": "Social media is one of the primary tools attackers use to research targets before a phishing or social engineering attack. Your LinkedIn profile, public posts, and online activity can reveal your role, your manager's name, current projects, travel plans, colleagues, and more — all of which can be used to craft a convincing, targeted message. This doesn't mean avoiding social media. It means being intentional about what you share.",
       "story": {
         "title": "How a LinkedIn post enabled a $2.3M fraud",
-        "meta": "Social media \u00b7 OSINT \u00b7 Spear phishing \u00b7 BEC",
-        "text": "In 2021, a finance director at a mid-sized company posted on LinkedIn celebrating the close of a major acquisition deal. They tagged their CEO and mentioned the legal firm handling the transaction.\n\nWithin days, a fraudster had used this public information to craft a highly convincing Business Email Compromise attack. They spoofed an email from the legal firm, referenced the acquisition by name, and requested an urgent wire transfer to complete a closing obligation \u2014 citing a short window before the deal terms would lapse.\n\nThe finance team wired $2.3 million before the fraud was discovered.\n\nEvery piece of information the attacker needed came from a single celebratory LinkedIn post: the company, the deal, the CEO's name, the legal firm, the deal's approximate timeline. None of it was secret. All of it was weaponized."
+        "meta": "Social media · OSINT · Spear phishing · BEC",
+        "text": "In 2021, a finance director at a mid-sized company posted on LinkedIn celebrating the close of a major acquisition deal. They tagged their CEO and mentioned the legal firm handling the transaction.\n\nWithin days, a fraudster had used this public information to craft a highly convincing Business Email Compromise attack. They spoofed an email from the legal firm, referenced the acquisition by name, and requested an urgent wire transfer to complete a closing obligation — citing a short window before the deal terms would lapse.\n\nThe finance team wired $2.3 million before the fraud was discovered.\n\nEvery piece of information the attacker needed came from a single celebratory LinkedIn post: the company, the deal, the CEO's name, the legal firm, the deal's approximate timeline. None of it was secret. All of it was weaponized."
       },
       "beforeYouPost": {
         "title": "The 5-second check before you post",
@@ -496,38 +632,38 @@
           "Could this help someone craft a convincing impersonation of me or my company?",
           "Has this been publicly announced, or am I the first to share it?"
         ],
-        "rule": "If you answer yes to any of these \u2014 wait, or don't post. If you're not sure whether something is public yet, it isn't."
+        "rule": "If you answer yes to any of these — wait, or don't post. If you're not sure whether something is public yet, it isn't."
       },
       "engineeringSpecific": {
         "title": "What's risky for project and engineering roles specifically",
         "points": [
           "Posting site photos, facility layouts, or construction progress images that reveal client locations or security infrastructure",
-          "Mentioning project timelines, contract values, or scope changes \u2014 even in celebration",
+          "Mentioning project timelines, contract values, or scope changes — even in celebration",
           "Tagging client personnel or executives in posts about work wins",
           "Sharing technical details about systems, equipment, or processes that competitors or attackers could exploit",
-          "Announcing travel to client sites \u2014 this signals when you'll be away and who you're meeting"
+          "Announcing travel to client sites — this signals when you'll be away and who you're meeting"
         ]
       },
       "redFlags": [
         "Posting about active deals, client names, project details, or financial matters on public social media",
-        "Sharing your travel schedule publicly \u2014 this signals when you won't be in the office to verify requests",
+        "Sharing your travel schedule publicly — this signals when you won't be in the office to verify requests",
         "Connecting with people you don't know on LinkedIn, especially those who message immediately about your work",
-        "Oversharing your org chart relationships \u2014 manager name, executive contacts, team structure",
+        "Oversharing your org chart relationships — manager name, executive contacts, team structure",
         "Reusing work email addresses or usernames on personal social media accounts"
       ],
       "responseSteps": [
-        "Audit your LinkedIn profile \u2014 ask whether the information you've shared could help someone impersonate a colleague or create a targeted attack",
+        "Audit your LinkedIn profile — ask whether the information you've shared could help someone impersonate a colleague or create a targeted attack",
         "Celebrate wins internally first. Wait until information is officially public before posting externally.",
         "Check your privacy settings on all social platforms and limit public visibility where possible",
         "Be cautious with unsolicited LinkedIn connection requests, especially from people in vague roles with few connections",
         "If you receive a message referencing something you shared publicly, treat it as a potential social engineering attempt and verify through a trusted channel"
       ],
       "deeperLearning": {
-        "title": "OSINT \u2014 how attackers research their targets",
+        "title": "OSINT — how attackers research their targets",
         "points": [
-          "OSINT (Open Source Intelligence) is the practice of gathering information from publicly available sources \u2014 social media, company websites, press releases, LinkedIn, news articles. Attackers use it systematically before launching targeted attacks.",
+          "OSINT (Open Source Intelligence) is the practice of gathering information from publicly available sources — social media, company websites, press releases, LinkedIn, news articles. Attackers use it systematically before launching targeted attacks.",
           "A trained attacker can build a detailed picture of an organization's structure, current projects, key contacts, and financial activities in under an hour using only public information. The more you share publicly, the more complete that picture becomes.",
-          "This doesn't mean avoiding all social media presence \u2014 a professional online presence has real value. It means being intentional: share achievements, not operational details; connect with people you know; and think before posting about anything that could help someone impersonate a colleague."
+          "This doesn't mean avoiding all social media presence — a professional online presence has real value. It means being intentional: share achievements, not operational details; connect with people you know; and think before posting about anything that could help someone impersonate a colleague."
         ]
       },
       "checkIn": [
@@ -536,7 +672,7 @@
           "choices": [
             {
               "id": "a",
-              "label": "Immediately \u2014 celebrating wins builds the company profile"
+              "label": "Immediately — celebrating wins builds the company profile"
             },
             {
               "id": "b",
@@ -544,7 +680,7 @@
             },
             {
               "id": "c",
-              "label": "Never \u2014 all deal information must stay private permanently"
+              "label": "Never — all deal information must stay private permanently"
             },
             {
               "id": "d",
@@ -552,7 +688,7 @@
             }
           ],
           "correctChoiceId": "b",
-          "explanation": "Celebrate wins \u2014 but wait until the information is legitimately public and approved for sharing. Premature posts about deals, clients, or projects give attackers information they can weaponize."
+          "explanation": "Celebrate wins — but wait until the information is legitimately public and approved for sharing. Premature posts about deals, clients, or projects give attackers information they can weaponize."
         },
         {
           "question": "An attacker researching PAC employees could find which of the following on LinkedIn?",
@@ -575,9 +711,43 @@
             }
           ],
           "correctChoiceId": "b",
-          "explanation": "Attackers use publicly available information \u2014 your role, your manager, your projects, your connections \u2014 to craft convincing spear phishing attacks. Be intentional about what you share."
+          "explanation": "Attackers use publicly available information — your role, your manager, your projects, your connections — to craft convincing spear phishing attacks. Be intentional about what you share."
         }
-      ]
+      ],
+      "layoutVariant": "story-first",
+      "moduleHero": {
+        "icon": "🌐",
+        "title": "Public posts fuel targeted attacks",
+        "description": "Operational details on social media help attackers craft credible spear-phishing messages."
+      },
+      "redFlagSpotter": {
+        "title": "Spot the red flag",
+        "prompt": "A post says: 'Flying to client site tomorrow to finalize a confidential acquisition. Huge week for our finance team!' What is risky here?",
+        "flags": [
+          {
+            "id": "a",
+            "label": "Travel timing disclosure"
+          },
+          {
+            "id": "b",
+            "label": "Sensitive deal context"
+          },
+          {
+            "id": "c",
+            "label": "Role/team intelligence for impersonation"
+          },
+          {
+            "id": "d",
+            "label": "Positive tone"
+          }
+        ],
+        "correctFlagIds": [
+          "a",
+          "b",
+          "c"
+        ],
+        "explanation": "Attackers combine public timing, project context, and org details to build believable fraud narratives."
+      }
     },
     "remote-vpn": {
       "type": "standard",
@@ -586,31 +756,31 @@
       "summary": "Working remotely changes your security environment significantly. Your home network, public Wi-Fi, and personal devices don't have the same protections as PAC's office infrastructure. Using the VPN, securing your home network, and being aware of your physical environment when working in public are essential habits for anyone working outside the office.",
       "story": {
         "title": "The airport lounge that became a data interception point",
-        "meta": "Remote work \u00b7 Public Wi-Fi \u00b7 Man-in-the-middle attack",
-        "text": "A senior consultant traveling between client sites connected to an airport lounge's free Wi-Fi to catch up on emails and review a project proposal before their next meeting. The network was named something plausible \u2014 'Lounge_WiFi_Premium' \u2014 and the connection was quick.\n\nWhat they didn't know was that the network was a rogue access point set up by an attacker in the lounge. Everything they transmitted \u2014 emails, the document they was editing, their login credentials for the project management system \u2014 passed through the attacker's device before reaching the internet.\n\nThree weeks later, the client company received a call. Someone had been accessing their project portal using the consultant's credentials. Three months of project documents \u2014 including competitive pricing strategies \u2014 had been downloaded.\n\nAll because of a free Wi-Fi connection that seemed legitimate."
+        "meta": "Remote work · Public Wi-Fi · Man-in-the-middle attack",
+        "text": "A senior consultant traveling between client sites connected to an airport lounge's free Wi-Fi to catch up on emails and review a project proposal before their next meeting. The network was named something plausible — 'Lounge_WiFi_Premium' — and the connection was quick.\n\nWhat they didn't know was that the network was a rogue access point set up by an attacker in the lounge. Everything they transmitted — emails, the document they was editing, their login credentials for the project management system — passed through the attacker's device before reaching the internet.\n\nThree weeks later, the client company received a call. Someone had been accessing their project portal using the consultant's credentials. Three months of project documents — including competitive pricing strategies — had been downloaded.\n\nAll because of a free Wi-Fi connection that seemed legitimate."
       },
       "vpnTroubleshoot": {
-        "title": "VPN won't connect \u2014 what to do",
+        "title": "VPN won't connect — what to do",
         "intro": "The most common reason employees work without the VPN is that it stopped working and they didn't know what to do next. Here's the fix:",
         "steps": [
-          "Check your internet connection first \u2014 if you can't reach any website, the issue is your connection, not the VPN",
+          "Check your internet connection first — if you can't reach any website, the issue is your connection, not the VPN",
           "Try disconnecting and reconnecting the VPN client",
           "Restart the VPN application completely (quit and reopen, not just minimize)",
-          "If on hotel or cafe Wi-Fi, try your phone's hotspot instead \u2014 some networks block VPN connections",
+          "If on hotel or cafe Wi-Fi, try your phone's hotspot instead — some networks block VPN connections",
           "Restart your computer and try again",
-          "If none of the above works, contact IT \u2014 but do not continue working on sensitive tasks without the VPN active while waiting"
+          "If none of the above works, contact IT — but do not continue working on sensitive tasks without the VPN active while waiting"
         ],
         "important": "If the VPN won't connect and you need to work urgently, use your phone as a personal hotspot instead of public Wi-Fi. Cellular connections are encrypted and private."
       },
       "homeRouterChecklist": {
-        "title": "Home router security \u2014 a 10-minute fix",
+        "title": "Home router security — a 10-minute fix",
         "steps": [
-          "Change the default admin password on your router (the one you use to log into its settings page at 192.168.1.1 or similar) \u2014 default passwords are widely published online",
-          "Make sure your Wi-Fi uses WPA2 or WPA3 encryption \u2014 check under your router's wireless settings. WEP is insecure and should never be used.",
+          "Change the default admin password on your router (the one you use to log into its settings page at 192.168.1.1 or similar) — default passwords are widely published online",
+          "Make sure your Wi-Fi uses WPA2 or WPA3 encryption — check under your router's wireless settings. WEP is insecure and should never be used.",
           "Change your Wi-Fi password from the default if you haven't already",
           "Check for and apply any available firmware updates for your router",
-          "Set up a separate guest network for visitors and personal smart devices \u2014 keep work traffic on a clean network",
-          "If you're unsure how to do any of this, contact IT \u2014 they can often help remotely in 15 minutes"
+          "Set up a separate guest network for visitors and personal smart devices — keep work traffic on a clean network",
+          "If you're unsure how to do any of this, contact IT — they can often help remotely in 15 minutes"
         ]
       },
       "redFlags": [
@@ -622,16 +792,16 @@
         "Approving VPN or MFA prompts you didn't initiate because it seemed like a glitch"
       ],
       "responseSteps": [
-        "Always connect to the PAC VPN before accessing company systems when outside the office \u2014 this encrypts your traffic and routes it securely",
-        "Disconnect from the VPN when working from the PAC office on a trusted internal network \u2014 the VPN is required for external connections, not internal ones, and staying connected on a trusted network is unnecessary",
+        "Always connect to the PAC VPN before accessing company systems when outside the office — this encrypts your traffic and routes it securely",
+        "Disconnect from the VPN when working from the PAC office on a trusted internal network — the VPN is required for external connections, not internal ones, and staying connected on a trusted network is unnecessary",
         "If public Wi-Fi is your only option and VPN won't connect, use your phone as a personal hotspot instead",
         "Secure your home router: change the default admin password, use WPA2 or WPA3 encryption, and keep firmware updated",
         "Use a screen privacy filter when working in public spaces",
         "Lock your computer when stepping away, even at home",
-        "If the VPN won't connect and you need support, call IT \u2014 do not continue working on sensitive tasks unprotected"
+        "If the VPN won't connect and you need support, call IT — do not continue working on sensitive tasks unprotected"
       ],
       "deeperLearning": {
-        "title": "How Wi-Fi attacks work \u2014 and why the VPN is your primary defence",
+        "title": "How Wi-Fi attacks work — and why the VPN is your primary defence",
         "points": [
           "A Man-in-the-Middle (MitM) attack on public Wi-Fi involves an attacker positioning themselves between your device and the internet, intercepting everything you transmit. Modern attacks can do this silently with no visible sign to the user.",
           "Even legitimate public Wi-Fi networks in hotels and airports have minimal security. Anyone on the same network can potentially intercept unencrypted traffic.",
@@ -644,7 +814,7 @@
           "choices": [
             {
               "id": "a",
-              "label": "Use the caf\u00e9's free Wi-Fi \u2014 it's convenient and fast"
+              "label": "Use the café's free Wi-Fi — it's convenient and fast"
             },
             {
               "id": "b",
@@ -652,7 +822,7 @@
             },
             {
               "id": "c",
-              "label": "Use the caf\u00e9 Wi-Fi but only look at non-sensitive files"
+              "label": "Use the café Wi-Fi but only look at non-sensitive files"
             },
             {
               "id": "d",
@@ -685,28 +855,62 @@
           "correctChoiceId": "b",
           "explanation": "Many home routers still use default passwords and older encryption standards. Without a VPN, traffic on your home network can potentially be intercepted if your router is compromised."
         }
-      ]
+      ],
+      "layoutVariant": "scenario-first",
+      "moduleHero": {
+        "icon": "📡",
+        "title": "Remote convenience needs stronger controls",
+        "description": "Outside the office, VPN and network hygiene are the baseline for safe access."
+      },
+      "redFlagSpotter": {
+        "title": "Spot the red flag",
+        "prompt": "At an airport, you connect to free Wi-Fi and access project systems without VPN because it is faster. What should be flagged?",
+        "flags": [
+          {
+            "id": "a",
+            "label": "No VPN on public network"
+          },
+          {
+            "id": "b",
+            "label": "Sensitive access over untrusted Wi-Fi"
+          },
+          {
+            "id": "c",
+            "label": "Exposure to interception/MitM risk"
+          },
+          {
+            "id": "d",
+            "label": "Fast internet connection"
+          }
+        ],
+        "correctFlagIds": [
+          "a",
+          "b",
+          "c"
+        ],
+        "explanation": "Public Wi-Fi plus no VPN creates avoidable interception risk for credentials and data."
+      }
     },
     "ai-acceptable-use": {
       "type": "standard",
       "badge": "AI Policy",
       "badgeColor": "purple",
-      "summary": "PAC has approved specific AI tools for specific uses. AI tools that process your input may store that data on external servers, use it to train models, or expose it to third parties \u2014 often permanently. One employee pasting the wrong document into a public AI tool can expose confidential client data, proprietary project details, or personal information in seconds with no way to retrieve it. This module explains what you can use, what you cannot, and why data classification is the most important concept to understand before using any AI tool.",
+      "summary": "PAC has approved specific AI tools for specific uses. AI tools that process your input may store that data on external servers, use it to train models, or expose it to third parties — often permanently. One employee pasting the wrong document into a public AI tool can expose confidential client data, proprietary project details, or personal information in seconds with no way to retrieve it. This module explains what you can use, what you cannot, and why data classification is the most important concept to understand before using any AI tool.",
       "story": {
-        "title": "The engineers who leaked source code to an AI \u2014 and sparked a global policy change",
-        "meta": "AI security \u00b7 Data leakage \u00b7 Samsung breach 2023",
-        "text": "In March 2023, engineers at Samsung's semiconductor division began using ChatGPT to help with their work. Within weeks, three separate incidents occurred: one engineer pasted proprietary source code into ChatGPT to ask it to fix bugs. Another uploaded internal meeting notes. A third used it to convert confidential test data into a presentation format.\n\nIn each case, the data left Samsung's systems and was transmitted to OpenAI's servers \u2014 where, under the terms of service at the time, it could be used to train future models and potentially seen by OpenAI staff reviewing outputs.\n\nSamsung banned all external AI tools within days. But by then, the proprietary code, internal meeting content, and confidential test data were already on external servers beyond Samsung's control.\n\nThis is the fundamental risk of AI tools: they are helpful, they are fast, and they are invisible data pipelines to the outside world."
+        "title": "The engineers who leaked source code to an AI — and sparked a global policy change",
+        "meta": "AI security · Data leakage · Samsung breach 2023",
+        "text": "In March 2023, engineers at Samsung's semiconductor division began using ChatGPT to help with their work. Within weeks, three separate incidents occurred: one engineer pasted proprietary source code into ChatGPT to ask it to fix bugs. Another uploaded internal meeting notes. A third used it to convert confidential test data into a presentation format.\n\nIn each case, the data left Samsung's systems and was transmitted to OpenAI's servers — where, under the terms of service at the time, it could be used to train future models and potentially seen by OpenAI staff reviewing outputs.\n\nSamsung banned all external AI tools within days. But by then, the proprietary code, internal meeting content, and confidential test data were already on external servers beyond Samsung's control.\n\nThis is the fundamental risk of AI tools: they are helpful, they are fast, and they are invisible data pipelines to the outside world."
       },
       "dataClassification": {
-        "title": "PAC's Data Classification Framework \u2014 know before you share",
-        "intro": "Before using any AI tool, classify what you're working with. The classification determines whether you can use AI at all \u2014 and which tool is appropriate.",
+        "title": "PAC's Data Classification Framework — know before you share",
+        "intro": "Before using any AI tool, classify what you're working with. The classification determines whether you can use AI at all — and which tool is appropriate.",
         "tiers": [
           {
             "level": "public",
             "label": "PUBLIC",
             "name": "Public information",
             "description": "Information approved for public release: published press releases, publicly announced project completions, general marketing materials.",
-            "aiRule": "AI tools may be used with Public data \u2014 no restrictions apply."
+            "aiRule": "AI tools may be used with Public data — no restrictions apply."
           },
           {
             "level": "private",
@@ -720,12 +924,12 @@
             "label": "RESTRICTED",
             "name": "Restricted / Confidential information",
             "description": "Highly sensitive information: client data, contracts, financial records, legal documents, personal information, security credentials, proprietary designs.",
-            "aiRule": "No AI tools \u2014 internal or external \u2014 may receive Restricted data without explicit IT approval."
+            "aiRule": "No AI tools — internal or external — may receive Restricted data without explicit IT approval."
           }
         ]
       },
       "yesNo": {
-        "title": "What you can and cannot do \u2014 plain answers",
+        "title": "What you can and cannot do — plain answers",
         "items": [
           {
             "question": "Can I use Microsoft Copilot in M365 (Outlook, Teams, Word) for work tasks?",
@@ -740,7 +944,7 @@
           {
             "question": "Can I paste a client document into an AI tool to summarize it?",
             "answer": "no",
-            "detail": "Client documents are Restricted data. Pasting them into any external AI tool transmits that data to third-party servers outside PAC's control, permanently. Use Microsoft Copilot within M365 only \u2014 and even then, confirm the document's classification first."
+            "detail": "Client documents are Restricted data. Pasting them into any external AI tool transmits that data to third-party servers outside PAC's control, permanently. Use Microsoft Copilot within M365 only — and even then, confirm the document's classification first."
           },
           {
             "question": "Can I use AI to help write code for work projects?",
@@ -750,7 +954,7 @@
           {
             "question": "Can I share PAC financial data or HR information with an AI tool?",
             "answer": "no",
-            "detail": "Financial records and HR data are Restricted. They must never be entered into any AI tool \u2014 including Microsoft Copilot \u2014 without explicit IT and management authorization."
+            "detail": "Financial records and HR data are Restricted. They must never be entered into any AI tool — including Microsoft Copilot — without explicit IT and management authorization."
           },
           {
             "question": "Can I use AI-generated content in client deliverables?",
@@ -762,10 +966,10 @@
       "consequences": {
         "title": "What happens when AI policy is violated",
         "points": [
-          "Data transmitted to an external AI tool cannot be retrieved. Once client data, financial records, or proprietary information leaves PAC's systems, it is permanently outside your control \u2014 regardless of the AI tool's privacy policy.",
-          "PAC may have legal obligations to notify clients and regulators if their confidential information is disclosed to a third party \u2014 even inadvertently. This can result in contract termination and significant legal liability.",
+          "Data transmitted to an external AI tool cannot be retrieved. Once client data, financial records, or proprietary information leaves PAC's systems, it is permanently outside your control — regardless of the AI tool's privacy policy.",
+          "PAC may have legal obligations to notify clients and regulators if their confidential information is disclosed to a third party — even inadvertently. This can result in contract termination and significant legal liability.",
           "Individual employees can bear personal liability for data handling decisions. Sharing client data with unauthorised third-party tools can constitute a breach of data protection law or contractual confidentiality obligations.",
-          "Intentional violation of the AI Acceptable Use Policy \u2014 particularly sharing Restricted data \u2014 may result in disciplinary action up to and including termination."
+          "Intentional violation of the AI Acceptable Use Policy — particularly sharing Restricted data — may result in disciplinary action up to and including termination."
         ]
       },
       "redFlags": [
@@ -778,18 +982,18 @@
       ],
       "responseSteps": [
         "Before using any AI tool, classify your data: Public (external AI tools allowed), Private (Copilot in M365 only), or Restricted (no AI without IT approval)",
-        "Use Microsoft Copilot within PAC's M365 environment as your primary AI tool \u2014 it is approved, supported, and operates within PAC's security boundary",
-        "For external AI tools (ChatGPT, Claude, Gemini), use only for generic or Public tasks \u2014 never input anything client-related, financial, or project-specific",
-        "Review all AI-generated content before using it in any work product \u2014 AI tools can produce plausible but factually incorrect output",
-        "If you're unsure whether a task or data type is AI-appropriate, ask IT before proceeding \u2014 not after",
-        "If you believe you've shared Restricted or Private data with an unauthorised AI tool, report it to IT immediately \u2014 early disclosure limits damage"
+        "Use Microsoft Copilot within PAC's M365 environment as your primary AI tool — it is approved, supported, and operates within PAC's security boundary",
+        "For external AI tools (ChatGPT, Claude, Gemini), use only for generic or Public tasks — never input anything client-related, financial, or project-specific",
+        "Review all AI-generated content before using it in any work product — AI tools can produce plausible but factually incorrect output",
+        "If you're unsure whether a task or data type is AI-appropriate, ask IT before proceeding — not after",
+        "If you believe you've shared Restricted or Private data with an unauthorised AI tool, report it to IT immediately — early disclosure limits damage"
       ],
       "deeperLearning": {
-        "title": "How AI tools handle your data \u2014 and why the boundary matters",
+        "title": "How AI tools handle your data — and why the boundary matters",
         "points": [
-          "Most public AI tools (free ChatGPT, Gemini, etc.) may use inputs to improve their models unless you explicitly opt out \u2014 and even paid tiers may retain inputs for safety review. When you paste a confidential document, you are not just asking a question. You are uploading data to a third-party server with its own terms of service, retention policies, and potential future disclosures.",
-          "Microsoft Copilot within PAC's M365 environment is different: it is bound by PAC's Microsoft data processing agreement, subject to the same retention and deletion policies as your work email, and does not use PAC's data to train public models. This is why it is the approved tool \u2014 the data boundary is controlled.",
-          "The PAC Data Classification Framework (Public, Private, Restricted) applies to every decision about where data goes \u2014 cloud storage, email, USB drives, printed documents, and AI tools. AI tools create a fast-moving new channel through which data can leave the organisation. The classification gives you a consistent rule regardless of the technology."
+          "Most public AI tools (free ChatGPT, Gemini, etc.) may use inputs to improve their models unless you explicitly opt out — and even paid tiers may retain inputs for safety review. When you paste a confidential document, you are not just asking a question. You are uploading data to a third-party server with its own terms of service, retention policies, and potential future disclosures.",
+          "Microsoft Copilot within PAC's M365 environment is different: it is bound by PAC's Microsoft data processing agreement, subject to the same retention and deletion policies as your work email, and does not use PAC's data to train public models. This is why it is the approved tool — the data boundary is controlled.",
+          "The PAC Data Classification Framework (Public, Private, Restricted) applies to every decision about where data goes — cloud storage, email, USB drives, printed documents, and AI tools. AI tools create a fast-moving new channel through which data can leave the organisation. The classification gives you a consistent rule regardless of the technology."
         ]
       },
       "checkIn": [
@@ -798,11 +1002,11 @@
           "choices": [
             {
               "id": "a",
-              "label": "Paste the contract into ChatGPT \u2014 it's faster and the summary is just for you"
+              "label": "Paste the contract into ChatGPT — it's faster and the summary is just for you"
             },
             {
               "id": "b",
-              "label": "Use Microsoft Copilot within M365 \u2014 client contracts are Restricted data"
+              "label": "Use Microsoft Copilot within M365 — client contracts are Restricted data"
             },
             {
               "id": "c",
@@ -814,22 +1018,22 @@
             }
           ],
           "correctChoiceId": "b",
-          "explanation": "Client contracts are Restricted data. Only Microsoft Copilot within PAC's M365 environment is approved for this use. External AI tools like ChatGPT transmit data to third-party servers permanently \u2014 there is no way to retrieve it."
+          "explanation": "Client contracts are Restricted data. Only Microsoft Copilot within PAC's M365 environment is approved for this use. External AI tools like ChatGPT transmit data to third-party servers permanently — there is no way to retrieve it."
         },
         {
           "question": "Under PAC's Data Classification Framework, which type of data may be used with external AI tools (ChatGPT, Gemini, etc.)?",
           "choices": [
             {
               "id": "a",
-              "label": "Private \u2014 internal processes and employee information"
+              "label": "Private — internal processes and employee information"
             },
             {
               "id": "b",
-              "label": "Restricted \u2014 client data and financial records"
+              "label": "Restricted — client data and financial records"
             },
             {
               "id": "c",
-              "label": "Public \u2014 information already approved for public release"
+              "label": "Public — information already approved for public release"
             },
             {
               "id": "d",
@@ -837,9 +1041,43 @@
             }
           ],
           "correctChoiceId": "c",
-          "explanation": "Only Public data may be used with external AI tools. Private data requires Microsoft Copilot in M365. Restricted data requires explicit IT approval \u2014 and even then, no external AI tools."
+          "explanation": "Only Public data may be used with external AI tools. Private data requires Microsoft Copilot in M365. Restricted data requires explicit IT approval — and even then, no external AI tools."
         }
-      ]
+      ],
+      "layoutVariant": "default",
+      "moduleHero": {
+        "icon": "🤖",
+        "title": "Data classification comes before AI prompts",
+        "description": "If you cannot classify data confidently, do not paste it into any AI system."
+      },
+      "redFlagSpotter": {
+        "title": "Spot the red flag",
+        "prompt": "A user pastes client contract clauses and financial terms into a public AI tool to get a summary. Which problems are present?",
+        "flags": [
+          {
+            "id": "a",
+            "label": "Restricted data in external AI"
+          },
+          {
+            "id": "b",
+            "label": "Third-party processing outside PAC controls"
+          },
+          {
+            "id": "c",
+            "label": "Potential confidentiality/legal exposure"
+          },
+          {
+            "id": "d",
+            "label": "Task is faster with AI"
+          }
+        ],
+        "correctFlagIds": [
+          "a",
+          "b",
+          "c"
+        ],
+        "explanation": "Restricted data must stay within approved boundaries. External AI use can create irreversible disclosure risk."
+      }
     },
     "incident-reporting": {
       "type": "standard",
@@ -848,7 +1086,7 @@
       "quickTakeaway": {
         "title": "1-minute takeaway",
         "points": [
-          "If something feels off, report now \u2014 don't wait for proof.",
+          "If something feels off, report now — don't wait for proof.",
           "If you clicked or entered credentials, contact IT immediately.",
           "Fast reporting limits damage; silence expands it."
         ]
@@ -857,46 +1095,55 @@
         "title": "Quick decision check",
         "question": "You clicked a suspicious link, entered your credentials, and then the page looked broken. What should you do in the next 5 minutes?",
         "choices": [
-          { "id": "a", "label": "Delete the email and monitor quietly" },
-          { "id": "b", "label": "Change password alone and tell no one" },
-          { "id": "c", "label": "Report via Barracuda and call/message IT immediately" }
+          {
+            "id": "a",
+            "label": "Delete the email and monitor quietly"
+          },
+          {
+            "id": "b",
+            "label": "Change password alone and tell no one"
+          },
+          {
+            "id": "c",
+            "label": "Report via Barracuda and call/message IT immediately"
+          }
         ],
         "correctChoiceId": "c",
         "bestAction": "Correct move: report immediately and contact IT directly so containment starts while the incident is still small."
       },
       "summary": "Incident reporting is your fastest security control. A click, a suspicious login, or a lost device is recoverable when reported early. The real risk is delay. At PAC, reporting is no-blame: we care about fast response, not perfect decisions.",
       "story": {
-        "title": "The breach that took 206 days to discover \u2014 because no one reported it",
-        "meta": "Incident reporting \u00b7 Dwell time \u00b7 Delayed response",
-        "text": "In a widely studied cybersecurity case, a retail company was compromised when an employee clicked a phishing link. The employee realized almost immediately that something had felt wrong about the email \u2014 the site had asked for their credentials and then seemed to error out.\n\nThey were embarrassed. They thought they'd probably imagined it, or that it wasn't a big deal. They didn't report it.\n\nThe attacker spent 206 days inside the network before being detected by an external security researcher. By that point, 56 million customer payment card records had been exfiltrated. The total cost of the breach exceeded $250 million.\n\nThe employee who clicked the link was never blamed. The investigation concluded that if they had reported the incident on day one, the attacker could have been evicted before any customer data was compromised.\n\nReporting is not the last line of defense. It is often the only line of defense that still works after an attack has started."
+        "title": "The breach that took 206 days to discover — because no one reported it",
+        "meta": "Incident reporting · Dwell time · Delayed response",
+        "text": "In a widely studied cybersecurity case, a retail company was compromised when an employee clicked a phishing link. The employee realized almost immediately that something had felt wrong about the email — the site had asked for their credentials and then seemed to error out.\n\nThey were embarrassed. They thought they'd probably imagined it, or that it wasn't a big deal. They didn't report it.\n\nThe attacker spent 206 days inside the network before being detected by an external security researcher. By that point, 56 million customer payment card records had been exfiltrated. The total cost of the breach exceeded $250 million.\n\nThe employee who clicked the link was never blamed. The investigation concluded that if they had reported the incident on day one, the attacker could have been evicted before any customer data was compromised.\n\nReporting is not the last line of defense. It is often the only line of defense that still works after an attack has started."
       },
       "barracuda": {
-        "title": "How to report using Barracuda \u2014 step by step",
+        "title": "How to report using Barracuda — step by step",
         "steps": [
-          "Open the suspicious email in Microsoft Outlook \u2014 do not click any links or open any attachments first",
-          "Look for the Barracuda button in your Outlook ribbon at the top of the screen \u2014 it appears as a Barracuda icon in the Home tab",
-          "Click the Barracuda button \u2014 a dialog will appear asking you to confirm the report",
+          "Open the suspicious email in Microsoft Outlook — do not click any links or open any attachments first",
+          "Look for the Barracuda button in your Outlook ribbon at the top of the screen — it appears as a Barracuda icon in the Home tab",
+          "Click the Barracuda button — a dialog will appear asking you to confirm the report",
           "Select the reason that best fits (Phishing, Spam, or Suspicious) and click Submit",
           "The email will be automatically forwarded to PAC's IT Security team and to Barracuda's threat intelligence network",
-          "You can safely delete the email after reporting \u2014 Barracuda has already captured it"
+          "You can safely delete the email after reporting — Barracuda has already captured it"
         ],
         "cantFindIt": "If you cannot find the Barracuda button in your ribbon, contact IT to have it installed. In the meantime, forward the suspicious email to phishing@pacgroup.com as an attachment.",
-        "afterYouReport": "After you click report, here is what happens: IT receives an automatic notification within minutes. If the email is confirmed as a phishing campaign, IT will alert the wider organization. If your credentials may have been compromised, IT will contact you directly to guide you through securing your account. You will not be in trouble for reporting \u2014 even if it turns out to be a false alarm."
+        "afterYouReport": "After you click report, here is what happens: IT receives an automatic notification within minutes. If the email is confirmed as a phishing campaign, IT will alert the wider organization. If your credentials may have been compromised, IT will contact you directly to guide you through securing your account. You will not be in trouble for reporting — even if it turns out to be a false alarm."
       },
       "whatHappensNext": {
-        "title": "What happens after you report \u2014 the full process",
+        "title": "What happens after you report — the full process",
         "steps": [
           "IT receives your report automatically via Barracuda within minutes",
-          "The email is analysed \u2014 IT determines whether it is phishing, spam, or legitimate",
+          "The email is analysed — IT determines whether it is phishing, spam, or legitimate",
           "If it is a confirmed phishing attempt, IT checks whether anyone else in the organization received the same email",
           "If a wider campaign is detected, IT sends a warning to affected employees",
-          "If you clicked a link or entered credentials, IT will contact you directly to help secure your account \u2014 this is supportive, not disciplinary",
+          "If you clicked a link or entered credentials, IT will contact you directly to help secure your account — this is supportive, not disciplinary",
           "The threat intelligence is shared with Barracuda to protect other organizations too"
         ]
       },
       "whenInDoubt": {
-        "title": "When in doubt \u2014 report it anyway",
-        "body": "The threshold for reporting should be zero. If something feels even slightly off \u2014 the sender seems unusual, the request is unexpected, the link destination looks strange, the tone is different from normal \u2014 report it. IT would rather receive 100 false alarms than miss one real attack. There is no such thing as over-reporting a security concern at PAC."
+        "title": "When in doubt — report it anyway",
+        "body": "The threshold for reporting should be zero. If something feels even slightly off — the sender seems unusual, the request is unexpected, the link destination looks strange, the tone is different from normal — report it. IT would rather receive 100 false alarms than miss one real attack. There is no such thing as over-reporting a security concern at PAC."
       },
       "redFlags": [
         "You clicked a link and the page looked wrong, failed oddly, or asked for unexpected credentials",
@@ -907,7 +1154,7 @@
       ],
       "responseSteps": [
         "Report immediately using Barracuda in Outlook (or your approved reporting route).",
-        "If credentials may be exposed, contact IT directly right away \u2014 don't rely on reporting alone.",
+        "If credentials may be exposed, contact IT directly right away — don't rely on reporting alone.",
         "Do not self-remediate first (no deleting, wiping, or ad-hoc fixes) until IT advises.",
         "Capture quick facts while fresh: what happened, when, and what you clicked/opened.",
         "For lost/stolen devices, notify IT and your manager immediately so containment starts fast.",
@@ -918,7 +1165,7 @@
         "points": [
           "Attackers cause most damage after initial access, not at first contact. Early reporting cuts that window down.",
           "IT can isolate accounts, devices, and campaigns quickly only if they know early.",
-          "No-blame reporting isn't just culture \u2014 it's a practical defense mechanism."
+          "No-blame reporting isn't just culture — it's a practical defense mechanism."
         ]
       },
       "checkIn": [
@@ -954,7 +1201,7 @@
             },
             {
               "id": "b",
-              "label": "If you report an incident honestly, you will be supported \u2014 not punished"
+              "label": "If you report an incident honestly, you will be supported — not punished"
             },
             {
               "id": "c",
@@ -966,9 +1213,43 @@
             }
           ],
           "correctChoiceId": "b",
-          "explanation": "No-blame means early reporting is encouraged and supported \u2014 especially when you're unsure."
+          "explanation": "No-blame means early reporting is encouraged and supported — especially when you're unsure."
         }
-      ]
+      ],
+      "layoutVariant": "story-first",
+      "moduleHero": {
+        "icon": "🚨",
+        "title": "Speed is the control",
+        "description": "Early reporting contains incidents; silence gives attackers time to expand impact."
+      },
+      "redFlagSpotter": {
+        "title": "Spot the red flag",
+        "prompt": "You clicked a suspicious link and entered credentials, then decide to delete the email and wait. What should be flagged?",
+        "flags": [
+          {
+            "id": "a",
+            "label": "Credential exposure event"
+          },
+          {
+            "id": "b",
+            "label": "Delay in reporting to IT"
+          },
+          {
+            "id": "c",
+            "label": "Attempted self-cleanup without containment"
+          },
+          {
+            "id": "d",
+            "label": "Deleting inbox clutter"
+          }
+        ],
+        "correctFlagIds": [
+          "a",
+          "b",
+          "c"
+        ],
+        "explanation": "Containment depends on immediate reporting. Quiet self-remediation delays response and increases blast radius."
+      }
     }
   }
 }

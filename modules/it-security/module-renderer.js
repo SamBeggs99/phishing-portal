@@ -20,9 +20,10 @@ export async function renderITModule(moduleId) {
     const e = s => escapeHtml(String(s ?? ""));
     const quick = getQuickTakeaway(t);
     const scenario = getMicroScenario(t);
+    const hero = getModuleHero(t);
     const ul = arr => arr?.length ? `<ul class="list-clean">${arr.map(f=>`<li>${e(f)}</li>`).join("")}</ul>` : "";
     const quickTakeaway = quick?.points?.length ? `
-      <div class="content-section" style="border-color:var(--border-red);background:rgba(171,35,40,0.06);">
+      <div class="content-section tone-warning">
         <div class="mono-label" style="margin-bottom:8px;">${e(quick.title || "1-minute takeaway")}</div>
         ${ul(quick.points)}
       </div>` : "";
@@ -46,8 +47,9 @@ export async function renderITModule(moduleId) {
         <span style="font-size:13.5px;color:var(--text-2);line-height:1.6;">${e(s)}</span>
       </li>`).join("")}</ol>` : "";
 
+  const redFlagSpotter = renderRedFlagSpotter(t.redFlagSpotter);
   const story = t.story ? `
-    <div class="content-section">
+    <div class="content-section tone-neutral">
       <div class="mono-label" style="margin-bottom:8px;">${e(m.realStory||"Real-world story")}</div>
       <h2 style="margin-bottom:4px;">${e(t.story.title)}</h2>
       <div class="mono-label" style="color:var(--text-3);margin-bottom:14px;">${e(t.story.meta)}</div>
@@ -226,32 +228,40 @@ export async function renderITModule(moduleId) {
       <p style="font-size:14px;color:var(--text-2);line-height:1.75;">${e(t.whenInDoubt.body)}</p>
     </div>` : "";
 
-    document.getElementById("module-root").innerHTML = `
-    <div class="module-body">
-      ${quickTakeaway}
-      <div class="content-section">
+    const summary = `
+      <div class="content-section tone-action">
         <div class="mono-label" style="margin-bottom:8px;">${e(m.keyTakeaway||"Key takeaway")}</div>
         <p style="font-size:15px;color:var(--text-2);line-height:1.75;">${e(t.summary)}</p>
-      </div>
-      ${story}
+      </div>`;
+    const flagsAndSteps = `
       <div class="content-two-col">
         <div class="content-section"><h2>🚩 ${e(m.redFlags||"Red flags")}</h2>${ul(t.redFlags)}</div>
         <div class="content-section"><h2>✅ ${e(m.whatToDo||"What to do")}</h2>${ul(t.responseSteps)}</div>
-      </div>
+      </div>`;
+    const extras = `
       ${passwordStrength}${ifCompromised}
       ${eodChecklist}${publicSpaces}
       ${dataClassification}${yesNo}${consequences}
       ${visitorScript}${usbDrop}
       ${beforeYouPost}${engSpecific}
       ${vpnTrouble}${homeRouter}
-      ${barracuda}${whatHappensNext}${whenInDoubt}
-      ${microScenario}
-      ${deeper}
-      ${renderCheckIn(t.checkIn, ui)}
+      ${barracuda}${whatHappensNext}${whenInDoubt}`;
+    const checkInHTML = renderCheckIn(t.checkIn, ui);
+    const variant = t.layoutVariant || "default";
+    const orderedSections = variant === "story-first"
+      ? [hero, story, summary, flagsAndSteps, redFlagSpotter, extras, microScenario, deeper, checkInHTML]
+      : variant === "scenario-first"
+        ? [quickTakeaway, hero, microScenario, redFlagSpotter, summary, flagsAndSteps, extras, story, deeper, checkInHTML]
+        : [quickTakeaway, hero, summary, story, flagsAndSteps, extras, redFlagSpotter, microScenario, deeper, checkInHTML];
+
+    document.getElementById("module-root").innerHTML = `
+    <div class="module-body">
+      ${orderedSections.filter(Boolean).join("")}
     </div>`;
 
     initCheckIn(t.checkIn, ui);
     initMicroScenario(getMicroScenario(t), ui);
+    initRedFlagSpotter(t.redFlagSpotter, ui);
     setTimeout(() => markModuleComplete(moduleId), 8000);
   } catch (err) {
     console.error("Failed to render IT security module:", err);
@@ -319,4 +329,73 @@ function getMicroScenario(topic) {
     correctChoiceId: fallback.correctChoiceId,
     bestAction: fallback.explanation || "Choose the safest verified path before acting."
   };
+}
+
+function getModuleHero(topic) {
+  if (!topic.moduleHero?.title && !topic.moduleHero?.description) return "";
+  return `
+    <div class="content-section tone-neutral">
+      <div class="module-hero-strip">
+        <span class="module-hero-icon">${escapeHtml(topic.moduleHero?.icon || "🛡️")}</span>
+        <div>
+          <div class="mono-label" style="margin-bottom:5px;">Module focus</div>
+          <h2 style="margin-bottom:6px;">${escapeHtml(topic.moduleHero?.title || "Think before you click")}</h2>
+          <p class="small-note">${escapeHtml(topic.moduleHero?.description || "")}</p>
+        </div>
+      </div>
+    </div>`;
+}
+
+function renderRedFlagSpotter(spotter) {
+  if (!spotter?.prompt || !spotter?.flags?.length || !spotter?.correctFlagIds?.length) return "";
+  return `
+    <div class="content-section tone-warning">
+      <div class="mono-label" style="margin-bottom:8px;">${escapeHtml(spotter.title || "Spot the red flag")}</div>
+      <p style="font-size:14px;color:var(--text-2);line-height:1.7;margin-bottom:12px;">${escapeHtml(spotter.prompt)}</p>
+      <div class="red-flag-choices" id="rf-choices">
+        ${(spotter.flags || []).map(flag => `
+          <label class="choice rf-choice" data-id="${escapeHtml(flag.id)}">
+            <input type="checkbox" value="${escapeHtml(flag.id)}" style="margin-top:3px;accent-color:#AB2328;flex-shrink:0;width:14px;height:14px;"/>
+            <div><span class="choice-label">${escapeHtml(flag.label)}</span></div>
+          </label>`).join("")}
+      </div>
+      <button class="btn sm" id="rf-submit" type="button" style="margin-top:12px;">Check choices</button>
+      <div id="rf-feedback" class="hidden" style="margin-top:10px;padding:12px 14px;border-radius:var(--radius);font-size:13px;line-height:1.6;border-left:3px solid transparent;"></div>
+    </div>`;
+}
+
+function initRedFlagSpotter(spotter, ui) {
+  if (!spotter?.correctFlagIds?.length) return;
+  const root = document.getElementById("rf-choices");
+  const submit = document.getElementById("rf-submit");
+  const feedback = document.getElementById("rf-feedback");
+  if (!root || !submit || !feedback) return;
+
+  const e = s => escapeHtml(String(s ?? ""));
+  const m = ui?.module || {};
+  submit.addEventListener("click", () => {
+    const selected = [...root.querySelectorAll("input:checked")].map(i => i.value);
+    const expected = [...spotter.correctFlagIds].sort();
+    const actual = [...selected].sort();
+    const ok = expected.length === actual.length && expected.every((id, idx) => id === actual[idx]);
+
+    root.querySelectorAll("input").forEach(input => input.disabled = true);
+    root.querySelectorAll(".rf-choice").forEach(choice => {
+      const id = choice.dataset.id;
+      if (spotter.correctFlagIds.includes(id)) {
+        choice.style.borderColor = "rgba(46,204,113,0.4)";
+        choice.style.background = "rgba(46,204,113,0.07)";
+      } else if (selected.includes(id)) {
+        choice.style.borderColor = "rgba(232,51,42,0.4)";
+        choice.style.background = "rgba(232,51,42,0.07)";
+      }
+    });
+    submit.disabled = true;
+    feedback.classList.remove("hidden");
+    feedback.style.borderLeftColor = ok ? "#2ECC71" : "#AB2328";
+    feedback.style.background = ok ? "rgba(46,204,113,0.05)" : "rgba(171,35,40,0.05)";
+    feedback.innerHTML = `
+      <strong style="color:${ok ? "#2ECC71" : "#AB2328"};font-size:11px;text-transform:uppercase;letter-spacing:0.08em;font-family:monospace;">${e(ok ? (m.correct || "Correct") : (m.incorrect || "Incorrect"))}</strong>
+      <p style="margin-top:5px;color:var(--text-2);">${e(spotter.explanation || "Review the suspicious cues and verify through trusted channels.")}</p>`;
+  });
 }

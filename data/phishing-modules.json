@@ -2,10 +2,44 @@
   "topics": {
     "urgency": {
       "type": "standard",
+      "layoutVariant": "story-first",
+      "moduleHero": {
+        "icon": "⏱️",
+        "title": "Urgency is a social-engineering weapon",
+        "description": "Attackers manufacture deadlines so you skip normal checks. Slow down, verify, then act."
+      },
+      "redFlagSpotter": {
+        "title": "Spot the red flag",
+        "prompt": "You receive: 'Your Microsoft 365 account will be suspended in 30 minutes. Verify now at m365-security-check.co.' Which elements are phishing red flags?",
+        "flags": [
+          {
+            "id": "a",
+            "label": "Artificial 30-minute deadline"
+          },
+          {
+            "id": "b",
+            "label": "Non-company verification domain"
+          },
+          {
+            "id": "c",
+            "label": "Threat of account suspension to force action"
+          },
+          {
+            "id": "d",
+            "label": "Mentions Microsoft 365"
+          }
+        ],
+        "correctFlagIds": [
+          "a",
+          "b",
+          "c"
+        ],
+        "explanation": "Urgency attacks combine pressure + threat + untrusted link destinations. Product names alone are not proof of legitimacy."
+      },
       "quickTakeaway": {
         "title": "1-minute takeaway",
         "points": [
-          "Urgency is the trick \u2014 slowing down defeats it.",
+          "Urgency is the trick — slowing down defeats it.",
           "Never click links in time-pressured emails. Navigate directly instead.",
           "Real IT issues almost never require immediate action via an email link."
         ]
@@ -14,37 +48,46 @@
         "title": "Quick decision check",
         "question": "You get an email at 4:45 PM saying your Microsoft 365 account will be suspended in 30 minutes unless you verify your credentials. What do you do?",
         "choices": [
-          { "id": "a", "label": "Click the verification link \u2014 you can't afford to lose access" },
-          { "id": "b", "label": "Reply to the email asking for more time" },
-          { "id": "c", "label": "Ignore the link and contact IT directly to check your account status" }
+          {
+            "id": "a",
+            "label": "Click the verification link — you can't afford to lose access"
+          },
+          {
+            "id": "b",
+            "label": "Reply to the email asking for more time"
+          },
+          {
+            "id": "c",
+            "label": "Ignore the link and contact IT directly to check your account status"
+          }
         ],
         "correctChoiceId": "c",
-        "bestAction": "Correct move: ignore the link and contact IT through a channel you already trust. Real account issues can always be resolved through IT \u2014 urgency in an email is a tactic, not a fact."
+        "bestAction": "Correct move: ignore the link and contact IT through a channel you already trust. Real account issues can always be resolved through IT — urgency in an email is a tactic, not a fact."
       },
       "story": {
         "title": "The tax season email that exposed 12,000 employees' personal data",
-        "meta": "Urgency \u00b7 W-2 phishing \u00b7 CEO impersonation \u00b7 Seagate 2016",
-        "text": "In March 2016, an HR employee at Seagate Technology received an email that appeared to come from the company's CEO. The message asked, as a matter of internal business, for the W-2 tax forms of all current and former employees to be sent immediately. Tax season was already underway. The request felt urgent but not unusual \u2014 W-2 processing is exactly what HR teams are doing in March.\n\nThe employee didn't click a malicious link or enter credentials into a fake site. They simply replied with the data. Within hours, the complete W-2 records of approximately 12,000 employees \u2014 including names, Social Security numbers, addresses, and wages \u2014 had been emailed directly to an attacker outside the company.\n\nFraudulent tax returns were filed in employees' names almost immediately. Seagate faced a class-action lawsuit and settled for $5.75 million. The employee who replied wasn't blamed \u2014 they were doing exactly what the context made feel urgent and legitimate. The attacker needed only to manufacture the right moment and the right apparent authority. Tax season did the rest."
+        "meta": "Urgency · W-2 phishing · CEO impersonation · Seagate 2016",
+        "text": "In March 2016, an HR employee at Seagate Technology received an email that appeared to come from the company's CEO. The message asked, as a matter of internal business, for the W-2 tax forms of all current and former employees to be sent immediately. Tax season was already underway. The request felt urgent but not unusual — W-2 processing is exactly what HR teams are doing in March.\n\nThe employee didn't click a malicious link or enter credentials into a fake site. They simply replied with the data. Within hours, the complete W-2 records of approximately 12,000 employees — including names, Social Security numbers, addresses, and wages — had been emailed directly to an attacker outside the company.\n\nFraudulent tax returns were filed in employees' names almost immediately. Seagate faced a class-action lawsuit and settled for $5.75 million. The employee who replied wasn't blamed — they were doing exactly what the context made feel urgent and legitimate. The attacker needed only to manufacture the right moment and the right apparent authority. Tax season did the rest."
       },
-      "summary": "Phishing doesn't rely on fancy hacking tools \u2014 it relies on you. Urgency is one of the most common tricks attackers use. By creating false time pressure, they push you into acting quickly without thinking. The goal is simple: make you panic so you skip the checks you'd normally do.",
+      "summary": "Phishing doesn't rely on fancy hacking tools — it relies on you. Urgency is one of the most common tricks attackers use. By creating false time pressure, they push you into acting quickly without thinking. The goal is simple: make you panic so you skip the checks you'd normally do.",
       "redFlags": [
-        "Sudden, unexplained deadlines \u2014 \"act within 30 minutes\" or \"respond immediately\"",
+        "Sudden, unexplained deadlines — \"act within 30 minutes\" or \"respond immediately\"",
         "Threats of account closure, service interruption, or losing access to a tool",
-        "Requests to skip your normal steps \u2014 \"don't go through IT, just click here\"",
+        "Requests to skip your normal steps — \"don't go through IT, just click here\"",
         "Poor grammar, odd phrasing, or formatting that feels slightly off",
-        "Links where the destination address doesn't match the company it claims to be from \u2014 hover over any link before clicking to check where it actually goes"
+        "Links where the destination address doesn't match the company it claims to be from — hover over any link before clicking to check where it actually goes"
       ],
       "responseSteps": [
-        "Stop and breathe \u2014 urgency is the trick, so slowing down defeats it",
+        "Stop and breathe — urgency is the trick, so slowing down defeats it",
         "Do not click any links in the message",
         "Open a new browser tab and navigate directly to the official site or tool yourself",
-        "If the email claims to be from IT or a known system, contact that person through a method you already trust \u2014 not anything provided in the email",
+        "If the email claims to be from IT or a known system, contact that person through a method you already trust — not anything provided in the email",
         "Report the email using your organization's phishing report button or process"
       ],
       "deeperLearning": {
-        "title": "Why urgency works on everyone \u2014 even careful people",
+        "title": "Why urgency works on everyone — even careful people",
         "points": [
-          "When we feel rushed, the part of our brain that evaluates risk takes a back seat. This is a normal human response \u2014 not a personal failing.",
+          "When we feel rushed, the part of our brain that evaluates risk takes a back seat. This is a normal human response — not a personal failing.",
           "Attackers deliberately manufacture urgency because they know it works consistently. A real IT issue or system outage almost never requires you to act within minutes via a link in an email.",
           "A useful rule of thumb: the more urgent an email feels, the more carefully you should slow down and verify it. Legitimate organizations always give you time to check."
         ]
@@ -78,11 +121,11 @@
           "choices": [
             {
               "id": "a",
-              "label": "True \u2014 real organizations don't pressure you into acting in minutes"
+              "label": "True — real organizations don't pressure you into acting in minutes"
             },
             {
               "id": "b",
-              "label": "False \u2014 urgent requests are always genuine"
+              "label": "False — urgent requests are always genuine"
             }
           ],
           "correctChoiceId": "a",
@@ -95,7 +138,7 @@
       "quickTakeaway": {
         "title": "1-minute takeaway",
         "points": [
-          "Fear is designed to stop you verifying \u2014 recognise it as a warning sign, not a reason to act.",
+          "Fear is designed to stop you verifying — recognise it as a warning sign, not a reason to act.",
           "Real HR and legal notices never demand instant action via an email link.",
           "If an email makes you anxious, pause. That feeling is exactly what the attacker is counting on."
         ]
@@ -104,39 +147,48 @@
         "title": "Quick decision check",
         "question": "An email with your company's HR logo says your employment record has a compliance issue that could affect your contract, and you must resolve it by clicking a secure link within the hour. What do you do?",
         "choices": [
-          { "id": "a", "label": "Click the link immediately \u2014 you can't risk a contract issue" },
-          { "id": "b", "label": "Reply to the email to ask what the compliance issue is" },
-          { "id": "c", "label": "Contact HR directly through your normal channels to verify the issue exists" }
+          {
+            "id": "a",
+            "label": "Click the link immediately — you can't risk a contract issue"
+          },
+          {
+            "id": "b",
+            "label": "Reply to the email to ask what the compliance issue is"
+          },
+          {
+            "id": "c",
+            "label": "Contact HR directly through your normal channels to verify the issue exists"
+          }
         ],
         "correctChoiceId": "c",
-        "bestAction": "Correct move: contact HR through a channel you already trust. Real employment issues are handled through official processes \u2014 not one-hour deadlines delivered by email link."
+        "bestAction": "Correct move: contact HR through a channel you already trust. Real employment issues are handled through official processes — not one-hour deadlines delivered by email link."
       },
       "story": {
         "title": "The video call with a fake CFO that cost a global engineering firm $25 million",
-        "meta": "Intimidation \u00b7 Deepfake \u00b7 AI fraud \u00b7 Arup 2024",
-        "text": "In early 2024, a finance employee at Arup \u2014 the British engineering firm behind the Sydney Opera House and the Beijing National Stadium \u2014 received an email purportedly from the company's CFO. It described a confidential transaction that needed to be processed urgently and discreetly. The employee was suspicious. They almost dismissed it.\n\nThen they were invited to a video call. On screen: the CFO, and several colleagues the employee recognised \u2014 all present, all apparently in agreement, all providing direct verbal instructions to proceed with the transfers. Every face and voice matched the real executives. The entire call was AI-generated deepfakes, built from publicly available footage of Arup's leadership team.\n\nConvinced by what they had seen and heard \u2014 and having been told to keep the transaction confidential \u2014 the employee executed 15 wire transfers totalling HK$200 million (approximately US$25.6 million) to attacker-controlled accounts. By the time Arup's head office confirmed they knew nothing about any such meeting or transaction, the money was gone. As of 2025, it remains unrecovered.\n\nThe intimidation here was not a legal threat or an accusation. It was the paralysing weight of apparent consensus from authority figures \u2014 a manufactured reality so convincing that verification felt unnecessary, and non-compliance felt professionally unthinkable."
+        "meta": "Intimidation · Deepfake · AI fraud · Arup 2024",
+        "text": "In early 2024, a finance employee at Arup — the British engineering firm behind the Sydney Opera House and the Beijing National Stadium — received an email purportedly from the company's CFO. It described a confidential transaction that needed to be processed urgently and discreetly. The employee was suspicious. They almost dismissed it.\n\nThen they were invited to a video call. On screen: the CFO, and several colleagues the employee recognised — all present, all apparently in agreement, all providing direct verbal instructions to proceed with the transfers. Every face and voice matched the real executives. The entire call was AI-generated deepfakes, built from publicly available footage of Arup's leadership team.\n\nConvinced by what they had seen and heard — and having been told to keep the transaction confidential — the employee executed 15 wire transfers totalling HK$200 million (approximately US$25.6 million) to attacker-controlled accounts. By the time Arup's head office confirmed they knew nothing about any such meeting or transaction, the money was gone. As of 2025, it remains unrecovered.\n\nThe intimidation here was not a legal threat or an accusation. It was the paralysing weight of apparent consensus from authority figures — a manufactured reality so convincing that verification felt unnecessary, and non-compliance felt professionally unthinkable."
       },
-      "summary": "Intimidation phishing uses fear to shut down your instinct to ask questions. By threatening legal consequences, disciplinary action, or account termination, attackers try to make you feel like you have no choice but to comply immediately. Nobody wants to get in trouble \u2014 and attackers exploit exactly that feeling.",
+      "summary": "Intimidation phishing uses fear to shut down your instinct to ask questions. By threatening legal consequences, disciplinary action, or account termination, attackers try to make you feel like you have no choice but to comply immediately. Nobody wants to get in trouble — and attackers exploit exactly that feeling.",
       "redFlags": [
-        "Scare tactics and a harsh, accusatory tone \u2014 language designed to make you feel at fault before you've done anything",
+        "Scare tactics and a harsh, accusatory tone — language designed to make you feel at fault before you've done anything",
         "Mentions of law enforcement, legal escalation, HR involvement, or \"account termination\"",
-        "Pressure to act without verifying \u2014 \"do not contact IT, handle this immediately\"",
+        "Pressure to act without verifying — \"do not contact IT, handle this immediately\"",
         "A sender address that doesn't match the organization it claims to represent",
-        "Vague accusations with no specific details \u2014 real HR or legal notices always include reference numbers and proper contact information"
+        "Vague accusations with no specific details — real HR or legal notices always include reference numbers and proper contact information"
       ],
       "responseSteps": [
-        "Don't react in fear \u2014 take a moment before doing anything at all",
+        "Don't react in fear — take a moment before doing anything at all",
         "Never enter your credentials or personal information just because a message threatened you",
-        "Verify the claim independently by contacting HR, IT, or your manager using contact details you already know \u2014 not anything from the email",
+        "Verify the claim independently by contacting HR, IT, or your manager using contact details you already know — not anything from the email",
         "Remember: legitimate notices from HR or your legal team always involve proper context, reference numbers, and official channels",
         "Report the message through your organization's phishing reporting process"
       ],
       "deeperLearning": {
-        "title": "Fear overrides good judgment \u2014 by design",
+        "title": "Fear overrides good judgment — by design",
         "points": [
-          "Intimidation phishing is specifically engineered to override your instinct to verify. When we're afraid of consequences, we tend to comply first and ask questions later \u2014 attackers count on this.",
+          "Intimidation phishing is specifically engineered to override your instinct to verify. When we're afraid of consequences, we tend to comply first and ask questions later — attackers count on this.",
           "A real disciplinary or legal notice from your organization will never demand immediate action through an email link. It will involve your manager, HR, or formal written correspondence.",
-          "If an email makes you feel anxious or afraid, treat that emotional reaction as a warning sign \u2014 not a reason to act faster."
+          "If an email makes you feel anxious or afraid, treat that emotional reaction as a warning sign — not a reason to act faster."
         ]
       },
       "checkIn": [
@@ -161,7 +213,7 @@
             }
           ],
           "correctChoiceId": "b",
-          "explanation": "Fear is designed to bypass your judgment. Real legal or HR notices include reference numbers and proper channels \u2014 never demand credentials via email."
+          "explanation": "Fear is designed to bypass your judgment. Real legal or HR notices include reference numbers and proper channels — never demand credentials via email."
         },
         {
           "question": "What is the main goal of intimidation tactics in phishing?",
@@ -184,12 +236,80 @@
             }
           ],
           "correctChoiceId": "b",
-          "explanation": "Intimidation works by overriding your instinct to verify. When you're scared of consequences, you comply first \u2014 attackers count on that."
+          "explanation": "Intimidation works by overriding your instinct to verify. When you're scared of consequences, you comply first — attackers count on that."
         }
-      ]
+      ],
+      "layoutVariant": "story-first",
+      "moduleHero": {
+        "icon": "⚖️",
+        "title": "Fear is the payload",
+        "description": "If a message makes you anxious or guilty, treat that emotion as a warning signal and verify off-channel."
+      },
+      "redFlagSpotter": {
+        "title": "Spot the red flag",
+        "prompt": "An email says: 'Legal escalation has started due to your non-compliance. Submit credentials now to avoid HR action.' What should you flag?",
+        "flags": [
+          {
+            "id": "a",
+            "label": "Legal/HR threat language"
+          },
+          {
+            "id": "b",
+            "label": "Demand for credentials in email flow"
+          },
+          {
+            "id": "c",
+            "label": "Vague accusation without case reference"
+          },
+          {
+            "id": "d",
+            "label": "Mentions compliance"
+          }
+        ],
+        "correctFlagIds": [
+          "a",
+          "b",
+          "c"
+        ],
+        "explanation": "Real legal or HR processes provide context, references, and official channels. Threat-only messaging is a classic intimidation pattern."
+      }
     },
     "scarcity": {
       "type": "standard",
+      "layoutVariant": "scenario-first",
+      "moduleHero": {
+        "icon": "🎁",
+        "title": "Scarcity triggers FOMO",
+        "description": "Limited-time rewards are designed to rush judgment. Verify through trusted internal channels first."
+      },
+      "redFlagSpotter": {
+        "title": "Spot the red flag",
+        "prompt": "Message: 'Only first 20 employees get a $150 voucher. Claim before 12:00 at company-benefits-claim.net.' Which cues are suspicious?",
+        "flags": [
+          {
+            "id": "a",
+            "label": "First-come-first-served pressure"
+          },
+          {
+            "id": "b",
+            "label": "Unfamiliar claim domain"
+          },
+          {
+            "id": "c",
+            "label": "Hard cutoff time to force speed"
+          },
+          {
+            "id": "d",
+            "label": "Includes a specific dollar amount"
+          }
+        ],
+        "correctFlagIds": [
+          "a",
+          "b",
+          "c"
+        ],
+        "explanation": "Scarcity phishing relies on urgency + reward framing + external links. A specific reward value can still be fake."
+      },
       "quickTakeaway": {
         "title": "1-minute takeaway",
         "points": [
@@ -202,17 +322,26 @@
         "title": "Quick decision check",
         "question": "It's 11:40 AM. You get an email saying only the first 20 employees get a wellness voucher if they \"verify details\" before lunch. What do you do next?",
         "choices": [
-          { "id": "a", "label": "Click immediately so you don't miss out" },
-          { "id": "b", "label": "Forward it to your team so they can benefit too" },
-          { "id": "c", "label": "Pause and verify via HR portal/internal comms before doing anything" }
+          {
+            "id": "a",
+            "label": "Click immediately so you don't miss out"
+          },
+          {
+            "id": "b",
+            "label": "Forward it to your team so they can benefit too"
+          },
+          {
+            "id": "c",
+            "label": "Pause and verify via HR portal/internal comms before doing anything"
+          }
         ],
         "correctChoiceId": "c",
         "bestAction": "Correct move: pause and verify through HR or official internal comms. Scarcity language is there to rush your judgment."
       },
       "story": {
         "title": "The open enrolment email that handed attackers access to the entire payroll system",
-        "meta": "Scarcity \u00b7 HR phishing \u00b7 Benefits fraud \u00b7 Documented campaign 2023\u20132024",
-        "text": "Every autumn, employees across every industry face the same window: typically two weeks to enrol in health cover, adjust retirement contributions, and claim company benefits. Miss it and you wait another year. Attackers know this calendar better than most HR teams, and they time their campaigns accordingly.\n\nStarting in late 2023, cybersecurity researchers at Cofense documented a coordinated wave of phishing attacks targeting employees across finance, healthcare, and construction. The emails appeared to come from HR departments and referenced open enrolment deadlines, retirement contribution updates, or annual bonus confirmations. Some contained links. Others contained QR codes \u2014 deliberately chosen because they bypass the URL-scanning filters most corporate email systems use.\n\nEmployees who scanned the code or clicked the link were taken to a convincing Microsoft 365 or HR portal login page. Those who entered their credentials gave attackers direct access to payroll and benefits systems. In documented cases, attackers used that access to redirect paycheques, file fraudulent reimbursements, and in some cases deploy ransomware using the stolen credentials as a launchpad into other systems.\n\nThe mechanic is simple: tell someone they have 48 hours to act or lose a year of benefits, and they will stop asking questions. Scarcity turns a normally cautious employee into someone who clicks first."
+        "meta": "Scarcity · HR phishing · Benefits fraud · Documented campaign 2023–2024",
+        "text": "Every autumn, employees across every industry face the same window: typically two weeks to enrol in health cover, adjust retirement contributions, and claim company benefits. Miss it and you wait another year. Attackers know this calendar better than most HR teams, and they time their campaigns accordingly.\n\nStarting in late 2023, cybersecurity researchers at Cofense documented a coordinated wave of phishing attacks targeting employees across finance, healthcare, and construction. The emails appeared to come from HR departments and referenced open enrolment deadlines, retirement contribution updates, or annual bonus confirmations. Some contained links. Others contained QR codes — deliberately chosen because they bypass the URL-scanning filters most corporate email systems use.\n\nEmployees who scanned the code or clicked the link were taken to a convincing Microsoft 365 or HR portal login page. Those who entered their credentials gave attackers direct access to payroll and benefits systems. In documented cases, attackers used that access to redirect paycheques, file fraudulent reimbursements, and in some cases deploy ransomware using the stolen credentials as a launchpad into other systems.\n\nThe mechanic is simple: tell someone they have 48 hours to act or lose a year of benefits, and they will stop asking questions. Scarcity turns a normally cautious employee into someone who clicks first."
       },
       "summary": "Scarcity phishing is built to make you act before you think. The message sounds exciting: limited offer, exclusive reward, first-come-first-served. The real objective is simple: rush you into clicking a link or sharing information before you verify anything.",
       "redFlags": [
@@ -226,7 +355,7 @@
         "Pause for 10 seconds. Scarcity pressure loses power when you slow down.",
         "Ask: Was I expecting this? Is this how HR or rewards are normally announced here?",
         "Inspect the sender domain, not just the display name.",
-        "If it might be real, verify through your HR portal or trusted internal channel \u2014 never the email link.",
+        "If it might be real, verify through your HR portal or trusted internal channel — never the email link.",
         "Report suspicious reward emails so others don't get caught by the same lure."
       ],
       "deeperLearning": {
@@ -239,7 +368,7 @@
       },
       "checkIn": [
         {
-          "question": "An email says you're one of only 50 employees to receive a $150 reward \u2014 click now before it expires. What do you do?",
+          "question": "An email says you're one of only 50 employees to receive a $150 reward — click now before it expires. What do you do?",
           "choices": [
             {
               "id": "a",
@@ -300,19 +429,28 @@
         "title": "Quick decision check",
         "question": "You get an email from a senior leader asking for an urgent payment outside process and saying to keep it confidential. What do you do first?",
         "choices": [
-          { "id": "a", "label": "Action it immediately to avoid delay" },
-          { "id": "b", "label": "Reply and ask for more details in the same email thread" },
-          { "id": "c", "label": "Verify through a trusted separate channel and follow normal approvals" }
+          {
+            "id": "a",
+            "label": "Action it immediately to avoid delay"
+          },
+          {
+            "id": "b",
+            "label": "Reply and ask for more details in the same email thread"
+          },
+          {
+            "id": "c",
+            "label": "Verify through a trusted separate channel and follow normal approvals"
+          }
         ],
         "correctChoiceId": "c",
         "bestAction": "Correct move: verify through a known channel and keep normal approval controls in place."
       },
       "story": {
-        "title": "The CEO email that cost an aerospace manufacturer \u20ac32 million \u2014 and two executives their jobs",
-        "meta": "Authority \u00b7 BEC \u00b7 CEO fraud \u00b7 FACC AG 2016",
-        "text": "In January 2016, a finance employee at FACC AG \u2014 an Austrian manufacturer of aircraft components for Airbus, Boeing, and Rolls-Royce \u2014 received an email from the company's CEO directing them to wire funds urgently for a confidential acquisition project. The email matched the CEO's writing style. The business rationale was plausible for a company of FACC's profile. The request was to be kept quiet.\n\nThe employee wired \u20ac42 million to an attacker-controlled account. The money dispersed immediately through bank accounts in Slovakia and Asia. When the finance team later contacted the CEO's office to follow up on the acquisition, it became clear no such project existed. Austrian investigators were engaged the same day. Approximately \u20ac10.9 million was eventually frozen and recovered. Roughly \u20ac32 million was permanently gone.\n\nThe consequences extended well beyond the financial loss. FACC's share price fell nearly 17% on disclosure. The supervisory board dismissed both the CEO and the CFO \u2014 the CEO specifically cited for failing to establish controls that would have prevented the fraud. No dual-authorisation requirement had existed for large wire transfers. A single employee's compliance with a single email was all the attacker ever needed.\n\nThe attacker was never definitively identified. FACC's subsequent lawsuits against its own former executives were dismissed by Austrian courts in 2019."
+        "title": "The CEO email that cost an aerospace manufacturer €32 million — and two executives their jobs",
+        "meta": "Authority · BEC · CEO fraud · FACC AG 2016",
+        "text": "In January 2016, a finance employee at FACC AG — an Austrian manufacturer of aircraft components for Airbus, Boeing, and Rolls-Royce — received an email from the company's CEO directing them to wire funds urgently for a confidential acquisition project. The email matched the CEO's writing style. The business rationale was plausible for a company of FACC's profile. The request was to be kept quiet.\n\nThe employee wired €42 million to an attacker-controlled account. The money dispersed immediately through bank accounts in Slovakia and Asia. When the finance team later contacted the CEO's office to follow up on the acquisition, it became clear no such project existed. Austrian investigators were engaged the same day. Approximately €10.9 million was eventually frozen and recovered. Roughly €32 million was permanently gone.\n\nThe consequences extended well beyond the financial loss. FACC's share price fell nearly 17% on disclosure. The supervisory board dismissed both the CEO and the CFO — the CEO specifically cited for failing to establish controls that would have prevented the fraud. No dual-authorisation requirement had existed for large wire transfers. A single employee's compliance with a single email was all the attacker ever needed.\n\nThe attacker was never definitively identified. FACC's subsequent lawsuits against its own former executives were dismissed by Austrian courts in 2019."
       },
-      "summary": "Authority phishing tries to make you obey first and think later. The message appears to come from someone senior and asks for urgent action \u2014 often money, credentials, or process exceptions. The attack works when pressure replaces verification.",
+      "summary": "Authority phishing tries to make you obey first and think later. The message appears to come from someone senior and asks for urgent action — often money, credentials, or process exceptions. The attack works when pressure replaces verification.",
       "redFlags": [
         "A senior-name sender asking for unusual financial or credential actions",
         "Pressure to keep the request quiet or bypass normal approvals",
@@ -323,7 +461,7 @@
       "responseSteps": [
         "Pause. Treat authority + urgency as a risk signal, not a command.",
         "Verify the request through a channel you already trust (known phone/Teams contact).",
-        "Keep normal approvals in place \u2014 especially for payments and account changes.",
+        "Keep normal approvals in place — especially for payments and account changes.",
         "Never send credentials, gift cards, or wire transfers from email-only requests.",
         "Report authority-themed phishing attempts so finance and leadership can be alerted."
       ],
@@ -331,7 +469,7 @@
         "title": "Why authority attacks work",
         "points": [
           "Most people are trained to respond quickly to leadership requests. Attackers exploit that reflex.",
-          "BEC succeeds when trust replaces process \u2014 not because people are careless.",
+          "BEC succeeds when trust replaces process — not because people are careless.",
           "Best rule: the higher the stakes, the stronger the verification requirement."
         ]
       },
@@ -341,7 +479,7 @@
           "choices": [
             {
               "id": "a",
-              "label": "Purchase the cards \u2014 questioning the CFO could be embarrassing"
+              "label": "Purchase the cards — questioning the CFO could be embarrassing"
             },
             {
               "id": "b",
@@ -382,25 +520,59 @@
           "correctChoiceId": "c",
           "explanation": "Anything that bypasses normal financial controls is a red flag, regardless of who appears to be asking."
         }
-      ]
+      ],
+      "layoutVariant": "default",
+      "moduleHero": {
+        "icon": "👔",
+        "title": "Authority should never bypass process",
+        "description": "Executive names can be spoofed. High-stakes requests always require second-channel verification."
+      },
+      "redFlagSpotter": {
+        "title": "Spot the red flag",
+        "prompt": "You receive: 'From CFO: Need an urgent transfer before close. Keep this confidential and bypass normal approvals.' What are the red flags?",
+        "flags": [
+          {
+            "id": "a",
+            "label": "Request to bypass approval controls"
+          },
+          {
+            "id": "b",
+            "label": "Secrecy instruction from a senior sender"
+          },
+          {
+            "id": "c",
+            "label": "Urgent financial action by email only"
+          },
+          {
+            "id": "d",
+            "label": "Message appears to come from leadership"
+          }
+        ],
+        "correctFlagIds": [
+          "a",
+          "b",
+          "c"
+        ],
+        "explanation": "Authority attacks weaponize urgency and confidentiality. Legitimate leaders still expect controls to be followed."
+      }
     },
     "types-of-phishing": {
       "type": "types-of-phishing",
-      "summary": "Phishing comes in many forms \u2014 attackers use as many methods as possible to reach you. Each type works a little differently, but they all share the same goal: get you to click, share, or act in a way that puts your information or your organization at risk. You don't need to memorize all of this \u2014 just knowing these methods exist makes you significantly harder to fool.",
+      "summary": "Phishing comes in many forms — attackers use as many methods as possible to reach you. Each type works a little differently, but they all share the same goal: get you to click, share, or act in a way that puts your information or your organization at risk. You don't need to memorize all of this — just knowing these methods exist makes you significantly harder to fool.",
       "deeperLearning": {
-        "title": "When in doubt, always ask \u2014 that's how we all stay safe",
+        "title": "When in doubt, always ask — that's how we all stay safe",
         "points": [
           "You don't need to memorize every attack type. What matters is developing the habit of pausing before you click, call back, or hand over any information.",
-          "If something feels off \u2014 even just slightly \u2014 it is always okay to check with IT or your manager before taking action. No legitimate request will ever punish you for verifying.",
+          "If something feels off — even just slightly — it is always okay to check with IT or your manager before taking action. No legitimate request will ever punish you for verifying.",
           "Attackers rely on people staying silent and not asking questions. Speaking up is one of the most effective defenses we have as an organization."
         ]
       },
       "types": [
         {
           "type": "Phishing (Email)",
-          "description": "Fake emails sent to large numbers of people, designed to look like they come from a trusted source \u2014 a bank, Microsoft, your IT team, or a delivery service. They contain malicious links or attachments. The goal is volume: send enough emails and someone will click.",
+          "description": "Fake emails sent to large numbers of people, designed to look like they come from a trusted source — a bank, Microsoft, your IT team, or a delivery service. They contain malicious links or attachments. The goal is volume: send enough emails and someone will click.",
           "signals": [
-            "Generic greetings like \"Dear User\" or \"Dear Customer\" \u2014 no use of your actual name",
+            "Generic greetings like \"Dear User\" or \"Dear Customer\" — no use of your actual name",
             "Sender address with subtle misspellings (e.g. support@micr0soft.com)",
             "Links or attachments you weren't expecting",
             "Urgent or threatening language pushing you to act immediately"
@@ -412,7 +584,7 @@
           "signals": [
             "Uses your name or references a real project, but the request still feels unusual",
             "Sender domain doesn't quite match the organization it claims to be from",
-            "Context that feels slightly \"off\" \u2014 overly specific in a strange way, or a topic you'd expect from someone else",
+            "Context that feels slightly \"off\" — overly specific in a strange way, or a topic you'd expect from someone else",
             "Requests for credentials, files, or financial actions that seem out of the ordinary"
           ]
         },
@@ -420,7 +592,7 @@
           "type": "Smishing (SMS / Text)",
           "description": "Phishing via text message. Attackers send texts pretending to be from delivery companies, banks, or IT support to get you to tap a link on your phone. Because texts feel more personal and immediate than emails, they can be surprisingly convincing.",
           "signals": [
-            "Short, unrecognizable links \u2014 you can't see where they lead before tapping",
+            "Short, unrecognizable links — you can't see where they lead before tapping",
             "Unsolicited messages about deliveries, banking alerts, or account issues you didn't initiate",
             "Requests for personal information, passwords, or one-time codes via text",
             "Messages from numbers you don't recognize, often with urgent language"
@@ -431,19 +603,19 @@
           "description": "Phishing over the phone. Attackers call pretending to be IT support, Microsoft, your bank, or even HR. They claim there's a virus on your computer, suspicious activity on your account, or an urgent issue requiring your credentials or remote access.",
           "signals": [
             "Caller asks for your password, credentials, or to install software that gives them remote access to your computer",
-            "Pressure to act immediately \u2014 \"we need to resolve this right now\"",
+            "Pressure to act immediately — \"we need to resolve this right now\"",
             "Unfamiliar or spoofed caller ID made to look official",
             "Requests that your real IT or support team would never make over an unsolicited phone call"
           ]
         },
         {
           "type": "Quishing (QR Code Phishing)",
-          "description": "Attackers embed malicious URLs inside QR codes placed in emails, printed flyers, or even physical signage. Most people scan without seeing where the code leads first \u2014 which is exactly what makes this a growing threat that's easy to overlook.",
+          "description": "Attackers embed malicious URLs inside QR codes placed in emails, printed flyers, or even physical signage. Most people scan without seeing where the code leads first — which is exactly what makes this a growing threat that's easy to overlook.",
           "signals": [
             "QR codes in unexpected emails asking you to log in, verify your identity, or claim something",
             "Codes on printed materials in public spaces asking for personal or account information",
             "No preview of the destination URL before you're taken to the site",
-            "Use a scanner app that previews the URL before opening \u2014 if the address looks unfamiliar or suspicious, don't proceed"
+            "Use a scanner app that previews the URL before opening — if the address looks unfamiliar or suspicious, don't proceed"
           ]
         }
       ],
@@ -453,19 +625,19 @@
           "choices": [
             {
               "id": "a",
-              "label": "Spear phishing \u2014 targeted email using personal details"
+              "label": "Spear phishing — targeted email using personal details"
             },
             {
               "id": "b",
-              "label": "Smishing \u2014 phishing via SMS"
+              "label": "Smishing — phishing via SMS"
             },
             {
               "id": "c",
-              "label": "Vishing \u2014 voice phishing"
+              "label": "Vishing — voice phishing"
             },
             {
               "id": "d",
-              "label": "Quishing \u2014 QR code phishing"
+              "label": "Quishing — QR code phishing"
             }
           ],
           "correctChoiceId": "b",
@@ -476,23 +648,23 @@
           "choices": [
             {
               "id": "a",
-              "label": "Generic phishing \u2014 mass emails with no personalization"
+              "label": "Generic phishing — mass emails with no personalization"
             },
             {
               "id": "b",
-              "label": "Spear phishing \u2014 targeted and personalized attacks"
+              "label": "Spear phishing — targeted and personalized attacks"
             },
             {
               "id": "c",
-              "label": "Quishing \u2014 QR code-based attacks"
+              "label": "Quishing — QR code-based attacks"
             },
             {
               "id": "d",
-              "label": "Smishing \u2014 SMS-based attacks"
+              "label": "Smishing — SMS-based attacks"
             }
           ],
           "correctChoiceId": "b",
-          "explanation": "Spear phishing uses real context \u2014 your name, role, colleagues, or current projects \u2014 to appear legitimate. This makes it much harder to spot than generic phishing."
+          "explanation": "Spear phishing uses real context — your name, role, colleagues, or current projects — to appear legitimate. This makes it much harder to spot than generic phishing."
         }
       ]
     }
