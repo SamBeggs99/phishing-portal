@@ -19,7 +19,7 @@
     <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:16px;">
       <div>
         <h2 style="margin-bottom:3px;">Your Details</h2>
-        <p class="small-note">Your name will appear on the certificate.</p>
+        <p class="small-note quiz-name-note">Your name will appear on the certificate.</p>
       </div>
       <div id="quiz-progress-display" style="font-family:var(--mono);font-size:11px;color:var(--text-3);"></div>
     </div>
@@ -53,7 +53,7 @@
         <button id="download-certificate" class="btn primary" type="button" data-format="png">↓ Download PNG</button>
         <button id="download-svg" class="btn" type="button">↓ Download SVG</button>
         <button id="email-cert" class="btn" type="button">✉ Email to Manager</button>
-        <button class="btn" type="button" onclick="window.print()">🖨 Print</button>
+        <button id="print-certificate" class="btn" type="button" onclick="window.print()">🖨 Print</button>
       </div>
     </div>
     <div id="certificate-container" class="section" style="padding:10px;overflow:auto;"></div>

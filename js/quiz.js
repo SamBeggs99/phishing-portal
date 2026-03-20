@@ -73,6 +73,8 @@ async function init() {
   const dlBtn = document.getElementById("download-certificate");
   if (dlBtn) dlBtn.textContent = q.downloadBtn || "Download Certificate";
   const progressDisplay = document.getElementById("quiz-progress-display");
+  const printBtn = document.getElementById("print-certificate");
+  if (printBtn) printBtn.textContent = `🖨 ${q.printBtn || "Print"}`;
 
   const res = await fetch(getDataUrl("quiz", "."));
   if (!res.ok) { document.getElementById("quiz-questions").innerHTML = `<p class="small-note">Failed to load quiz.</p>`; return; }

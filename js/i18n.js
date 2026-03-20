@@ -4,6 +4,12 @@ let _lang = "en";
 
 export async function initI18n(rootPrefix = ".") {
   _lang = localStorage.getItem(LANG_KEY) || "en";
+  // Set the browser's language hint early so accessibility tools can pick it up.
+  // This is intentionally decoupled from the UI JSON language labels.
+  const htmlLangMap = { en: "en", pt: "pt-BR", zh: "zh-CN", es: "es-419" };
+  if (typeof document !== "undefined" && document.documentElement) {
+    document.documentElement.lang = htmlLangMap[_lang] || "en";
+  }
   const res = await fetch(new URL(`${rootPrefix}/data/ui.json`, window.location.href));
   if (!res.ok) { console.warn("Failed to load ui.json"); return getUI(); }
   const data = await res.json();

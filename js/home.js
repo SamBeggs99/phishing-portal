@@ -108,12 +108,8 @@ async function init() {
   const reportLbl = document.querySelector(".report-lbl");
   if (reportLbl) reportLbl.textContent = h.reportLabel || "Report phishing";
 
-  // Update html lang attribute
-  const lang = ui.lang || "EN";
-  const langMap = { "EN": "en", "PT": "pt", "中文": "zh", "ES": "es" };
-  document.documentElement.lang = langMap[lang] || "en";
-
   // Page title
+  const lang = ui.lang || "EN";
   const titles = { "PT": "Treinamento em Segurança de TI — The PAC Group", "中文": "IT安全培训 — PAC集团", "ES": "Capacitación en Seguridad TI — The PAC Group" };
   if (titles[lang]) document.title = titles[lang];
 }
