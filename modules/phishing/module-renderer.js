@@ -132,54 +132,34 @@ function renderExpandableGroup(label, sections) {
 function renderMissionSurprise(missionHTML) {
   if (!missionHTML) return "";
   return `
-    <div id="mission-surprise-toast" class="mission-surprise-toast hidden">
-      <div class="mission-surprise-copy">
-        <div class="mono-label" style="margin-bottom:4px;">Random mission</div>
-        <p class="small-note">A quick scenario challenge is available now.</p>
-      </div>
-      <div class="mission-surprise-actions">
-        <button class="btn primary sm" id="mission-surprise-open" type="button">Start mission</button>
-        <button class="btn sm" id="mission-surprise-dismiss" type="button">Not now</button>
+    <div id="mission-surprise-overlay" class="mission-surprise-overlay hidden" role="dialog" aria-modal="true" aria-label="Mission Mode">
+      <div id="mission-surprise-panel" class="mission-surprise-panel hidden">
+        <div class="mission-surprise-head">
+          <div class="mono-label" style="margin-bottom:4px;">Random mission</div>
+          <p class="small-note">Mission triggered. Complete this challenge to continue.</p>
+        </div>
+        ${missionHTML}
       </div>
     </div>
-    <div id="mission-surprise-panel" class="hidden">
-      ${missionHTML}
-    </div>`;
+  `;
 }
 
 function initMissionSurprise(moduleKey, mission) {
   if (!mission?.steps?.length) return;
-  const toast = document.getElementById("mission-surprise-toast");
-  const openBtn = document.getElementById("mission-surprise-open");
-  const dismissBtn = document.getElementById("mission-surprise-dismiss");
+  const overlay = document.getElementById("mission-surprise-overlay");
   const panel = document.getElementById("mission-surprise-panel");
-  if (!toast || !openBtn || !dismissBtn || !panel) return;
+  if (!overlay || !panel) return;
 
   const seenKey = `mission_prompt_seen_${moduleKey}`;
   if (sessionStorage.getItem(seenKey) === "1") return;
 
-  const delayMs = (Math.floor(Math.random() * 21) + 10) * 1000;
+  const delayMs = (Math.floor(Math.random() * 11) + 5) * 1000;
   setTimeout(() => {
     if (sessionStorage.getItem(seenKey) === "1") return;
-    toast.classList.remove("hidden");
-    setTimeout(() => {
-      if (sessionStorage.getItem(seenKey) === "1") return;
-      toast.classList.add("hidden");
-      sessionStorage.setItem(seenKey, "1");
-    }, 12000);
-  }, delayMs);
-
-  openBtn.addEventListener("click", () => {
-    toast.classList.add("hidden");
+    overlay.classList.remove("hidden");
     panel.classList.remove("hidden");
-    panel.scrollIntoView({ behavior: "smooth", block: "start" });
-    sessionStorage.setItem(seenKey, "1");
-  });
-
-  dismissBtn.addEventListener("click", () => {
-    toast.classList.add("hidden");
-    sessionStorage.setItem(seenKey, "1");
-  });
+    document.body.classList.add("mission-lock");
+  }, delayMs);
 }
 
 function initMicroScenario(scenario, ui) {
@@ -375,9 +355,12 @@ function initMissionMode(mission, ui) {
     score.textContent = `${total} / ${mission.steps.length}`;
     submit.disabled = true;
     setTimeout(() => {
+      const overlay = document.getElementById("mission-surprise-overlay");
       const panel = document.getElementById("mission-surprise-panel");
+      if (overlay) overlay.classList.add("hidden");
       if (panel) panel.classList.add("hidden");
-    }, 5000);
+      document.body.classList.remove("mission-lock");
+    }, 2000);
   });
 }
 

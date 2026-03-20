@@ -6,7 +6,8 @@
   <title>IT Security Training — The PAC Group</title>
   <link rel="stylesheet" href="./styles/site.css"/>
 </head>
-<body>
+<body class="home-page">
+<canvas id="matrix-bg" aria-hidden="true"></canvas>
 
 <div id="header-root"></div>
 <aside class="page-path-rail" aria-label="Learning Path Section">
@@ -149,7 +150,7 @@
   </div>
 
   <!-- QUICK LINKS ROW -->
-  <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:28px;">
+  <div class="home-quick-links" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:28px;">
     <a class="section" href="./strategies.html" style="cursor:pointer;transition:border-color var(--transition);text-decoration:none;" onmouseover="this.style.borderColor='var(--border-red)'" onmouseout="this.style.borderColor='var(--border)'">
       <div class="mono-label" style="margin-bottom:8px;">Defence Strategies</div>
       <p class="small-note">Recognize → Rethink → Report. Practical steps with the "PAC will never ask you to" rules.</p>
@@ -189,7 +190,7 @@
         <div class="mono-label dtlbl" style="color:var(--pac-red);margin-bottom:8px;">05 · Desk check</div>
         <p style="font-size:13px;color:var(--text-2);line-height:1.55;">Look at your desk right now. Any passwords written down? Any sensitive documents visible? Clear them before you leave today.</p>
       </div>
-      <div style="background:var(--ink-3);border-radius:var(--radius);padding:14px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px;">
+      <div class="dt" style="background:var(--ink-3);border-radius:var(--radius);padding:14px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px;">
         <div class="mono-label report-lbl" style="color:var(--green);">Report phishing</div>
         <a class="btn primary sm" href="mailto:phishing@pacgroup.com">phishing@pacgroup.com</a>
         <p style="font-size:11px;color:var(--text-3);text-align:center;line-height:1.5;">Save this address. Use it any time something feels suspicious.</p>
