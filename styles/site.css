@@ -81,6 +81,30 @@ header {
   justify-content: space-between;
   height: 58px; gap: 16px;
 }
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.home-shortcut {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--ink-3);
+  color: var(--text-2);
+  font-size: 12px;
+  font-weight: 600;
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+.home-shortcut:hover {
+  color: var(--text);
+  border-color: var(--border-red);
+  background: rgba(171,35,40,0.12);
+}
 .brand { display: flex; align-items: center; gap: 10px; flex-shrink: 0; text-decoration: none; }
 .brand-logo {
   width: 34px; height: 34px;
@@ -640,6 +664,7 @@ footer {
   .navlinks { display: none; }
   .nav-section-label, .nav-divider { display: none; }
   .nav-toggle { display: flex; }
+  .home-shortcut { font-size: 11px; padding: 5px 10px; }
   .hero { padding: 32px 24px 28px; }
   .hero::before { font-size: 60px; }
   .path-grid { grid-template-columns: 1fr 1fr; }
@@ -652,6 +677,7 @@ footer {
   .game-frame { height: 500px; }
 }
 @media (max-width: 600px) {
+  .home-shortcut { padding: 5px 9px; }
   .path-grid { grid-template-columns: 1fr; }
   .hero h1 { font-size: 26px; }
   .never-grid { grid-template-columns: 1fr; }

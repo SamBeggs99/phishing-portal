@@ -3,27 +3,35 @@ import { getHeaderHTML, getFooterHTML } from "../../js/header.js";
 import { initI18n, getUI, getDataUrl } from "../../js/i18n.js";
 
 export async function renderPhishingModule(topicId) {
-  const ui = await initI18n("../..");
-  window.__setLang = (l) => { localStorage.setItem("pac_lang",l); window.location.reload(); };
+  try {
+    const ui = await initI18n("../..");
+    window.__setLang = (l) => { localStorage.setItem("pac_lang",l); window.location.reload(); };
 
-  document.getElementById("header-root").innerHTML = getHeaderHTML({ rootPrefix: "../..", ui });
-  document.getElementById("footer-root").innerHTML = getFooterHTML({ rootPrefix: "../..", ui });
-  setActiveNav(); initMobileNav(); updateProgressBar();
+    document.getElementById("header-root").innerHTML = getHeaderHTML({ rootPrefix: "../..", ui });
+    document.getElementById("footer-root").innerHTML = getFooterHTML({ rootPrefix: "../..", ui });
+    setActiveNav(); initMobileNav(); updateProgressBar();
 
-  const url = getDataUrl("phishing-modules", "../..");
-  const res = await fetch(url);
-  if (!res.ok) { document.getElementById("module-root").innerHTML = `<p class="small-note">Failed to load module.</p>`; return; }
-  const data = await res.json();
-  const topic = data.topics[topicId];
-  if (!topic) { document.getElementById("module-root").innerHTML = `<p class="small-note">Module not found.</p>`; return; }
+    const url = getDataUrl("phishing-modules", "../..");
+    const res = await fetch(url);
+    if (!res.ok) { document.getElementById("module-root").innerHTML = `<p class="small-note">Failed to load module.</p>`; return; }
+    const data = await res.json();
+    const topic = data.topics[topicId];
+    if (!topic) { document.getElementById("module-root").innerHTML = `<p class="small-note">Module not found.</p>`; return; }
 
-  const m = ui.module || {};
-  const root = document.getElementById("module-root");
-  if (topic.type === "types-of-phishing") root.innerHTML = renderTypes(topic, m);
-  else root.innerHTML = renderStandard(topic, m);
+    const m = ui.module || {};
+    const root = document.getElementById("module-root");
+    if (topic.type === "types-of-phishing") root.innerHTML = renderTypes(topic, m);
+    else root.innerHTML = renderStandard(topic, m);
 
-  initCheckIn(topic.checkIn, ui);
-  setTimeout(() => markModuleComplete(topicId), 8000);
+    initCheckIn(topic.checkIn, ui);
+    setTimeout(() => markModuleComplete(topicId), 8000);
+  } catch (err) {
+    console.error("Failed to render phishing module:", err);
+    const root = document.getElementById("module-root");
+    if (root) {
+      root.innerHTML = `<p class="small-note">We couldn't render this module right now. Please refresh the page. If the problem continues, contact IT.</p>`;
+    }
+  }
 }
 
 function renderStandard(topic, m) {

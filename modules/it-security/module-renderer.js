@@ -3,22 +3,23 @@ import { getHeaderHTML, getFooterHTML } from "../../js/header.js";
 import { initI18n, getDataUrl } from "../../js/i18n.js";
 
 export async function renderITModule(moduleId) {
-  const ui = await initI18n("../..");
-  window.__setLang = (l) => { localStorage.setItem("pac_lang", l); window.location.reload(); };
-  document.getElementById("header-root").innerHTML = getHeaderHTML({ rootPrefix: "../..", ui });
-  document.getElementById("footer-root").innerHTML = getFooterHTML({ rootPrefix: "../..", ui });
-  setActiveNav(); initMobileNav(); updateProgressBar();
+  try {
+    const ui = await initI18n("../..");
+    window.__setLang = (l) => { localStorage.setItem("pac_lang", l); window.location.reload(); };
+    document.getElementById("header-root").innerHTML = getHeaderHTML({ rootPrefix: "../..", ui });
+    document.getElementById("footer-root").innerHTML = getFooterHTML({ rootPrefix: "../..", ui });
+    setActiveNav(); initMobileNav(); updateProgressBar();
 
-  const res = await fetch(getDataUrl("it-security", "../.."));
-  if (!res.ok) { document.getElementById("module-root").innerHTML = `<p class="small-note">Failed to load module.</p>`; return; }
-  const data = await res.json();
-  const t = data.topics[moduleId];
-  if (!t) { document.getElementById("module-root").innerHTML = `<p class="small-note">Module not found.</p>`; return; }
+    const res = await fetch(getDataUrl("it-security", "../.."));
+    if (!res.ok) { document.getElementById("module-root").innerHTML = `<p class="small-note">Failed to load module.</p>`; return; }
+    const data = await res.json();
+    const t = data.topics[moduleId];
+    if (!t) { document.getElementById("module-root").innerHTML = `<p class="small-note">Module not found.</p>`; return; }
 
-  const m = ui.module || {};
-  const e = s => escapeHtml(String(s ?? ""));
-  const ul = arr => arr?.length ? `<ul class="list-clean">${arr.map(f=>`<li>${e(f)}</li>`).join("")}</ul>` : "";
-  const ol_numbered = (arr, color="var(--pac-red)", bg="var(--red-glow)", border="var(--border-red)") =>
+    const m = ui.module || {};
+    const e = s => escapeHtml(String(s ?? ""));
+    const ul = arr => arr?.length ? `<ul class="list-clean">${arr.map(f=>`<li>${e(f)}</li>`).join("")}</ul>` : "";
+    const ol_numbered = (arr, color="var(--pac-red)", bg="var(--red-glow)", border="var(--border-red)") =>
     arr?.length ? `<ol style="list-style:none;display:flex;flex-direction:column;gap:8px;padding:0;">${arr.map((s,i)=>`
       <li style="display:flex;gap:10px;align-items:flex-start;">
         <span style="font-family:var(--mono);font-size:10px;color:${color};background:${bg};border:1px solid ${border};border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">${i+1}</span>
@@ -178,7 +179,7 @@ export async function renderITModule(moduleId) {
       <p style="font-size:14px;color:var(--text-2);line-height:1.75;">${e(t.whenInDoubt.body)}</p>
     </div>` : "";
 
-  document.getElementById("module-root").innerHTML = `
+    document.getElementById("module-root").innerHTML = `
     <div class="module-body">
       <div class="content-section">
         <div class="mono-label" style="margin-bottom:8px;">${e(m.keyTakeaway||"Key takeaway")}</div>
@@ -200,6 +201,13 @@ export async function renderITModule(moduleId) {
       ${renderCheckIn(t.checkIn, ui)}
     </div>`;
 
-  initCheckIn(t.checkIn, ui);
-  setTimeout(() => markModuleComplete(moduleId), 8000);
+    initCheckIn(t.checkIn, ui);
+    setTimeout(() => markModuleComplete(moduleId), 8000);
+  } catch (err) {
+    console.error("Failed to render IT security module:", err);
+    const root = document.getElementById("module-root");
+    if (root) {
+      root.innerHTML = `<p class="small-note">We couldn't render this module right now. Please refresh the page. If the problem continues, contact IT.</p>`;
+    }
+  }
 }
