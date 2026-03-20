@@ -117,9 +117,9 @@ async function init() {
 }
 
 function initLearningPathRailHighlight() {
-  const shell = document.querySelector(".learning-path-shell");
-  const rail = document.querySelector(".path-rail");
-  if (!shell || !rail || typeof IntersectionObserver === "undefined") return;
+  const trigger = document.getElementById("learning-path");
+  const rail = document.querySelector(".page-path-rail");
+  if (!trigger || !rail || typeof IntersectionObserver === "undefined") return;
 
   const observer = new IntersectionObserver(
     (entries) => {
@@ -130,7 +130,7 @@ function initLearningPathRailHighlight() {
     { root: null, threshold: 0.2 }
   );
 
-  observer.observe(shell);
+  observer.observe(trigger);
 }
 
 init();
