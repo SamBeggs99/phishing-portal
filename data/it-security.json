@@ -273,6 +273,16 @@
             "question": "Can I use my work email to sign up for personal accounts or newsletters?",
             "answer": "caution",
             "detail": "It's not prohibited but it's not recommended. Your work email is visible to IT, and using it for personal services creates unnecessary exposure. Use a personal email for personal services."
+          },
+          {
+            "question": "What is the approved platform for email, file sharing, and collaboration at PAC?",
+            "answer": "yes",
+            "detail": "Microsoft 365 is PAC's mandated productivity platform — Outlook, Teams, SharePoint, and OneDrive for Business. Use these for all work communication and file storage. Personal alternatives (Gmail, Dropbox, Google Drive) are not approved for work use."
+          },
+          {
+            "question": "Do I need to be aware of the security software on my work device?",
+            "answer": "yes",
+            "detail": "PAC-issued devices are protected by Acronis Cyber Protect (backup and ransomware protection) and Symantec Endpoint Protection (antivirus and threat detection). Never disable or interfere with these tools — they are mandatory. If you receive alerts from either, contact IT immediately."
           }
         ]
       },
@@ -294,6 +304,7 @@
       ],
       "responseSteps": [
         "Use only PAC-approved platforms for company data \u2014 if you're unsure whether a tool is approved, ask IT before using it",
+        "Use Microsoft 365 (Outlook, Teams, SharePoint, OneDrive for Business) for all work tasks \u2014 it is PAC's mandated platform and the only productivity suite with PAC's full security controls, backup, and compliance coverage",
         "Keep work data on work systems \u2014 SharePoint, OneDrive for Business, and approved project management tools",
         "If an approved tool isn't meeting your needs, raise it with IT \u2014 the right answer is fixing the tool, not working around it",
         "Never use personal accounts or devices to bypass a company security control, even temporarily",
@@ -612,6 +623,7 @@
       ],
       "responseSteps": [
         "Always connect to the PAC VPN before accessing company systems when outside the office \u2014 this encrypts your traffic and routes it securely",
+        "Disconnect from the VPN when working from the PAC office on a trusted internal network \u2014 the VPN is required for external connections, not internal ones, and staying connected on a trusted network is unnecessary",
         "If public Wi-Fi is your only option and VPN won't connect, use your phone as a personal hotspot instead",
         "Secure your home router: change the default admin password, use WPA2 or WPA3 encryption, and keep firmware updated",
         "Use a screen privacy filter when working in public spaces",
@@ -675,6 +687,160 @@
         }
       ]
     },
+    "ai-acceptable-use": {
+      "type": "standard",
+      "badge": "AI Policy",
+      "badgeColor": "purple",
+      "summary": "PAC has approved specific AI tools for specific uses. AI tools that process your input may store that data on external servers, use it to train models, or expose it to third parties \u2014 often permanently. One employee pasting the wrong document into a public AI tool can expose confidential client data, proprietary project details, or personal information in seconds with no way to retrieve it. This module explains what you can use, what you cannot, and why data classification is the most important concept to understand before using any AI tool.",
+      "story": {
+        "title": "The engineers who leaked source code to an AI \u2014 and sparked a global policy change",
+        "meta": "AI security \u00b7 Data leakage \u00b7 Samsung breach 2023",
+        "text": "In March 2023, engineers at Samsung's semiconductor division began using ChatGPT to help with their work. Within weeks, three separate incidents occurred: one engineer pasted proprietary source code into ChatGPT to ask it to fix bugs. Another uploaded internal meeting notes. A third used it to convert confidential test data into a presentation format.\n\nIn each case, the data left Samsung's systems and was transmitted to OpenAI's servers \u2014 where, under the terms of service at the time, it could be used to train future models and potentially seen by OpenAI staff reviewing outputs.\n\nSamsung banned all external AI tools within days. But by then, the proprietary code, internal meeting content, and confidential test data were already on external servers beyond Samsung's control.\n\nThis is the fundamental risk of AI tools: they are helpful, they are fast, and they are invisible data pipelines to the outside world."
+      },
+      "dataClassification": {
+        "title": "PAC's Data Classification Framework \u2014 know before you share",
+        "intro": "Before using any AI tool, classify what you're working with. The classification determines whether you can use AI at all \u2014 and which tool is appropriate.",
+        "tiers": [
+          {
+            "level": "public",
+            "label": "PUBLIC",
+            "name": "Public information",
+            "description": "Information approved for public release: published press releases, publicly announced project completions, general marketing materials.",
+            "aiRule": "AI tools may be used with Public data \u2014 no restrictions apply."
+          },
+          {
+            "level": "private",
+            "label": "PRIVATE",
+            "name": "Private / Internal information",
+            "description": "Internal information not intended for public disclosure: employee information, internal processes, operational data, budget summaries, internal project status.",
+            "aiRule": "Only approved AI tools (Microsoft Copilot within M365) may be used with Private data. External AI tools are not approved."
+          },
+          {
+            "level": "restricted",
+            "label": "RESTRICTED",
+            "name": "Restricted / Confidential information",
+            "description": "Highly sensitive information: client data, contracts, financial records, legal documents, personal information, security credentials, proprietary designs.",
+            "aiRule": "No AI tools \u2014 internal or external \u2014 may receive Restricted data without explicit IT approval."
+          }
+        ]
+      },
+      "yesNo": {
+        "title": "What you can and cannot do \u2014 plain answers",
+        "items": [
+          {
+            "question": "Can I use Microsoft Copilot in M365 (Outlook, Teams, Word) for work tasks?",
+            "answer": "yes",
+            "detail": "Microsoft Copilot within PAC's M365 environment is the approved AI tool for work. It operates within PAC's existing security boundary and is subject to PAC's data controls and compliance framework."
+          },
+          {
+            "question": "Can I use ChatGPT, Claude, Gemini, or other public AI tools for work tasks?",
+            "answer": "caution",
+            "detail": "Only for Public data or generic non-confidential tasks (drafting general templates, explaining general concepts). Never input client data, financial information, project details, contracts, or any Private or Restricted information. If in doubt, use Copilot instead."
+          },
+          {
+            "question": "Can I paste a client document into an AI tool to summarize it?",
+            "answer": "no",
+            "detail": "Client documents are Restricted data. Pasting them into any external AI tool transmits that data to third-party servers outside PAC's control, permanently. Use Microsoft Copilot within M365 only \u2014 and even then, confirm the document's classification first."
+          },
+          {
+            "question": "Can I use AI to help write code for work projects?",
+            "answer": "caution",
+            "detail": "Acceptable if the code does not contain PAC-specific credentials, API keys, proprietary algorithms, client system details, or confidential architecture. Strip out anything sensitive before using an external AI tool. Copilot in M365 is preferred."
+          },
+          {
+            "question": "Can I share PAC financial data or HR information with an AI tool?",
+            "answer": "no",
+            "detail": "Financial records and HR data are Restricted. They must never be entered into any AI tool \u2014 including Microsoft Copilot \u2014 without explicit IT and management authorization."
+          },
+          {
+            "question": "Can I use AI-generated content in client deliverables?",
+            "answer": "caution",
+            "detail": "Only after thorough review. AI tools can produce plausible but factually incorrect output. Any AI-assisted content used in client work must be reviewed and verified by a qualified person before delivery. Ensure no confidential data was used to generate it."
+          }
+        ]
+      },
+      "consequences": {
+        "title": "What happens when AI policy is violated",
+        "points": [
+          "Data transmitted to an external AI tool cannot be retrieved. Once client data, financial records, or proprietary information leaves PAC's systems, it is permanently outside your control \u2014 regardless of the AI tool's privacy policy.",
+          "PAC may have legal obligations to notify clients and regulators if their confidential information is disclosed to a third party \u2014 even inadvertently. This can result in contract termination and significant legal liability.",
+          "Individual employees can bear personal liability for data handling decisions. Sharing client data with unauthorised third-party tools can constitute a breach of data protection law or contractual confidentiality obligations.",
+          "Intentional violation of the AI Acceptable Use Policy \u2014 particularly sharing Restricted data \u2014 may result in disciplinary action up to and including termination."
+        ]
+      },
+      "redFlags": [
+        "Pasting client names, project details, contract terms, or financial data into any external AI tool",
+        "Using ChatGPT, Gemini, or similar tools to summarise, translate, or reformat confidential documents",
+        "Sharing PAC credentials, API keys, or system architecture details with any AI tool",
+        "Using a personal AI subscription for work tasks that involve any Private or Restricted data",
+        "Using AI-generated content in client deliverables without reviewing it for accuracy",
+        "Connecting third-party AI plugins or browser extensions to PAC systems without IT approval"
+      ],
+      "responseSteps": [
+        "Before using any AI tool, classify your data: Public (external AI tools allowed), Private (Copilot in M365 only), or Restricted (no AI without IT approval)",
+        "Use Microsoft Copilot within PAC's M365 environment as your primary AI tool \u2014 it is approved, supported, and operates within PAC's security boundary",
+        "For external AI tools (ChatGPT, Claude, Gemini), use only for generic or Public tasks \u2014 never input anything client-related, financial, or project-specific",
+        "Review all AI-generated content before using it in any work product \u2014 AI tools can produce plausible but factually incorrect output",
+        "If you're unsure whether a task or data type is AI-appropriate, ask IT before proceeding \u2014 not after",
+        "If you believe you've shared Restricted or Private data with an unauthorised AI tool, report it to IT immediately \u2014 early disclosure limits damage"
+      ],
+      "deeperLearning": {
+        "title": "How AI tools handle your data \u2014 and why the boundary matters",
+        "points": [
+          "Most public AI tools (free ChatGPT, Gemini, etc.) may use inputs to improve their models unless you explicitly opt out \u2014 and even paid tiers may retain inputs for safety review. When you paste a confidential document, you are not just asking a question. You are uploading data to a third-party server with its own terms of service, retention policies, and potential future disclosures.",
+          "Microsoft Copilot within PAC's M365 environment is different: it is bound by PAC's Microsoft data processing agreement, subject to the same retention and deletion policies as your work email, and does not use PAC's data to train public models. This is why it is the approved tool \u2014 the data boundary is controlled.",
+          "The PAC Data Classification Framework (Public, Private, Restricted) applies to every decision about where data goes \u2014 cloud storage, email, USB drives, printed documents, and AI tools. AI tools create a fast-moving new channel through which data can leave the organisation. The classification gives you a consistent rule regardless of the technology."
+        ]
+      },
+      "checkIn": [
+        {
+          "question": "You need to summarise a client contract to prepare for a meeting. Which approach is correct?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "Paste the contract into ChatGPT \u2014 it's faster and the summary is just for you"
+            },
+            {
+              "id": "b",
+              "label": "Use Microsoft Copilot within M365 \u2014 client contracts are Restricted data"
+            },
+            {
+              "id": "c",
+              "label": "Use any AI tool as long as you don't share the summary externally"
+            },
+            {
+              "id": "d",
+              "label": "Email the contract to a colleague to summarise it instead"
+            }
+          ],
+          "correctChoiceId": "b",
+          "explanation": "Client contracts are Restricted data. Only Microsoft Copilot within PAC's M365 environment is approved for this use. External AI tools like ChatGPT transmit data to third-party servers permanently \u2014 there is no way to retrieve it."
+        },
+        {
+          "question": "Under PAC's Data Classification Framework, which type of data may be used with external AI tools (ChatGPT, Gemini, etc.)?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "Private \u2014 internal processes and employee information"
+            },
+            {
+              "id": "b",
+              "label": "Restricted \u2014 client data and financial records"
+            },
+            {
+              "id": "c",
+              "label": "Public \u2014 information already approved for public release"
+            },
+            {
+              "id": "d",
+              "label": "All data, as long as you use a paid AI subscription"
+            }
+          ],
+          "correctChoiceId": "c",
+          "explanation": "Only Public data may be used with external AI tools. Private data requires Microsoft Copilot in M365. Restricted data requires explicit IT approval \u2014 and even then, no external AI tools."
+        }
+      ]
+    },
     "incident-reporting": {
       "type": "standard",
       "badge": "Reporting",
@@ -682,9 +848,9 @@
       "quickTakeaway": {
         "title": "1-minute takeaway",
         "points": [
-          "Speed matters more than certainty: report first, investigate second.",
-          "If you clicked or entered credentials, contact IT directly immediately.",
-          "No-blame reporting protects both you and the organization."
+          "If something feels off, report now \u2014 don't wait for proof.",
+          "If you clicked or entered credentials, contact IT immediately.",
+          "Fast reporting limits damage; silence expands it."
         ]
       },
       "microScenario": {
@@ -696,9 +862,9 @@
           { "id": "c", "label": "Report via Barracuda and call/message IT immediately" }
         ],
         "correctChoiceId": "c",
-        "bestAction": "Report immediately and contact IT directly so containment can begin before an attacker moves laterally."
+        "bestAction": "Correct move: report immediately and contact IT directly so containment starts while the incident is still small."
       },
-      "summary": "Security incidents happen to everyone \u2014 and reporting them quickly is one of the most important things you can do to protect yourself and the company. The worst outcome is not clicking a link or losing a device. The worst outcome is not telling anyone, and allowing a small incident to grow into a major breach. PAC operates a no-blame reporting culture. If something happened, we want to know \u2014 and we will work with you, not against you.",
+      "summary": "Incident reporting is your fastest security control. A click, a suspicious login, or a lost device is recoverable when reported early. The real risk is delay. At PAC, reporting is no-blame: we care about fast response, not perfect decisions.",
       "story": {
         "title": "The breach that took 206 days to discover \u2014 because no one reported it",
         "meta": "Incident reporting \u00b7 Dwell time \u00b7 Delayed response",
@@ -733,26 +899,26 @@
         "body": "The threshold for reporting should be zero. If something feels even slightly off \u2014 the sender seems unusual, the request is unexpected, the link destination looks strange, the tone is different from normal \u2014 report it. IT would rather receive 100 false alarms than miss one real attack. There is no such thing as over-reporting a security concern at PAC."
       },
       "redFlags": [
-        "You clicked a link and something felt wrong \u2014 the page looked odd, asked for credentials unexpectedly, or immediately closed",
-        "You opened an attachment and your computer began acting strangely \u2014 running slowly, unexpected pop-ups, new programs appearing",
-        "You received or responded to a suspicious request before realizing it might have been a phishing attempt",
-        "A device containing work information has been lost or stolen",
-        "You notice unusual activity on your accounts \u2014 login notifications you didn't initiate, emails you didn't send, settings changes you didn't make"
+        "You clicked a link and the page looked wrong, failed oddly, or asked for unexpected credentials",
+        "You opened an attachment and your device started acting unusually",
+        "You replied to or acted on a suspicious request before realizing it",
+        "A work device or storage media is lost, stolen, or unaccounted for",
+        "You notice account activity you did not initiate"
       ],
       "responseSteps": [
-        "Use the Barracuda button in your Outlook ribbon to report immediately \u2014 this alerts IT Security within minutes",
-        "If you clicked a link or entered credentials, contact IT directly \u2014 do not just report via Barracuda, call or message IT as well",
-        "Don't try to fix it yourself first \u2014 don't delete emails, don't wipe devices, don't change passwords until IT tells you to. Preserving evidence matters.",
-        "Write down what happened while it's fresh: what you clicked, what you saw, what time it was, what happened next",
-        "If a device is lost or stolen, report it to both IT and your manager immediately \u2014 IT can remotely wipe the device",
-        "No blame, no consequences for honest mistakes. The only thing that makes a situation worse is silence."
+        "Report immediately using Barracuda in Outlook (or your approved reporting route).",
+        "If credentials may be exposed, contact IT directly right away \u2014 don't rely on reporting alone.",
+        "Do not self-remediate first (no deleting, wiping, or ad-hoc fixes) until IT advises.",
+        "Capture quick facts while fresh: what happened, when, and what you clicked/opened.",
+        "For lost/stolen devices, notify IT and your manager immediately so containment starts fast.",
+        "Assume no blame for honest mistakes; fast reporting is the expected behavior."
       ],
       "deeperLearning": {
-        "title": "Dwell time \u2014 why speed of reporting is everything",
+        "title": "Why speed beats certainty",
         "points": [
-          "Dwell time is the period between an attacker gaining access and being detected. The global average is over 200 days. The longer an attacker remains undetected, the more damage they can do and the harder remediation becomes.",
-          "Most attacks start with a single point of entry \u2014 a clicked link, a stolen credential, a compromised device. Rapid reporting means IT can often isolate the incident before it spreads to other systems.",
-          "A no-blame incident reporting culture is not just a nice sentiment \u2014 it is a security control. Organizations where employees fear being blamed for mistakes take three times longer to detect breaches than those with open reporting cultures."
+          "Attackers cause most damage after initial access, not at first contact. Early reporting cuts that window down.",
+          "IT can isolate accounts, devices, and campaigns quickly only if they know early.",
+          "No-blame reporting isn't just culture \u2014 it's a practical defense mechanism."
         ]
       },
       "checkIn": [
@@ -777,7 +943,7 @@
             }
           ],
           "correctChoiceId": "c",
-          "explanation": "Contact IT immediately. Every hour of delay gives an attacker more time to move through systems. IT will guide you \u2014 there is no blame for honest mistakes, only for not reporting them."
+          "explanation": "Report immediately. The goal is fast containment, not silent cleanup."
         },
         {
           "question": "PAC operates a no-blame incident reporting culture. What does this mean in practice?",
@@ -800,7 +966,7 @@
             }
           ],
           "correctChoiceId": "b",
-          "explanation": "A no-blame culture means you should always report anything suspicious immediately \u2014 even if you're unsure, even if you made a mistake. The only thing that makes a situation worse is silence."
+          "explanation": "No-blame means early reporting is encouraged and supported \u2014 especially when you're unsure."
         }
       ]
     }

@@ -145,43 +145,43 @@
       "quickTakeaway": {
         "title": "1-minute takeaway",
         "points": [
-          "Scarcity language is designed to trigger FOMO, not to inform you.",
-          "Never claim rewards or offers from links in unsolicited emails.",
-          "Verify through official HR/internal channels before acting."
+          "If an email says 'limited spots' or 'expires today', treat it as a pressure tactic first.",
+          "Do not claim offers from email links. Verify in official internal channels.",
+          "Your goal is simple: pause, verify, then decide."
         ]
       },
       "microScenario": {
         "title": "Quick decision check",
-        "question": "You receive an email saying only the first 20 employees get a wellness voucher if they \"verify details\" before lunch. What is your best next step?",
+        "question": "It's 11:40 AM. You get an email saying only the first 20 employees get a wellness voucher if they \"verify details\" before lunch. What do you do next?",
         "choices": [
           { "id": "a", "label": "Click immediately so you don't miss out" },
           { "id": "b", "label": "Forward it to your team so they can benefit too" },
           { "id": "c", "label": "Pause and verify via HR portal/internal comms before doing anything" }
         ],
         "correctChoiceId": "c",
-        "bestAction": "Treat limited-time reward emails as suspicious by default and verify through official internal channels."
+        "bestAction": "Correct move: pause and verify through HR or official internal comms. Scarcity language is there to rush your judgment."
       },
-      "summary": "Scarcity phishing exploits the fear of missing out. By suggesting that something valuable is available only to the first few people, or only for a limited time, attackers push you into clicking before you've had a chance to think. Everyone likes to get something good \u2014 and that's exactly what makes this tactic so effective.",
+      "summary": "Scarcity phishing is built to make you act before you think. The message sounds exciting: limited offer, exclusive reward, first-come-first-served. The real objective is simple: rush you into clicking a link or sharing information before you verify anything.",
       "redFlags": [
-        "\"Limited time\" or \"exclusive offer\" language attached to a link or file",
-        "Prizes, rewards, or gift cards that seem too good to be true",
-        "Requests to log in or provide your information to \"claim\" something",
-        "The sender's email domain doesn't match the brand it claims to be \u2014 for example, amazonrewards25.biz instead of amazon.com",
-        "Generic greetings like \"Dear User\" or \"Dear Employee\" with no personalization"
+        "A countdown or deadline attached to a link: \"claim by noon\" or \"expires today\"",
+        "Reward language that feels unusually generous or out of pattern",
+        "A request to log in, verify, or submit details to unlock the offer",
+        "Sender domain that doesn't match the brand or company it claims to be",
+        "Generic targeting like \"Dear Employee\" instead of normal internal context"
       ],
       "responseSteps": [
-        "Treat scarcity language as a reason to pause \u2014 not a reason to click",
-        "Ask yourself: did I sign up for this? Am I expecting something from this sender? If not, be skeptical",
-        "Check the sender's email address carefully for subtle misspellings or unfamiliar domains",
-        "If it looks like a real offer from a known company, go directly to their official website yourself \u2014 don't use the link provided in the email",
-        "Report it using your organization's phishing reporting process"
+        "Pause for 10 seconds. Scarcity pressure loses power when you slow down.",
+        "Ask: Was I expecting this? Is this how HR or rewards are normally announced here?",
+        "Inspect the sender domain, not just the display name.",
+        "If it might be real, verify through your HR portal or trusted internal channel \u2014 never the email link.",
+        "Report suspicious reward emails so others don't get caught by the same lure."
       ],
       "deeperLearning": {
-        "title": "FOMO is a powerful tool \u2014 and attackers know how to use it",
+        "title": "Why scarcity works so well",
         "points": [
-          "The fear of missing out (FOMO) is a genuine psychological trigger. Attackers use it because it's effective across all age groups and technical skill levels.",
-          "Real corporate rewards, bonuses, or announcements are always communicated through official, established channels \u2014 not through unsolicited emails with countdown timers or limited-quantity claims.",
-          "A helpful rule: if an email makes you feel like you need to act right now to get something valuable, that urgency is the warning sign."
+          "FOMO shortcuts good judgment. You stop verifying because you don't want to miss out.",
+          "Attackers know this and intentionally combine rewards + deadlines to force fast decisions.",
+          "Simple rule: if an email makes you feel hurried to get something valuable, verify first and click later."
         ]
       },
       "checkIn": [
@@ -206,7 +206,7 @@
             }
           ],
           "correctChoiceId": "b",
-          "explanation": "Scarcity and prize language are designed to trigger FOMO. Legitimate rewards always come through official channels \u2014 never unsolicited emails with countdown timers."
+          "explanation": "Scarcity + reward language is designed to trigger FOMO. Verify through official channels before taking any action."
         },
         {
           "question": "Which of these is a scarcity-based red flag?",
@@ -229,33 +229,52 @@
             }
           ],
           "correctChoiceId": "b",
-          "explanation": "Mismatched domains and limited-time prize language are classic scarcity phishing signals. Always check the sender's actual domain carefully."
+          "explanation": "Limited-time reward language plus an unfamiliar domain is a classic scarcity phishing pattern."
         }
       ]
     },
     "authority": {
       "type": "standard",
-      "summary": "Nobody wants to keep the CEO or CFO waiting. Attackers know this \u2014 and they use it against you. By pretending to be someone in a position of power, they pressure you into taking actions you would otherwise question. It may look exactly like your boss. But it isn't.",
+      "quickTakeaway": {
+        "title": "1-minute takeaway",
+        "points": [
+          "Authority pressure is meant to stop you from verifying.",
+          "High-stakes requests always need a second-channel check.",
+          "No real leader asks you to bypass controls."
+        ]
+      },
+      "microScenario": {
+        "title": "Quick decision check",
+        "question": "You get an email from a senior leader asking for an urgent payment outside process and saying to keep it confidential. What do you do first?",
+        "choices": [
+          { "id": "a", "label": "Action it immediately to avoid delay" },
+          { "id": "b", "label": "Reply and ask for more details in the same email thread" },
+          { "id": "c", "label": "Verify through a trusted separate channel and follow normal approvals" }
+        ],
+        "correctChoiceId": "c",
+        "bestAction": "Correct move: verify through a known channel and keep normal approval controls in place."
+      },
+      "summary": "Authority phishing tries to make you obey first and think later. The message appears to come from someone senior and asks for urgent action \u2014 often money, credentials, or process exceptions. The attack works when pressure replaces verification.",
       "redFlags": [
-        "Unusual requests from executives or \"higher-ups\" \u2014 especially anything involving money, gift cards, or wire transfers",
-        "Instructions to keep the request secret or to skip your normal approval process",
-        "Vague instructions with no supporting context, reference numbers, or official documentation",
-        "A sender email address that doesn't exactly match the official company domain \u2014 look closely for subtle differences (e.g. ceo@company-corp.com vs ceo@company.com)",
-        "Urgency combined with authority \u2014 \"I need this done now, no questions\""
+        "A senior-name sender asking for unusual financial or credential actions",
+        "Pressure to keep the request quiet or bypass normal approvals",
+        "Urgent language with no proper context or business reference",
+        "Sender address that is close to, but not exactly, your real domain",
+        "Tone that discourages questions: \"Do this now, no delays\""
       ],
       "responseSteps": [
-        "Verify through a separate channel \u2014 call or message the person directly using contact information you already have, not anything from the email",
-        "Follow your organization's standard approval process \u2014 a real executive will not ask you to bypass it",
-        "Never purchase gift cards, initiate wire transfers, or share credentials based solely on an email",
-        "Know your organization's rules: company emails will never ask you to buy gift cards, share your password, validate credentials via a PDF or QR code, or wire money without a proper approval process",
-        "Report the email through your organization's phishing reporting process"
+        "Pause. Treat authority + urgency as a risk signal, not a command.",
+        "Verify the request through a channel you already trust (known phone/Teams contact).",
+        "Keep normal approvals in place \u2014 especially for payments and account changes.",
+        "Never send credentials, gift cards, or wire transfers from email-only requests.",
+        "Report authority-themed phishing attempts so finance and leadership can be alerted."
       ],
       "deeperLearning": {
-        "title": "Authority exploits the trust we extend to leadership",
+        "title": "Why authority attacks work",
         "points": [
-          "In professional settings, we're conditioned to respond quickly and positively to requests from leadership. Attackers research organizational structures and deliberately exploit this reflex.",
-          "Business Email Compromise (BEC) \u2014 where attackers impersonate executives to initiate fraudulent transfers \u2014 costs organizations billions of dollars each year. It works because people don't feel comfortable questioning the boss.",
-          "The safest mindset: the more unusual or high-stakes a request appears to be from a senior person, the more important it is to verify it through a completely separate channel before doing anything."
+          "Most people are trained to respond quickly to leadership requests. Attackers exploit that reflex.",
+          "BEC succeeds when trust replaces process \u2014 not because people are careless.",
+          "Best rule: the higher the stakes, the stronger the verification requirement."
         ]
       },
       "checkIn": [
@@ -280,7 +299,7 @@
             }
           ],
           "correctChoiceId": "b",
-          "explanation": "Gift card requests via email are never legitimate business payments. Always verify high-stakes requests through a completely separate channel you already trust."
+          "explanation": "Authority pressure is the tactic here. Verify through a separate known channel before acting."
         },
         {
           "question": "PAC leadership or IT will never ask you to do which of the following via email?",
@@ -303,7 +322,7 @@
             }
           ],
           "correctChoiceId": "c",
-          "explanation": "Financial transactions bypassing normal approval processes are never legitimate \u2014 regardless of who appears to be asking."
+          "explanation": "Anything that bypasses normal financial controls is a red flag, regardless of who appears to be asking."
         }
       ]
     },

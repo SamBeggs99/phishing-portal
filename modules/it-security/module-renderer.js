@@ -102,6 +102,33 @@ export async function renderITModule(moduleId) {
   const ifCompromised = t.ifCompromised ? `
     <div class="content-section"><h2>${e(t.ifCompromised.title)}</h2>${ul(t.ifCompromised.steps)}</div>` : "";
 
+  // ── Data Classification ──
+  const dataClassification = t.dataClassification ? `
+    <div class="content-section">
+      <h2>${e(t.dataClassification.title)}</h2>
+      <p class="small-note" style="margin-bottom:14px;">${e(t.dataClassification.intro)}</p>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        ${(t.dataClassification.tiers||[]).map(tier=>{
+          const palettes = {
+            public:     {color:'#2ECC71',bg:'rgba(46,204,113,0.06)',border:'rgba(46,204,113,0.2)'},
+            private:    {color:'#F5A623',bg:'rgba(245,166,35,0.06)',border:'rgba(245,166,35,0.2)'},
+            restricted: {color:'#c94040',bg:'rgba(232,51,42,0.06)',border:'rgba(232,51,42,0.2)'}
+          };
+          const c = palettes[tier.level] || palettes.private;
+          return `<div style="background:${c.bg};border:1px solid ${c.border};border-radius:10px;padding:12px 14px;">
+            <div style="display:flex;align-items:flex-start;gap:10px;">
+              <span style="font-family:var(--mono);font-size:9px;font-weight:700;color:${c.color};padding:3px 7px;border-radius:999px;border:1px solid ${c.border};white-space:nowrap;margin-top:1px;">${e(tier.label)}</span>
+              <div>
+                <p style="font-size:13.5px;font-weight:600;color:var(--text);margin-bottom:4px;">${e(tier.name)}</p>
+                <p style="font-size:12.5px;color:var(--text-2);line-height:1.6;margin-bottom:6px;">${e(tier.description)}</p>
+                <p style="font-size:11.5px;color:${c.color};font-family:var(--mono);line-height:1.5;">${e(tier.aiRule)}</p>
+              </div>
+            </div>
+          </div>`;
+        }).join("")}
+      </div>
+    </div>` : "";
+
   // ── AUP extras ──
   const yesNo = t.yesNo ? `
     <div class="content-section">
@@ -211,7 +238,7 @@ export async function renderITModule(moduleId) {
       </div>
       ${passwordStrength}${ifCompromised}
       ${eodChecklist}${publicSpaces}
-      ${yesNo}${consequences}
+      ${dataClassification}${yesNo}${consequences}
       ${visitorScript}${usbDrop}
       ${beforeYouPost}${engSpecific}
       ${vpnTrouble}${homeRouter}
