@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phishing Defense Training Portal</title>
+  <link rel="stylesheet" href="./styles/site.css" />
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="./index.html" aria-label="Phishing Defense Training Portal">
+        <div class="brand-icon">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M9 2L15.5 5.5V12.5L9 16L2.5 12.5V5.5L9 2Z" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
+            <path d="M9 7V10M9 12V12.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">PhishDefense</span>
+          <span class="brand-sub">Security Training</span>
+        </div>
+      </a>
+      <nav class="navlinks" aria-label="Primary navigation">
+        <a data-nav="true" href="./index.html">Home</a>
+        <a data-nav="true" href="./modules/index.html">Modules</a>
+        <a data-nav="true" href="./quiz.html">Quiz</a>
+        <a data-nav="true" href="./examples.html">Examples</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="hero">
+      <div class="hero-badge">
+        <span></span>
+        Active Training Program
+      </div>
+      <h1>Learn to <em>spot</em> phishing before it's too late</h1>
+      <p>
+        Master the four manipulation tactics attackers rely on — Urgency, Intimidation, Scarcity, and Authority — then prove your skills with a graded quiz and earn your certificate.
+      </p>
+      <div class="cta-row">
+        <a class="btn primary" href="./quiz.html">
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 1L9.5 6H14.5L10.5 9L12 14L7.5 11L3 14L4.5 9L0.5 6H5.5L7.5 1Z" fill="white"/></svg>
+          Take the Quiz
+        </a>
+        <a class="btn" href="./modules/index.html">Browse Modules →</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">5</span>
+          <span class="stat-label">Training Modules</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">10</span>
+          <span class="stat-label">Quiz Questions</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">80%</span>
+          <span class="stat-label">Pass Threshold</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">4</span>
+          <span class="stat-label">Real-World Examples</span>
+        </div>
+      </div>
+    </section>
+
+    <div style="height:28px"></div>
+
+    <section>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
+        <h2 style="font-family:var(--display);font-weight:800;font-size:22px;color:var(--text);letter-spacing:-0.02em;">Training Modules</h2>
+        <span style="font-family:var(--mono);font-size:11px;color:var(--text-3);text-transform:uppercase;letter-spacing:0.08em;">5 topics</span>
+      </div>
+      <div class="modules-grid">
+        <a class="module-card" href="./modules/urgency.html">
+          <div>
+            <div class="module-card-num">Module 01</div>
+            <h3>Urgency</h3>
+            <p>Pressure tactics that force snap decisions. Learn to pause, verify, and respond safely.</p>
+          </div>
+          <div class="module-badge">⏱ Time Pressure</div>
+        </a>
+        <a class="module-card" href="./modules/intimidation.html">
+          <div>
+            <div class="module-card-num">Module 02</div>
+            <h3>Intimidation</h3>
+            <p>Fear and threats used to suppress your verification instinct. Stay calm and verify.</p>
+          </div>
+          <div class="module-badge" style="background:rgba(232,51,42,0.12);border-color:rgba(232,51,42,0.2);color:var(--red);">⚠ Threat-Based</div>
+        </a>
+        <a class="module-card" href="./modules/scarcity.html">
+          <div>
+            <div class="module-card-num">Module 03</div>
+            <h3>Scarcity</h3>
+            <p>Limited-time offers and FOMO that push you to click before you think.</p>
+          </div>
+          <div class="module-badge">🎯 FOMO Exploit</div>
+        </a>
+        <a class="module-card" href="./modules/authority.html">
+          <div>
+            <div class="module-card-num">Module 04</div>
+            <h3>Authority</h3>
+            <p>Impersonation of leadership, IT, and vendors. Always verify through a separate channel.</p>
+          </div>
+          <div class="module-badge" style="background:rgba(46,204,113,0.1);border-color:rgba(46,204,113,0.18);color:var(--green);">👔 Impersonation</div>
+        </a>
+        <a class="module-card full-width" href="./modules/types-of-phishing.html">
+          <div class="module-card-content">
+            <div class="module-card-num">Module 05 — Comprehensive Overview</div>
+            <h3>Types of Phishing</h3>
+            <p>Credential phishing, invoice fraud, smishing/vishing, spear phishing, and more. Understand the full attack landscape and how each variant targets you.</p>
+          </div>
+          <div style="flex-shrink:0;">
+            <span class="btn primary" style="pointer-events:none;">Open Module →</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <div style="height:28px"></div>
+
+    <div class="grid" style="margin-top:0;">
+      <div class="card">
+        <div class="card-icon">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="4" width="14" height="10" rx="2" stroke="#E8332A" stroke-width="1.4"/><path d="M2 7H16" stroke="#E8332A" stroke-width="1.4"/><circle cx="5" cy="11" r="1" fill="#E8332A"/></svg>
+        </div>
+        <h3>Real-World Examples</h3>
+        <p>Simplified attack scenarios showing exactly what to look for and how to respond — credential phishing, invoice fraud, vishing, and spear phishing.</p>
+        <a class="btn" href="./examples.html">View Examples →</a>
+      </div>
+      <div class="card">
+        <div class="card-icon">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2L15.5 5.5V12.5L9 16L2.5 12.5V5.5L9 2Z" stroke="#E8332A" stroke-width="1.4" stroke-linejoin="round"/><path d="M6 9L8 11L12 7" stroke="#E8332A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Earn Your Certificate</h3>
+        <p>Score 80% or higher on the 10-question quiz to generate a personalized certificate you can download and share with your manager.</p>
+        <a class="btn primary" href="./quiz.html">Take the Quiz →</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>PhishDefense Training Portal — Replace content in <code>data/</code> with your own materials.</span>
+      <span class="small-note" style="font-size:12px;">No sign-in required · Client-side only</span>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { setActiveNav } from "./js/shared.js";
+    setActiveNav();
+  </script>
+</body>
+</html>

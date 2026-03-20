@@ -1,0 +1,137 @@
+{
+  "title": "Phishing Awareness Quiz",
+  "passThresholdPercent": 80,
+  "questions": [
+    {
+      "id": "q1",
+      "topic": "urgency",
+      "question": "You receive an email that says your account will be closed within 30 minutes unless you “verify now.” What should you do first?",
+      "choices": [
+        { "id": "a", "label": "Click the link quickly so you don't lose access", "hint": "Avoid rushing decisions." },
+        { "id": "b", "label": "Slow down and verify independently using a trusted channel", "hint": "Use official contact/portal." },
+        { "id": "c", "label": "Reply to the sender and ask for more time", "hint": "Replying can legitimize the attacker." },
+        { "id": "d", "label": "Enter your password to confirm it’s you", "hint": "Never share credentials via links." }
+      ],
+      "correctChoiceId": "b",
+      "explanation": "Urgency is a common manipulation tactic. Verify through trusted channels before interacting."
+    },
+    {
+      "id": "q2",
+      "topic": "intimidation",
+      "question": "A message threatens disciplinary action and says you’ve already violated policy. Which response best protects you?",
+      "choices": [
+        { "id": "a", "label": "Follow the instructions immediately to avoid consequences", "hint": "Fear reduces scrutiny." },
+        { "id": "b", "label": "Take a breath and verify the claim through official channels", "hint": "Independent verification is key." },
+        { "id": "c", "label": "Forward the message to coworkers to confirm details", "hint": "May spread the scam." },
+        { "id": "d", "label": "Complete any login or form request from the message", "hint": "Credentials should never be entered from untrusted links." }
+      ],
+      "correctChoiceId": "b",
+      "explanation": "Intimidation aims to stop you from questioning. Verify independently."
+    },
+    {
+      "id": "q3",
+      "topic": "authority",
+      "question": "Your manager emails you to wire money “right away” and says to bypass normal approval steps. What is the safest action?",
+      "choices": [
+        { "id": "a", "label": "Trust the email because it appears to be from leadership", "hint": "Impersonation is common." },
+        { "id": "b", "label": "Verify the request via a separate trusted channel, then follow process", "hint": "Use standard approval/verification." },
+        { "id": "c", "label": "Reply to the manager using the same email thread", "hint": "Threads can be compromised." },
+        { "id": "d", "label": "Click the embedded link to “confirm instructions”", "hint": "Links can be malicious." }
+      ],
+      "correctChoiceId": "b",
+      "explanation": "Even authority-based requests must be verified independently and routed through standard process."
+    },
+    {
+      "id": "q4",
+      "topic": "scarcity",
+      "question": "A text says you won a limited-time reward and asks you to click a link to claim it. What's the best next step?",
+      "choices": [
+        { "id": "a", "label": "Click immediately to avoid missing out", "hint": "Scarcity creates FOMO." },
+        { "id": "b", "label": "Verify the offer using official channels before interacting", "hint": "Don’t let urgency drive action." },
+        { "id": "c", "label": "Share the link with friends so they can confirm", "hint": "Spreads risk." },
+        { "id": "d", "label": "Reply with your account details so it can be claimed", "hint": "Never provide sensitive data." }
+      ],
+      "correctChoiceId": "b",
+      "explanation": "Scarcity is a tactic. Verify safely before clicking or entering details."
+    },
+    {
+      "id": "q5",
+      "topic": "types",
+      "question": "Which scenario most closely matches credential phishing?",
+      "choices": [
+        { "id": "a", "label": "A fake login page asks you to enter your username and password", "hint": "Direct credential capture." },
+        { "id": "b", "label": "A meeting invite lists agenda items with no links", "hint": "Not a credential prompt." },
+        { "id": "c", "label": "An internal document is shared through an approved system", "hint": "Likely legitimate." },
+        { "id": "d", "label": "A password manager warns you your password was changed", "hint": "Security tool behavior." }
+      ],
+      "correctChoiceId": "a",
+      "explanation": "Credential phishing aims to capture login credentials through fake pages or forms."
+    },
+    {
+      "id": "q6",
+      "topic": "types",
+      "question": "A message requests a one-time code (OTP) sent via SMS to “verify your identity.” Why is this dangerous?",
+      "choices": [
+        { "id": "a", "label": "OTP codes never matter for account security", "hint": "OTP codes are valuable." },
+        { "id": "b", "label": "Attackers can use OTP codes to take over accounts", "hint": "This is a common takeover method." },
+        { "id": "c", "label": "OTP codes are only used for marketing verification", "hint": "Not typically true." },
+        { "id": "d", "label": "OTP codes are shared with IT automatically", "hint": "Verify via official flow." }
+      ],
+      "correctChoiceId": "b",
+      "explanation": "OTP codes can be used to bypass authentication and complete account compromise."
+    },
+    {
+      "id": "q7",
+      "topic": "urgency",
+      "question": "Which is the best sign you should treat a message as suspicious?",
+      "choices": [
+        { "id": "a", "label": "It provides clear, verifiable details and allows time to check", "hint": "Legit messages often do this." },
+        { "id": "b", "label": "It tells you not to contact support and to act immediately", "hint": "Bypassing verification is a red flag." },
+        { "id": "c", "label": "It uses your correct name and includes no links", "hint": "Still could be spoofed." },
+        { "id": "d", "label": "It’s written politely and with good grammar", "hint": "Phishers can still write well." }
+      ],
+      "correctChoiceId": "b",
+      "explanation": "Phishers often try to prevent you from verifying."
+    },
+    {
+      "id": "q8",
+      "topic": "intimidation",
+      "question": "What should you NEVER do because of intimidation or threats?",
+      "choices": [
+        { "id": "a", "label": "Enter credentials from a link or form in the message", "hint": "Credentials should be entered only through trusted flows." },
+        { "id": "b", "label": "Verify independently using official channels", "hint": "Safe verification." },
+        { "id": "c", "label": "Report it through approved mechanisms", "hint": "Helps everyone." },
+        { "id": "d", "label": "Take time to assess before acting", "hint": "Slow is safe." }
+      ],
+      "correctChoiceId": "a",
+      "explanation": "Threats should not change your security behavior—never submit credentials via suspicious links."
+    },
+    {
+      "id": "q9",
+      "topic": "authority",
+      "question": "If you’re asked to pay a new vendor and the instructions arrived via email, what’s the safest approach?",
+      "choices": [
+        { "id": "a", "label": "Update payment details based only on the email", "hint": "High risk if attacker is impersonating." },
+        { "id": "b", "label": "Verify the vendor/payment change through your organization’s normal procurement/finance process", "hint": "Follow established verification steps." },
+        { "id": "c", "label": "Reply with bank details so they can confirm", "hint": "Never share sensitive info." },
+        { "id": "d", "label": "Assume the sender is genuine if the signature looks right", "hint": "Signatures can be forged." }
+      ],
+      "correctChoiceId": "b",
+      "explanation": "Payment changes must go through standard verification to prevent fraud."
+    },
+    {
+      "id": "q10",
+      "topic": "types",
+      "question": "What best describes spear phishing?",
+      "choices": [
+        { "id": "a", "label": "Mass emails with random details sent to everyone", "hint": "That’s more “generic spam.”" },
+        { "id": "b", "label": "Messages tailored to a specific person or department to appear credible", "hint": "Targeting increases success." },
+        { "id": "c", "label": "Only phone calls with no email involvement", "hint": "Spear phishing is not limited to one channel." },
+        { "id": "d", "label": "Always obvious scams with misspellings", "hint": "Many are subtle." }
+      ],
+      "correctChoiceId": "b",
+      "explanation": "Spear phishing is targeted and designed to increase trust."
+    }
+  ]
+}
+

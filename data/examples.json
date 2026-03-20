@@ -1,0 +1,53 @@
+{
+  "examples": [
+    {
+      "title": "“Password Expiring” login page",
+      "meta": "Credential phishing (email + fake login)",
+      "scenario": "You receive an email claiming your password will expire today. It includes a button labeled “Renew Password Now” and asks you to sign in on a “secure portal.”",
+      "redFlags": [
+        "The link destination domain doesn’t match the organization’s real domain",
+        "The email uses urgent language and a deadline",
+        "The login page requests credentials immediately without any verified context"
+      ],
+      "whyItWasPhishing": "The message and page are designed to collect your username/password. The urgency reduces your chance to verify before entering credentials.",
+      "whatToDo": "Do not enter credentials. Instead, navigate to the official login page by typing the organization’s URL directly or using a trusted bookmark. Report the email."
+    },
+    {
+      "title": "Invoice changed payment instructions",
+      "meta": "Invoice/payment fraud (business email compromise)",
+      "scenario": "A vendor invoice arrives with a note: “We updated our bank account for this payment. Please use the attached payment details.” The email emphasizes that payment is needed immediately to avoid penalties.",
+      "redFlags": [
+        "New bank/payment details are provided via email, not through an approved finance process",
+        "Pressure language like “immediately” or “final chance”",
+        "Attachment or link behavior doesn’t match the vendor’s normal correspondence"
+      ],
+      "whyItWasPhishing": "Attackers aim to redirect payments to their accounts by impersonating a legitimate vendor and using urgency and authority cues.",
+      "whatToDo": "Verify any payment instruction changes through your organization’s procurement/finance verification steps (for example, using known contacts or systems)."
+    },
+    {
+      "title": "IT support call-back with OTP",
+      "meta": "Smishing/vishing + account takeover",
+      "scenario": "You get a voicemail or SMS claiming “suspicious login detected.” The message tells you to call a number and provides a step that requires you to provide a one-time code (OTP) for “verification.”",
+      "redFlags": [
+        "You are asked for an OTP or verification code",
+        "The message directs you to a phone number provided by the sender",
+        "The tone is urgent and discourages independent verification"
+      ],
+      "whyItWasPhishing": "OTP codes can be used to complete account takeover. The attacker tries to convince you that sharing the OTP is part of the legitimate verification process.",
+      "whatToDo": "Do not share OTPs. Verify with your internal IT helpdesk using a known number. Report the message."
+    },
+    {
+      "title": "Targeted message referencing internal project",
+      "meta": "Spear phishing (targeted)",
+      "scenario": "A colleague receives an email referencing a specific internal project name and asks them to review a “status update” link. The request includes a brief explanation and appears aligned with their role.",
+      "redFlags": [
+        "The sender is not from an internal or expected domain",
+        "The link leads to an external page that looks similar to internal tools",
+        "The request asks for action quickly or “before end of day”"
+      ],
+      "whyItWasPhishing": "Targeted details increase credibility. The attacker leverages authority/role relevance to reduce suspicion and capture credentials or deliver malware.",
+      "whatToDo": "Check sender identity and link destination. Verify via internal messaging or direct confirmation. Report the email and avoid interacting with links."
+    }
+  ]
+}
+
