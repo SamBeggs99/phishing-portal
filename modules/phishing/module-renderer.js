@@ -23,6 +23,7 @@ export async function renderPhishingModule(topicId) {
     if (topic.type === "types-of-phishing") root.innerHTML = renderTypes(topic, m);
     else root.innerHTML = renderStandard(topic, m);
 
+    initMicroScenario(topic.microScenario, ui);
     initCheckIn(topic.checkIn, ui);
     setTimeout(() => markModuleComplete(topicId), 8000);
   } catch (err) {
@@ -37,6 +38,24 @@ export async function renderPhishingModule(topicId) {
 function renderStandard(topic, m) {
   const flags = (topic.redFlags || []).map(f => `<li>${escapeHtml(f)}</li>`).join("");
   const steps = (topic.responseSteps || []).map(s => `<li>${escapeHtml(s)}</li>`).join("");
+  const quickTakeaway = topic.quickTakeaway?.points?.length ? `
+    <div class="content-section" style="border-color:var(--border-red);background:rgba(171,35,40,0.06);">
+      <div class="mono-label" style="margin-bottom:8px;">${escapeHtml(topic.quickTakeaway.title || "1-minute takeaway")}</div>
+      <ul class="list-clean">${topic.quickTakeaway.points.map(p => `<li>${escapeHtml(p)}</li>`).join("")}</ul>
+    </div>` : "";
+  const microScenario = topic.microScenario?.question ? `
+    <div class="content-section">
+      <div class="mono-label" style="margin-bottom:8px;">${escapeHtml(topic.microScenario.title || "Quick decision check")}</div>
+      <p style="font-size:14px;color:var(--text-2);line-height:1.7;margin-bottom:12px;">${escapeHtml(topic.microScenario.question)}</p>
+      <div class="choices" id="ms-choices">
+        ${(topic.microScenario.choices || []).map(c => `
+          <label class="choice ms-choice" data-id="${escapeHtml(c.id)}" style="cursor:pointer;">
+            <input type="radio" name="ms-choice" value="${escapeHtml(c.id)}" style="margin-top:3px;accent-color:#AB2328;flex-shrink:0;width:14px;height:14px;"/>
+            <div><span class="choice-label">${escapeHtml(c.label)}</span></div>
+          </label>`).join("")}
+      </div>
+      <div id="ms-feedback" class="hidden" style="margin-top:10px;padding:12px 14px;border-radius:var(--radius);font-size:13px;line-height:1.6;border-left:3px solid transparent;"></div>
+    </div>` : "";
   const deeper = topic.deeperLearning ? `
     <details>
       <summary>${escapeHtml(topic.deeperLearning.title || m.deeperLearning || "Deeper learning")}</summary>
@@ -48,6 +67,7 @@ function renderStandard(topic, m) {
 
   return `
     <div class="module-body">
+      ${quickTakeaway}
       <div class="content-section">
         <div class="mono-label" style="margin-bottom:8px;">${escapeHtml(m.keyTakeaway || "Key takeaway")}</div>
         <p style="font-size:15px;color:var(--text-2);line-height:1.75;">${escapeHtml(topic.summary || "")}</p>
@@ -62,9 +82,42 @@ function renderStandard(topic, m) {
           <ul class="list-clean">${steps || "<li>See module content</li>"}</ul>
         </div>
       </div>
+      ${microScenario}
       ${deeper}
       ${checkInHTML}
     </div>`;
+}
+
+function initMicroScenario(scenario, ui) {
+  if (!scenario?.question || !scenario?.correctChoiceId) return;
+  const choicesRoot = document.getElementById("ms-choices");
+  const feedback = document.getElementById("ms-feedback");
+  if (!choicesRoot || !feedback) return;
+  const m = ui?.module || {};
+  choicesRoot.querySelectorAll(".ms-choice").forEach(lbl => {
+    lbl.addEventListener("click", () => {
+      const chosen = lbl.dataset.id;
+      const correct = scenario.correctChoiceId;
+      choicesRoot.querySelectorAll("input").forEach(i => i.disabled = true);
+      choicesRoot.querySelectorAll(".ms-choice").forEach(opt => {
+        opt.style.cursor = "default";
+        if (opt.dataset.id === correct) {
+          opt.style.borderColor = "rgba(46,204,113,0.4)";
+          opt.style.background = "rgba(46,204,113,0.07)";
+        } else if (opt.dataset.id === chosen && chosen !== correct) {
+          opt.style.borderColor = "rgba(232,51,42,0.4)";
+          opt.style.background = "rgba(232,51,42,0.07)";
+        }
+      });
+      const ok = chosen === correct;
+      feedback.classList.remove("hidden");
+      feedback.style.borderLeftColor = ok ? "#2ECC71" : "#AB2328";
+      feedback.style.background = ok ? "rgba(46,204,113,0.05)" : "rgba(171,35,40,0.05)";
+      feedback.innerHTML = `
+        <strong style="color:${ok ? "#2ECC71" : "#AB2328"};font-size:11px;text-transform:uppercase;letter-spacing:0.08em;font-family:monospace;">${escapeHtml(ok ? (m.correct || "Correct") : (m.incorrect || "Incorrect"))}</strong>
+        <p style="margin-top:5px;color:var(--text-2);">${escapeHtml(scenario.bestAction || "")}</p>`;
+    });
+  });
 }
 
 function renderTypes(topic, m) {

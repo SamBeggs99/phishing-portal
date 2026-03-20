@@ -19,6 +19,24 @@ export async function renderITModule(moduleId) {
     const m = ui.module || {};
     const e = s => escapeHtml(String(s ?? ""));
     const ul = arr => arr?.length ? `<ul class="list-clean">${arr.map(f=>`<li>${e(f)}</li>`).join("")}</ul>` : "";
+    const quickTakeaway = t.quickTakeaway?.points?.length ? `
+      <div class="content-section" style="border-color:var(--border-red);background:rgba(171,35,40,0.06);">
+        <div class="mono-label" style="margin-bottom:8px;">${e(t.quickTakeaway.title || "1-minute takeaway")}</div>
+        ${ul(t.quickTakeaway.points)}
+      </div>` : "";
+    const microScenario = t.microScenario?.question ? `
+      <div class="content-section">
+        <div class="mono-label" style="margin-bottom:8px;">${e(t.microScenario.title || "Quick decision check")}</div>
+        <p style="font-size:14px;color:var(--text-2);line-height:1.7;margin-bottom:12px;">${e(t.microScenario.question)}</p>
+        <div class="choices" id="ms-choices">
+          ${(t.microScenario.choices || []).map(c => `
+            <label class="choice ms-choice" data-id="${e(c.id)}" style="cursor:pointer;">
+              <input type="radio" name="ms-choice" value="${e(c.id)}" style="margin-top:3px;accent-color:#AB2328;flex-shrink:0;width:14px;height:14px;"/>
+              <div><span class="choice-label">${e(c.label)}</span></div>
+            </label>`).join("")}
+        </div>
+        <div id="ms-feedback" class="hidden" style="margin-top:10px;padding:12px 14px;border-radius:var(--radius);font-size:13px;line-height:1.6;border-left:3px solid transparent;"></div>
+      </div>` : "";
     const ol_numbered = (arr, color="var(--pac-red)", bg="var(--red-glow)", border="var(--border-red)") =>
     arr?.length ? `<ol style="list-style:none;display:flex;flex-direction:column;gap:8px;padding:0;">${arr.map((s,i)=>`
       <li style="display:flex;gap:10px;align-items:flex-start;">
@@ -181,6 +199,7 @@ export async function renderITModule(moduleId) {
 
     document.getElementById("module-root").innerHTML = `
     <div class="module-body">
+      ${quickTakeaway}
       <div class="content-section">
         <div class="mono-label" style="margin-bottom:8px;">${e(m.keyTakeaway||"Key takeaway")}</div>
         <p style="font-size:15px;color:var(--text-2);line-height:1.75;">${e(t.summary)}</p>
@@ -197,11 +216,13 @@ export async function renderITModule(moduleId) {
       ${beforeYouPost}${engSpecific}
       ${vpnTrouble}${homeRouter}
       ${barracuda}${whatHappensNext}${whenInDoubt}
+      ${microScenario}
       ${deeper}
       ${renderCheckIn(t.checkIn, ui)}
     </div>`;
 
     initCheckIn(t.checkIn, ui);
+    initMicroScenario(t.microScenario, ui);
     setTimeout(() => markModuleComplete(moduleId), 8000);
   } catch (err) {
     console.error("Failed to render IT security module:", err);
@@ -210,4 +231,37 @@ export async function renderITModule(moduleId) {
       root.innerHTML = `<p class="small-note">We couldn't render this module right now. Please refresh the page. If the problem continues, contact IT.</p>`;
     }
   }
+}
+
+function initMicroScenario(scenario, ui) {
+  if (!scenario?.question || !scenario?.correctChoiceId) return;
+  const e = s => escapeHtml(String(s ?? ""));
+  const choicesRoot = document.getElementById("ms-choices");
+  const feedback = document.getElementById("ms-feedback");
+  if (!choicesRoot || !feedback) return;
+  const m = ui?.module || {};
+  choicesRoot.querySelectorAll(".ms-choice").forEach(lbl => {
+    lbl.addEventListener("click", () => {
+      const chosen = lbl.dataset.id;
+      const correct = scenario.correctChoiceId;
+      choicesRoot.querySelectorAll("input").forEach(i => i.disabled = true);
+      choicesRoot.querySelectorAll(".ms-choice").forEach(opt => {
+        opt.style.cursor = "default";
+        if (opt.dataset.id === correct) {
+          opt.style.borderColor = "rgba(46,204,113,0.4)";
+          opt.style.background = "rgba(46,204,113,0.07)";
+        } else if (opt.dataset.id === chosen && chosen !== correct) {
+          opt.style.borderColor = "rgba(232,51,42,0.4)";
+          opt.style.background = "rgba(232,51,42,0.07)";
+        }
+      });
+      const ok = chosen === correct;
+      feedback.classList.remove("hidden");
+      feedback.style.borderLeftColor = ok ? "#2ECC71" : "#AB2328";
+      feedback.style.background = ok ? "rgba(46,204,113,0.05)" : "rgba(171,35,40,0.05)";
+      feedback.innerHTML = `
+        <strong style="color:${ok ? "#2ECC71" : "#AB2328"};font-size:11px;text-transform:uppercase;letter-spacing:0.08em;font-family:monospace;">${e(ok ? (m.correct || "Correct") : (m.incorrect || "Incorrect"))}</strong>
+        <p style="margin-top:5px;color:var(--text-2);">${e(scenario.bestAction || "")}</p>`;
+    });
+  });
 }

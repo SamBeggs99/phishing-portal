@@ -142,6 +142,25 @@
     },
     "scarcity": {
       "type": "standard",
+      "quickTakeaway": {
+        "title": "1-minute takeaway",
+        "points": [
+          "Scarcity language is designed to trigger FOMO, not to inform you.",
+          "Never claim rewards or offers from links in unsolicited emails.",
+          "Verify through official HR/internal channels before acting."
+        ]
+      },
+      "microScenario": {
+        "title": "Quick decision check",
+        "question": "You receive an email saying only the first 20 employees get a wellness voucher if they \"verify details\" before lunch. What is your best next step?",
+        "choices": [
+          { "id": "a", "label": "Click immediately so you don't miss out" },
+          { "id": "b", "label": "Forward it to your team so they can benefit too" },
+          { "id": "c", "label": "Pause and verify via HR portal/internal comms before doing anything" }
+        ],
+        "correctChoiceId": "c",
+        "bestAction": "Treat limited-time reward emails as suspicious by default and verify through official internal channels."
+      },
       "summary": "Scarcity phishing exploits the fear of missing out. By suggesting that something valuable is available only to the first few people, or only for a limited time, attackers push you into clicking before you've had a chance to think. Everyone likes to get something good \u2014 and that's exactly what makes this tactic so effective.",
       "redFlags": [
         "\"Limited time\" or \"exclusive offer\" language attached to a link or file",

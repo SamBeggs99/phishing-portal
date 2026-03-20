@@ -679,6 +679,25 @@
       "type": "standard",
       "badge": "Reporting",
       "badgeColor": "red",
+      "quickTakeaway": {
+        "title": "1-minute takeaway",
+        "points": [
+          "Speed matters more than certainty: report first, investigate second.",
+          "If you clicked or entered credentials, contact IT directly immediately.",
+          "No-blame reporting protects both you and the organization."
+        ]
+      },
+      "microScenario": {
+        "title": "Quick decision check",
+        "question": "You clicked a suspicious link, entered your credentials, and then the page looked broken. What should you do in the next 5 minutes?",
+        "choices": [
+          { "id": "a", "label": "Delete the email and monitor quietly" },
+          { "id": "b", "label": "Change password alone and tell no one" },
+          { "id": "c", "label": "Report via Barracuda and call/message IT immediately" }
+        ],
+        "correctChoiceId": "c",
+        "bestAction": "Report immediately and contact IT directly so containment can begin before an attacker moves laterally."
+      },
       "summary": "Security incidents happen to everyone \u2014 and reporting them quickly is one of the most important things you can do to protect yourself and the company. The worst outcome is not clicking a link or losing a device. The worst outcome is not telling anyone, and allowing a small incident to grow into a major breach. PAC operates a no-blame reporting culture. If something happened, we want to know \u2014 and we will work with you, not against you.",
       "story": {
         "title": "The breach that took 206 days to discover \u2014 because no one reported it",
