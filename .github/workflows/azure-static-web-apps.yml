@@ -1,4 +1,4 @@
-name: Deploy to Azure Static Web Apps
+name: Deploy PAC IT Security Training Portal
 
 on:
   push:
@@ -20,24 +20,19 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Deploy to Azure Static Web Apps
-        id: deploy
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
-          # Site root is the repo root (all files are here)
           app_location: "/"
-          # No build step needed — the site is already static
           output_location: "/"
-          # No API
           skip_api_build: true
 
   close_pull_request:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
     runs-on: ubuntu-latest
     name: Close Pull Request
-
     steps:
       - name: Close Pull Request
         uses: Azure/static-web-apps-deploy@v1

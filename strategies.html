@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Defence Strategies — PAC IT Security Training</title>
+  <link rel="stylesheet" href="./styles/site.css"/>
+  <style>
+    .rrr-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-bottom: 24px; }
+    .rrr-card { background: var(--ink-2); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 22px; position: relative; overflow: hidden; }
+    .rrr-big { position: absolute; top: 8px; right: 14px; font-family: var(--mono); font-size: 56px; font-weight: 700; color: rgba(171,35,40,0.07); line-height: 1; pointer-events: none; }
+    .rrr-step { font-family: var(--mono); font-size: 9px; color: var(--pac-red); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; }
+    .rrr-title { font-size: 22px; font-weight: 600; color: var(--text); margin-bottom: 10px; letter-spacing: -0.02em; }
+    .rrr-desc { font-size: 13.5px; color: var(--text-2); line-height: 1.65; margin-bottom: 14px; }
+    .rrr-how { background: var(--ink-3); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px; }
+    .rrr-how-lbl { font-family: var(--mono); font-size: 9px; color: var(--text-4); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+    .rrr-how ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .rrr-how li { display: flex; gap: 8px; font-size: 12.5px; color: var(--text-2); line-height: 1.55; }
+    .rrr-how li::before { content: '›'; color: var(--pac-red); font-family: var(--mono); flex-shrink: 0; font-size: 14px; line-height: 1.4; }
+    .em-green { color: var(--green); font-style: normal; font-weight: 600; }
+    .em-red { color: #c94040; font-style: normal; font-weight: 600; }
+    @media (max-width:900px) { .rrr-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<div id="header-root"></div>
+<main class="container">
+
+  <div class="page-hero">
+    <div class="page-eyebrow">Defence Strategies</div>
+    <h1>Think before you click</h1>
+    <p>Three steps that work in almost every scenario — no technical knowledge required. These habits protect you whether you're dealing with an email, a phone call, a text, or a QR code.</p>
+  </div>
+
+  <div class="rrr-grid">
+    <div class="rrr-card">
+      <div class="rrr-big">1</div>
+      <div class="rrr-step">Step One</div>
+      <div class="rrr-title">Recognize</div>
+      <div class="rrr-desc">Verify the sender is who you think they are. Don't rely on the display name — check the actual email address and ask whether the request makes sense.</div>
+      <div class="rrr-how">
+        <div class="rrr-how-lbl">How to do it</div>
+        <ul>
+          <li>Hover over or click the sender's name to reveal the real email address — does it match who it claims to be?</li>
+          <li>Check the domain after @: <em class="em-green">@amazon.com</em> is real, <em class="em-red">@amazooms.me</em> is not</li>
+          <li>Look for the <strong style="color:var(--amber);">[External]</strong> tag — if present, the email came from outside PAC</li>
+          <li>Ask: would IT, HR, or finance really contact me this way? Does this request make sense?</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rrr-card">
+      <div class="rrr-big">2</div>
+      <div class="rrr-step">Step Two</div>
+      <div class="rrr-title">Rethink</div>
+      <div class="rrr-desc">Before clicking anything, pause. Links can show one address and take you somewhere else entirely. Remember the phrase: <em style="color:var(--pac-red);font-style:normal;font-weight:600;">hover to discover.</em></div>
+      <div class="rrr-how">
+        <div class="rrr-how-lbl">How to do it</div>
+        <ul>
+          <li>Desktop: hover your mouse over any link <em>without clicking</em> — the real URL appears at the bottom of your browser</li>
+          <li>Mobile: long-press a link to preview the URL before it opens</li>
+          <li>Best practice: open a new tab and type the website address yourself — don't follow links from unexpected emails</li>
+          <li>Never open attachments from unverified senders — they're the most common malware delivery method</li>
+          <li>Never approve an MFA prompt you didn't initiate yourself</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rrr-card">
+      <div class="rrr-big">3</div>
+      <div class="rrr-step">Step Three</div>
+      <div class="rrr-title">Report</div>
+      <div class="rrr-desc">If something feels off — even slightly — report it. A false alarm costs nothing. A delayed report can cost millions. Your instinct is a security control.</div>
+      <div class="rrr-how">
+        <div class="rrr-how-lbl">How to do it</div>
+        <ul>
+          <li>Use <strong style="color:var(--text);">Report Message</strong> in Outlook — reports to PAC IT Security and Microsoft simultaneously</li>
+          <li>Email <strong style="color:var(--text);">phishing@pacgroup.com</strong> directly — update this with your real internal address</li>
+          <li>Call or message IT directly if you need to act quickly</li>
+          <li>Even a false alarm is valuable — it helps IT track patterns across the organization</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- NEVER LIST -->
+  <div class="section" style="margin-bottom:24px;">
+    <h2 style="margin-bottom:4px;">PAC emails will <span class="text-red">never</span> ask you to</h2>
+    <p class="small-note" style="margin-bottom:18px;">Treat any email claiming to be from PAC that requests any of the following as suspicious — and report it immediately.</p>
+    <div class="never-grid">
+      <div class="never-item">
+        <div class="never-x"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 2L8 8M8 2L2 8" stroke="#AB2328" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <p>Provide your Microsoft 365 password or credentials for any other platform</p>
+      </div>
+      <div class="never-item">
+        <div class="never-x"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 2L8 8M8 2L2 8" stroke="#AB2328" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <p>Buy gift cards for a client, colleague, or executive</p>
+      </div>
+      <div class="never-item">
+        <div class="never-x"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 2L8 8M8 2L2 8" stroke="#AB2328" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <p>Perform a wire transfer or financial transaction without a formal approval process</p>
+      </div>
+      <div class="never-item">
+        <div class="never-x"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 2L8 8M8 2L2 8" stroke="#AB2328" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <p>Validate your credentials via a PDF attachment or QR code</p>
+      </div>
+      <div class="never-item">
+        <div class="never-x"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 2L8 8M8 2L2 8" stroke="#AB2328" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <p>Provide sensitive personal information such as your SSN or banking details</p>
+      </div>
+      <div class="never-item">
+        <div class="never-x"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M2 2L8 8M8 2L2 8" stroke="#AB2328" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        <p>Share or provide the login credentials of another employee</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUICK REFERENCE -->
+  <div class="section" style="margin-bottom:24px;">
+    <h2 style="margin-bottom:14px;">Quick reference — what to do right now</h2>
+    <div class="qref-grid">
+      <div class="qref-card">
+        <div class="qref-label" style="color:var(--pac-red);">Got a suspicious email?</div>
+        <ul class="list-clean">
+          <li>Don't click any links</li>
+          <li>Don't open any attachments</li>
+          <li>Don't reply to the sender</li>
+          <li>Use Report Message in Outlook</li>
+        </ul>
+      </div>
+      <div class="qref-card">
+        <div class="qref-label" style="color:var(--amber);">Already clicked a link?</div>
+        <ul class="list-clean">
+          <li>Don't enter any information</li>
+          <li>Close the tab immediately</li>
+          <li>Contact IT straight away</li>
+          <li>Change your password as directed by IT</li>
+        </ul>
+      </div>
+      <div class="qref-card">
+        <div class="qref-label" style="color:var(--green);">Entered credentials on a fake page?</div>
+        <ul class="list-clean">
+          <li>Contact IT immediately — don't wait</li>
+          <li>Don't be embarrassed — it happens to everyone</li>
+          <li>IT will guide you through securing your account</li>
+          <li>Report so others can be warned</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 style="margin-bottom:6px;">Ready to test yourself?</h2>
+    <p class="small-note" style="margin-bottom:16px;">Take the quiz to prove your knowledge and earn your PAC IT Security certificate.</p>
+    <div class="flex-row">
+      <a class="btn primary" href="./quiz.html">Take the Quiz ›</a>
+      <a class="btn" href="./stories.html">Read Real Stories</a>
+    </div>
+  </div>
+
+</main>
+<div id="footer-root"></div>
+<script type="module">
+  import { setActiveNav, initMobileNav, updateProgressBar } from "./js/shared.js";
+  import { getHeaderHTML, getFooterHTML } from "./js/header.js";
+  import { initI18n } from "./js/i18n.js";
+  const ui = await initI18n(".");
+  window.__setLang = (l) => { localStorage.setItem("pac_lang",l); window.location.reload(); };
+  document.getElementById("header-root").innerHTML = getHeaderHTML({ rootPrefix: ".", ui });
+  document.getElementById("footer-root").innerHTML = getFooterHTML({ rootPrefix: ".", ui });
+  setActiveNav(); initMobileNav(); updateProgressBar();
+  const s = ui.strategies || {};
+  const ey = document.querySelector(".page-eyebrow"); if(ey) ey.textContent = s.eyebrow||"Defence Strategies";
+  const h1 = document.querySelector(".page-hero h1"); if(h1) h1.textContent = s.h1||"Think before you click";
+  const pb = document.querySelector(".page-hero p"); if(pb) pb.textContent = s.body||"";
+  const steps = document.querySelectorAll(".rrr-title");
+  if(steps[0]) steps[0].textContent = s.step1||"Recognize";
+  if(steps[1]) steps[1].textContent = s.step2||"Rethink";
+  if(steps[2]) steps[2].textContent = s.step3||"Report";
+  const nt = document.querySelector(".never-title"); if(nt) nt.innerHTML = s.neverTitle||"PAC emails will <span class='text-red'>never</span> ask you to";
+  const ns = document.querySelector(".never-subtitle"); if(ns) ns.textContent = s.neverSubtitle||"";
+  const qrt = document.querySelector(".qref-title"); if(qrt) qrt.textContent = s.qrefTitle||"Quick reference";
+  const qrls = document.querySelectorAll(".qref-label");
+  if(qrls[0]) qrls[0].textContent = s.qref1label||"";
+  if(qrls[1]) qrls[1].textContent = s.qref2label||"";
+  if(qrls[2]) qrls[2].textContent = s.qref3label||"";
+</script>
+</body>
+</html>

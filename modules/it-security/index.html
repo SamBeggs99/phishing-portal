@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IT Security Modules — PAC IT Security Training</title>
+  <link rel="stylesheet" href="../../styles/site.css"/>
+</head>
+<body>
+<div id="header-root"></div>
+<main class="container">
+  <div class="page-hero">
+    <div class="page-eyebrow">IT Security</div>
+    <h1>IT Security Modules</h1>
+    <p>Seven modules covering the everyday security habits that protect you, your colleagues, and PAC's clients. Each includes a real-world story, red flags to watch for, and clear steps to respond.</p>
+  </div>
+
+  <div class="module-grid">
+
+    <a class="module-card" href="./clean-desk.html" data-module-id="clean-desk">
+      <div class="completed-tick"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5L4 7L8 3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="module-card-num">IT Module 01</div>
+      <h3>Clean Desk Policy</h3>
+      <p>Your desk is a data source. What you leave out, unlocked, or visible can be just as dangerous as a cyberattack.</p>
+      <div class="module-badge blue">Physical Security</div>
+    </a>
+
+    <a class="module-card" href="./password-hygiene.html" data-module-id="password-hygiene">
+      <div class="completed-tick"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5L4 7L8 3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="module-card-num">IT Module 02</div>
+      <h3>Password Hygiene</h3>
+      <p>Weak and reused passwords are involved in over 80% of breaches. Learn the right habits and tools.</p>
+      <div class="module-badge red">Credentials</div>
+    </a>
+
+    <a class="module-card" href="./acceptable-use.html" data-module-id="acceptable-use">
+      <div class="completed-tick"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5L4 7L8 3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="module-card-num">IT Module 03</div>
+      <h3>Acceptable Use Policy</h3>
+      <p>PAC systems are provided for PAC work. Understand the boundaries, the reasons, and how to raise concerns.</p>
+      <div class="module-badge purple">Policy</div>
+    </a>
+
+    <a class="module-card" href="./physical-security.html" data-module-id="physical-security">
+      <div class="completed-tick"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5L4 7L8 3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="module-card-num">IT Module 04</div>
+      <h3>Physical Security &amp; Tailgating</h3>
+      <p>Badge access, visitor management, and why holding a door open for a stranger could be the most expensive habit you have.</p>
+      <div class="module-badge blue">Physical Access</div>
+    </a>
+
+    <a class="module-card" href="./social-media.html" data-module-id="social-media">
+      <div class="completed-tick"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5L4 7L8 3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="module-card-num">IT Module 05</div>
+      <h3>Social Media Safety</h3>
+      <p>What you share publicly is research material for attackers. One LinkedIn post enabled a $2.3M fraud.</p>
+      <div class="module-badge purple">Online Safety</div>
+    </a>
+
+    <a class="module-card" href="./remote-vpn.html" data-module-id="remote-vpn">
+      <div class="completed-tick"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5L4 7L8 3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="module-card-num">IT Module 06</div>
+      <h3>Working Remotely &amp; VPN</h3>
+      <p>Home networks, public Wi-Fi, and personal devices change your threat environment significantly. Always use the VPN.</p>
+      <div class="module-badge green">Remote Work</div>
+    </a>
+
+    <a class="module-card full-span" href="./incident-reporting.html" data-module-id="incident-reporting">
+      <div class="completed-tick"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5L4 7L8 3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="module-card-body">
+        <div class="module-card-num">IT Module 07 — Critical</div>
+        <h3>Incident Reporting</h3>
+        <p>The worst outcome is not an incident. The worst outcome is not reporting one. PAC's no-blame culture means you should always tell IT — immediately. One company waited 206 days. It cost $250M.</p>
+      </div>
+      <div class="module-badge red" style="flex-shrink:0;">Reporting</div>
+    </a>
+
+  </div>
+
+  <div class="section-gap"></div>
+  <div class="section">
+    <h2 style="margin-bottom:6px;">Ready to prove your skills?</h2>
+    <p class="small-note" style="margin-bottom:16px;">Once you've worked through the modules, take the assessment to earn your certificate.</p>
+    <div class="flex-row">
+      <a class="btn primary" href="../../quiz.html">Take the Assessment ›</a>
+      <a class="btn" href="../../modules/phishing/index.html">← Phishing Modules</a>
+    </div>
+  </div>
+</main>
+<div id="footer-root"></div>
+<script type="module">
+  import { setActiveNav, initMobileNav, updateProgressBar, applyCompletionToCards } from "../../js/shared.js";
+  import { getHeaderHTML, getFooterHTML } from "../../js/header.js";
+  import { initI18n } from "../../js/i18n.js";
+  const ui = await initI18n("../.."); 
+  window.__setLang = (l) => { localStorage.setItem("pac_lang",l); window.location.reload(); };
+  document.getElementById("header-root").innerHTML = getHeaderHTML({ rootPrefix: "../..", ui });
+  document.getElementById("footer-root").innerHTML = getFooterHTML({ rootPrefix: "../..", ui });
+  setActiveNav(); initMobileNav(); updateProgressBar(); applyCompletionToCards();
+</script>
+</body>
+</html>

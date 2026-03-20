@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FAQ — PAC IT Security Training</title>
+  <link rel="stylesheet" href="./styles/site.css"/>
+  <style>
+    .faq-section { margin-bottom: 28px; }
+    .faq-section-title { font-family: var(--mono); font-size: 10px; color: var(--pac-red); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    .faq-section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .faq-item { background: var(--ink-2); border: 1px solid var(--border); border-radius: var(--radius-lg); margin-bottom: 8px; overflow: hidden; transition: border-color var(--transition); }
+    .faq-item:hover { border-color: var(--border-bright); }
+    .faq-q { padding: 16px 20px; font-size: 14.5px; font-weight: 600; color: var(--text); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 12px; line-height: 1.4; }
+    .faq-q::after { content: '+'; font-family: var(--mono); color: var(--pac-red); font-size: 18px; flex-shrink: 0; transition: transform var(--transition); }
+    .faq-item.open .faq-q::after { content: '−'; }
+    .faq-a { display: none; padding: 0 20px 16px; border-top: 1px solid var(--border); }
+    .faq-item.open .faq-a { display: block; }
+    .faq-a p { font-size: 13.5px; color: var(--text-2); line-height: 1.75; margin-top: 14px; }
+    .faq-a p + p { margin-top: 8px; }
+    .faq-a .highlight { background: var(--ink-3); border: 1px solid var(--border); border-radius: var(--radius); padding: 12px 14px; margin-top: 12px; font-size: 13px; color: var(--text-2); line-height: 1.65; }
+    .faq-a strong { color: var(--text); }
+  </style>
+</head>
+<body>
+<div id="header-root"></div>
+<main class="container">
+
+  <div class="page-hero">
+    <div class="page-eyebrow">Help</div>
+    <h1>Frequently asked questions</h1>
+    <p>Honest answers to the questions employees actually have about IT security — including the ones people are sometimes afraid to ask.</p>
+  </div>
+
+  <div class="faq-section">
+    <div class="faq-section-title">Reporting & incidents</div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">I clicked a suspicious link by accident. Am I in trouble?</div>
+      <div class="faq-a">
+        <p>No — and you should report it immediately. PAC operates a strict no-blame culture for honest mistakes. The worst thing you can do is stay silent hoping nothing happens.</p>
+        <p>Use the Barracuda button in your Outlook ribbon to report the email, then contact IT directly to let them know you clicked the link. IT will check whether your device or credentials may have been compromised and guide you through next steps. The sooner you report, the easier it is to contain.</p>
+        <div class="highlight"><strong>What happens after you report:</strong> IT investigates, determines whether any action is needed, and helps you secure your account if necessary. There are no disciplinary consequences for clicking a link and reporting it promptly.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">What if I'm not sure whether something is suspicious enough to report?</div>
+      <div class="faq-a">
+        <p>Report it anyway. The threshold for reporting should be zero — if something feels even slightly off, that feeling is worth acting on.</p>
+        <p>IT would rather receive 100 false alarms than miss one real attack. There is no such thing as over-reporting a security concern. A false alarm takes IT a few minutes to check. A missed incident can take months and millions to resolve.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">I can't find the Barracuda button in Outlook. What do I do?</div>
+      <div class="faq-a">
+        <p>The Barracuda button appears in the Home tab of your Outlook ribbon — look for the Barracuda icon. If it's not there, it may not be installed on your version of Outlook or your device.</p>
+        <p>Contact IT to have it installed. In the meantime, forward any suspicious email as an attachment to <strong>phishing@pacgroup.com</strong>. Do not just forward the email normally — forward it as an attachment so the full headers are preserved for investigation.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">I reported a phishing email. What happens next?</div>
+      <div class="faq-a">
+        <p>After you click the Barracuda button, IT Security receives an automatic notification within minutes. The email is analysed to determine whether it's a confirmed phishing attempt, spam, or a legitimate email.</p>
+        <p>If it's confirmed phishing, IT checks whether other employees received the same email and sends warnings if needed. If your credentials may have been compromised, IT contacts you directly — supportively, not punitively — to help secure your account.</p>
+        <div class="highlight">You won't always receive an individual confirmation that your report was processed. That's normal — IT handles many reports simultaneously. Your report still matters and still helps.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="faq-section">
+    <div class="faq-section-title">Passwords & accounts</div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">Will IT ever ask me for my password?</div>
+      <div class="faq-a">
+        <p><strong>No. Never.</strong> PAC IT staff will never ask for your password — not by email, not by phone, not in person. If anyone claiming to be from IT asks for your password, that is a social engineering attack.</p>
+        <p>IT can reset your password, unlock your account, and perform any necessary maintenance without knowing your current password. If you receive a request for your password from anyone, report it immediately.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">I got an MFA approval request I didn't initiate. What should I do?</div>
+      <div class="faq-a">
+        <p><strong>Do not approve it.</strong> An MFA prompt you didn't initiate means someone has your password and is trying to log into your account right now.</p>
+        <p>Deny the request immediately, then contact IT — your password has been compromised. IT will help you change your password and check for any unauthorized access to your account.</p>
+        <div class="highlight"><strong>This is called an MFA fatigue attack:</strong> attackers send repeated approval requests hoping you'll eventually click Approve out of frustration. Always deny unexpected MFA requests and report them.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">How do I know if my personal password has been compromised?</div>
+      <div class="faq-a">
+        <p>Visit <strong>haveibeenpwned.com</strong> — a free, reputable service that checks whether your email address has appeared in any known data breach. If your email appears, it means credentials associated with that address were exposed at some point.</p>
+        <p>If you find your work email in a breach, contact IT immediately. For personal accounts, change the affected password right away, and change it on any other account where you used the same password.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="faq-section">
+    <div class="faq-section-title">Working remotely</div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">Is it safe to use hotel Wi-Fi if I use the VPN?</div>
+      <div class="faq-a">
+        <p>Yes — if the VPN is connected, hotel Wi-Fi is acceptable. The VPN encrypts all your traffic, so even if the hotel network is compromised, an attacker cannot read your data.</p>
+        <p>The key steps: connect to the hotel Wi-Fi, then immediately connect to the PAC VPN before opening any work applications or accessing any company systems. Don't browse work email or access SharePoint before the VPN is active.</p>
+        <div class="highlight"><strong>If the VPN won't connect on hotel Wi-Fi:</strong> some hotels block VPN connections. In that case, use your phone as a personal hotspot instead. Cellular connections are encrypted and private.</div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">Can my manager or IT see what websites I visit on my work laptop?</div>
+      <div class="faq-a">
+        <p>Yes — IT can see network traffic on company devices and networks. This includes websites visited, regardless of whether you use incognito/private mode (private mode only prevents local browser history, not network monitoring).</p>
+        <p>This monitoring exists for security purposes — to detect malware, phishing attempts, and policy violations — not to track personal browsing. PAC's Acceptable Use Policy permits reasonable personal use of company devices, but work devices are primarily for work.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">Can I work from a cafe or public space?</div>
+      <div class="faq-a">
+        <p>Yes, with precautions. Connect to the PAC VPN before accessing any company systems. Position your screen so it can't be seen by people nearby — or use a privacy screen filter. Be aware of who is sitting close to you before opening sensitive documents or emails.</p>
+        <p>Avoid taking calls that involve confidential information in public spaces. If you need to discuss sensitive client or project details, step outside or find a private area.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="faq-section">
+    <div class="faq-section-title">Devices & data</div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">I lost my work laptop or phone. What do I do?</div>
+      <div class="faq-a">
+        <p>Contact IT immediately — call or message them directly, don't wait to send an email. IT can remotely wipe the device to prevent unauthorized access to company data. This can only be done before someone has had a chance to access the device, so speed matters.</p>
+        <p>Also notify your manager. Do not attempt to track or recover the device yourself before contacting IT.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">Can I use AI tools like ChatGPT for work tasks?</div>
+      <div class="faq-a">
+        <p>Only tools on the approved list. Before using any external AI tool for work, check with IT whether it's approved. The specific concern is data input — any text you paste into an external AI service may be used to train that service's models, potentially exposing confidential information.</p>
+        <p>Never paste client data, financial information, contract details, internal project specifics, or any information you'd consider confidential into an external AI tool. If there's a legitimate business need for AI assistance, IT can help identify approved options.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">Someone found a USB drive in the car park with PAC's name on it. Should I plug it in?</div>
+      <div class="faq-a">
+        <p><strong>No — hand it to IT without plugging it in.</strong> USB drop attacks are a real and documented technique. Attackers leave labeled USB drives in car parks and lobbies specifically hoping a helpful employee will pick it up and plug it in to find the owner.</p>
+        <p>Plugging in an unknown USB drive can install malware silently in seconds — you don't need to open any files. Hand it to IT or your security team. They have tools to analyze it safely.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="faq-section" style="margin-bottom:0;">
+    <div class="faq-section-title">Getting help</div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggle(this)">I have a security question that isn't answered here. Who do I contact?</div>
+      <div class="faq-a">
+        <p>Email <strong>phishing@pacgroup.com</strong> for anything phishing or email security related. For other IT security questions, contact the IT helpdesk through your normal support channel.</p>
+        <p>There are no silly security questions. If something is unclear or you're unsure whether something is safe, asking is always the right move.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="height:24px"></div>
+  <div class="section">
+    <h2 style="margin-bottom:6px;">Ready to prove your skills?</h2>
+    <p class="small-note" style="margin-bottom:16px;">Take the quiz to earn your PAC IT Security certificate.</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <a class="btn primary" href="./quiz.html">Take the Quiz ›</a>
+      <a class="btn" href="./glossary.html">View Glossary</a>
+    </div>
+  </div>
+
+</main>
+<div id="footer-root"></div>
+<script type="module">
+  import { setActiveNav, initMobileNav, updateProgressBar } from "./js/shared.js";
+  import { getHeaderHTML, getFooterHTML } from "./js/header.js";
+  import { initI18n } from "./js/i18n.js";
+  const ui = await initI18n(".");
+  window.__setLang = (l) => { localStorage.setItem("pac_lang",l); window.location.reload(); };
+  document.getElementById("header-root").innerHTML = getHeaderHTML({ rootPrefix: ".", ui });
+  document.getElementById("footer-root").innerHTML = getFooterHTML({ rootPrefix: ".", ui });
+  setActiveNav(); initMobileNav(); updateProgressBar();
+</script>
+<script>
+function toggle(el) {
+  const item = el.parentElement;
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>

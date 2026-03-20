@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Phishing Modules — PAC IT Security Training</title>
+  <link rel="stylesheet" href="../../styles/site.css"/>
+</head>
+<body>
+<div id="header-root"></div>
+<main class="container">
+  <div class="page-hero">
+    <div class="page-eyebrow">Phishing Training</div>
+    <h1>Phishing Modules</h1>
+    <p>Five modules covering the four manipulation tactics and the full range of phishing attack types used against organizations like PAC every day.</p>
+  </div>
+
+  <div class="module-grid">
+    <a class="module-card" href="./urgency.html" data-module-id="urgency">
+      <div class="completed-tick"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5L4 7L8 3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="module-card-num">Module 01</div>
+      <h3>Urgency</h3>
+      <p>"Your account will be deactivated in 10 minutes." False time pressure designed to make you skip verification entirely.</p>
+      <div class="module-badge">Time Pressure</div>
+    </a>
+    <a class="module-card" href="./intimidation.html" data-module-id="intimidation">
+      <div class="completed-tick"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5L4 7L8 3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="module-card-num">Module 02</div>
+      <h3>Intimidation</h3>
+      <p>"Failure to respond will result in legal escalation." Fear used to stop you from asking questions.</p>
+      <div class="module-badge red">Threat-Based</div>
+    </a>
+    <a class="module-card" href="./scarcity.html" data-module-id="scarcity">
+      <div class="completed-tick"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5L4 7L8 3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="module-card-num">Module 03</div>
+      <h3>Scarcity</h3>
+      <p>"Only the first 50 people get the reward." FOMO engineered to push you into acting before thinking.</p>
+      <div class="module-badge">FOMO Exploit</div>
+    </a>
+    <a class="module-card" href="./authority.html" data-module-id="authority">
+      <div class="completed-tick"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5L4 7L8 3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="module-card-num">Module 04</div>
+      <h3>Authority</h3>
+      <p>"This is the CFO — buy gift cards urgently." It may look exactly like your boss. It isn't.</p>
+      <div class="module-badge green">Impersonation</div>
+    </a>
+    <a class="module-card full-span" href="./types-of-phishing.html" data-module-id="types-of-phishing">
+      <div class="completed-tick"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5L4 7L8 3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="module-card-body">
+        <div class="module-card-num">Module 05 — Comprehensive Overview</div>
+        <h3>Types of Phishing</h3>
+        <p>Email, spear phishing, smishing (SMS), vishing (phone), and quishing (QR codes) — the full attack landscape explained plainly for everyone.</p>
+      </div>
+      <div class="module-badge" style="flex-shrink:0;">5 Attack Types</div>
+    </a>
+  </div>
+
+  <div class="section-gap"></div>
+  <div class="section">
+    <h2 style="margin-bottom:6px;">After the modules</h2>
+    <p class="small-note" style="margin-bottom:16px;">Review the defence strategies, read the real-world stories, then take the quiz.</p>
+    <div class="flex-row">
+      <a class="btn primary" href="../../strategies.html">Defence Strategies ›</a>
+      <a class="btn" href="../../stories.html">Real Stories</a>
+      <a class="btn" href="../../quiz.html">Take the Quiz</a>
+    </div>
+  </div>
+</main>
+<div id="footer-root"></div>
+<script type="module">
+  import { setActiveNav, initMobileNav, updateProgressBar, applyCompletionToCards } from "../../js/shared.js";
+  import { getHeaderHTML, getFooterHTML } from "../../js/header.js";
+  import { initI18n } from "../../js/i18n.js";
+  const ui = await initI18n("../..");
+  window.__setLang = (l) => { localStorage.setItem("pac_lang",l); window.location.reload(); };
+  document.getElementById("header-root").innerHTML = getHeaderHTML({ rootPrefix: "../..", ui });
+  document.getElementById("footer-root").innerHTML = getFooterHTML({ rootPrefix: "../..", ui });
+  setActiveNav(); initMobileNav(); updateProgressBar(); applyCompletionToCards();
+</script>
+</body>
+</html>

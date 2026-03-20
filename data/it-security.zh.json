@@ -1,0 +1,563 @@
+{
+  "topics": {
+    "clean-desk": {
+      "type": "standard",
+      "badge": "Physical Security",
+      "badgeColor": "blue",
+      "summary": "Your desk is a data source. Documents left out, login credentials written on sticky notes, or a screen left unlocked when you step away can expose sensitive information just as effectively as a cyberattack \u2014 sometimes more so. A clean desk policy isn't about tidiness for its own sake. It's about making sure the information you're responsible for doesn't become accessible to the wrong person.",
+      "story": {
+        "title": "The sticky note that cost a company millions",
+        "meta": "Physical security \u00b7 Clean desk \u00b7 Credential exposure",
+        "text": "In 2019, a financial services firm experienced a significant data breach \u2014 not through hacking, but through a single Post-it note. An employee had written their system login credentials on a note stuck to their monitor. A contractor working in the building after hours photographed it with their phone. Within 48 hours, the contractor had accessed client financial records affecting thousands of accounts.\n\nThe employee hadn't done anything malicious. They were just trying to remember a complex password. But one small habit \u2014 one piece of paper \u2014 opened a door that cost the company $4.2 million in breach notifications, legal fees, and remediation.\n\nThe irony? The company had sophisticated cybersecurity controls in place. Their firewall, their MFA, their email filtering \u2014 all working perfectly. None of it mattered because someone wrote a password on a sticky note."
+      },
+      "redFlags": [
+        "Passwords, PINs, or access codes written down anywhere on or near your desk",
+        "Sensitive documents left face-up on your desk when you leave \u2014 even briefly",
+        "Your computer screen unlocked and visible when you step away",
+        "Confidential printouts left in the printer or on a shared workspace",
+        "Visitor or contractor access to areas where sensitive materials are visible"
+      ],
+      "responseSteps": [
+        "Lock your screen every time you leave your desk \u2014 no exceptions, even for a quick coffee run (Windows: Win+L, Mac: Cmd+Ctrl+Q)",
+        "File or shred sensitive documents before leaving for the day \u2014 nothing confidential should remain on your desk overnight",
+        "Never write passwords down. Use a password manager instead (see Password Hygiene module)",
+        "Clear your printer queue and collect printed documents immediately \u2014 don't leave them sitting",
+        "Position your monitor so it can't be seen by people passing through or sitting nearby in open-plan spaces"
+      ],
+      "deeperLearning": {
+        "title": "Why physical security is often the weakest link",
+        "points": [
+          "Organizations spend enormous resources on digital security, but physical exposure bypasses all of it. An unlocked screen in a shared office is a wider door than most network vulnerabilities.",
+          "Tailgating (someone following you into a secured area without badging in) and shoulder surfing (reading someone's screen from nearby) are the two most common physical attack vectors in corporate environments.",
+          "The clean desk habit is also a privacy and compliance issue. Many industries \u2014 healthcare, finance, legal \u2014 have regulatory requirements for how physical documents containing sensitive information must be handled."
+        ]
+      },
+      "checkIn": [
+        {
+          "question": "You're stepping away from your desk for 10 minutes. What should you do with your computer?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "Leave it open \u2014 you'll be back in a few minutes"
+            },
+            {
+              "id": "b",
+              "label": "Lock your screen before stepping away"
+            },
+            {
+              "id": "c",
+              "label": "Close the lid but don't lock it"
+            },
+            {
+              "id": "d",
+              "label": "Log out completely each time"
+            }
+          ],
+          "correctChoiceId": "b",
+          "explanation": "Always lock your screen when leaving your desk \u2014 even briefly. Windows: Win+L. Mac: Cmd+Ctrl+Q. A few seconds is all it takes for someone to access an unlocked computer."
+        },
+        {
+          "question": "Where should you store a password you need to remember for a shared system?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "On a sticky note attached to your monitor"
+            },
+            {
+              "id": "b",
+              "label": "In a note on your phone"
+            },
+            {
+              "id": "c",
+              "label": "In an approved password manager"
+            },
+            {
+              "id": "d",
+              "label": "Written in a notebook in your desk drawer"
+            }
+          ],
+          "correctChoiceId": "c",
+          "explanation": "An approved password manager is the only secure way to store passwords. Written passwords \u2014 wherever they are \u2014 are a physical security risk."
+        }
+      ]
+    },
+    "password-hygiene": {
+      "type": "standard",
+      "badge": "Credentials",
+      "badgeColor": "red",
+      "summary": "Weak or reused passwords are involved in over 80% of confirmed data breaches. Yet most people still use the same password across multiple accounts, or choose ones that are easy to guess. Good password hygiene isn't about memorizing complex strings \u2014 it's about using the right tools and habits so you never have to trade security for convenience.",
+      "story": {
+        "title": "One reused password. 117 million accounts exposed.",
+        "meta": "Credential stuffing \u00b7 Password reuse \u00b7 LinkedIn breach",
+        "text": "In 2012, LinkedIn suffered a breach that exposed 6.5 million password hashes. At the time, the company believed the damage was contained. Four years later, in 2016, the real scale emerged: 117 million credentials had actually been stolen.\n\nWhat made this particularly damaging wasn't just LinkedIn. It was the fact that tens of millions of people used the same email and password combination on multiple platforms \u2014 their bank, their email, their company VPN.\n\nAttackers used a technique called credential stuffing: taking the leaked LinkedIn username/password combinations and automatically trying them on hundreds of other websites. For every person who had reused their password, another account fell.\n\nThis is why password reuse is one of the most dangerous habits in digital security. A breach on any one platform becomes a skeleton key to everything else."
+      },
+      "redFlags": [
+        "Using the same password on more than one account \u2014 especially if one is your work email or company systems",
+        "Passwords based on personal information \u2014 birthdays, pet names, addresses \u2014 that could be found on social media",
+        "Passwords shorter than 12 characters",
+        "Sharing your password with a colleague to give them access to something",
+        "Not having Multi-Factor Authentication (MFA) enabled on your accounts"
+      ],
+      "responseSteps": [
+        "Use a password manager \u2014 it creates and remembers complex unique passwords for every account so you only need to remember one master password",
+        "Enable Multi-Factor Authentication (MFA) on every account that supports it, starting with your Microsoft 365 / work email",
+        "Never share your password with anyone \u2014 including IT. IT staff will never ask for your password",
+        "Change your password immediately if you suspect it may have been compromised, and notify IT",
+        "Use a passphrase for your master password and any accounts without MFA \u2014 three random words are more secure than a complex string (e.g. 'coffee-bridge-lamp' is stronger than 'P@ssw0rd1')"
+      ],
+      "deeperLearning": {
+        "title": "How attackers crack passwords \u2014 and why length matters more than complexity",
+        "points": [
+          "Modern password-cracking tools can test billions of combinations per second. A short complex password like 'P@ssw0rd' is cracked in seconds. A simple but long passphrase like 'correct-horse-battery-staple' takes centuries.",
+          "Credential stuffing \u2014 using leaked username/password pairs from one breach to try other sites \u2014 is fully automated and runs constantly. If you've ever reused a password, there's a meaningful chance it has already been tried somewhere.",
+          "MFA is the single most effective control against credential-based attacks. Even if an attacker has your password, they cannot access your account without the second factor \u2014 your phone, your authenticator app, or your hardware key."
+        ]
+      },
+      "checkIn": [
+        {
+          "question": "Which of the following is the strongest password?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "P@ssw0rd1!"
+            },
+            {
+              "id": "b",
+              "label": "Welcome2024"
+            },
+            {
+              "id": "c",
+              "label": "coffee-bridge-sunset-lamp"
+            },
+            {
+              "id": "d",
+              "label": "John1985!"
+            }
+          ],
+          "correctChoiceId": "c",
+          "explanation": "A long passphrase using random words is significantly stronger than a short complex password. Length matters more than symbol substitution \u2014 cracking tools test billions of combinations per second."
+        },
+        {
+          "question": "MFA (Multi-Factor Authentication) protects your account even if your password is stolen.",
+          "choices": [
+            {
+              "id": "a",
+              "label": "True \u2014 an attacker still needs your second factor to get in"
+            },
+            {
+              "id": "b",
+              "label": "False \u2014 a stolen password is always enough to access your account"
+            }
+          ],
+          "correctChoiceId": "a",
+          "explanation": "MFA is the single most effective control against credential-based attacks. Even with your password, an attacker cannot access your account without the second factor you control."
+        }
+      ]
+    },
+    "acceptable-use": {
+      "type": "standard",
+      "badge": "Policy",
+      "badgeColor": "purple",
+      "summary": "PAC provides technology \u2014 computers, email, internet access, software \u2014 to help you do your job. The Acceptable Use Policy (AUP) defines what these tools are for, what they are not for, and why those boundaries matter. It's not about distrust. It's about protecting you, your colleagues, and the company from risks that come from how technology gets used.",
+      "story": {
+        "title": "The personal device that became a company crisis",
+        "meta": "Acceptable use \u00b7 Shadow IT \u00b7 Data leakage",
+        "text": "A project manager at a global engineering firm was frustrated that the company's approved file-sharing platform was slow. So they started using their personal Dropbox account to store and share project files \u2014 including client contracts, site drawings, and confidential cost estimates.\n\nFor months, it worked fine. Then their personal Dropbox account was compromised in a breach unrelated to work. The attacker who accessed the account found several gigabytes of the firm's confidential client data.\n\nThe company faced breach notification obligations in multiple countries. Client relationships were damaged. The project manager didn't lose their job \u2014 they were actually well-regarded \u2014 but the firm spent over $800,000 managing the fallout from a well-intentioned workaround.\n\nThis is what IT teams call shadow IT: technology used outside of approved channels that creates invisible risk. The AUP exists precisely to prevent this kind of situation."
+      },
+      "redFlags": [
+        "Storing company data on personal cloud storage (personal Dropbox, Google Drive, iCloud) instead of approved PAC systems",
+        "Installing unapproved software on your work computer \u2014 even free or familiar tools",
+        "Using your work email address to sign up for personal accounts or non-work services",
+        "Accessing company systems on unsecured personal devices without VPN or MDM enrollment",
+        "Sharing confidential company or client information via personal messaging apps (WhatsApp, personal iMessage, etc.)"
+      ],
+      "responseSteps": [
+        "Use only PAC-approved platforms for company data \u2014 if you're unsure whether a tool is approved, ask IT before using it",
+        "Keep work data on work systems \u2014 Microsoft 365, SharePoint, and approved project management tools are there for a reason",
+        "If an approved tool isn't meeting your needs, raise it with IT \u2014 the right answer is fixing the tool, not working around it",
+        "Never use personal accounts or devices to bypass a company security control, even temporarily",
+        "If you've already been using unapproved tools or storage, contact IT to help you migrate to approved alternatives \u2014 no judgment, just resolution"
+      ],
+      "deeperLearning": {
+        "title": "Why AUP compliance protects you personally",
+        "points": [
+          "When data is handled outside approved systems, the organization loses the ability to protect it. Backup, encryption, access controls, and breach detection all depend on data being where it's supposed to be.",
+          "In many jurisdictions, individual employees can bear personal legal liability for data handling decisions \u2014 not just the company. Using unapproved tools with client or employee data can have personal consequences.",
+          "The AUP is reviewed periodically. If you have a legitimate business need that the current policy doesn't accommodate, the policy team wants to hear from you \u2014 it's meant to evolve with how the business actually works."
+        ]
+      },
+      "checkIn": [
+        {
+          "question": "The company's approved file-sharing platform is slow. What should you do?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "Use your personal Dropbox temporarily \u2014 it's faster"
+            },
+            {
+              "id": "b",
+              "label": "Email files to your personal account to work from home"
+            },
+            {
+              "id": "c",
+              "label": "Raise the issue with IT so the approved platform can be improved"
+            },
+            {
+              "id": "d",
+              "label": "Use a free transfer site just this once"
+            }
+          ],
+          "correctChoiceId": "c",
+          "explanation": "The right answer to a slow approved tool is fixing the tool \u2014 not working around it. Shadow IT creates invisible risks that bypass all organizational security controls."
+        },
+        {
+          "question": "Using personal cloud storage for company files mainly risks:",
+          "choices": [
+            {
+              "id": "a",
+              "label": "Slower file access speeds"
+            },
+            {
+              "id": "b",
+              "label": "Company data being exposed if your personal account is breached"
+            },
+            {
+              "id": "c",
+              "label": "Running out of storage space"
+            },
+            {
+              "id": "d",
+              "label": "Files being in the wrong format"
+            }
+          ],
+          "correctChoiceId": "b",
+          "explanation": "Personal accounts don't have the security controls, encryption, backup, and breach detection that approved PAC systems do. A personal account breach becomes a company data breach."
+        }
+      ]
+    },
+    "physical-security": {
+      "type": "standard",
+      "badge": "Physical Access",
+      "badgeColor": "blue",
+      "summary": "Physical security is the foundation that all other security controls depend on. If someone can walk into a server room, sit at an unattended computer, or access a filing cabinet \u2014 no amount of cybersecurity technology helps. Tailgating (following an authorized person through a secure door), visitor management, and badge access habits are among the most important and most commonly overlooked security practices.",
+      "story": {
+        "title": "The man who walked into 14 companies just by acting confident",
+        "meta": "Physical security \u00b7 Tailgating \u00b7 Social engineering",
+        "text": "In a well-documented security audit published in 2018, a professional penetration tester was hired to test the physical security of a Fortune 500 company's offices across four cities. In one day, he walked into 14 separate buildings without a badge, an appointment, or any credentials.\n\nHis method was simple: he dressed professionally, carried a box that looked like it contained IT equipment, and waited near secure entrances for someone to badge in. Every single time, the door was held open for him. No one questioned him. In several buildings, employees even helped him carry his box to an elevator.\n\nOnce inside, he was able to access server rooms, executive offices, and workstations \u2014 in some cases leaving a physical USB device that, in a real attack, would have installed malware.\n\nThe lesson: physical security is not just IT's job. Every employee is part of the access control system."
+      },
+      "redFlags": [
+        "Holding a door open for someone you don't recognize \u2014 even if they look official or are carrying something",
+        "Allowing visitors to walk through the office unescorted",
+        "Tailgating yourself \u2014 using someone else's badge access instead of using your own",
+        "Leaving secure areas propped open for convenience",
+        "Not challenging someone who appears to be in an area they shouldn't be"
+      ],
+      "responseSteps": [
+        "Badge in individually \u2014 never hold a secure door open for someone behind you, and politely direct them to reception if they need access",
+        "All visitors must be signed in at reception and escorted at all times in secure areas \u2014 this includes contractors, maintenance workers, and delivery personnel",
+        "If you see someone in a restricted area without a visible badge or escort, it's appropriate and expected to ask if they need help or to alert reception",
+        "Never lend your access badge to anyone, even temporarily \u2014 your badge is your identity in access logs",
+        "If your badge is lost or stolen, report it to IT and facilities immediately"
+      ],
+      "deeperLearning": {
+        "title": "Why tailgating is so effective \u2014 and so easy to prevent",
+        "points": [
+          "Tailgating works because of a genuine human instinct: it feels rude not to hold a door for someone. Attackers rely on social pressure to override security judgment.",
+          "A single uncontrolled physical access event can invalidate millions of dollars of cybersecurity investment. Once someone is inside a network perimeter physically, many digital defenses become much less effective.",
+          "The culture shift required is small: from 'always hold the door' to 'always badge in individually.' Most people respond well when the reason is explained \u2014 it's not about being unfriendly, it's about everyone's safety."
+        ]
+      },
+      "checkIn": [
+        {
+          "question": "A well-dressed person is carrying a large box and asks you to hold the door to a secure area. What do you do?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "Hold the door \u2014 it would be rude not to help"
+            },
+            {
+              "id": "b",
+              "label": "Hold the door if they look like they work there"
+            },
+            {
+              "id": "c",
+              "label": "Politely direct them to reception and badge in separately"
+            },
+            {
+              "id": "d",
+              "label": "Ask them their name before holding the door"
+            }
+          ],
+          "correctChoiceId": "c",
+          "explanation": "Every person entering a secure area must badge in individually \u2014 no exceptions. Tailgating is one of the most common physical attack methods, and it relies entirely on people being polite."
+        },
+        {
+          "question": "You find a USB drive in the car park with 'PAC Payroll 2024' written on it. What should you do?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "Plug it in to see what's on it and return it to the right person"
+            },
+            {
+              "id": "b",
+              "label": "Hand it to IT or your security team without plugging it in"
+            },
+            {
+              "id": "c",
+              "label": "Leave it where you found it"
+            },
+            {
+              "id": "d",
+              "label": "Put it in a lost property box"
+            }
+          ],
+          "correctChoiceId": "b",
+          "explanation": "Unknown USB drives are a classic attack vector \u2014 they can install malware silently just by being plugged in. Never insert an unknown drive. Hand it directly to IT."
+        }
+      ]
+    },
+    "social-media": {
+      "type": "standard",
+      "badge": "Online Safety",
+      "badgeColor": "purple",
+      "summary": "Social media is one of the primary tools attackers use to research targets before a phishing or social engineering attack. Your LinkedIn profile, public posts, and online activity can reveal your role, your manager's name, current projects, travel plans, colleagues, and more \u2014 all of which an attacker can use to craft a convincing, targeted message. This doesn't mean avoiding social media. It means being thoughtful about what you share.",
+      "story": {
+        "title": "How a LinkedIn post enabled a $2.3M fraud",
+        "meta": "Social media \u00b7 OSINT \u00b7 Spear phishing \u00b7 BEC",
+        "text": "In 2021, a finance director at a mid-sized company posted on LinkedIn celebrating the close of a major acquisition deal. They tagged their CEO and mentioned the legal firm handling the transaction.\n\nWithin days, a fraudster had used this public information to craft a highly convincing Business Email Compromise attack. They spoofed an email from the legal firm, referenced the acquisition by name, and requested an urgent wire transfer to complete a closing obligation \u2014 citing a short window before the deal terms would lapse.\n\nThe finance team wired $2.3 million before the fraud was discovered.\n\nEvery piece of information the attacker needed came from a single celebratory LinkedIn post: the company, the deal, the CEO's name, the legal firm, the deal's approximate timeline. None of it was secret. All of it was weaponized."
+      },
+      "redFlags": [
+        "Posting about active deals, client names, project details, or financial matters on public social media",
+        "Sharing your travel schedule publicly \u2014 this signals when you won't be in the office to verify requests",
+        "Connecting with people you don't know on LinkedIn, especially those who message immediately asking about your work",
+        "Oversharing your org chart relationships \u2014 your manager's name, executive contacts, or team structure",
+        "Reusing work email addresses or usernames on personal social media accounts"
+      ],
+      "responseSteps": [
+        "Audit your LinkedIn profile and public social accounts \u2014 ask yourself whether the information you've shared could be used by someone trying to impersonate a colleague or create a targeted phishing attack",
+        "Be thoughtful about deal and project announcements \u2014 celebrate wins internally first, and wait until information is public before posting",
+        "Check your privacy settings on all social platforms and limit public visibility where possible",
+        "Be cautious with unsolicited LinkedIn connection requests, especially from people in vague roles with few connections",
+        "If you receive a message \u2014 email, phone, or otherwise \u2014 that references information you shared publicly, treat it as a potential social engineering attempt and verify through a trusted channel"
+      ],
+      "deeperLearning": {
+        "title": "OSINT \u2014 how attackers research their targets",
+        "points": [
+          "OSINT (Open Source Intelligence) is the practice of gathering information from publicly available sources \u2014 social media, company websites, press releases, LinkedIn, news articles. Attackers use it systematically before launching targeted attacks.",
+          "A trained attacker can build a detailed picture of an organization's structure, current projects, key contacts, and financial activities in under an hour using only public information. The more you share publicly, the more complete that picture becomes.",
+          "This doesn't mean avoiding all social media presence \u2014 a professional online presence has real value. It means being intentional: share achievements, not operational details; connect with people you know; and think before posting about anything that could help someone impersonate a colleague."
+        ]
+      },
+      "checkIn": [
+        {
+          "question": "You've just closed a major deal. When is it safe to post about it on LinkedIn?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "Immediately \u2014 celebrating wins builds the company profile"
+            },
+            {
+              "id": "b",
+              "label": "Once the information is publicly announced and your manager approves"
+            },
+            {
+              "id": "c",
+              "label": "Never \u2014 all deal information must stay private permanently"
+            },
+            {
+              "id": "d",
+              "label": "After 24 hours"
+            }
+          ],
+          "correctChoiceId": "b",
+          "explanation": "Celebrate wins \u2014 but wait until the information is legitimately public and approved for sharing. Premature posts about deals, clients, or projects give attackers information they can weaponize."
+        },
+        {
+          "question": "An attacker researching PAC employees could find which of the following on LinkedIn?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "Your system passwords"
+            },
+            {
+              "id": "b",
+              "label": "Your manager's name, role, and current projects you've mentioned"
+            },
+            {
+              "id": "c",
+              "label": "Your Microsoft 365 credentials"
+            },
+            {
+              "id": "d",
+              "label": "PAC's internal network configuration"
+            }
+          ],
+          "correctChoiceId": "b",
+          "explanation": "Attackers use publicly available information \u2014 your role, your manager, your projects, your connections \u2014 to craft convincing spear phishing attacks. Be intentional about what you share."
+        }
+      ]
+    },
+    "remote-vpn": {
+      "type": "standard",
+      "badge": "Remote Work",
+      "badgeColor": "green",
+      "summary": "Working remotely \u2014 whether from home, a hotel, or a coffee shop \u2014 changes your security environment significantly. Your home network, public Wi-Fi, and personal devices don't have the same protections as PAC's office infrastructure. Using the VPN, securing your home network, and being aware of your physical environment when working in public are essential habits for anyone working outside the office.",
+      "story": {
+        "title": "The airport lounge that became a data interception point",
+        "meta": "Remote work \u00b7 Public Wi-Fi \u00b7 Man-in-the-middle attack",
+        "text": "A senior consultant traveling between client sites connected to an airport lounge's free Wi-Fi to catch up on emails and review a project proposal before their next meeting. The network was named something plausible \u2014 'Lounge_WiFi_Premium' \u2014 and the connection was quick.\n\nWhat they didn't know was that the network was a rogue access point set up by an attacker in the lounge. Everything they transmitted \u2014 emails, the document they was editing, their login credentials for the project management system \u2014 passed through the attacker's device before reaching the internet.\n\nThree weeks later, the client company received a call. Someone had been accessing their project portal using the consultant's credentials. Three months of project documents \u2014 including competitive pricing strategies \u2014 had been downloaded.\n\nAll because of a free Wi-Fi connection that seemed legitimate."
+      },
+      "redFlags": [
+        "Connecting to public Wi-Fi (cafes, airports, hotels) without using the PAC VPN",
+        "Working on confidential documents or accessing sensitive systems from public spaces where your screen can be seen",
+        "Using personal devices to access PAC systems without IT approval and proper security controls",
+        "Home router using default factory passwords \u2014 these are widely known and easily exploited",
+        "Leaving work sessions open on shared home computers used by family members"
+      ],
+      "responseSteps": [
+        "Always connect to the PAC VPN before accessing company systems when outside the office \u2014 this encrypts your traffic and routes it through secure infrastructure",
+        "Avoid accessing sensitive company systems on public Wi-Fi entirely if possible; use your phone as a personal hotspot instead",
+        "Secure your home router: change the default admin password, use WPA3 or WPA2 encryption, and keep firmware updated",
+        "Use a screen privacy filter when working in public spaces \u2014 they're inexpensive and prevent shoulder surfing",
+        "Lock your computer when stepping away, even at home \u2014 this is especially important in households with other people or visitors"
+      ],
+      "deeperLearning": {
+        "title": "How Wi-Fi attacks work \u2014 and why the VPN is your primary defence",
+        "points": [
+          "A Man-in-the-Middle (MitM) attack on public Wi-Fi involves an attacker positioning themselves between your device and the internet, intercepting everything you transmit. Modern attacks can do this silently without any visible sign to the user.",
+          "Even 'legitimate' public Wi-Fi networks in hotels and airports have minimal security. Anyone on the same network can potentially intercept unencrypted traffic.",
+          "A VPN (Virtual Private Network) creates an encrypted tunnel between your device and PAC's secure infrastructure. Even if someone intercepts your traffic on public Wi-Fi, they see only encrypted data they cannot read. Always use it."
+        ]
+      },
+      "checkIn": [
+        {
+          "question": "You're at a coffee shop and need to access a confidential project document. What should you do?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "Use the caf\u00e9's free Wi-Fi \u2014 it's convenient and fast"
+            },
+            {
+              "id": "b",
+              "label": "Connect to the PAC VPN first, then access the document"
+            },
+            {
+              "id": "c",
+              "label": "Use the caf\u00e9 Wi-Fi but only look at non-sensitive files"
+            },
+            {
+              "id": "d",
+              "label": "Wait until you're home to access any work files"
+            }
+          ],
+          "correctChoiceId": "b",
+          "explanation": "Always connect to the PAC VPN before accessing company systems outside the office. The VPN encrypts your traffic so that even if someone intercepts it on public Wi-Fi, they see only unreadable data."
+        },
+        {
+          "question": "Why is your home Wi-Fi network potentially risky for work without a VPN?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "Home networks are always slower than office networks"
+            },
+            {
+              "id": "b",
+              "label": "Home routers often have weaker security settings and default passwords"
+            },
+            {
+              "id": "c",
+              "label": "Working from home is against company policy"
+            },
+            {
+              "id": "d",
+              "label": "Home networks can't support encrypted connections"
+            }
+          ],
+          "correctChoiceId": "b",
+          "explanation": "Many home routers still use default passwords and older encryption standards. Without a VPN, traffic on your home network can potentially be intercepted if your router is compromised."
+        }
+      ]
+    },
+    "incident-reporting": {
+      "type": "standard",
+      "badge": "Reporting",
+      "badgeColor": "red",
+      "summary": "Security incidents happen to everyone \u2014 and reporting them quickly is one of the most important things you can do to protect yourself and the company. The worst outcome is not clicking a link or losing a device. The worst outcome is not telling anyone, and allowing a small incident to grow into a major breach. PAC operates a no-blame reporting culture. If something happened, we want to know \u2014 and we will work with you, not against you.",
+      "story": {
+        "title": "The breach that took 206 days to discover \u2014 because no one reported it",
+        "meta": "Incident reporting \u00b7 Dwell time \u00b7 Delayed response",
+        "text": "In a widely studied cybersecurity case, a retail company was compromised when an employee clicked a phishing link. The employee realized almost immediately that something had felt wrong about the email \u2014 the site had asked for their credentials and then seemed to error out.\n\nThey were embarrassed. They thought they'd probably imagined it, or that it wasn't a big deal. They didn't report it.\n\nThe attacker spent 206 days inside the network before being detected by an external security researcher. By that point, 56 million customer payment card records had been exfiltrated. The total cost of the breach exceeded $250 million.\n\nThe employee who clicked the link was never blamed. The investigation concluded that if they had reported the incident on day one, the attacker could have been evicted before any customer data was compromised.\n\nReporting is not the last line of defense. It is often the only line of defense that still works after an attack has started."
+      },
+      "redFlags": [
+        "You clicked a link and something felt wrong \u2014 a page looked odd, asked for credentials unexpectedly, or immediately closed",
+        "You opened an attachment and your computer began acting strangely",
+        "You received or responded to a suspicious request before realizing it might have been a scam",
+        "A device containing work information has been lost or stolen",
+        "You notice unusual activity on your accounts \u2014 unexpected login notifications, emails you didn't send, or settings changes you didn't make"
+      ],
+      "responseSteps": [
+        "Report immediately \u2014 every hour of delay gives an attacker more time. Contact IT at phishing@pacgroup.com or call your IT helpdesk directly",
+        "Don't try to fix it yourself first. Don't delete emails, don't wipe devices, don't change passwords until IT tells you to \u2014 preserving evidence helps the investigation",
+        "Write down what happened while it's fresh: what you clicked, what you saw, what time it was, what happened next",
+        "If a device has been lost or stolen, report it to both IT and your manager immediately \u2014 IT can remotely wipe the device if needed",
+        "No blame, no consequences for honest mistakes. The culture at PAC is: report it and we handle it together. The only thing that makes a situation worse is silence."
+      ],
+      "deeperLearning": {
+        "title": "Dwell time \u2014 why speed of reporting is everything",
+        "points": [
+          "Dwell time is the period between an attacker gaining access and being detected. The global average is over 200 days. The longer an attacker remains undetected, the more damage they can do and the harder remediation becomes.",
+          "Most attacks start with a single point of entry \u2014 a clicked link, a stolen credential, a compromised device. Rapid reporting means IT can often isolate the incident before it spreads.",
+          "A no-blame incident reporting culture isn't just a nice sentiment \u2014 it's a security control. Organizations where employees fear being blamed for mistakes take 3x longer to detect breaches than those with open reporting cultures."
+        ]
+      },
+      "checkIn": [
+        {
+          "question": "You clicked a link in an email and the page asked for your credentials. You entered them before realizing it looked suspicious. What do you do?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "Change your password quietly and hope nothing happens"
+            },
+            {
+              "id": "b",
+              "label": "Wait to see if anything unusual happens before reporting"
+            },
+            {
+              "id": "c",
+              "label": "Contact IT immediately and report what happened"
+            },
+            {
+              "id": "d",
+              "label": "Delete the email and the browser history"
+            }
+          ],
+          "correctChoiceId": "c",
+          "explanation": "Contact IT immediately. Every hour of delay gives an attacker more time to move through systems. IT will guide you \u2014 there is no blame for honest mistakes, only for not reporting them."
+        },
+        {
+          "question": "PAC operates a no-blame incident reporting culture. What does this mean in practice?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "Mistakes are ignored and never investigated"
+            },
+            {
+              "id": "b",
+              "label": "If you report an incident honestly, you will be supported \u2014 not punished"
+            },
+            {
+              "id": "c",
+              "label": "Only IT staff are required to report security incidents"
+            },
+            {
+              "id": "d",
+              "label": "Reports are only needed for serious breaches, not minor incidents"
+            }
+          ],
+          "correctChoiceId": "b",
+          "explanation": "A no-blame culture means you should always report anything suspicious immediately \u2014 even if you're unsure, even if you made a mistake. The only thing that makes a situation worse is silence."
+        }
+      ]
+    }
+  }
+}

@@ -1,105 +1,59 @@
-# PhishDefense Training Portal
+# The PAC Group — IT Security Training Portal (v4)
 
-A modern, static phishing education portal ready to deploy on **Azure Static Web Apps** (or any static host). No build step, no backend — just HTML, CSS, and vanilla JS modules.
+A fully branded, static security awareness training portal for The PAC Group, deployable on **Azure Static Web Apps**. No build step, no backend, no sign-in required.
 
 ---
 
 ## What's included
 
+### Pages
 | Page | Path | Description |
 |------|------|-------------|
-| Home | `index.html` | Overview + quick links |
-| Modules Index | `modules/index.html` | All 5 training modules |
-| Urgency | `modules/urgency.html` | Time-pressure tactics |
-| Intimidation | `modules/intimidation.html` | Fear/threat-based attacks |
-| Scarcity | `modules/scarcity.html` | FOMO & limited-offer attacks |
-| Authority | `modules/authority.html` | Impersonation attacks |
-| Types of Phishing | `modules/types-of-phishing.html` | Credential, invoice, smishing, spear |
-| Quiz | `quiz.html` | 10-question assessment · 80% to pass |
-| Examples | `examples.html` | Real-world scenarios with red flags |
+| Home | `index.html` | PAC-branded hero, learning path, PhishCraft game embed, "Do This Today" checklist |
+| Phishing Modules | `modules/phishing/index.html` | 5 phishing tactic modules |
+| IT Security Modules | `modules/it-security/index.html` | 7 IT security topic modules |
+| Defence Strategies | `strategies.html` | Recognize → Rethink → Report + "PAC will never ask" list |
+| Real Stories | `stories.html` | 5 real-world attack stories |
+| Quiz | `quiz.html` | 10-question assessment, 80% pass threshold, PAC certificate |
+
+### Phishing Modules (5)
+- Urgency · Intimidation · Scarcity · Authority · Types of Phishing
+
+### IT Security Modules (7)
+- Clean Desk Policy · Password Hygiene · Acceptable Use Policy
+- Physical Security & Tailgating · Social Media Safety
+- Working Remotely & VPN · Incident Reporting
+
+Each IT module includes a real-world story, red flags, and response steps.
+
+### Features
+- **PhishCraft game** embedded on the home page (hosted at sambeggs99.github.io/PAC_Phishcraft/)
+- **Module completion tracking** — checkmarks appear on cards as modules are visited (localStorage)
+- **Progress bar** — shows how many of 12 modules have been completed
+- **"Do This Today" checklist** — 5 immediate actions on the home page
+- **PAC certificate** — SVG certificate generated in-browser, downloadable and printable
+- **Mobile-first responsive** — works on all screen sizes
+- **PAC brand** — Carbon/Bright Red/Cherry/Concrete palette, PAC diamond SVG logo, Century Gothic body font
 
 ---
 
 ## Customizing content
 
-All content is driven by three JSON files in `/data/`. Edit them — the pages render automatically.
+All content is in `/data/`:
 
-### `data/modules.json`
+| File | Controls |
+|------|---------|
+| `data/phishing-modules.json` | All 5 phishing module content |
+| `data/it-security.json` | All 7 IT security module content (with stories) |
+| `data/quiz.json` | Quiz questions, answers, pass threshold |
+| `data/stories.json` | Real-world story page content |
 
-Controls all 5 module pages. Structure:
+### Key things to personalize before launch
 
-```json
-{
-  "topics": {
-    "urgency": {
-      "type": "standard",
-      "summary": "...",
-      "redFlags": ["...", "..."],
-      "responseSteps": ["...", "..."],
-      "deeperLearning": {
-        "title": "...",
-        "points": ["...", "..."]
-      }
-    },
-    "types-of-phishing": {
-      "type": "types-of-phishing",
-      "summary": "...",
-      "types": [
-        {
-          "type": "Credential phishing",
-          "description": "...",
-          "signals": ["...", "..."]
-        }
-      ]
-    }
-  }
-}
-```
-
-Topic keys: `urgency`, `intimidation`, `scarcity`, `authority`, `types-of-phishing`
-
-### `data/quiz.json`
-
-Controls all quiz questions. Add, remove, or reorder questions freely.
-
-```json
-{
-  "title": "Phishing Awareness Quiz",
-  "passThresholdPercent": 80,
-  "questions": [
-    {
-      "id": "q1",
-      "topic": "urgency",
-      "question": "...",
-      "choices": [
-        { "id": "a", "label": "...", "hint": "..." },
-        { "id": "b", "label": "...", "hint": "..." }
-      ],
-      "correctChoiceId": "b",
-      "explanation": "..."
-    }
-  ]
-}
-```
-
-### `data/examples.json`
-
-Controls the Real-World Examples page.
-
-```json
-{
-  "examples": [
-    {
-      "title": "...",
-      "meta": "...",
-      "scenario": "...",
-      "redFlags": ["...", "..."],
-      "whyItWasPhishing": "...",
-      "whatToDo": "..."
-    }
-  ]
-}
-```
+1. **Reporting email** — Search for `phishing@pacgroup.com` across the codebase and replace with your real IT security reporting address
+2. **PhishCraft URL** — The game is embedded from `https://sambeggs99.github.io/PAC_Phishcraft/` — update if it moves
+3. **Certificate version** — In `js/quiz.js`, update the Training Version label if desired
+4. **Pass threshold** — In `data/quiz.json`, change `passThresholdPercent` (default: 80)
 
 ---
 
@@ -108,91 +62,129 @@ Controls the Real-World Examples page.
 ```
 /
 ├── index.html                          # Home
+├── strategies.html                     # Defence strategies
+├── stories.html                        # Real-world stories
 ├── quiz.html                           # Quiz + certificate
-├── examples.html                       # Real-world examples
-├── staticwebapp.config.json            # Azure SWA config (routing, headers)
+├── staticwebapp.config.json            # Azure SWA routing + security headers
 │
 ├── modules/
-│   ├── index.html                      # Module listing
-│   ├── urgency.html
-│   ├── intimidation.html
-│   ├── scarcity.html
-│   ├── authority.html
-│   └── types-of-phishing.html
+│   ├── phishing/
+│   │   ├── index.html
+│   │   ├── urgency.html
+│   │   ├── intimidation.html
+│   │   ├── scarcity.html
+│   │   ├── authority.html
+│   │   ├── types-of-phishing.html
+│   │   └── module-renderer.js
+│   └── it-security/
+│       ├── index.html
+│       ├── clean-desk.html
+│       ├── password-hygiene.html
+│       ├── acceptable-use.html
+│       ├── physical-security.html
+│       ├── social-media.html
+│       ├── remote-vpn.html
+│       ├── incident-reporting.html
+│       └── module-renderer.js
 │
 ├── styles/
-│   └── site.css                        # All styles (dark theme)
+│   └── site.css                        # Full PAC brand CSS
 │
 ├── js/
-│   ├── shared.js                       # escapeHtml, setActiveNav
-│   ├── modules.js                      # Module page renderer
-│   ├── examples.js                     # Examples page renderer
-│   ├── quiz.js                         # Quiz logic
-│   └── certificate.js                  # SVG certificate generator
+│   ├── shared.js                       # Utilities, progress tracking, nav
+│   ├── header.js                       # Header + footer HTML templates
+│   ├── stories.js                      # Stories page renderer
+│   └── quiz.js                         # Quiz logic + certificate generator
 │
 ├── data/
-│   ├── modules.json                    # Module content
-│   ├── quiz.json                       # Quiz questions
-│   └── examples.json                   # Real-world examples
+│   ├── phishing-modules.json
+│   ├── it-security.json
+│   ├── quiz.json
+│   └── stories.json
 │
 └── .github/
     └── workflows/
-        └── azure-static-web-apps.yml   # GitHub Actions deployment
+        └── azure-static-web-apps.yml
 ```
 
 ---
 
 ## Deploying to Azure Static Web Apps
 
-### Option A — GitHub Actions (recommended)
-
-1. Push this repository to GitHub.
-2. In the Azure Portal, create a new **Static Web App** resource.
-3. During setup, connect it to your GitHub repo and set:
+1. Push this repo to GitHub
+2. In Azure Portal → Create → Static Web App
+3. Connect your GitHub repo, set:
    - **App location**: `/`
    - **Output location**: `/`
    - **API location**: *(leave blank)*
-4. Azure will add a deployment token to your repo secrets automatically as `AZURE_STATIC_WEB_APPS_API_TOKEN`.
-5. Push to `main` — the workflow in `.github/workflows/azure-static-web-apps.yml` handles deployment.
-
-### Option B — Azure CLI manual upload
-
-```bash
-az staticwebapp upload \
-  --name <your-app-name> \
-  --resource-group <your-rg> \
-  --source ./
-```
-
-### Option C — Azure Blob Static Website (simpler alternative)
-
-If you don't need preview environments or custom auth, Azure Blob Storage Static Website is simpler:
-
-```bash
-az storage blob upload-batch \
-  --account-name <storage-account> \
-  --destination '$web' \
-  --source ./ \
-  --overwrite
-```
+4. Azure adds `AZURE_STATIC_WEB_APPS_API_TOKEN` to your repo secrets automatically
+5. Push to `main` — the included workflow deploys automatically
 
 ---
 
-## Security headers
+## Brand compliance
 
-`staticwebapp.config.json` sets these response headers globally:
+Colors used:
+- Bright Red `#AB2328` — primary accent, buttons, badges
+- Cherry `#76232F` — hover states, gradient depth
+- Carbon `#212322` — footer, dark surfaces
+- Concrete `#D0D3D4` — subtle text, borders
 
-- `X-Content-Type-Options: nosniff`
-- `X-Frame-Options: SAMEORIGIN`
-- `X-XSS-Protection: 1; mode=block`
-- `Referrer-Policy: strict-origin-when-cross-origin`
-- `Permissions-Policy: camera=(), microphone=(), geolocation=()`
+Typography: DM Sans (web) + Century Gothic fallback (matches PAC brand guide for digital/web communications)
+
+Logo: PAC diamond reproduced as inline SVG — no external image files required.
 
 ---
 
-## Notes
+## Adding new content
 
-- **Certificate**: generated entirely client-side as SVG — no data leaves the browser.
-- **No tracking**: there is no analytics or telemetry included. Add Azure Application Insights or a third-party analytics tag if desired.
-- **No backend required**: all logic runs in the browser using vanilla ES modules.
-- **Accessibility**: pages use semantic HTML, `aria-current`, `aria-label`, and `aria-live` regions.
+- **New phishing module**: Add a topic to `data/phishing-modules.json` and create `modules/phishing/[slug].html`
+- **New IT module**: Add a topic to `data/it-security.json` and create `modules/it-security/[slug].html`
+- **New quiz questions**: Add to `data/quiz.json` — the renderer handles any number of questions
+- **New stories**: Add to `data/stories.json`
+
+Update `TOTAL_MODULES` in `js/shared.js` when adding new modules to keep the progress bar accurate.
+
+
+---
+
+## Translation system (v5)
+
+The portal supports four languages: English, Brazilian Portuguese (PT), Simplified Chinese (ZH), and Latin American Spanish (ES).
+
+### How it works
+
+1. The language switcher (EN · PT · 中文 · ES) lives in the header on every page
+2. Selecting a language saves the preference to `localStorage` and reloads the page
+3. UI strings (nav, buttons, labels, certificate text) are in `data/ui.json` — **fully translated**
+4. Module content, quiz questions, and stories load from language-specific JSON files
+
+### Translation files
+
+| Language | Files to edit |
+|----------|--------------|
+| English (default) | `phishing-modules.json`, `it-security.json`, `quiz.json`, `stories.json` |
+| Portuguese | `phishing-modules.pt.json`, `it-security.pt.json`, `quiz.pt.json`, `stories.pt.json` |
+| Chinese | `phishing-modules.zh.json`, `it-security.zh.json`, `quiz.zh.json`, `stories.zh.json` |
+| Spanish | `phishing-modules.es.json`, `it-security.es.json`, `quiz.es.json`, `stories.es.json` |
+
+**Current status:** The `*.pt.json`, `*.zh.json`, and `*.es.json` files contain English content as structural placeholders. The UI labels and navigation are fully translated. Replace the `summary`, `redFlags`, `responseSteps`, `story.text`, `question`, and `choices` fields in each file with your professional translations.
+
+### Adding a new language
+
+1. Add the language to `data/ui.json` following the same structure as existing languages
+2. Create `data/*.{lang}.json` files for each content area
+3. Add the language button to `js/header.js` in the `lang-switcher` div
+4. Add the `setLang` case to `js/i18n.js`
+
+---
+
+## Module check-in questions (v5)
+
+Every module now has 2 quick check-in questions at the bottom. These:
+- Appear after the module content
+- Give instant green/red feedback with an explanation
+- Do NOT affect the certification quiz score
+- Are stored in each module's data entry under the `checkIn` key
+
+To add or edit check-in questions, find the module in `data/phishing-modules.json` or `data/it-security.json` and edit the `checkIn` array. Each question needs: `question`, `choices` (array of `{id, label}`), `correctChoiceId`, and `explanation`.

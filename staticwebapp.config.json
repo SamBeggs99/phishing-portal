@@ -2,7 +2,17 @@
   "routes": [
     {
       "route": "/modules",
-      "redirect": "/modules/index.html",
+      "redirect": "/modules/phishing/index.html",
+      "statusCode": 301
+    },
+    {
+      "route": "/modules/phishing",
+      "redirect": "/modules/phishing/index.html",
+      "statusCode": 301
+    },
+    {
+      "route": "/modules/it-security",
+      "redirect": "/modules/it-security/index.html",
       "statusCode": 301
     }
   ],

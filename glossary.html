@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Glossary — PAC IT Security Training</title>
+  <link rel="stylesheet" href="./styles/site.css"/>
+  <style>
+    .glossary-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .gterm { background: var(--ink-2); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 18px 20px; transition: border-color var(--transition); }
+    .gterm:hover { border-color: var(--border-bright); }
+    .gterm-word { font-family: var(--mono); font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 4px; letter-spacing: 0.02em; }
+    .gterm-cat { font-family: var(--mono); font-size: 9px; color: var(--pac-red); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+    .gterm-def { font-size: 13.5px; color: var(--text-2); line-height: 1.65; }
+    .gterm-ex { font-size: 12.5px; color: var(--text-3); margin-top: 8px; font-style: italic; line-height: 1.55; border-left: 2px solid var(--border-red); padding-left: 10px; }
+    .alpha-nav { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; }
+    .alpha-btn { font-family: var(--mono); font-size: 11px; padding: 4px 10px; border-radius: 6px; border: 1px solid var(--border); background: var(--ink-2); color: var(--text-3); cursor: pointer; transition: all var(--transition); text-decoration: none; }
+    .alpha-btn:hover { border-color: var(--border-red); color: var(--text); text-decoration: none; }
+    .section-letter { font-family: var(--mono); font-size: 11px; color: var(--pac-red); text-transform: uppercase; letter-spacing: 0.1em; margin: 20px 0 10px; display: flex; align-items: center; gap: 8px; }
+    .section-letter::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    @media (max-width: 700px) { .glossary-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<div id="header-root"></div>
+<main class="container">
+
+  <div class="page-hero">
+    <div class="page-eyebrow">Reference</div>
+    <h1>Glossary</h1>
+    <p>Plain-English definitions for security terms used throughout this training portal. No technical background required.</p>
+  </div>
+
+  <div class="alpha-nav">
+    <a class="alpha-btn" href="#a">A</a>
+    <a class="alpha-btn" href="#b">B</a>
+    <a class="alpha-btn" href="#c">C</a>
+    <a class="alpha-btn" href="#d">D</a>
+    <a class="alpha-btn" href="#e">E</a>
+    <a class="alpha-btn" href="#m">M</a>
+    <a class="alpha-btn" href="#o">O</a>
+    <a class="alpha-btn" href="#p">P</a>
+    <a class="alpha-btn" href="#r">R</a>
+    <a class="alpha-btn" href="#s">S</a>
+    <a class="alpha-btn" href="#t">T</a>
+    <a class="alpha-btn" href="#v">V</a>
+    <a class="alpha-btn" href="#z">Z</a>
+  </div>
+
+  <div id="a" class="section-letter">A</div>
+  <div class="glossary-grid" style="margin-bottom:0;">
+
+    <div class="gterm">
+      <div class="gterm-word">Authentication</div>
+      <div class="gterm-cat">Access Control</div>
+      <div class="gterm-def">The process of verifying that you are who you say you are. Entering your username and password is authentication. Multi-factor authentication adds a second verification step on top.</div>
+    </div>
+
+    <div class="gterm">
+      <div class="gterm-word">Attachment (malicious)</div>
+      <div class="gterm-cat">Phishing</div>
+      <div class="gterm-def">A file sent via email that, when opened, installs malware or runs harmful code on your computer. Common formats used in attacks include .pdf, .docx, .zip, and .exe files that appear legitimate.</div>
+      <div class="gterm-ex">Example: An invoice PDF that, when opened, silently installs software that records your keystrokes.</div>
+    </div>
+
+  </div>
+
+  <div id="b" class="section-letter">B</div>
+  <div class="glossary-grid" style="margin-bottom:0;">
+
+    <div class="gterm">
+      <div class="gterm-word">BEC — Business Email Compromise</div>
+      <div class="gterm-cat">Attack Type</div>
+      <div class="gterm-def">An attack where criminals impersonate a company executive or trusted vendor via email to trick employees into transferring money, sharing credentials, or taking other harmful actions. No malware is needed — it relies entirely on deception.</div>
+      <div class="gterm-ex">Example: An email appearing to be from the CFO asking for urgent gift card purchases.</div>
+    </div>
+
+    <div class="gterm">
+      <div class="gterm-word">Barracuda</div>
+      <div class="gterm-cat">PAC Tool</div>
+      <div class="gterm-def">The email security platform PAC uses to filter spam, detect phishing, and allow employees to report suspicious emails. The Barracuda button in your Outlook ribbon lets you report a suspicious email directly to IT Security with one click.</div>
+    </div>
+
+  </div>
+
+  <div id="c" class="section-letter">C</div>
+  <div class="glossary-grid" style="margin-bottom:0;">
+
+    <div class="gterm">
+      <div class="gterm-word">Credential Stuffing</div>
+      <div class="gterm-cat">Attack Technique</div>
+      <div class="gterm-def">An automated attack where criminals take username/password combinations leaked in one data breach and automatically try them on hundreds of other websites. If you reuse passwords, one breach on any site gives attackers access to everything else.</div>
+    </div>
+
+    <div class="gterm">
+      <div class="gterm-word">Credentials</div>
+      <div class="gterm-cat">Access Control</div>
+      <div class="gterm-def">Your login information — typically a username (or email address) and a password. Credentials are the primary target of most phishing attacks because they provide direct access to your accounts.</div>
+    </div>
+
+  </div>
+
+  <div id="d" class="section-letter">D</div>
+  <div class="glossary-grid" style="margin-bottom:0;">
+
+    <div class="gterm">
+      <div class="gterm-word">Data Breach</div>
+      <div class="gterm-cat">Security Incident</div>
+      <div class="gterm-def">An incident where confidential information is accessed, stolen, or disclosed without authorization. Breaches can affect employee records, client data, financial information, and intellectual property. Most start with a phishing attack or stolen credentials.</div>
+    </div>
+
+    <div class="gterm">
+      <div class="gterm-word">Dwell Time</div>
+      <div class="gterm-cat">Incident Response</div>
+      <div class="gterm-def">The time between an attacker gaining access to a network and being detected. The global average is over 200 days. Long dwell time means more damage, more data stolen, and more expensive remediation. Rapid incident reporting reduces dwell time.</div>
+    </div>
+
+  </div>
+
+  <div id="e" class="section-letter">E</div>
+  <div class="glossary-grid" style="margin-bottom:0;">
+
+    <div class="gterm">
+      <div class="gterm-word">Encryption</div>
+      <div class="gterm-cat">Data Protection</div>
+      <div class="gterm-def">The process of scrambling data so that only authorized parties can read it. When you use the PAC VPN, your internet traffic is encrypted — meaning anyone who intercepts it sees only unreadable scrambled data instead of your actual files or communications.</div>
+    </div>
+
+    <div class="gterm">
+      <div class="gterm-word">External Email Flag</div>
+      <div class="gterm-cat">PAC Tool</div>
+      <div class="gterm-def">A warning label automatically added to emails that come from outside the PAC organization. If you see [External] at the top of an email, it means the sender's address is not a @pacgroup.com address. This is a key signal to be more cautious before clicking or acting.</div>
+    </div>
+
+  </div>
+
+  <div id="m" class="section-letter">M</div>
+  <div class="glossary-grid" style="margin-bottom:0;">
+
+    <div class="gterm">
+      <div class="gterm-word">Malware</div>
+      <div class="gterm-cat">Attack Type</div>
+      <div class="gterm-def">Malicious software — any program designed to damage, disrupt, or gain unauthorized access to a computer system. Malware includes viruses, ransomware, spyware, and keyloggers. It is most commonly delivered via phishing emails or malicious downloads.</div>
+    </div>
+
+    <div class="gterm">
+      <div class="gterm-word">MFA — Multi-Factor Authentication</div>
+      <div class="gterm-cat">Access Control</div>
+      <div class="gterm-def">A security method that requires two or more forms of verification before granting access to an account. Typically: something you know (your password) plus something you have (your phone, an authenticator app, or a hardware key). MFA stops most credential-based attacks even when a password is stolen.</div>
+      <div class="gterm-ex">Example: After entering your password, you get a notification on your phone that you must approve before access is granted.</div>
+    </div>
+
+    <div class="gterm">
+      <div class="gterm-word">MitM — Man-in-the-Middle Attack</div>
+      <div class="gterm-cat">Attack Technique</div>
+      <div class="gterm-def">An attack where a criminal secretly intercepts and potentially alters communications between two parties who believe they are communicating directly with each other. Common on public Wi-Fi networks. A VPN prevents MitM attacks by encrypting all your traffic.</div>
+    </div>
+
+  </div>
+
+  <div id="o" class="section-letter">O</div>
+  <div class="glossary-grid" style="margin-bottom:0;">
+
+    <div class="gterm">
+      <div class="gterm-word">OSINT — Open Source Intelligence</div>
+      <div class="gterm-cat">Attack Technique</div>
+      <div class="gterm-def">The practice of gathering information about a target using only publicly available sources — social media, LinkedIn, company websites, news articles, and public records. Attackers use OSINT to research employees before crafting targeted spear phishing attacks.</div>
+    </div>
+
+  </div>
+
+  <div id="p" class="section-letter">P</div>
+  <div class="glossary-grid" style="margin-bottom:0;">
+
+    <div class="gterm">
+      <div class="gterm-word">Password Manager</div>
+      <div class="gterm-cat">Security Tool</div>
+      <div class="gterm-def">A software application that securely stores and generates complex, unique passwords for every account. You only need to remember one master password. Password managers eliminate the need to reuse passwords and are the single most practical way to improve password security.</div>
+    </div>
+
+    <div class="gterm">
+      <div class="gterm-word">Phishing</div>
+      <div class="gterm-cat">Attack Type</div>
+      <div class="gterm-def">A cyberattack that uses deceptive emails, text messages, or phone calls to trick people into revealing credentials, clicking malicious links, or taking harmful actions. Phishing relies on psychological manipulation — urgency, fear, authority, and scarcity — rather than technical hacking.</div>
+    </div>
+
+  </div>
+
+  <div id="q" class="section-letter" id="q">Q</div>
+  <div class="glossary-grid" style="margin-bottom:0;">
+
+    <div class="gterm">
+      <div class="gterm-word">Quishing — QR Code Phishing</div>
+      <div class="gterm-cat">Attack Type</div>
+      <div class="gterm-def">A phishing attack delivered via QR code. The QR code is embedded in an email, flyer, or physical sign. When scanned, it takes the user to a malicious website. Most people cannot verify where a QR code leads before scanning it, which makes this an increasingly common attack method.</div>
+    </div>
+
+  </div>
+
+  <div id="r" class="section-letter">R</div>
+  <div class="glossary-grid" style="margin-bottom:0;">
+
+    <div class="gterm">
+      <div class="gterm-word">Ransomware</div>
+      <div class="gterm-cat">Attack Type</div>
+      <div class="gterm-def">A type of malware that encrypts the victim's files or entire computer system and demands a payment (ransom) to restore access. Most ransomware attacks start with a phishing email. Even when a ransom is paid, data is not always restored. Ransomware is one of the most costly threats facing organizations globally.</div>
+    </div>
+
+  </div>
+
+  <div id="s" class="section-letter">S</div>
+  <div class="glossary-grid" style="margin-bottom:0;">
+
+    <div class="gterm">
+      <div class="gterm-word">Shadow IT</div>
+      <div class="gterm-cat">Policy</div>
+      <div class="gterm-def">Technology used within an organization that is not approved, managed, or known by IT. Examples include personal Dropbox accounts used for work files, unapproved apps installed on work laptops, or personal messaging apps used for business communication. Shadow IT creates security risks because it bypasses organizational controls.</div>
+    </div>
+
+    <div class="gterm">
+      <div class="gterm-word">Smishing — SMS Phishing</div>
+      <div class="gterm-cat">Attack Type</div>
+      <div class="gterm-def">Phishing attacks delivered via text message (SMS). Attackers send texts impersonating banks, delivery companies, or IT support to trick recipients into clicking malicious links or sharing credentials. Because text messages feel more personal than emails, smishing can be harder to recognize.</div>
+    </div>
+
+    <div class="gterm">
+      <div class="gterm-word">Social Engineering</div>
+      <div class="gterm-cat">Attack Technique</div>
+      <div class="gterm-def">The use of psychological manipulation to trick people into making security mistakes or giving away sensitive information. Social engineering exploits human tendencies — trust, helpfulness, fear, urgency — rather than technical vulnerabilities. Phishing is one form of social engineering.</div>
+    </div>
+
+    <div class="gterm">
+      <div class="gterm-word">Spear Phishing</div>
+      <div class="gterm-cat">Attack Type</div>
+      <div class="gterm-def">A targeted phishing attack that uses personal information about the victim — their name, role, colleagues, or current projects — to appear more credible. Unlike generic phishing (sent to thousands of people), spear phishing is crafted for a specific individual and is significantly harder to detect.</div>
+    </div>
+
+    <div class="gterm">
+      <div class="gterm-word">Spoofing</div>
+      <div class="gterm-cat">Attack Technique</div>
+      <div class="gterm-def">Faking the identity of a sender, website, or phone number to appear legitimate. Email spoofing makes a message appear to come from a trusted address. Caller ID spoofing makes a fraudulent call appear to come from a known number. Always verify identity through a separate, trusted channel.</div>
+    </div>
+
+  </div>
+
+  <div id="t" class="section-letter">T</div>
+  <div class="glossary-grid" style="margin-bottom:0;">
+
+    <div class="gterm">
+      <div class="gterm-word">Tailgating</div>
+      <div class="gterm-cat">Physical Security</div>
+      <div class="gterm-def">A physical security attack where an unauthorized person gains access to a restricted area by following closely behind an authorized person through a secured door, without badging in. Tailgating exploits social politeness — the natural instinct to hold doors open for others.</div>
+    </div>
+
+    <div class="gterm">
+      <div class="gterm-word">Two-Factor Authentication (2FA)</div>
+      <div class="gterm-cat">Access Control</div>
+      <div class="gterm-def">A form of multi-factor authentication (MFA) that requires exactly two forms of verification. The most common combination is a password plus a one-time code sent to your phone or generated by an authenticator app. 2FA and MFA are often used interchangeably.</div>
+    </div>
+
+  </div>
+
+  <div id="v" class="section-letter">V</div>
+  <div class="glossary-grid" style="margin-bottom:0;">
+
+    <div class="gterm">
+      <div class="gterm-word">Vishing — Voice Phishing</div>
+      <div class="gterm-cat">Attack Type</div>
+      <div class="gterm-def">Phishing conducted over the phone. Attackers call impersonating IT support, banks, executives, or government agencies to extract credentials, authorize fraudulent transactions, or install remote access software. The caller often knows personal details about the target to appear credible.</div>
+    </div>
+
+    <div class="gterm">
+      <div class="gterm-word">VPN — Virtual Private Network</div>
+      <div class="gterm-cat">Security Tool</div>
+      <div class="gterm-def">A technology that creates an encrypted tunnel between your device and a secure server, protecting your internet traffic from interception. PAC provides a VPN that must be used whenever accessing company systems outside the office. It is especially critical on public Wi-Fi networks.</div>
+    </div>
+
+  </div>
+
+  <div id="z" class="section-letter">Z</div>
+  <div class="glossary-grid">
+
+    <div class="gterm">
+      <div class="gterm-word">Zero-Day</div>
+      <div class="gterm-cat">Vulnerability</div>
+      <div class="gterm-def">A software vulnerability that is unknown to the vendor and has no available patch or fix. Zero-day attacks exploit these unknown weaknesses before developers have had a chance to address them. Keeping software updated reduces (but cannot eliminate) zero-day risk.</div>
+    </div>
+
+  </div>
+
+  <div style="height:24px"></div>
+  <div class="section">
+    <h2 style="margin-bottom:6px;">Term missing?</h2>
+    <p class="small-note" style="margin-bottom:16px;">If you encounter a security term not listed here, contact IT or email phishing@pacgroup.com and we'll add it.</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <a class="btn primary" href="./quiz.html">Take the Quiz ›</a>
+      <a class="btn" href="./faq.html">Read the FAQ</a>
+    </div>
+  </div>
+
+</main>
+<div id="footer-root"></div>
+<script type="module">
+  import { setActiveNav, initMobileNav, updateProgressBar } from "./js/shared.js";
+  import { getHeaderHTML, getFooterHTML } from "./js/header.js";
+  import { initI18n } from "./js/i18n.js";
+  const ui = await initI18n(".");
+  window.__setLang = (l) => { localStorage.setItem("pac_lang",l); window.location.reload(); };
+  document.getElementById("header-root").innerHTML = getHeaderHTML({ rootPrefix: ".", ui });
+  document.getElementById("footer-root").innerHTML = getFooterHTML({ rootPrefix: ".", ui });
+  setActiveNav(); initMobileNav(); updateProgressBar();
+</script>
+</body>
+</html>

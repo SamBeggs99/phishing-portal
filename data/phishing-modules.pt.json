@@ -1,0 +1,404 @@
+{
+  "topics": {
+    "urgency": {
+      "type": "standard",
+      "summary": "Phishing doesn't rely on fancy hacking tools \u2014 it relies on you. Urgency is one of the most common tricks attackers use. By creating false time pressure, they push you into acting quickly without thinking. The goal is simple: make you panic so you skip the checks you'd normally do.",
+      "redFlags": [
+        "Sudden, unexplained deadlines \u2014 \"act within 30 minutes\" or \"respond immediately\"",
+        "Threats of account closure, service interruption, or losing access to a tool",
+        "Requests to skip your normal steps \u2014 \"don't go through IT, just click here\"",
+        "Poor grammar, odd phrasing, or formatting that feels slightly off",
+        "Links where the destination address doesn't match the company it claims to be from \u2014 hover over any link before clicking to check where it actually goes"
+      ],
+      "responseSteps": [
+        "Stop and breathe \u2014 urgency is the trick, so slowing down defeats it",
+        "Do not click any links in the message",
+        "Open a new browser tab and navigate directly to the official site or tool yourself",
+        "If the email claims to be from IT or a known system, contact that person through a method you already trust \u2014 not anything provided in the email",
+        "Report the email using your organization's phishing report button or process"
+      ],
+      "deeperLearning": {
+        "title": "Why urgency works on everyone \u2014 even careful people",
+        "points": [
+          "When we feel rushed, the part of our brain that evaluates risk takes a back seat. This is a normal human response \u2014 not a personal failing.",
+          "Attackers deliberately manufacture urgency because they know it works consistently. A real IT issue or system outage almost never requires you to act within minutes via a link in an email.",
+          "A useful rule of thumb: the more urgent an email feels, the more carefully you should slow down and verify it. Legitimate organizations always give you time to check."
+        ]
+      },
+      "checkIn": [
+        {
+          "question": "You receive an email saying your account will be locked in 15 minutes. What is the first thing you should do?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "Click the link in the email to secure your account"
+            },
+            {
+              "id": "b",
+              "label": "Slow down, ignore the link, and navigate directly to the official site yourself"
+            },
+            {
+              "id": "c",
+              "label": "Reply to the sender to ask for more time"
+            },
+            {
+              "id": "d",
+              "label": "Forward it to a colleague to check"
+            }
+          ],
+          "correctChoiceId": "b",
+          "explanation": "Urgency is the manipulation tactic. Slowing down defeats it. Always navigate directly rather than following email links."
+        },
+        {
+          "question": "A legitimate organization will typically allow you time to verify a request before acting.",
+          "choices": [
+            {
+              "id": "a",
+              "label": "True \u2014 real organizations don't pressure you into acting in minutes"
+            },
+            {
+              "id": "b",
+              "label": "False \u2014 urgent requests are always genuine"
+            }
+          ],
+          "correctChoiceId": "a",
+          "explanation": "Real IT issues and account problems almost never require you to act within minutes via an email link. Artificial urgency is a hallmark of phishing."
+        }
+      ]
+    },
+    "intimidation": {
+      "type": "standard",
+      "summary": "Intimidation phishing uses fear to shut down your instinct to ask questions. By threatening legal consequences, disciplinary action, or account termination, attackers try to make you feel like you have no choice but to comply immediately. Nobody wants to get in trouble \u2014 and attackers exploit exactly that feeling.",
+      "redFlags": [
+        "Scare tactics and a harsh, accusatory tone \u2014 language designed to make you feel at fault before you've done anything",
+        "Mentions of law enforcement, legal escalation, HR involvement, or \"account termination\"",
+        "Pressure to act without verifying \u2014 \"do not contact IT, handle this immediately\"",
+        "A sender address that doesn't match the organization it claims to represent",
+        "Vague accusations with no specific details \u2014 real HR or legal notices always include reference numbers and proper contact information"
+      ],
+      "responseSteps": [
+        "Don't react in fear \u2014 take a moment before doing anything at all",
+        "Never enter your credentials or personal information just because a message threatened you",
+        "Verify the claim independently by contacting HR, IT, or your manager using contact details you already know \u2014 not anything from the email",
+        "Remember: legitimate notices from HR or your legal team always involve proper context, reference numbers, and official channels",
+        "Report the message through your organization's phishing reporting process"
+      ],
+      "deeperLearning": {
+        "title": "Fear overrides good judgment \u2014 by design",
+        "points": [
+          "Intimidation phishing is specifically engineered to override your instinct to verify. When we're afraid of consequences, we tend to comply first and ask questions later \u2014 attackers count on this.",
+          "A real disciplinary or legal notice from your organization will never demand immediate action through an email link. It will involve your manager, HR, or formal written correspondence.",
+          "If an email makes you feel anxious or afraid, treat that emotional reaction as a warning sign \u2014 not a reason to act faster."
+        ]
+      },
+      "checkIn": [
+        {
+          "question": "An email threatens legal action unless you immediately provide your login credentials. What should you do?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "Provide the credentials to avoid consequences"
+            },
+            {
+              "id": "b",
+              "label": "Ignore the threat and verify the claim through official channels"
+            },
+            {
+              "id": "c",
+              "label": "Reply to ask what the legal action involves"
+            },
+            {
+              "id": "d",
+              "label": "Change your password using the link in the email"
+            }
+          ],
+          "correctChoiceId": "b",
+          "explanation": "Fear is designed to bypass your judgment. Real legal or HR notices include reference numbers and proper channels \u2014 never demand credentials via email."
+        },
+        {
+          "question": "What is the main goal of intimidation tactics in phishing?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "To make the email look more official"
+            },
+            {
+              "id": "b",
+              "label": "To stop you from pausing to verify the request"
+            },
+            {
+              "id": "c",
+              "label": "To test whether you read emails carefully"
+            },
+            {
+              "id": "d",
+              "label": "To collect your name and job title"
+            }
+          ],
+          "correctChoiceId": "b",
+          "explanation": "Intimidation works by overriding your instinct to verify. When you're scared of consequences, you comply first \u2014 attackers count on that."
+        }
+      ]
+    },
+    "scarcity": {
+      "type": "standard",
+      "summary": "Scarcity phishing exploits the fear of missing out. By suggesting that something valuable is available only to the first few people, or only for a limited time, attackers push you into clicking before you've had a chance to think. Everyone likes to get something good \u2014 and that's exactly what makes this tactic so effective.",
+      "redFlags": [
+        "\"Limited time\" or \"exclusive offer\" language attached to a link or file",
+        "Prizes, rewards, or gift cards that seem too good to be true",
+        "Requests to log in or provide your information to \"claim\" something",
+        "The sender's email domain doesn't match the brand it claims to be \u2014 for example, amazonrewards25.biz instead of amazon.com",
+        "Generic greetings like \"Dear User\" or \"Dear Employee\" with no personalization"
+      ],
+      "responseSteps": [
+        "Treat scarcity language as a reason to pause \u2014 not a reason to click",
+        "Ask yourself: did I sign up for this? Am I expecting something from this sender? If not, be skeptical",
+        "Check the sender's email address carefully for subtle misspellings or unfamiliar domains",
+        "If it looks like a real offer from a known company, go directly to their official website yourself \u2014 don't use the link provided in the email",
+        "Report it using your organization's phishing reporting process"
+      ],
+      "deeperLearning": {
+        "title": "FOMO is a powerful tool \u2014 and attackers know how to use it",
+        "points": [
+          "The fear of missing out (FOMO) is a genuine psychological trigger. Attackers use it because it's effective across all age groups and technical skill levels.",
+          "Real corporate rewards, bonuses, or announcements are always communicated through official, established channels \u2014 not through unsolicited emails with countdown timers or limited-quantity claims.",
+          "A helpful rule: if an email makes you feel like you need to act right now to get something valuable, that urgency is the warning sign."
+        ]
+      },
+      "checkIn": [
+        {
+          "question": "An email says you're one of only 50 employees to receive a $150 reward \u2014 click now before it expires. What do you do?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "Click immediately so you don't miss out"
+            },
+            {
+              "id": "b",
+              "label": "Verify through the HR portal or official internal communications first"
+            },
+            {
+              "id": "c",
+              "label": "Forward to colleagues so they can claim it too"
+            },
+            {
+              "id": "d",
+              "label": "Click but don't enter any personal information"
+            }
+          ],
+          "correctChoiceId": "b",
+          "explanation": "Scarcity and prize language are designed to trigger FOMO. Legitimate rewards always come through official channels \u2014 never unsolicited emails with countdown timers."
+        },
+        {
+          "question": "Which of these is a scarcity-based red flag?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "An email with a clear sender address from your organization"
+            },
+            {
+              "id": "b",
+              "label": "An email offering a limited-time reward from a domain like 'companyrewards25.biz'"
+            },
+            {
+              "id": "c",
+              "label": "An official announcement posted on the company intranet"
+            },
+            {
+              "id": "d",
+              "label": "An email from HR confirming your next training date"
+            }
+          ],
+          "correctChoiceId": "b",
+          "explanation": "Mismatched domains and limited-time prize language are classic scarcity phishing signals. Always check the sender's actual domain carefully."
+        }
+      ]
+    },
+    "authority": {
+      "type": "standard",
+      "summary": "Nobody wants to keep the CEO or CFO waiting. Attackers know this \u2014 and they use it against you. By pretending to be someone in a position of power, they pressure you into taking actions you would otherwise question. It may look exactly like your boss. But it isn't.",
+      "redFlags": [
+        "Unusual requests from executives or \"higher-ups\" \u2014 especially anything involving money, gift cards, or wire transfers",
+        "Instructions to keep the request secret or to skip your normal approval process",
+        "Vague instructions with no supporting context, reference numbers, or official documentation",
+        "A sender email address that doesn't exactly match the official company domain \u2014 look closely for subtle differences (e.g. ceo@company-corp.com vs ceo@company.com)",
+        "Urgency combined with authority \u2014 \"I need this done now, no questions\""
+      ],
+      "responseSteps": [
+        "Verify through a separate channel \u2014 call or message the person directly using contact information you already have, not anything from the email",
+        "Follow your organization's standard approval process \u2014 a real executive will not ask you to bypass it",
+        "Never purchase gift cards, initiate wire transfers, or share credentials based solely on an email",
+        "Know your organization's rules: company emails will never ask you to buy gift cards, share your password, validate credentials via a PDF or QR code, or wire money without a proper approval process",
+        "Report the email through your organization's phishing reporting process"
+      ],
+      "deeperLearning": {
+        "title": "Authority exploits the trust we extend to leadership",
+        "points": [
+          "In professional settings, we're conditioned to respond quickly and positively to requests from leadership. Attackers research organizational structures and deliberately exploit this reflex.",
+          "Business Email Compromise (BEC) \u2014 where attackers impersonate executives to initiate fraudulent transfers \u2014 costs organizations billions of dollars each year. It works because people don't feel comfortable questioning the boss.",
+          "The safest mindset: the more unusual or high-stakes a request appears to be from a senior person, the more important it is to verify it through a completely separate channel before doing anything."
+        ]
+      },
+      "checkIn": [
+        {
+          "question": "Your CFO emails asking you to urgently buy gift cards and send the codes, keeping it secret from normal channels. What is the right response?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "Purchase the cards \u2014 questioning the CFO could be embarrassing"
+            },
+            {
+              "id": "b",
+              "label": "Verify by contacting the CFO directly through a method you already trust"
+            },
+            {
+              "id": "c",
+              "label": "Reply to the email asking for a purchase order number"
+            },
+            {
+              "id": "d",
+              "label": "Buy the cards and notify finance after"
+            }
+          ],
+          "correctChoiceId": "b",
+          "explanation": "Gift card requests via email are never legitimate business payments. Always verify high-stakes requests through a completely separate channel you already trust."
+        },
+        {
+          "question": "PAC leadership or IT will never ask you to do which of the following via email?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "Reset your password after you requested a reset"
+            },
+            {
+              "id": "b",
+              "label": "Click a link to join a scheduled meeting"
+            },
+            {
+              "id": "c",
+              "label": "Purchase gift cards or wire money without a formal approval process"
+            },
+            {
+              "id": "d",
+              "label": "Review a document shared on the company's approved system"
+            }
+          ],
+          "correctChoiceId": "c",
+          "explanation": "Financial transactions bypassing normal approval processes are never legitimate \u2014 regardless of who appears to be asking."
+        }
+      ]
+    },
+    "types-of-phishing": {
+      "type": "types-of-phishing",
+      "summary": "Phishing comes in many forms \u2014 attackers use as many methods as possible to reach you. Each type works a little differently, but they all share the same goal: get you to click, share, or act in a way that puts your information or your organization at risk. You don't need to memorize all of this \u2014 just knowing these methods exist makes you significantly harder to fool.",
+      "deeperLearning": {
+        "title": "When in doubt, always ask \u2014 that's how we all stay safe",
+        "points": [
+          "You don't need to memorize every attack type. What matters is developing the habit of pausing before you click, call back, or hand over any information.",
+          "If something feels off \u2014 even just slightly \u2014 it is always okay to check with IT or your manager before taking action. No legitimate request will ever punish you for verifying.",
+          "Attackers rely on people staying silent and not asking questions. Speaking up is one of the most effective defenses we have as an organization."
+        ]
+      },
+      "types": [
+        {
+          "type": "Phishing (Email)",
+          "description": "Fake emails sent to large numbers of people, designed to look like they come from a trusted source \u2014 a bank, Microsoft, your IT team, or a delivery service. They contain malicious links or attachments. The goal is volume: send enough emails and someone will click.",
+          "signals": [
+            "Generic greetings like \"Dear User\" or \"Dear Customer\" \u2014 no use of your actual name",
+            "Sender address with subtle misspellings (e.g. support@micr0soft.com)",
+            "Links or attachments you weren't expecting",
+            "Urgent or threatening language pushing you to act immediately"
+          ]
+        },
+        {
+          "type": "Spear Phishing (Targeted)",
+          "description": "A targeted version of phishing that uses your name, your role, or real context from your work to appear legitimate. These are specifically crafted for you or your team, which makes them much harder to recognize than generic phishing emails.",
+          "signals": [
+            "Uses your name or references a real project, but the request still feels unusual",
+            "Sender domain doesn't quite match the organization it claims to be from",
+            "Context that feels slightly \"off\" \u2014 overly specific in a strange way, or a topic you'd expect from someone else",
+            "Requests for credentials, files, or financial actions that seem out of the ordinary"
+          ]
+        },
+        {
+          "type": "Smishing (SMS / Text)",
+          "description": "Phishing via text message. Attackers send texts pretending to be from delivery companies, banks, or IT support to get you to tap a link on your phone. Because texts feel more personal and immediate than emails, they can be surprisingly convincing.",
+          "signals": [
+            "Short, unrecognizable links \u2014 you can't see where they lead before tapping",
+            "Unsolicited messages about deliveries, banking alerts, or account issues you didn't initiate",
+            "Requests for personal information, passwords, or one-time codes via text",
+            "Messages from numbers you don't recognize, often with urgent language"
+          ]
+        },
+        {
+          "type": "Vishing (Voice / Phone)",
+          "description": "Phishing over the phone. Attackers call pretending to be IT support, Microsoft, your bank, or even HR. They claim there's a virus on your computer, suspicious activity on your account, or an urgent issue requiring your credentials or remote access.",
+          "signals": [
+            "Caller asks for your password, credentials, or to install software that gives them remote access to your computer",
+            "Pressure to act immediately \u2014 \"we need to resolve this right now\"",
+            "Unfamiliar or spoofed caller ID made to look official",
+            "Requests that your real IT or support team would never make over an unsolicited phone call"
+          ]
+        },
+        {
+          "type": "Quishing (QR Code Phishing)",
+          "description": "Attackers embed malicious URLs inside QR codes placed in emails, printed flyers, or even physical signage. Most people scan without seeing where the code leads first \u2014 which is exactly what makes this a growing threat that's easy to overlook.",
+          "signals": [
+            "QR codes in unexpected emails asking you to log in, verify your identity, or claim something",
+            "Codes on printed materials in public spaces asking for personal or account information",
+            "No preview of the destination URL before you're taken to the site",
+            "Use a scanner app that previews the URL before opening \u2014 if the address looks unfamiliar or suspicious, don't proceed"
+          ]
+        }
+      ],
+      "checkIn": [
+        {
+          "question": "You receive a text message about a failed delivery with a short link to 'reschedule.' You weren't expecting a package. This is most likely:",
+          "choices": [
+            {
+              "id": "a",
+              "label": "Spear phishing \u2014 targeted email using personal details"
+            },
+            {
+              "id": "b",
+              "label": "Smishing \u2014 phishing via SMS"
+            },
+            {
+              "id": "c",
+              "label": "Vishing \u2014 voice phishing"
+            },
+            {
+              "id": "d",
+              "label": "Quishing \u2014 QR code phishing"
+            }
+          ],
+          "correctChoiceId": "b",
+          "explanation": "Smishing is phishing delivered via text message. Unexpected delivery texts with short links are one of the most common smishing formats."
+        },
+        {
+          "question": "Which phishing type uses personal information to appear credible to a specific target?",
+          "choices": [
+            {
+              "id": "a",
+              "label": "Generic phishing \u2014 mass emails with no personalization"
+            },
+            {
+              "id": "b",
+              "label": "Spear phishing \u2014 targeted and personalized attacks"
+            },
+            {
+              "id": "c",
+              "label": "Quishing \u2014 QR code-based attacks"
+            },
+            {
+              "id": "d",
+              "label": "Smishing \u2014 SMS-based attacks"
+            }
+          ],
+          "correctChoiceId": "b",
+          "explanation": "Spear phishing uses real context \u2014 your name, role, colleagues, or current projects \u2014 to appear legitimate. This makes it much harder to spot than generic phishing."
+        }
+      ]
+    }
+  }
+}
