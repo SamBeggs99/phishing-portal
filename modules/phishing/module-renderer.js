@@ -25,6 +25,7 @@ export async function renderPhishingModule(topicId) {
 
     initMicroScenario(getMicroScenario(topic), ui);
     initRedFlagSpotter(topic.redFlagSpotter, ui);
+    initMissionMode(topic.missionMode, ui);
     initCheckIn(topic.checkIn, ui);
     setTimeout(() => markModuleComplete(topicId), 8000);
   } catch (err) {
@@ -61,6 +62,7 @@ function renderStandard(topic, m) {
       <div id="ms-feedback" class="hidden" style="margin-top:10px;padding:12px 14px;border-radius:var(--radius);font-size:13px;line-height:1.6;border-left:3px solid transparent;"></div>
     </div>` : "";
   const redFlagSpotter = renderRedFlagSpotter(topic.redFlagSpotter);
+  const missionMode = renderMissionMode(topic.missionMode);
   const story = topic.story ? `
     <div class="content-section tone-neutral">
       <div class="mono-label" style="margin-bottom:8px;">${escapeHtml(m.realStory || "Real-world story")}</div>
@@ -98,6 +100,8 @@ function renderStandard(topic, m) {
     ? [hero, story, summary, flagsAndSteps, redFlagSpotter, microScenario, deeper, checkInHTML]
     : variant === "scenario-first"
       ? [quickTakeaway, hero, microScenario, redFlagSpotter, summary, flagsAndSteps, story, deeper, checkInHTML]
+      : variant === "mission"
+        ? [hero, missionMode, quickTakeaway, summary, flagsAndSteps, redFlagSpotter, story, microScenario, deeper, checkInHTML]
       : [quickTakeaway, hero, summary, story, flagsAndSteps, redFlagSpotter, microScenario, deeper, checkInHTML];
 
   return `
@@ -229,6 +233,75 @@ function initRedFlagSpotter(spotter, ui) {
     feedback.innerHTML = `
       <strong style="color:${ok ? "#2ECC71" : "#AB2328"};font-size:11px;text-transform:uppercase;letter-spacing:0.08em;font-family:monospace;">${escapeHtml(ok ? (m.correct || "Correct") : (m.incorrect || "Incorrect"))}</strong>
       <p style="margin-top:5px;color:var(--text-2);">${escapeHtml(spotter.explanation || "Review the suspicious cues and verify through trusted channels.")}</p>`;
+  });
+}
+
+function renderMissionMode(mission) {
+  if (!mission?.title || !mission?.steps?.length) return "";
+  return `
+    <div class="content-section mission-mode">
+      <div class="mission-header">
+        <div>
+          <div class="mono-label" style="margin-bottom:8px;">Mission Mode</div>
+          <h2 style="margin-bottom:6px;">${escapeHtml(mission.title)}</h2>
+          <p class="small-note">${escapeHtml(mission.brief || "Make the safest decision at each step.")}</p>
+        </div>
+        <div class="mission-score" id="mission-score">0 / ${mission.steps.length}</div>
+      </div>
+      <div class="mission-steps" id="mission-steps">
+        ${mission.steps.map((step, idx) => `
+          <div class="mission-step" data-step="${idx}">
+            <div class="mono-label" style="margin-bottom:6px;">Step ${idx + 1}</div>
+            <p style="font-size:14px;color:var(--text-2);line-height:1.6;margin-bottom:10px;">${escapeHtml(step.prompt || "")}</p>
+            <div class="choices">
+              ${(step.choices || []).map(c => `
+                <label class="choice mission-choice" data-step="${idx}" data-id="${escapeHtml(c.id)}" style="cursor:pointer;">
+                  <input type="radio" name="mission-${idx}" value="${escapeHtml(c.id)}" style="margin-top:3px;accent-color:#AB2328;flex-shrink:0;width:14px;height:14px;"/>
+                  <div><span class="choice-label">${escapeHtml(c.label)}</span></div>
+                </label>`).join("")}
+            </div>
+            <div class="hidden mission-feedback" id="mission-feedback-${idx}" style="margin-top:10px;padding:10px 12px;border-radius:var(--radius);font-size:12.5px;line-height:1.6;border-left:3px solid transparent;"></div>
+          </div>
+        `).join("")}
+      </div>
+      <button class="btn sm" id="mission-submit" type="button" style="margin-top:12px;">Score my mission</button>
+    </div>`;
+}
+
+function initMissionMode(mission, ui) {
+  if (!mission?.steps?.length) return;
+  const submit = document.getElementById("mission-submit");
+  const score = document.getElementById("mission-score");
+  const stepsRoot = document.getElementById("mission-steps");
+  if (!submit || !score || !stepsRoot) return;
+  const m = ui?.module || {};
+
+  submit.addEventListener("click", () => {
+    let total = 0;
+    mission.steps.forEach((step, idx) => {
+      const chosen = stepsRoot.querySelector(`input[name="mission-${idx}"]:checked`)?.value;
+      const feedback = document.getElementById(`mission-feedback-${idx}`);
+      if (!feedback) return;
+      const ok = chosen === step.correctChoiceId;
+      if (ok) total += 1;
+      stepsRoot.querySelectorAll(`.mission-choice[data-step="${idx}"]`).forEach(opt => {
+        opt.style.cursor = "default";
+        if (opt.dataset.id === step.correctChoiceId) {
+          opt.style.borderColor = "rgba(46,204,113,0.4)";
+          opt.style.background = "rgba(46,204,113,0.07)";
+        } else if (chosen && opt.dataset.id === chosen) {
+          opt.style.borderColor = "rgba(232,51,42,0.4)";
+          opt.style.background = "rgba(232,51,42,0.07)";
+        }
+      });
+      stepsRoot.querySelectorAll(`input[name="mission-${idx}"]`).forEach(i => i.disabled = true);
+      feedback.classList.remove("hidden");
+      feedback.style.borderLeftColor = ok ? "#2ECC71" : "#AB2328";
+      feedback.style.background = ok ? "rgba(46,204,113,0.05)" : "rgba(171,35,40,0.05)";
+      feedback.innerHTML = `<strong style="color:${ok ? "#2ECC71" : "#AB2328"};font-size:11px;text-transform:uppercase;letter-spacing:0.08em;font-family:monospace;">${escapeHtml(ok ? (m.correct || "Correct") : (m.incorrect || "Incorrect"))}</strong><p style="margin-top:4px;color:var(--text-2);">${escapeHtml(step.bestAction || "")}</p>`;
+    });
+    score.textContent = `${total} / ${mission.steps.length}`;
+    submit.disabled = true;
   });
 }
 

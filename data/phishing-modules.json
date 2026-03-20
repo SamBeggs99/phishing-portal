@@ -2,7 +2,43 @@
   "topics": {
     "urgency": {
       "type": "standard",
-      "layoutVariant": "story-first",
+      "layoutVariant": "mission",
+      "missionMode": {
+        "title": "Inbox Rescue: Urgency Attack",
+        "brief": "You have 60 seconds before close of day. Choose the safest response at each stage.",
+        "steps": [
+          {
+            "prompt": "An email says your account will be suspended in 30 minutes unless you verify via link. First move?",
+            "choices": [
+              { "id": "a", "label": "Click immediately to avoid lockout" },
+              { "id": "b", "label": "Pause and inspect sender/link details" },
+              { "id": "c", "label": "Forward to team chat for opinions" }
+            ],
+            "correctChoiceId": "b",
+            "bestAction": "Pause first. Urgency is the tactic. Check domain and message context before taking any action."
+          },
+          {
+            "prompt": "The sender domain is close but not exact, and the email says not to contact IT. What next?",
+            "choices": [
+              { "id": "a", "label": "Use the link but change password later" },
+              { "id": "b", "label": "Reply asking for a 24-hour extension" },
+              { "id": "c", "label": "Ignore email links and contact IT via known channel" }
+            ],
+            "correctChoiceId": "c",
+            "bestAction": "Use a trusted channel you already know. Never trust contact paths provided by suspicious emails."
+          },
+          {
+            "prompt": "You confirmed it's phishing. Final action?",
+            "choices": [
+              { "id": "a", "label": "Delete it and move on" },
+              { "id": "b", "label": "Report through official phishing process" },
+              { "id": "c", "label": "Warn only your closest colleagues" }
+            ],
+            "correctChoiceId": "b",
+            "bestAction": "Report quickly so IT can block the campaign and protect others."
+          }
+        ]
+      },
       "moduleHero": {
         "icon": "⏱️",
         "title": "Urgency is a social-engineering weapon",
