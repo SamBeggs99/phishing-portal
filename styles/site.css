@@ -279,7 +279,7 @@ main { padding: 42px 0 88px; }
 }
 .page-path-rail {
   position: fixed;
-  left: max(10px, calc((100vw - min(1160px, 94vw)) / 2 - 54px));
+  left: max(8px, calc((100vw - min(1160px, 94vw)) / 2 - 210px));
   top: 118px;
   z-index: 90;
   display: flex;
@@ -898,6 +898,9 @@ footer {
     justify-content: flex-end;
   }
   .game-frame { height: 500px; }
+}
+@media (max-width: 1280px) {
+  .page-path-rail { display: none; }
 }
 @media (max-width: 600px) {
   .home-shortcut { padding: 5px 9px; }
