@@ -18,18 +18,20 @@ export async function renderITModule(moduleId) {
 
     const m = ui.module || {};
     const e = s => escapeHtml(String(s ?? ""));
+    const quick = getQuickTakeaway(t);
+    const scenario = getMicroScenario(t);
     const ul = arr => arr?.length ? `<ul class="list-clean">${arr.map(f=>`<li>${e(f)}</li>`).join("")}</ul>` : "";
-    const quickTakeaway = t.quickTakeaway?.points?.length ? `
+    const quickTakeaway = quick?.points?.length ? `
       <div class="content-section" style="border-color:var(--border-red);background:rgba(171,35,40,0.06);">
-        <div class="mono-label" style="margin-bottom:8px;">${e(t.quickTakeaway.title || "1-minute takeaway")}</div>
-        ${ul(t.quickTakeaway.points)}
+        <div class="mono-label" style="margin-bottom:8px;">${e(quick.title || "1-minute takeaway")}</div>
+        ${ul(quick.points)}
       </div>` : "";
-    const microScenario = t.microScenario?.question ? `
+    const microScenario = scenario?.question ? `
       <div class="content-section">
-        <div class="mono-label" style="margin-bottom:8px;">${e(t.microScenario.title || "Quick decision check")}</div>
-        <p style="font-size:14px;color:var(--text-2);line-height:1.7;margin-bottom:12px;">${e(t.microScenario.question)}</p>
+        <div class="mono-label" style="margin-bottom:8px;">${e(scenario.title || "Quick decision check")}</div>
+        <p style="font-size:14px;color:var(--text-2);line-height:1.7;margin-bottom:12px;">${e(scenario.question)}</p>
         <div class="choices" id="ms-choices">
-          ${(t.microScenario.choices || []).map(c => `
+          ${(scenario.choices || []).map(c => `
             <label class="choice ms-choice" data-id="${e(c.id)}" style="cursor:pointer;">
               <input type="radio" name="ms-choice" value="${e(c.id)}" style="margin-top:3px;accent-color:#AB2328;flex-shrink:0;width:14px;height:14px;"/>
               <div><span class="choice-label">${e(c.label)}</span></div>
@@ -249,7 +251,7 @@ export async function renderITModule(moduleId) {
     </div>`;
 
     initCheckIn(t.checkIn, ui);
-    initMicroScenario(t.microScenario, ui);
+    initMicroScenario(getMicroScenario(t), ui);
     setTimeout(() => markModuleComplete(moduleId), 8000);
   } catch (err) {
     console.error("Failed to render IT security module:", err);
@@ -291,4 +293,30 @@ function initMicroScenario(scenario, ui) {
         <p style="margin-top:5px;color:var(--text-2);">${e(scenario.bestAction || "")}</p>`;
     });
   });
+}
+
+function getQuickTakeaway(topic) {
+  if (topic.quickTakeaway?.points?.length) return topic.quickTakeaway;
+  const points = [];
+  if (topic.summary) {
+    const firstSentence = String(topic.summary).split(".")[0]?.trim();
+    if (firstSentence) points.push(firstSentence + ".");
+  }
+  if (topic.redFlags?.[0]) points.push(`Watch for: ${topic.redFlags[0]}`);
+  if (topic.responseSteps?.[0]) points.push(`Do first: ${topic.responseSteps[0]}`);
+  if (!points.length) return null;
+  return { title: "1-minute takeaway", points: points.slice(0, 3) };
+}
+
+function getMicroScenario(topic) {
+  if (topic.microScenario?.question && topic.microScenario?.choices?.length) return topic.microScenario;
+  const fallback = topic.checkIn?.[0];
+  if (!fallback?.question || !fallback?.choices?.length || !fallback?.correctChoiceId) return null;
+  return {
+    title: "Quick decision check",
+    question: fallback.question,
+    choices: fallback.choices,
+    correctChoiceId: fallback.correctChoiceId,
+    bestAction: fallback.explanation || "Choose the safest verified path before acting."
+  };
 }

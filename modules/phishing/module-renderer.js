@@ -23,7 +23,7 @@ export async function renderPhishingModule(topicId) {
     if (topic.type === "types-of-phishing") root.innerHTML = renderTypes(topic, m);
     else root.innerHTML = renderStandard(topic, m);
 
-    initMicroScenario(topic.microScenario, ui);
+    initMicroScenario(getMicroScenario(topic), ui);
     initCheckIn(topic.checkIn, ui);
     setTimeout(() => markModuleComplete(topicId), 8000);
   } catch (err) {
@@ -36,25 +36,34 @@ export async function renderPhishingModule(topicId) {
 }
 
 function renderStandard(topic, m) {
+  const quick = getQuickTakeaway(topic);
+  const scenario = getMicroScenario(topic);
   const flags = (topic.redFlags || []).map(f => `<li>${escapeHtml(f)}</li>`).join("");
   const steps = (topic.responseSteps || []).map(s => `<li>${escapeHtml(s)}</li>`).join("");
-  const quickTakeaway = topic.quickTakeaway?.points?.length ? `
+  const quickTakeaway = quick?.points?.length ? `
     <div class="content-section" style="border-color:var(--border-red);background:rgba(171,35,40,0.06);">
-      <div class="mono-label" style="margin-bottom:8px;">${escapeHtml(topic.quickTakeaway.title || "1-minute takeaway")}</div>
-      <ul class="list-clean">${topic.quickTakeaway.points.map(p => `<li>${escapeHtml(p)}</li>`).join("")}</ul>
+      <div class="mono-label" style="margin-bottom:8px;">${escapeHtml(quick.title || "1-minute takeaway")}</div>
+      <ul class="list-clean">${quick.points.map(p => `<li>${escapeHtml(p)}</li>`).join("")}</ul>
     </div>` : "";
-  const microScenario = topic.microScenario?.question ? `
+  const microScenario = scenario?.question ? `
     <div class="content-section">
-      <div class="mono-label" style="margin-bottom:8px;">${escapeHtml(topic.microScenario.title || "Quick decision check")}</div>
-      <p style="font-size:14px;color:var(--text-2);line-height:1.7;margin-bottom:12px;">${escapeHtml(topic.microScenario.question)}</p>
+      <div class="mono-label" style="margin-bottom:8px;">${escapeHtml(scenario.title || "Quick decision check")}</div>
+      <p style="font-size:14px;color:var(--text-2);line-height:1.7;margin-bottom:12px;">${escapeHtml(scenario.question)}</p>
       <div class="choices" id="ms-choices">
-        ${(topic.microScenario.choices || []).map(c => `
+        ${(scenario.choices || []).map(c => `
           <label class="choice ms-choice" data-id="${escapeHtml(c.id)}" style="cursor:pointer;">
             <input type="radio" name="ms-choice" value="${escapeHtml(c.id)}" style="margin-top:3px;accent-color:#AB2328;flex-shrink:0;width:14px;height:14px;"/>
             <div><span class="choice-label">${escapeHtml(c.label)}</span></div>
           </label>`).join("")}
       </div>
       <div id="ms-feedback" class="hidden" style="margin-top:10px;padding:12px 14px;border-radius:var(--radius);font-size:13px;line-height:1.6;border-left:3px solid transparent;"></div>
+    </div>` : "";
+  const story = topic.story ? `
+    <div class="content-section">
+      <div class="mono-label" style="margin-bottom:8px;">${escapeHtml(m.realStory || "Real-world story")}</div>
+      <h2 style="margin-bottom:4px;">${escapeHtml(topic.story.title)}</h2>
+      <div class="mono-label" style="color:var(--text-3);margin-bottom:14px;">${escapeHtml(topic.story.meta)}</div>
+      <p class="small-note" style="white-space:pre-wrap;font-size:14px;line-height:1.75;">${escapeHtml(topic.story.text)}</p>
     </div>` : "";
   const deeper = topic.deeperLearning ? `
     <details>
@@ -72,6 +81,7 @@ function renderStandard(topic, m) {
         <div class="mono-label" style="margin-bottom:8px;">${escapeHtml(m.keyTakeaway || "Key takeaway")}</div>
         <p style="font-size:15px;color:var(--text-2);line-height:1.75;">${escapeHtml(topic.summary || "")}</p>
       </div>
+      ${story}
       <div class="content-two-col">
         <div class="content-section">
           <h2>🚩 ${escapeHtml(m.redFlags || "Red flags")}</h2>
@@ -118,6 +128,32 @@ function initMicroScenario(scenario, ui) {
         <p style="margin-top:5px;color:var(--text-2);">${escapeHtml(scenario.bestAction || "")}</p>`;
     });
   });
+}
+
+function getQuickTakeaway(topic) {
+  if (topic.quickTakeaway?.points?.length) return topic.quickTakeaway;
+  const points = [];
+  if (topic.summary) {
+    const firstSentence = String(topic.summary).split(".")[0]?.trim();
+    if (firstSentence) points.push(firstSentence + ".");
+  }
+  if (topic.redFlags?.[0]) points.push(`Watch for: ${topic.redFlags[0]}`);
+  if (topic.responseSteps?.[0]) points.push(`Do first: ${topic.responseSteps[0]}`);
+  if (!points.length) return null;
+  return { title: "1-minute takeaway", points: points.slice(0, 3) };
+}
+
+function getMicroScenario(topic) {
+  if (topic.microScenario?.question && topic.microScenario?.choices?.length) return topic.microScenario;
+  const fallback = topic.checkIn?.[0];
+  if (!fallback?.question || !fallback?.choices?.length || !fallback?.correctChoiceId) return null;
+  return {
+    title: "Quick decision check",
+    question: fallback.question,
+    choices: fallback.choices,
+    correctChoiceId: fallback.correctChoiceId,
+    bestAction: fallback.explanation || "Choose the safest verified path before acting."
+  };
 }
 
 function renderTypes(topic, m) {

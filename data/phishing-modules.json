@@ -2,6 +2,30 @@
   "topics": {
     "urgency": {
       "type": "standard",
+      "quickTakeaway": {
+        "title": "1-minute takeaway",
+        "points": [
+          "Urgency is the trick \u2014 slowing down defeats it.",
+          "Never click links in time-pressured emails. Navigate directly instead.",
+          "Real IT issues almost never require immediate action via an email link."
+        ]
+      },
+      "microScenario": {
+        "title": "Quick decision check",
+        "question": "You get an email at 4:45 PM saying your Microsoft 365 account will be suspended in 30 minutes unless you verify your credentials. What do you do?",
+        "choices": [
+          { "id": "a", "label": "Click the verification link \u2014 you can't afford to lose access" },
+          { "id": "b", "label": "Reply to the email asking for more time" },
+          { "id": "c", "label": "Ignore the link and contact IT directly to check your account status" }
+        ],
+        "correctChoiceId": "c",
+        "bestAction": "Correct move: ignore the link and contact IT through a channel you already trust. Real account issues can always be resolved through IT \u2014 urgency in an email is a tactic, not a fact."
+      },
+      "story": {
+        "title": "The tax season email that exposed 12,000 employees' personal data",
+        "meta": "Urgency \u00b7 W-2 phishing \u00b7 CEO impersonation \u00b7 Seagate 2016",
+        "text": "In March 2016, an HR employee at Seagate Technology received an email that appeared to come from the company's CEO. The message asked, as a matter of internal business, for the W-2 tax forms of all current and former employees to be sent immediately. Tax season was already underway. The request felt urgent but not unusual \u2014 W-2 processing is exactly what HR teams are doing in March.\n\nThe employee didn't click a malicious link or enter credentials into a fake site. They simply replied with the data. Within hours, the complete W-2 records of approximately 12,000 employees \u2014 including names, Social Security numbers, addresses, and wages \u2014 had been emailed directly to an attacker outside the company.\n\nFraudulent tax returns were filed in employees' names almost immediately. Seagate faced a class-action lawsuit and settled for $5.75 million. The employee who replied wasn't blamed \u2014 they were doing exactly what the context made feel urgent and legitimate. The attacker needed only to manufacture the right moment and the right apparent authority. Tax season did the rest."
+      },
       "summary": "Phishing doesn't rely on fancy hacking tools \u2014 it relies on you. Urgency is one of the most common tricks attackers use. By creating false time pressure, they push you into acting quickly without thinking. The goal is simple: make you panic so you skip the checks you'd normally do.",
       "redFlags": [
         "Sudden, unexplained deadlines \u2014 \"act within 30 minutes\" or \"respond immediately\"",
@@ -68,6 +92,30 @@
     },
     "intimidation": {
       "type": "standard",
+      "quickTakeaway": {
+        "title": "1-minute takeaway",
+        "points": [
+          "Fear is designed to stop you verifying \u2014 recognise it as a warning sign, not a reason to act.",
+          "Real HR and legal notices never demand instant action via an email link.",
+          "If an email makes you anxious, pause. That feeling is exactly what the attacker is counting on."
+        ]
+      },
+      "microScenario": {
+        "title": "Quick decision check",
+        "question": "An email with your company's HR logo says your employment record has a compliance issue that could affect your contract, and you must resolve it by clicking a secure link within the hour. What do you do?",
+        "choices": [
+          { "id": "a", "label": "Click the link immediately \u2014 you can't risk a contract issue" },
+          { "id": "b", "label": "Reply to the email to ask what the compliance issue is" },
+          { "id": "c", "label": "Contact HR directly through your normal channels to verify the issue exists" }
+        ],
+        "correctChoiceId": "c",
+        "bestAction": "Correct move: contact HR through a channel you already trust. Real employment issues are handled through official processes \u2014 not one-hour deadlines delivered by email link."
+      },
+      "story": {
+        "title": "The video call with a fake CFO that cost a global engineering firm $25 million",
+        "meta": "Intimidation \u00b7 Deepfake \u00b7 AI fraud \u00b7 Arup 2024",
+        "text": "In early 2024, a finance employee at Arup \u2014 the British engineering firm behind the Sydney Opera House and the Beijing National Stadium \u2014 received an email purportedly from the company's CFO. It described a confidential transaction that needed to be processed urgently and discreetly. The employee was suspicious. They almost dismissed it.\n\nThen they were invited to a video call. On screen: the CFO, and several colleagues the employee recognised \u2014 all present, all apparently in agreement, all providing direct verbal instructions to proceed with the transfers. Every face and voice matched the real executives. The entire call was AI-generated deepfakes, built from publicly available footage of Arup's leadership team.\n\nConvinced by what they had seen and heard \u2014 and having been told to keep the transaction confidential \u2014 the employee executed 15 wire transfers totalling HK$200 million (approximately US$25.6 million) to attacker-controlled accounts. By the time Arup's head office confirmed they knew nothing about any such meeting or transaction, the money was gone. As of 2025, it remains unrecovered.\n\nThe intimidation here was not a legal threat or an accusation. It was the paralysing weight of apparent consensus from authority figures \u2014 a manufactured reality so convincing that verification felt unnecessary, and non-compliance felt professionally unthinkable."
+      },
       "summary": "Intimidation phishing uses fear to shut down your instinct to ask questions. By threatening legal consequences, disciplinary action, or account termination, attackers try to make you feel like you have no choice but to comply immediately. Nobody wants to get in trouble \u2014 and attackers exploit exactly that feeling.",
       "redFlags": [
         "Scare tactics and a harsh, accusatory tone \u2014 language designed to make you feel at fault before you've done anything",
@@ -161,6 +209,11 @@
         "correctChoiceId": "c",
         "bestAction": "Correct move: pause and verify through HR or official internal comms. Scarcity language is there to rush your judgment."
       },
+      "story": {
+        "title": "The open enrolment email that handed attackers access to the entire payroll system",
+        "meta": "Scarcity \u00b7 HR phishing \u00b7 Benefits fraud \u00b7 Documented campaign 2023\u20132024",
+        "text": "Every autumn, employees across every industry face the same window: typically two weeks to enrol in health cover, adjust retirement contributions, and claim company benefits. Miss it and you wait another year. Attackers know this calendar better than most HR teams, and they time their campaigns accordingly.\n\nStarting in late 2023, cybersecurity researchers at Cofense documented a coordinated wave of phishing attacks targeting employees across finance, healthcare, and construction. The emails appeared to come from HR departments and referenced open enrolment deadlines, retirement contribution updates, or annual bonus confirmations. Some contained links. Others contained QR codes \u2014 deliberately chosen because they bypass the URL-scanning filters most corporate email systems use.\n\nEmployees who scanned the code or clicked the link were taken to a convincing Microsoft 365 or HR portal login page. Those who entered their credentials gave attackers direct access to payroll and benefits systems. In documented cases, attackers used that access to redirect paycheques, file fraudulent reimbursements, and in some cases deploy ransomware using the stolen credentials as a launchpad into other systems.\n\nThe mechanic is simple: tell someone they have 48 hours to act or lose a year of benefits, and they will stop asking questions. Scarcity turns a normally cautious employee into someone who clicks first."
+      },
       "summary": "Scarcity phishing is built to make you act before you think. The message sounds exciting: limited offer, exclusive reward, first-come-first-served. The real objective is simple: rush you into clicking a link or sharing information before you verify anything.",
       "redFlags": [
         "A countdown or deadline attached to a link: \"claim by noon\" or \"expires today\"",
@@ -253,6 +306,11 @@
         ],
         "correctChoiceId": "c",
         "bestAction": "Correct move: verify through a known channel and keep normal approval controls in place."
+      },
+      "story": {
+        "title": "The CEO email that cost an aerospace manufacturer \u20ac32 million \u2014 and two executives their jobs",
+        "meta": "Authority \u00b7 BEC \u00b7 CEO fraud \u00b7 FACC AG 2016",
+        "text": "In January 2016, a finance employee at FACC AG \u2014 an Austrian manufacturer of aircraft components for Airbus, Boeing, and Rolls-Royce \u2014 received an email from the company's CEO directing them to wire funds urgently for a confidential acquisition project. The email matched the CEO's writing style. The business rationale was plausible for a company of FACC's profile. The request was to be kept quiet.\n\nThe employee wired \u20ac42 million to an attacker-controlled account. The money dispersed immediately through bank accounts in Slovakia and Asia. When the finance team later contacted the CEO's office to follow up on the acquisition, it became clear no such project existed. Austrian investigators were engaged the same day. Approximately \u20ac10.9 million was eventually frozen and recovered. Roughly \u20ac32 million was permanently gone.\n\nThe consequences extended well beyond the financial loss. FACC's share price fell nearly 17% on disclosure. The supervisory board dismissed both the CEO and the CFO \u2014 the CEO specifically cited for failing to establish controls that would have prevented the fraud. No dual-authorisation requirement had existed for large wire transfers. A single employee's compliance with a single email was all the attacker ever needed.\n\nThe attacker was never definitively identified. FACC's subsequent lawsuits against its own former executives were dismissed by Austrian courts in 2019."
       },
       "summary": "Authority phishing tries to make you obey first and think later. The message appears to come from someone senior and asks for urgent action \u2014 often money, credentials, or process exceptions. The attack works when pressure replaces verification.",
       "redFlags": [

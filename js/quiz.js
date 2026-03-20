@@ -201,9 +201,9 @@ async function init() {
 
   document.getElementById("email-cert")?.addEventListener("click", () => {
     const name = nameInput2.value.trim() || "Team Member";
-    const subject = encodeURIComponent(`PAC IT Security Certificate — ${name}`);
-    const body = encodeURIComponent(`Hi,\n\nPlease find my PAC IT Security Training certificate attached.\n\nI have completed the PAC Phishing Awareness Assessment and passed with the required score.\n\nPlease let me know if you need any further information.\n\nBest regards,\n${name}\n\n---\nNote: Please attach your downloaded certificate PNG to this email before sending.`);
-    window.location.href = `mailto:?subject=${subject}&body=${body}`;
+    const subject = encodeURIComponent(`PAC Security Awareness Training — Completed: ${name}`);
+    const body = encodeURIComponent(`Hi IT,\n\nThis email is to confirm that I have completed the PAC Security Awareness Training and passed the assessment.\n\nName: ${name}\nDate completed: ${new Date().toLocaleDateString("en-AU", { day: "numeric", month: "long", year: "numeric" })}\n\nMy certificate is attached.\n\nRegards,\n${name}\n\n---\nNote: Please attach your downloaded certificate PNG to this email before sending.`);
+    window.location.href = `mailto:phishing@pacgroup.com?subject=${subject}&body=${body}`;
   });
 
   function showResult(cls, msg) {
