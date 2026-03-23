@@ -11,6 +11,7 @@ export function escapeHtml(value) {
 }
 
 export function setActiveNav() {
+  ensureVisualFallbackSupport();
   ensureSiteBackground();
   const path = window.location.pathname.toLowerCase();
   document.querySelectorAll('a[data-nav="true"]').forEach(a => {
@@ -19,6 +20,13 @@ export function setActiveNav() {
     const active = path === href || path.endsWith(href);
     active ? a.setAttribute("aria-current", "page") : a.removeAttribute("aria-current");
   });
+}
+
+function ensureVisualFallbackSupport() {
+  const supports = typeof CSS !== "undefined"
+    && typeof CSS.supports === "function"
+    && (CSS.supports("backdrop-filter: blur(2px)") || CSS.supports("-webkit-backdrop-filter: blur(2px)"));
+  document.documentElement.classList.toggle("no-backdrop-filter", !supports);
 }
 
 function ensureSiteBackground() {
@@ -30,7 +38,8 @@ function ensureSiteBackground() {
     canvas.setAttribute("aria-hidden", "true");
     document.body.prepend(canvas);
   }
-  initMatrixBackground(canvas);
+  const started = initMatrixBackground(canvas);
+  document.documentElement.classList.toggle("matrix-static-bg", !started);
   window.__pacMatrixInitDone = true;
 }
 

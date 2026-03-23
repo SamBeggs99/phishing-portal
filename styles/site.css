@@ -69,6 +69,27 @@ body {
   pointer-events: none;
   opacity: 0.4;
 }
+html.matrix-static-bg #matrix-bg {
+  display: none;
+}
+html.matrix-static-bg body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 900px 500px at 70% -5%, rgba(171,35,40,0.12), transparent 55%),
+    radial-gradient(ellipse 600px 400px at -5% 85%, rgba(118,35,47,0.1), transparent 55%),
+    repeating-linear-gradient(
+      180deg,
+      rgba(171,35,40,0.1) 0px,
+      rgba(171,35,40,0.1) 1px,
+      transparent 1px,
+      transparent 14px
+    );
+  opacity: 0.45;
+}
 #header-root,
 main,
 #footer-root {
@@ -747,6 +768,28 @@ main > .section + .section { margin-top: 12px; }
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 12px;
+}
+
+/* Fallback for browsers where backdrop blur is unavailable or disabled (common in some Firefox setups). */
+@supports not ((backdrop-filter: blur(2px)) or (-webkit-backdrop-filter: blur(2px))) {
+  header {
+    background: rgba(20,22,21,0.98);
+  }
+  .mission-surprise-overlay {
+    background: rgba(0,0,0,0.78);
+  }
+  .mission-surprise-panel {
+    background: rgba(12,13,13,0.98);
+  }
+}
+html.no-backdrop-filter header {
+  background: rgba(20,22,21,0.98);
+}
+html.no-backdrop-filter .mission-surprise-overlay {
+  background: rgba(0,0,0,0.78);
+}
+html.no-backdrop-filter .mission-surprise-panel {
+  background: rgba(12,13,13,0.98);
 }
 @keyframes mission-urgency-pulse {
   0%, 100% { opacity: 0.35; transform: scaleX(0.97); }

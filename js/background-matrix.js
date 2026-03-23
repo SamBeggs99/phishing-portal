@@ -1,11 +1,11 @@
 export function initMatrixBackground(canvas) {
-  if (!canvas) return;
+  if (!canvas) return false;
 
   const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (prefersReduced) return;
+  if (prefersReduced) return false;
 
   const ctx = canvas.getContext("2d");
-  if (!ctx) return;
+  if (!ctx) return false;
 
   let width = 0;
   let height = 0;
@@ -63,4 +63,6 @@ export function initMatrixBackground(canvas) {
     }
     rafId = window.requestAnimationFrame(draw);
   });
+
+  return true;
 }
