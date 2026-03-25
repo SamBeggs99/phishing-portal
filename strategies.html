@@ -240,7 +240,8 @@
       .slice(0, 5)
       .map(b => wrapLines(b, 66).slice(0, 2)); // allow 2-line bullets
 
-    let y = pad + 88;
+    // Title baseline: keep comfortably below the red divider line.
+    let y = pad + 104;
     const tspan = (x, yy, txt, size = 22, weight = 600, fill = "#F0F1F0") =>
       `<text x="${x}" y="${yy}" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="${size}" font-weight="${weight}" fill="${fill}">${svgEscape(txt)}</text>`;
 
@@ -260,7 +261,7 @@
       <rect width="${W}" height="${H}" fill="url(#bg)"/>
       <rect width="${W}" height="${H}" fill="url(#dots)" opacity="0.65"/>
       <rect x="${pad}" y="${pad}" width="${innerW}" height="${innerH}" rx="18" fill="rgba(30,33,31,0.72)" stroke="rgba(255,255,255,0.10)"/>
-      <rect x="${pad}" y="${pad+64}" width="${innerW}" height="2" fill="rgba(171,35,40,0.65)"/>
+      <rect x="${pad}" y="${pad+44}" width="${innerW}" height="2" fill="rgba(171,35,40,0.65)"/>
     `;
 
     const head = `
