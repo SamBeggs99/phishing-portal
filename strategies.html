@@ -8,6 +8,21 @@
   <style>
     .rrr-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 18px; margin-bottom: 30px; }
     .rrr-card { background: var(--ink-2); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 26px; position: relative; overflow: hidden; display:flex; flex-direction:column; min-height: 100%; }
+    .rrr-actions { display:flex; justify-content:flex-end; margin: 6px 0 10px; }
+    .rrr-dl {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.04);
+      color: var(--text-2);
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+    .rrr-dl:hover { color: var(--text); border-color: var(--border-red); background: rgba(171,35,40,0.10); }
     .rrr-big { position: absolute; top: 8px; right: 14px; font-family: var(--mono); font-size: 56px; font-weight: 700; color: rgba(171,35,40,0.07); line-height: 1; pointer-events: none; }
     .rrr-step { font-family: var(--mono); font-size: 9px; color: var(--pac-red); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; }
     .rrr-title { font-size: 24px; font-weight: 600; color: var(--text); margin-bottom: 12px; letter-spacing: -0.02em; }
@@ -36,10 +51,11 @@
   </div>
 
   <div class="rrr-grid">
-    <div class="rrr-card">
+    <div class="rrr-card" data-rrr="recognize">
       <div class="rrr-big">1</div>
       <div class="rrr-step">Step One</div>
       <div class="rrr-title">Recognize</div>
+      <div class="rrr-actions"><button class="rrr-dl" type="button" data-download-card="1">Download card</button></div>
       <div class="rrr-desc">Verify the sender is who you think they are. Don't rely on the display name — check the actual email address and ask whether the request makes sense.</div>
       <div class="rrr-how">
         <div class="rrr-how-lbl">How to do it</div>
@@ -52,10 +68,11 @@
       </div>
     </div>
 
-    <div class="rrr-card">
+    <div class="rrr-card" data-rrr="rethink">
       <div class="rrr-big">2</div>
       <div class="rrr-step">Step Two</div>
       <div class="rrr-title">Rethink</div>
+      <div class="rrr-actions"><button class="rrr-dl" type="button" data-download-card="1">Download card</button></div>
       <div class="rrr-desc">Before clicking anything, pause. Links can show one address and take you somewhere else entirely. Remember the phrase: <em style="color:var(--pac-red);font-style:normal;font-weight:600;">hover to discover.</em></div>
       <div class="rrr-how">
         <div class="rrr-how-lbl">How to do it</div>
@@ -69,10 +86,11 @@
       </div>
     </div>
 
-    <div class="rrr-card">
+    <div class="rrr-card" data-rrr="report">
       <div class="rrr-big">3</div>
       <div class="rrr-step">Step Three</div>
       <div class="rrr-title">Report</div>
+      <div class="rrr-actions"><button class="rrr-dl" type="button" data-download-card="1">Download card</button></div>
       <div class="rrr-desc">If something feels off — even slightly — report it. A false alarm costs nothing. A delayed report can cost millions. Your instinct is a security control.</div>
       <div class="rrr-how">
         <div class="rrr-how-lbl">How to do it</div>
@@ -187,6 +205,136 @@
   if(qrls[0]) qrls[0].textContent = s.qref1label||"";
   if(qrls[1]) qrls[1].textContent = s.qref2label||"";
   if(qrls[2]) qrls[2].textContent = s.qref3label||"";
+
+  // Download strategy cards (PNG)
+  function wrapLines(text, maxChars) {
+    const words = String(text || "").split(/\s+/).filter(Boolean);
+    const lines = [];
+    let line = "";
+    for (const w of words) {
+      const next = line ? (line + " " + w) : w;
+      if (next.length <= maxChars) line = next;
+      else { if (line) lines.push(line); line = w; }
+    }
+    if (line) lines.push(line);
+    return lines;
+  }
+
+  function svgEscape(str) {
+    return String(str || "")
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll("\"", "&quot;")
+      .replaceAll("'", "&#039;");
+  }
+
+  function buildCardSvg({ stepNum, stepLabel, title, desc, bullets }) {
+    const W = 1200, H = 675;
+    const pad = 56;
+    const innerW = W - pad * 2;
+    const innerH = H - pad * 2;
+
+    const descLines = wrapLines(desc, 62).slice(0, 4);
+    const bulletLines = (bullets || []).slice(0, 5).map(b => wrapLines(b, 66)[0]);
+
+    let y = pad + 88;
+    const tspan = (x, yy, txt, size = 22, weight = 600, fill = "#F0F1F0") =>
+      `<text x="${x}" y="${yy}" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="${size}" font-weight="${weight}" fill="${fill}">${svgEscape(txt)}</text>`;
+
+    const mono = (x, yy, txt, size = 14, fill = "rgba(240,241,240,0.55)") =>
+      `<text x="${x}" y="${yy}" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace" font-size="${size}" letter-spacing="2" fill="${fill}">${svgEscape(txt)}</text>`;
+
+    const bg = `
+      <defs>
+        <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#181A19"/>
+          <stop offset="100%" stop-color="#212322"/>
+        </linearGradient>
+      </defs>
+      <rect width="${W}" height="${H}" fill="url(#bg)"/>
+      <rect x="${pad}" y="${pad}" width="${innerW}" height="${innerH}" rx="18" fill="rgba(30,33,31,0.72)" stroke="rgba(255,255,255,0.10)"/>
+      <rect x="${pad}" y="${pad+64}" width="${innerW}" height="2" fill="rgba(171,35,40,0.65)"/>
+    `;
+
+    const head = `
+      ${mono(pad + 28, pad + 44, "PAC · DEFENCE STRATEGY")}
+      <text x="${W - pad - 28}" y="${pad + 46}" text-anchor="end"
+        font-family="ui-monospace,monospace" font-size="14" fill="rgba(171,35,40,0.85)" letter-spacing="3">
+        STEP ${svgEscape(stepNum)}
+      </text>
+    `;
+
+    const body = `
+      ${tspan(pad + 28, y, title, 44, 700)}
+      ${tspan(pad + 28, y + 38, stepLabel, 16, 600, "rgba(240,241,240,0.65)")}
+    `;
+    y += 92;
+
+    const descSvg = descLines.map((l, i) => tspan(pad + 28, y + i * 26, l, 18, 500, "rgba(240,241,240,0.72)")).join("");
+    y += descLines.length * 26 + 28;
+
+    const bulletsSvg = bulletLines.map((b, i) => `
+      <text x="${pad + 52}" y="${y + i * 28}" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="18" fill="rgba(240,241,240,0.74)">
+        <tspan fill="rgba(171,35,40,0.95)" font-weight="700">›</tspan>
+        <tspan dx="10">${svgEscape(b)}</tspan>
+      </text>
+    `).join("");
+
+    const footer = `
+      <text x="${pad + 28}" y="${H - pad - 18}" font-family="ui-monospace,monospace" font-size="12" fill="rgba(240,241,240,0.35)" letter-spacing="1">
+        Remember: Recognize → Rethink → Report
+      </text>
+    `;
+
+    return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
+      ${bg}
+      ${head}
+      ${body}
+      ${descSvg}
+      ${mono(pad + 28, y - 10, "HOW TO DO IT", 12, "rgba(240,241,240,0.45)")}
+      ${bulletsSvg}
+      ${footer}
+    </svg>`;
+  }
+
+  async function downloadPng(svg, filename) {
+    const svgBlob = new Blob([svg], { type: "image/svg+xml;charset=utf-8" });
+    const url = URL.createObjectURL(svgBlob);
+    const img = new Image();
+    img.decoding = "async";
+    img.src = url;
+    await img.decode();
+    const canvas = document.createElement("canvas");
+    canvas.width = 2400; // 2x
+    canvas.height = 1350;
+    const ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    URL.revokeObjectURL(url);
+    const blob = await new Promise((res) => canvas.toBlob(res, "image/png"));
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+  }
+
+  document.querySelectorAll("[data-download-card]").forEach(btn => {
+    btn.addEventListener("click", async () => {
+      const card = btn.closest(".rrr-card");
+      if (!card) return;
+      const num = card.querySelector(".rrr-big")?.textContent?.trim() || "";
+      const step = card.querySelector(".rrr-step")?.textContent?.trim() || "";
+      const title = card.querySelector(".rrr-title")?.textContent?.trim() || "Strategy";
+      const desc = card.querySelector(".rrr-desc")?.textContent?.trim() || "";
+      const bullets = [...card.querySelectorAll(".rrr-how li")].map(li => li.textContent.trim()).filter(Boolean);
+      const svg = buildCardSvg({ stepNum: num, stepLabel: step, title, desc, bullets });
+      const safe = title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+      await downloadPng(svg, `pac-strategy-${safe}.png`);
+    });
+  });
 </script>
 </body>
 </html>
