@@ -3,6 +3,29 @@
     {
       "title": "The friendly IT call that wasn't — Aflac",
       "meta": "Vishing · Social engineering · MFA bypass",
+      "story30": {
+        "attackGoal": "Gain account access without malware.",
+        "howItWorked": "A calm, credible caller guided an employee into approving an MFA prompt the employee didn’t initiate.",
+        "whatToNotice": [
+          "Unsolicited IT call with no ticket or known issue",
+          "Pressure to approve an authentication prompt",
+          "Caller knew personal/work details (often scraped from LinkedIn)"
+        ],
+        "whatToDo": [
+          "Hang up and call IT back using a known number",
+          "Never approve MFA prompts you didn’t initiate"
+        ]
+      },
+      "checkIn": {
+        "question": "You receive an unexpected call from “IT” asking you to approve an MFA prompt. What should you do?",
+        "choices": [
+          { "id": "a", "label": "Approve it quickly so you don’t get locked out" },
+          { "id": "b", "label": "Hang up and call IT back using the official directory number" },
+          { "id": "c", "label": "Share your username so they can look you up" }
+        ],
+        "correctChoiceId": "b",
+        "explanation": "Unsolicited IT calls can be vishing. Never approve MFA prompts you didn’t initiate—verify using a known channel."
+      },
       "scenario": "It started like any ordinary morning. Employees were logging in, checking emails, grabbing coffee. Then someone's phone rang.\n\n\"Hi, this is Daniel from Tech Support. We're running a quick credential sync due to a recent security update. Nothing to worry about — I'll walk you through it. Can you just confirm your username?\"\n\nThe voice was calm, professional, and friendly. The caller knew the employee's name, department, and manager. There was no reason to doubt them.\n\n\"Now you'll get a prompt on your phone. Just hit approve — it's a one-time thing.\"\n\nAnd just like that — the door was open.\n\nThe attackers were a group known as Scattered Spider. They don't rely on viruses or code. They use something far more powerful: people. From that single phone call, they gained access to internal systems containing insurance claims, employee records, and Social Security numbers.",
       "redFlags": [
         "IT never calls out of the blue to ask for your credentials — real helpdesk calls follow a ticket or known issue",
@@ -16,6 +39,29 @@
     {
       "title": "One fake Apple email brought down Sony Pictures",
       "meta": "Credential phishing · Spear phishing · Corporate data breach",
+      "story30": {
+        "attackGoal": "Steal credentials to access the corporate network.",
+        "howItWorked": "A convincing Apple-style alert drove a busy executive to sign in via a link to a fake login page.",
+        "whatToNotice": [
+          "Unexpected security alert urging immediate action",
+          "Login page reached via email link (not typed directly)",
+          "Credentials requested before you can see any account details"
+        ],
+        "whatToDo": [
+          "Open a new tab and navigate to the service yourself",
+          "Enable MFA so a stolen password isn’t enough"
+        ]
+      },
+      "checkIn": {
+        "question": "You get a security alert email claiming your account is locked and you must sign in. What’s the safest first step?",
+        "choices": [
+          { "id": "a", "label": "Click the link and sign in to check what happened" },
+          { "id": "b", "label": "Open a new tab and go to the official site/app directly" },
+          { "id": "c", "label": "Reply to the email asking for confirmation" }
+        ],
+        "correctChoiceId": "b",
+        "explanation": "Don’t sign in via email links. Navigate directly to the official site/app so you control where you’re logging in."
+      },
       "scenario": "It started with a fake Apple ID alert — the kind most people have seen at least once. \"Your account has been locked. Suspicious login detected. Click here to verify your device.\"\n\nA Sony executive received exactly that email in late 2014. It looked like Apple. It linked to what appeared to be a real Apple login page. Distracted and multitasking, the executive clicked and entered their credentials.\n\nThat single action opened the floodgates.\n\nWithin days, attackers had access to Sony's internal network. They quietly moved through systems, exfiltrated files, and downloaded confidential material. When the attack went public, the scope was extraordinary: over 100 terabytes of data stolen, thousands of private executive emails leaked, employee Social Security numbers and salaries exposed, unreleased films published online, and entire systems wiped — screens replaced with a message reading \"Hacked by #GOP. This is just the beginning.\"\n\nSony Pictures was digitally crippled. The entry point? A phishing email that took seconds to click.",
       "redFlags": [
         "Unexpected security alerts from Apple, Microsoft, or Google — go directly to their site instead of clicking",
@@ -29,6 +75,29 @@
     {
       "title": "Google and Facebook paid $100 million to a scammer",
       "meta": "Invoice fraud · Business Email Compromise · Vendor impersonation",
+      "story30": {
+        "attackGoal": "Get a legitimate company to wire money to attacker accounts.",
+        "howItWorked": "A scammer impersonated a real vendor with lookalike emails and routine-looking invoices.",
+        "whatToNotice": [
+          "Payment changes communicated only via email",
+          "A domain that looks almost right",
+          "No independent callback verification"
+        ],
+        "whatToDo": [
+          "Verify payment changes by calling a known vendor number",
+          "Use two-person review for significant payments"
+        ]
+      },
+      "checkIn": {
+        "question": "A vendor emails new bank details for future invoices. What should happen before any payment is made?",
+        "choices": [
+          { "id": "a", "label": "Update details immediately if the invoice format looks correct" },
+          { "id": "b", "label": "Verify via a separate channel using a known vendor phone number" },
+          { "id": "c", "label": "Ask for the change in writing again to be safe" }
+        ],
+        "correctChoiceId": "b",
+        "explanation": "BEC works by making email look routine. Always verify payment detail changes using a separate trusted channel."
+      },
       "scenario": "Between 2013 and 2015, a scammer named Evaldas Rimasauskas defrauded Google and Facebook out of over $100 million combined — not through hacking, but through fake invoices.\n\nHe knew both companies had large contracts with a real company called Quanta Computer, a hardware supplier based in Taiwan. So he registered a company with the same name in Latvia, created email addresses impersonating Quanta employees, and designed invoices that exactly matched the format and style of Quanta's real ones.\n\nThen he sent those invoices to the finance departments at both companies.\n\nThe invoices matched the types of payments they made regularly. They looked routine. And so the money was wired — again and again — directly into overseas accounts.\n\nBy the time anyone caught on, over $100 million had gone. Rimasauskas was eventually arrested and agreed to repay $49.7 million. The rest was gone.\n\nThis wasn't a hack. It was a well-crafted fake invoice sent to the right person at the right time. And it worked on two of the biggest tech companies on Earth.",
       "redFlags": [
         "Payment detail changes or new bank account information communicated only through email",
@@ -42,6 +111,29 @@
     {
       "title": "57 clicks nearly compromised a nuclear research lab — Oak Ridge",
       "meta": "Email phishing · Malware · Government infrastructure",
+      "story30": {
+        "attackGoal": "Install malware and gain a foothold inside the network.",
+        "howItWorked": "Routine-looking emails lured clicks; a malicious page silently installed malware via a browser exploit.",
+        "whatToNotice": [
+          "Generic policy/benefits emails with links",
+          "Risk exists even without typing credentials",
+          "Busy periods increase click-through mistakes"
+        ],
+        "whatToDo": [
+          "Hover/preview links before clicking",
+          "Report unexpected internal-looking emails"
+        ]
+      },
+      "checkIn": {
+        "question": "Why can a phishing email be dangerous even if it never asks you to type a password?",
+        "choices": [
+          { "id": "a", "label": "Because malicious pages can exploit vulnerabilities and install malware" },
+          { "id": "b", "label": "Because it makes your inbox slower" },
+          { "id": "c", "label": "Because clicking a link always deletes your files immediately" }
+        ],
+        "correctChoiceId": "a",
+        "explanation": "Some phishing links deliver malware automatically when a page loads (drive‑by attacks). Treat unexpected links as high risk."
+      },
       "scenario": "In 2011, the Oak Ridge National Laboratory — a U.S. Department of Energy facility responsible for nuclear research and national security — was targeted by a phishing campaign.\n\nThe attackers sent emails to 530 employees with subject lines like \"Policy Update: Action Required\" and \"Benefits Adjustment Notice.\" Each email contained a link. The link didn't ask for a password. It simply exploited a vulnerability in Internet Explorer to silently install malware the moment the page loaded.\n\nOnly 57 people clicked. Only 2 machines were infected.\n\nBut that was enough.\n\nFrom those two machines, attackers gained a foothold inside the lab's internal network. They began scanning, moving laterally, and attempting to exfiltrate sensitive research data and emails. To contain the threat, Oak Ridge took the extraordinary step of disconnecting its entire network from the internet — effectively pulling the plug on supercomputers mid-operation.\n\nThis was a facility staffed by physicists, engineers, and cybersecurity professionals. The attack worked not because of weak technology, but because clicking links out of habit is human nature.",
       "redFlags": [
         "HR or policy-style emails with links — especially ones referencing benefits, payroll, or compliance",
@@ -55,6 +147,29 @@
     {
       "title": "A typo changed history — the Podesta email hack",
       "meta": "Credential phishing · Spear phishing · High-value target",
+      "story30": {
+        "attackGoal": "Steal credentials for a high-value email account.",
+        "howItWorked": "A realistic Google-style alert + urgency pushed a click; a single verification typo removed the last safeguard.",
+        "whatToNotice": [
+          "Lookalike domains and subtle sender differences",
+          "Urgency + fear (“someone has your password”)",
+          "Even “verified” messages can be wrong—double-check"
+        ],
+        "whatToDo": [
+          "Check the exact domain, not the display name",
+          "Navigate directly instead of logging in from an email link"
+        ]
+      },
+      "checkIn": {
+        "question": "You’re unsure whether a security alert email is legitimate. What’s the safest action?",
+        "choices": [
+          { "id": "a", "label": "Click the login button and change your password quickly" },
+          { "id": "b", "label": "Forward it to a colleague to decide" },
+          { "id": "c", "label": "Open a new tab and go to the service directly (or contact IT via a known channel)" }
+        ],
+        "correctChoiceId": "c",
+        "explanation": "Don’t authenticate via email links. Navigate directly or verify through a trusted internal channel first."
+      },
       "scenario": "In March 2016, John Podesta — campaign chairman for Hillary Clinton — received an urgent email that appeared to be from Google:\n\n\"Someone has your password. We've prevented a sign-in attempt from Ukraine. Click the button below to secure your account.\"\n\nThe email looked real. It sounded urgent. Podesta's team forwarded it to their IT staff to check.\n\nA staffer replied: \"This is a legitimate email. John needs to change his password immediately.\"\n\nThey meant to write illegitimate. One word. One typo. Everything changed.\n\nPodesta clicked. The link took him to a spoofed Google login page where he entered his real credentials. Hackers immediately accessed his Gmail account and downloaded over 50,000 emails.\n\nWeeks later, those emails were released by WikiLeaks at the peak of the 2016 US election. The damage was deeply personal, politically explosive, and strategically timed. All of it started with a fake security warning — and a single word typed wrong.",
       "redFlags": [
         "The sender domain was googlemail.com — not google.com. One letter of difference.",
