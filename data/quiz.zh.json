@@ -1,296 +1,296 @@
 {
-  "title": "Phishing Awareness Assessment",
+  "title": "网络钓鱼意识测验",
   "passThresholdPercent": 80,
   "questions": [
     {
       "id": "q1",
       "topic": "urgency",
-      "question": "You receive an email saying your Microsoft account will be deactivated in 10 minutes unless you click a link to verify your identity. What should you do?",
+      "question": "你收到一封邮件称：除非你点击链接验证身份，否则你的 Microsoft 账户将在 10 分钟内被停用。你应该怎么做？",
       "choices": [
         {
           "id": "a",
-          "label": "Click the link quickly — you can't afford to lose access to your account",
-          "hint": "Acting fast is exactly what the attacker wants."
+          "label": "赶紧点链接——你不能失去账户访问权限",
+          "hint": "越急着行动，越符合攻击者的预期。"
         },
         {
           "id": "b",
-          "label": "Slow down, ignore the link, and go directly to the official Microsoft site by typing the address yourself",
-          "hint": "Navigating directly bypasses any fake links entirely."
+          "label": "先停一下，忽略链接，自己输入网址进入微软官方网站",
+          "hint": "直接访问官网可以完全绕过假链接。"
         },
         {
           "id": "c",
-          "label": "Reply to the email asking for more time",
-          "hint": "Replying confirms your email is active and may invite more attacks."
+          "label": "回复邮件请求更多时间",
+          "hint": "回复会暴露你的邮箱可用，可能招来更多攻击。"
         },
         {
           "id": "d",
-          "label": "Forward it to a colleague to see if they got the same one",
-          "hint": "This spreads the phishing email to others without resolving anything."
+          "label": "转发给同事，看看他们是否也收到了",
+          "hint": "这只是在传播钓鱼邮件，并不能解决问题。"
         }
       ],
       "correctChoiceId": "b",
-      "explanation": "Urgency is a manipulation tactic. Real account issues don't require you to act in minutes. Always navigate directly to the official site rather than clicking links in unexpected emails."
+      "explanation": "“紧迫感”是常见的操纵手段。真实的账户问题不会要求你在几分钟内处理。对任何意外邮件，都应直接访问官方网站，而不是点击邮件中的链接。"
     },
     {
       "id": "q2",
       "topic": "authority",
-      "question": "You receive an email that appears to be from your CFO asking you to urgently purchase five $200 gift cards for a client and send them the codes. The email says to keep it quiet and not go through normal channels. What do you do?",
+      "question": "你收到一封看似来自 CFO 的邮件，要求你紧急为客户购买 5 张 200 美元的礼品卡并发送兑换码。邮件还要求保密，不要走正常流程。你该怎么做？",
       "choices": [
         {
           "id": "a",
-          "label": "Purchase the gift cards — it would be embarrassing to question the CFO",
-          "hint": "Authority pressure is a common social engineering tactic."
+          "label": "直接购买礼品卡——质疑 CFO 会很尴尬",
+          "hint": "利用权威施压是常见的社会工程手段。"
         },
         {
           "id": "b",
-          "label": "Reply to the email asking for a purchase order number",
-          "hint": "The attacker controls this inbox and will provide a convincing answer."
+          "label": "回复邮件索要采购单号",
+          "hint": "如果邮箱被控制，攻击者会给出看似合理的答复。"
         },
         {
           "id": "c",
-          "label": "Contact the CFO directly through a phone number or method you already know — not anything from the email",
-          "hint": "Verifying through a separate, trusted channel is the right move."
+          "label": "用你已知的电话号码/渠道直接联系 CFO 核实——不要使用邮件里的任何信息",
+          "hint": "通过独立且可信的渠道核实才是正确做法。"
         },
         {
           "id": "d",
-          "label": "Purchase the cards and report it to finance afterward",
-          "hint": "Once the codes are shared, the money is gone and unrecoverable."
+          "label": "先购买礼品卡，之后再向财务报告",
+          "hint": "一旦兑换码发出，钱就没了，通常无法追回。"
         }
       ],
       "correctChoiceId": "c",
-      "explanation": "This is a classic Business Email Compromise (BEC) attack. Your organization will never ask you to purchase gift cards via email. When a request comes with pressure to skip normal steps, always verify through a separate channel you already trust."
+      "explanation": "这是典型的商业邮件入侵/诈骗（BEC）。组织不会通过邮件要求你购买礼品卡。当请求伴随“跳过流程”“保密”“紧急”等压力时，一定要通过你已经信任的独立渠道核实。"
     },
     {
       "id": "q3",
       "topic": "intimidation",
-      "question": "An email claiming to be from your company's legal team states: \"Your account has been used for suspicious activity. Failure to respond within 2 hours will result in legal escalation.\" What is the safest response?",
+      "question": "一封自称来自公司法务团队的邮件写道：\"你的账户涉及可疑活动。如在 2 小时内不回复，将升级为法律处理。\" 最安全的做法是什么？",
       "choices": [
         {
           "id": "a",
-          "label": "Follow the instructions in the email immediately to avoid consequences",
-          "hint": "Fear is the tactic — acting on it is the trap."
+          "label": "立刻按邮件要求操作以避免后果",
+          "hint": "恐吓是手段——被吓到就行动正中圈套。"
         },
         {
           "id": "b",
-          "label": "Contact HR or your IT team directly using contact details you already know",
-          "hint": "Independent verification is always the right step."
+          "label": "使用你已知的联系方式直接联系 HR 或 IT 团队核实",
+          "hint": "独立核实永远是正确的一步。"
         },
         {
           "id": "c",
-          "label": "Reply to the email to find out what suspicious activity occurred",
-          "hint": "Replying engages the attacker and may give them useful information."
+          "label": "回复邮件询问发生了什么可疑活动",
+          "hint": "回复会与攻击者互动，并可能泄露信息。"
         },
         {
           "id": "d",
-          "label": "Change your password immediately using the link in the email",
-          "hint": "This link likely leads to a fake page designed to steal your new password."
+          "label": "点击邮件链接立刻修改密码",
+          "hint": "该链接很可能指向用来窃取新密码的假页面。"
         }
       ],
       "correctChoiceId": "b",
-      "explanation": "Real legal or HR notices always include proper context, reference numbers, and official channels. They never demand action through an email link within hours. Verify independently before doing anything."
+      "explanation": "真正的法务或 HR 通知会包含清晰背景、参考编号和官方渠道，不会要求你在数小时内通过邮件链接操作。做任何事之前先独立核实。"
     },
     {
       "id": "q4",
       "topic": "types",
-      "question": "A colleague receives an email saying: \"Hi Sarah, I've attached the updated budget from our Monday call — let me know if the figures look right.\" The email looks convincing but the sender domain is slightly different from your company's. What type of attack is this most likely?",
+      "question": "同事收到一封邮件：\"嗨 Sarah，我附上了我们周一通话后的最新预算——看看数字是否正确。\" 邮件看起来很可信，但发件人域名与公司略有不同。最可能是哪种攻击？",
       "choices": [
         {
           "id": "a",
-          "label": "Generic phishing — sent to thousands of people at once",
-          "hint": "Generic phishing uses mass targeting, not personal details."
+          "label": "普通钓鱼——一次性群发给成千上万人",
+          "hint": "普通钓鱼是大范围投放，不强调个人细节。"
         },
         {
           "id": "b",
-          "label": "Spear phishing — targeted and personalized to appear credible",
-          "hint": "Personal context and a specific target are the hallmarks of spear phishing."
+          "label": "鱼叉式钓鱼——针对性强、带个性化信息以显得可信",
+          "hint": "个人/工作场景细节与明确目标是鱼叉式钓鱼的特征。"
         },
         {
           "id": "c",
-          "label": "Smishing — delivered via text message",
-          "hint": "Smishing is SMS-based, not email."
+          "label": "短信钓鱼（Smishing）——通过短信发送",
+          "hint": "Smishing 是短信，不是邮件。"
         },
         {
           "id": "d",
-          "label": "Quishing — delivered via a QR code",
-          "hint": "Quishing involves QR codes embedded in messages or physical materials."
+          "label": "二维码钓鱼（Quishing）——通过二维码引导",
+          "hint": "Quishing 涉及消息或实物材料中的二维码。"
         }
       ],
       "correctChoiceId": "b",
-      "explanation": "Spear phishing uses personal or workplace context — names, meeting references, roles — to appear legitimate. The subtle domain difference is the key red flag here. Always check sender addresses carefully on any unexpected email with an attachment."
+      "explanation": "鱼叉式钓鱼会利用姓名、会议细节、岗位等工作背景来伪装可信。这里最关键的红旗是“域名略有不同”。任何带附件的意外邮件，都要仔细核对发件人地址。"
     },
     {
       "id": "q5",
       "topic": "types",
-      "question": "You receive a text message: \"Your FedEx delivery failed. Update your delivery preferences here: c7dvr.info/GtK12vilM\". You weren't expecting a package. What should you do?",
+      "question": "你收到短信：\"你的 FedEx 投递失败。点击这里更新投递偏好：c7dvr.info/GtK12vilM\"。你并没有在等包裹。你应该怎么做？",
       "choices": [
         {
           "id": "a",
-          "label": "Tap the link to check — it might be a legitimate delivery",
-          "hint": "Short, unfamiliar links in unexpected texts are a major red flag."
+          "label": "点开链接看看——也许真的是快递",
+          "hint": "意外短信里的短链接、陌生域名是重大红旗。"
         },
         {
           "id": "b",
-          "label": "Reply with your address to reschedule the delivery",
-          "hint": "Replying provides personal information to the attacker."
+          "label": "回复你的地址以重新安排投递",
+          "hint": "回复会向攻击者提供个人信息。"
         },
         {
           "id": "c",
-          "label": "Ignore it and if genuinely concerned, go directly to the FedEx website yourself",
-          "hint": "Navigating directly bypasses any fake link entirely."
+          "label": "忽略它；如果确实担心，自己直接访问 FedEx 官方网站查询",
+          "hint": "直接访问官网可以完全绕过假链接。"
         },
         {
           "id": "d",
-          "label": "Forward it to the company's security team and then tap the link",
-          "hint": "Reporting is correct, but you should not tap the link at all."
+          "label": "转发给公司安全团队，然后再点链接",
+          "hint": "报告是对的，但你完全不应点击链接。"
         }
       ],
       "correctChoiceId": "c",
-      "explanation": "This is smishing — phishing via SMS. Unrecognizable short links in unsolicited texts are a clear warning sign. If you're genuinely concerned about a delivery, always go directly to the carrier's official website rather than using any link from the text."
+      "explanation": "这是短信钓鱼（smishing）。非预期短信中的短链接、陌生域名是明显警告信号。如果你真的担心投递情况，应该自己去快递公司的官方网站查询，而不是使用短信里的链接。"
     },
     {
       "id": "q6",
       "topic": "authority",
-      "question": "Which of the following would your organization's IT team or leadership legitimately ask you to do via email?",
+      "question": "以下哪一项是你所在组织的 IT 或管理层可能会通过邮件合法要求你做的？",
       "choices": [
         {
           "id": "a",
-          "label": "Provide your current password to verify your account",
-          "hint": "No legitimate IT team ever needs your password."
+          "label": "提供你当前的密码来验证账户",
+          "hint": "任何正规 IT 都不会需要你的密码。"
         },
         {
           "id": "b",
-          "label": "Scan a QR code in the email to validate your credentials",
-          "hint": "Credential validation via QR code in email is a red flag."
+          "label": "扫描邮件中的二维码来验证凭据",
+          "hint": "通过邮件二维码验证凭据是红旗。"
         },
         {
           "id": "c",
-          "label": "Click a link to reset your password when you have requested a reset yourself",
-          "hint": "Password reset links you requested yourself are expected and legitimate."
+          "label": "当你自己发起了重置请求时，点击链接重置密码",
+          "hint": "你本人发起的重置链接是预期且合法的。"
         },
         {
           "id": "d",
-          "label": "Transfer funds to a new vendor account urgently without going through finance",
-          "hint": "Bypassing normal financial processes is never legitimate."
+          "label": "绕过财务流程，紧急向新的供应商账户转账",
+          "hint": "绕过正常财务流程从来都不合法。"
         }
       ],
       "correctChoiceId": "c",
-      "explanation": "A password reset link you specifically requested is legitimate. Your organization will never email you asking for your password, ask you to validate credentials via a QR code, or request financial transfers that bypass your normal approval process."
+      "explanation": "你自己发起的密码重置链接是合法的。组织绝不会通过邮件向你索要密码、要求你用二维码验证凭据，或要求你进行绕过正常审批流程的转账。"
     },
     {
       "id": "q7",
       "topic": "scarcity",
-      "question": "An email arrives saying: \"Congratulations! You've been selected for an exclusive employee reward. Only the first 50 respondents get a $150 Amazon gift card — claim yours before midnight.\" What's the right move?",
+      "question": "你收到一封邮件：\"恭喜！你被选中获得专属员工奖励。前 50 位回复者可获得 150 美元 Amazon 礼品卡——请在午夜前领取。\" 正确做法是什么？",
       "choices": [
         {
           "id": "a",
-          "label": "Click the link quickly so you don't miss out",
-          "hint": "The time pressure and prize are designed to make you act without thinking."
+          "label": "赶紧点链接，别错过奖励",
+          "hint": "时间压力和奖品是为了让你不加思考就行动。"
         },
         {
           "id": "b",
-          "label": "Verify the offer through your HR portal or internal communications before doing anything",
-          "hint": "Checking through official channels confirms whether the offer is real."
+          "label": "先在 HR 门户或内部公告等官方渠道核实，再采取任何行动",
+          "hint": "通过官方渠道核实可确认这是否为真实活动。"
         },
         {
           "id": "c",
-          "label": "Forward it to colleagues so they can claim the reward too",
-          "hint": "Forwarding spreads a phishing email to others."
+          "label": "转发给同事，让他们也领取奖励",
+          "hint": "转发会把钓鱼邮件传播给更多人。"
         },
         {
           "id": "d",
-          "label": "Click the link but don't enter any personal information",
-          "hint": "Just visiting a malicious page can sometimes be enough to cause harm."
+          "label": "点击链接，但不输入任何个人信息",
+          "hint": "有时仅仅访问恶意页面就可能造成风险。"
         }
       ],
       "correctChoiceId": "b",
-      "explanation": "Scarcity and prize language are designed to trigger FOMO and bypass your judgment. Legitimate employee rewards are always communicated through official HR channels, not unsolicited emails with countdown deadlines. Verify first."
+      "explanation": "“名额有限/奖品诱惑”会触发 FOMO，让你跳过判断。真正的员工奖励会通过 HR 等官方渠道发布，而不是通过带倒计时的陌生邮件。先核实，再行动。"
     },
     {
       "id": "q8",
       "topic": "types",
-      "question": "Someone calls claiming to be from your company's IT helpdesk. They say a virus has been detected on your computer and they need you to install a remote access tool so they can fix it immediately. What do you do?",
+      "question": "有人打电话自称公司 IT 服务台，说检测到你的电脑有病毒，需要你安装远程控制工具以便立刻修复。你该怎么做？",
       "choices": [
         {
           "id": "a",
-          "label": "Follow their instructions — it sounds serious and you don't want a virus",
-          "hint": "Urgency over the phone is as much a red flag as urgency in email."
+          "label": "按对方指示操作——听起来很严重，你也不想电脑中毒",
+          "hint": "电话里的“紧急”与邮件里的“紧急”一样是红旗。"
         },
         {
           "id": "b",
-          "label": "Ask for their employee ID and then proceed with the installation",
-          "hint": "An attacker can provide a fake ID number."
+          "label": "让对方提供工号，然后继续安装",
+          "hint": "攻击者也可以提供假的工号。"
         },
         {
           "id": "c",
-          "label": "Hang up and call your IT helpdesk back using a number from your company's official directory",
-          "hint": "Calling back through a number you already trust confirms whether the call was real."
+          "label": "挂断电话，用公司官方通讯录里的号码回拨 IT 服务台核实",
+          "hint": "通过你信任的官方号码回拨，才能确认来电是否真实。"
         },
         {
           "id": "d",
-          "label": "Install the tool but watch closely to make sure they don't access anything sensitive",
-          "hint": "Once someone has remote access to your computer, they control what you see."
+          "label": "先安装工具，但盯紧点，别让对方访问敏感内容",
+          "hint": "一旦对方获得远程访问权限，你看到的内容就可能被控制。"
         }
       ],
       "correctChoiceId": "c",
-      "explanation": "This is vishing — voice phishing. Your real IT team will never cold call you asking to install remote access software. Hang up and call the helpdesk back using a number from your company directory or intranet. Never install software at the request of an unsolicited caller."
+      "explanation": "这是语音钓鱼（vishing）。真正的 IT 不会无缘无故打电话让你安装远程软件。挂断后用公司通讯录/内网的官方号码回拨核实。不要因陌生来电而安装任何软件。"
     },
     {
       "id": "q9",
       "topic": "urgency",
-      "question": "Which of the following is the strongest signal that an email is likely a phishing attempt?",
+      "question": "以下哪一项最能表明一封邮件很可能是钓鱼？",
       "choices": [
         {
           "id": "a",
-          "label": "It uses your correct name and job title",
-          "hint": "Attackers can easily find names and titles from LinkedIn or company websites."
+          "label": "邮件里使用了你的真实姓名和职位",
+          "hint": "攻击者很容易从 LinkedIn 或公司网站获取这些信息。"
         },
         {
           "id": "b",
-          "label": "It tells you not to contact IT or your manager and to act immediately via the link provided",
-          "hint": "Discouraging verification is a hallmark of phishing."
+          "label": "邮件要求你不要联系 IT 或经理，并让你立刻通过链接处理",
+          "hint": "阻止你核实真伪是钓鱼的典型特征。"
         },
         {
           "id": "c",
-          "label": "It is well-written with no spelling mistakes",
-          "hint": "Modern phishing emails are often grammatically polished."
+          "label": "邮件写得很专业，没有拼写错误",
+          "hint": "现代钓鱼邮件往往语法也很规范。"
         },
         {
           "id": "d",
-          "label": "It comes from an address you don't recognize but the email looks professional",
-          "hint": "Professionalism alone is not a safety indicator."
+          "label": "来自你不认识的地址，但邮件看起来很专业",
+          "hint": "“看起来专业”本身并不代表安全。"
         }
       ],
       "correctChoiceId": "b",
-      "explanation": "The clearest sign of a phishing attempt is when an email actively discourages you from verifying it. Any legitimate communication from IT, HR, or a vendor will support — not block — your ability to confirm its authenticity."
+      "explanation": "最明显的钓鱼信号之一是：邮件主动阻止你去核实真伪。来自 IT、HR 或供应商的合法沟通会支持你验证，而不是阻止你验证。"
     },
     {
       "id": "q10",
       "topic": "types",
-      "question": "A vendor sends an email saying: \"We've updated our banking details. Please use the new account information attached for all future payments. This is urgent as our previous account is being closed.\" What should you do?",
+      "question": "供应商发来邮件称：\"我们更新了银行账户信息。请使用附件中的新账号进行后续付款。由于旧账户即将关闭，情况紧急。\" 你应该怎么做？",
       "choices": [
         {
           "id": "a",
-          "label": "Update the payment details — the vendor needs to be paid on time",
-          "hint": "This is one of the most common and costly types of fraud in corporate environments."
+          "label": "更新付款信息——供应商需要按时收款",
+          "hint": "这是企业环境中最常见、损失也最大的诈骗之一。"
         },
         {
           "id": "b",
-          "label": "Call the vendor back on a phone number from your records — not from the email — to confirm the change",
-          "hint": "Independent verification through a known channel is the correct step."
+          "label": "使用你现有记录中的电话号码回拨供应商（不要用邮件里的联系方式）来确认变更",
+          "hint": "通过已知渠道进行独立核实才是正确步骤。"
         },
         {
           "id": "c",
-          "label": "Reply to the email asking them to confirm the new details",
-          "hint": "If the email account is compromised, the attacker will confirm the fake details."
+          "label": "回复邮件让对方确认新的账户信息",
+          "hint": "如果邮箱已被攻破，攻击者会“确认”假的信息。"
         },
         {
           "id": "d",
-          "label": "Forward to finance and ask them to handle it",
-          "hint": "Finance also needs to be aware this could be fraud — flag it clearly, don't just forward."
+          "label": "转发给财务让他们处理",
+          "hint": "财务也需要知道这可能是诈骗——要明确标注风险，而不是只转发。"
         }
       ],
       "correctChoiceId": "b",
-      "explanation": "This is invoice fraud / Business Email Compromise. Attackers intercept or spoof vendor emails and redirect payments to fraudulent accounts. Any change to payment details must be verified by calling the vendor directly using a phone number from your existing records — never from the email itself."
+      "explanation": "这是发票诈骗 / BEC。攻击者会拦截或伪造供应商邮件，把付款引导到诈骗账户。任何付款信息变更都必须通过你已有记录中的电话号码直接致电供应商核实——绝不要使用邮件里提供的联系方式。"
     }
   ]
 }

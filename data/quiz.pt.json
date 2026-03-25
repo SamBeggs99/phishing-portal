@@ -1,296 +1,296 @@
 {
-  "title": "Phishing Awareness Assessment",
+  "title": "Avaliação de conscientização sobre phishing",
   "passThresholdPercent": 80,
   "questions": [
     {
       "id": "q1",
       "topic": "urgency",
-      "question": "You receive an email saying your Microsoft account will be deactivated in 10 minutes unless you click a link to verify your identity. What should you do?",
+      "question": "Você recebe um e-mail dizendo que sua conta Microsoft será desativada em 10 minutos, a menos que você clique em um link para verificar sua identidade. O que você deve fazer?",
       "choices": [
         {
           "id": "a",
-          "label": "Click the link quickly — you can't afford to lose access to your account",
-          "hint": "Acting fast is exactly what the attacker wants."
+          "label": "Clicar no link rapidamente — você não pode perder o acesso à sua conta",
+          "hint": "Agir com pressa é exatamente o que o atacante quer."
         },
         {
           "id": "b",
-          "label": "Slow down, ignore the link, and go directly to the official Microsoft site by typing the address yourself",
-          "hint": "Navigating directly bypasses any fake links entirely."
+          "label": "Pausar, ignorar o link e ir direto ao site oficial da Microsoft digitando o endereço você mesmo",
+          "hint": "Ir direto elimina completamente links falsos."
         },
         {
           "id": "c",
-          "label": "Reply to the email asking for more time",
-          "hint": "Replying confirms your email is active and may invite more attacks."
+          "label": "Responder ao e-mail pedindo mais tempo",
+          "hint": "Responder confirma que seu e-mail está ativo e pode atrair mais ataques."
         },
         {
           "id": "d",
-          "label": "Forward it to a colleague to see if they got the same one",
-          "hint": "This spreads the phishing email to others without resolving anything."
+          "label": "Encaminhar para um colega para ver se ele recebeu o mesmo",
+          "hint": "Isso espalha o e-mail de phishing sem resolver nada."
         }
       ],
       "correctChoiceId": "b",
-      "explanation": "Urgency is a manipulation tactic. Real account issues don't require you to act in minutes. Always navigate directly to the official site rather than clicking links in unexpected emails."
+      "explanation": "Urgência é uma tática de manipulação. Problemas reais de conta não exigem que você aja em minutos. Sempre acesse o site oficial diretamente, em vez de clicar em links de e-mails inesperados."
     },
     {
       "id": "q2",
       "topic": "authority",
-      "question": "You receive an email that appears to be from your CFO asking you to urgently purchase five $200 gift cards for a client and send them the codes. The email says to keep it quiet and not go through normal channels. What do you do?",
+      "question": "Você recebe um e-mail que parece ser do CFO pedindo para comprar com urgência cinco cartões-presente de $200 para um cliente e enviar os códigos. O e-mail pede sigilo e para não seguir os canais normais. O que você faz?",
       "choices": [
         {
           "id": "a",
-          "label": "Purchase the gift cards — it would be embarrassing to question the CFO",
-          "hint": "Authority pressure is a common social engineering tactic."
+          "label": "Comprar os cartões — seria constrangedor questionar o CFO",
+          "hint": "Pressão de autoridade é uma tática comum de engenharia social."
         },
         {
           "id": "b",
-          "label": "Reply to the email asking for a purchase order number",
-          "hint": "The attacker controls this inbox and will provide a convincing answer."
+          "label": "Responder ao e-mail pedindo um número de pedido de compra",
+          "hint": "O atacante controla essa caixa de e-mail e dará uma resposta convincente."
         },
         {
           "id": "c",
-          "label": "Contact the CFO directly through a phone number or method you already know — not anything from the email",
-          "hint": "Verifying through a separate, trusted channel is the right move."
+          "label": "Falar com o CFO diretamente por um número/método que você já conhece — nada do e-mail",
+          "hint": "Verificar por um canal separado e confiável é o certo."
         },
         {
           "id": "d",
-          "label": "Purchase the cards and report it to finance afterward",
-          "hint": "Once the codes are shared, the money is gone and unrecoverable."
+          "label": "Comprar os cartões e avisar o financeiro depois",
+          "hint": "Depois que os códigos são compartilhados, o dinheiro se vai e não volta."
         }
       ],
       "correctChoiceId": "c",
-      "explanation": "This is a classic Business Email Compromise (BEC) attack. Your organization will never ask you to purchase gift cards via email. When a request comes with pressure to skip normal steps, always verify through a separate channel you already trust."
+      "explanation": "Isso é um ataque clássico de Comprometimento de E-mail Corporativo (BEC). A organização nunca vai pedir para você comprar cartões-presente por e-mail. Quando houver pressão para pular etapas normais, verifique sempre por um canal separado e confiável."
     },
     {
       "id": "q3",
       "topic": "intimidation",
-      "question": "An email claiming to be from your company's legal team states: \"Your account has been used for suspicious activity. Failure to respond within 2 hours will result in legal escalation.\" What is the safest response?",
+      "question": "Um e-mail dizendo ser do jurídico da empresa afirma: \"Sua conta foi usada para atividade suspeita. Se você não responder em 2 horas, haverá escalonamento jurídico.\" Qual é a resposta mais segura?",
       "choices": [
         {
           "id": "a",
-          "label": "Follow the instructions in the email immediately to avoid consequences",
-          "hint": "Fear is the tactic — acting on it is the trap."
+          "label": "Seguir as instruções do e-mail imediatamente para evitar consequências",
+          "hint": "Medo é a tática — agir por medo é a armadilha."
         },
         {
           "id": "b",
-          "label": "Contact HR or your IT team directly using contact details you already know",
-          "hint": "Independent verification is always the right step."
+          "label": "Contatar o RH ou a TI diretamente usando contatos que você já conhece",
+          "hint": "Verificação independente é sempre o passo certo."
         },
         {
           "id": "c",
-          "label": "Reply to the email to find out what suspicious activity occurred",
-          "hint": "Replying engages the attacker and may give them useful information."
+          "label": "Responder para descobrir qual atividade suspeita ocorreu",
+          "hint": "Responder engaja o atacante e pode dar informações úteis."
         },
         {
           "id": "d",
-          "label": "Change your password immediately using the link in the email",
-          "hint": "This link likely leads to a fake page designed to steal your new password."
+          "label": "Trocar sua senha imediatamente usando o link do e-mail",
+          "hint": "Esse link provavelmente leva a uma página falsa para roubar sua nova senha."
         }
       ],
       "correctChoiceId": "b",
-      "explanation": "Real legal or HR notices always include proper context, reference numbers, and official channels. They never demand action through an email link within hours. Verify independently before doing anything."
+      "explanation": "Avisos reais do jurídico ou RH incluem contexto adequado, números de referência e canais oficiais. Eles nunca exigem ação por um link em poucas horas. Verifique de forma independente antes de fazer qualquer coisa."
     },
     {
       "id": "q4",
       "topic": "types",
-      "question": "A colleague receives an email saying: \"Hi Sarah, I've attached the updated budget from our Monday call — let me know if the figures look right.\" The email looks convincing but the sender domain is slightly different from your company's. What type of attack is this most likely?",
+      "question": "Um colega recebe um e-mail dizendo: \"Oi Sarah, anexei o orçamento atualizado da nossa ligação de segunda — me avise se os números parecem corretos.\" O e-mail parece convincente, mas o domínio do remetente é um pouco diferente do da empresa. Que tipo de ataque é mais provável?",
       "choices": [
         {
           "id": "a",
-          "label": "Generic phishing — sent to thousands of people at once",
-          "hint": "Generic phishing uses mass targeting, not personal details."
+          "label": "Phishing genérico — enviado para milhares de pessoas",
+          "hint": "Phishing genérico é em massa, não usa detalhes pessoais."
         },
         {
           "id": "b",
-          "label": "Spear phishing — targeted and personalized to appear credible",
-          "hint": "Personal context and a specific target are the hallmarks of spear phishing."
+          "label": "Spear phishing — direcionado e personalizado para parecer crível",
+          "hint": "Contexto pessoal e um alvo específico são marcas de spear phishing."
         },
         {
           "id": "c",
-          "label": "Smishing — delivered via text message",
-          "hint": "Smishing is SMS-based, not email."
+          "label": "Smishing — por SMS",
+          "hint": "Smishing é por SMS, não por e-mail."
         },
         {
           "id": "d",
-          "label": "Quishing — delivered via a QR code",
-          "hint": "Quishing involves QR codes embedded in messages or physical materials."
+          "label": "Quishing — por código QR",
+          "hint": "Quishing envolve códigos QR em mensagens ou materiais físicos."
         }
       ],
       "correctChoiceId": "b",
-      "explanation": "Spear phishing uses personal or workplace context — names, meeting references, roles — to appear legitimate. The subtle domain difference is the key red flag here. Always check sender addresses carefully on any unexpected email with an attachment."
+      "explanation": "Spear phishing usa contexto pessoal ou de trabalho — nomes, referências a reuniões, cargos — para parecer legítimo. A diferença sutil no domínio é o principal sinal de alerta. Sempre verifique o endereço do remetente em e-mails inesperados com anexo."
     },
     {
       "id": "q5",
       "topic": "types",
-      "question": "You receive a text message: \"Your FedEx delivery failed. Update your delivery preferences here: c7dvr.info/GtK12vilM\". You weren't expecting a package. What should you do?",
+      "question": "Você recebe um SMS: \"Sua entrega da FedEx falhou. Atualize suas preferências de entrega aqui: c7dvr.info/GtK12vilM\". Você não estava esperando nenhuma encomenda. O que deve fazer?",
       "choices": [
         {
           "id": "a",
-          "label": "Tap the link to check — it might be a legitimate delivery",
-          "hint": "Short, unfamiliar links in unexpected texts are a major red flag."
+          "label": "Tocar no link para verificar — pode ser uma entrega legítima",
+          "hint": "Links curtos e desconhecidos em mensagens inesperadas são um grande sinal de alerta."
         },
         {
           "id": "b",
-          "label": "Reply with your address to reschedule the delivery",
-          "hint": "Replying provides personal information to the attacker."
+          "label": "Responder com seu endereço para reagendar a entrega",
+          "hint": "Responder fornece informações pessoais ao atacante."
         },
         {
           "id": "c",
-          "label": "Ignore it and if genuinely concerned, go directly to the FedEx website yourself",
-          "hint": "Navigating directly bypasses any fake link entirely."
+          "label": "Ignorar e, se estiver realmente preocupado, ir direto ao site oficial da FedEx",
+          "hint": "Ir direto elimina completamente links falsos."
         },
         {
           "id": "d",
-          "label": "Forward it to the company's security team and then tap the link",
-          "hint": "Reporting is correct, but you should not tap the link at all."
+          "label": "Encaminhar para o time de segurança e depois tocar no link",
+          "hint": "Reportar é correto, mas você não deve tocar no link de jeito nenhum."
         }
       ],
       "correctChoiceId": "c",
-      "explanation": "This is smishing — phishing via SMS. Unrecognizable short links in unsolicited texts are a clear warning sign. If you're genuinely concerned about a delivery, always go directly to the carrier's official website rather than using any link from the text."
+      "explanation": "Isso é smishing — phishing via SMS. Links curtos e irreconhecíveis em mensagens não solicitadas são um alerta claro. Se você estiver preocupado com uma entrega, vá sempre ao site oficial da transportadora em vez de usar links do SMS."
     },
     {
       "id": "q6",
       "topic": "authority",
-      "question": "Which of the following would your organization's IT team or leadership legitimately ask you to do via email?",
+      "question": "Qual das opções abaixo a TI ou a liderança da sua organização pediria legitimamente por e-mail?",
       "choices": [
         {
           "id": "a",
-          "label": "Provide your current password to verify your account",
-          "hint": "No legitimate IT team ever needs your password."
+          "label": "Informar sua senha atual para verificar sua conta",
+          "hint": "Uma TI legítima nunca precisa da sua senha."
         },
         {
           "id": "b",
-          "label": "Scan a QR code in the email to validate your credentials",
-          "hint": "Credential validation via QR code in email is a red flag."
+          "label": "Escanear um QR code do e-mail para validar suas credenciais",
+          "hint": "Validar credenciais por QR code em e-mail é sinal de alerta."
         },
         {
           "id": "c",
-          "label": "Click a link to reset your password when you have requested a reset yourself",
-          "hint": "Password reset links you requested yourself are expected and legitimate."
+          "label": "Clicar em um link para redefinir sua senha quando você mesmo solicitou a redefinição",
+          "hint": "Links de redefinição que você solicitou são esperados e legítimos."
         },
         {
           "id": "d",
-          "label": "Transfer funds to a new vendor account urgently without going through finance",
-          "hint": "Bypassing normal financial processes is never legitimate."
+          "label": "Transferir fundos com urgência para uma nova conta de fornecedor sem passar pelo financeiro",
+          "hint": "Pular processos financeiros normais nunca é legítimo."
         }
       ],
       "correctChoiceId": "c",
-      "explanation": "A password reset link you specifically requested is legitimate. Your organization will never email you asking for your password, ask you to validate credentials via a QR code, or request financial transfers that bypass your normal approval process."
+      "explanation": "Um link de redefinição de senha que você solicitou é legítimo. A organização nunca vai pedir por e-mail sua senha, nem validar credenciais por QR code, nem transferências financeiras que ignorem o processo normal de aprovação."
     },
     {
       "id": "q7",
       "topic": "scarcity",
-      "question": "An email arrives saying: \"Congratulations! You've been selected for an exclusive employee reward. Only the first 50 respondents get a $150 Amazon gift card — claim yours before midnight.\" What's the right move?",
+      "question": "Chega um e-mail dizendo: \"Parabéns! Você foi selecionado para uma recompensa exclusiva para funcionários. Apenas os primeiros 50 respondentes ganham um cartão-presente da Amazon de $150 — resgate o seu antes da meia-noite.\" Qual é o passo certo?",
       "choices": [
         {
           "id": "a",
-          "label": "Click the link quickly so you don't miss out",
-          "hint": "The time pressure and prize are designed to make you act without thinking."
+          "label": "Clicar no link rapidamente para não perder",
+          "hint": "A pressão de tempo e o prêmio são feitos para você agir sem pensar."
         },
         {
           "id": "b",
-          "label": "Verify the offer through your HR portal or internal communications before doing anything",
-          "hint": "Checking through official channels confirms whether the offer is real."
+          "label": "Verificar a oferta no portal de RH ou nas comunicações internas antes de fazer qualquer coisa",
+          "hint": "Checar por canais oficiais confirma se a oferta é real."
         },
         {
           "id": "c",
-          "label": "Forward it to colleagues so they can claim the reward too",
-          "hint": "Forwarding spreads a phishing email to others."
+          "label": "Encaminhar para colegas para que eles também resgatem a recompensa",
+          "hint": "Encaminhar espalha o e-mail de phishing para outras pessoas."
         },
         {
           "id": "d",
-          "label": "Click the link but don't enter any personal information",
-          "hint": "Just visiting a malicious page can sometimes be enough to cause harm."
+          "label": "Clicar no link, mas não inserir nenhuma informação pessoal",
+          "hint": "Às vezes, só visitar uma página maliciosa já pode causar dano."
         }
       ],
       "correctChoiceId": "b",
-      "explanation": "Scarcity and prize language are designed to trigger FOMO and bypass your judgment. Legitimate employee rewards are always communicated through official HR channels, not unsolicited emails with countdown deadlines. Verify first."
+      "explanation": "Linguagem de escassez e prêmio é feita para causar FOMO e burlar seu julgamento. Recompensas legítimas são comunicadas por canais oficiais do RH, não por e-mails não solicitados com contagem regressiva. Verifique primeiro."
     },
     {
       "id": "q8",
       "topic": "types",
-      "question": "Someone calls claiming to be from your company's IT helpdesk. They say a virus has been detected on your computer and they need you to install a remote access tool so they can fix it immediately. What do you do?",
+      "question": "Alguém liga dizendo ser do suporte de TI da empresa. A pessoa afirma que detectou um vírus no seu computador e que você precisa instalar uma ferramenta de acesso remoto para corrigir imediatamente. O que você faz?",
       "choices": [
         {
           "id": "a",
-          "label": "Follow their instructions — it sounds serious and you don't want a virus",
-          "hint": "Urgency over the phone is as much a red flag as urgency in email."
+          "label": "Seguir as instruções — parece sério e você não quer um vírus",
+          "hint": "Urgência por telefone é tão sinal de alerta quanto urgência por e-mail."
         },
         {
           "id": "b",
-          "label": "Ask for their employee ID and then proceed with the installation",
-          "hint": "An attacker can provide a fake ID number."
+          "label": "Pedir o crachá/ID do funcionário e então prosseguir com a instalação",
+          "hint": "Um atacante pode fornecer um ID falso."
         },
         {
           "id": "c",
-          "label": "Hang up and call your IT helpdesk back using a number from your company's official directory",
-          "hint": "Calling back through a number you already trust confirms whether the call was real."
+          "label": "Desligar e ligar para o suporte de TI usando um número do diretório oficial da empresa",
+          "hint": "Retornar a ligação por um número confiável confirma se a chamada era real."
         },
         {
           "id": "d",
-          "label": "Install the tool but watch closely to make sure they don't access anything sensitive",
-          "hint": "Once someone has remote access to your computer, they control what you see."
+          "label": "Instalar a ferramenta, mas ficar atento para garantir que não acessem nada sensível",
+          "hint": "Com acesso remoto ao seu computador, a pessoa controla o que você vê."
         }
       ],
       "correctChoiceId": "c",
-      "explanation": "This is vishing — voice phishing. Your real IT team will never cold call you asking to install remote access software. Hang up and call the helpdesk back using a number from your company directory or intranet. Never install software at the request of an unsolicited caller."
+      "explanation": "Isso é vishing — phishing por voz. A TI real nunca vai ligar do nada pedindo para instalar software de acesso remoto. Desligue e ligue você para o suporte usando um número do diretório/intranet. Nunca instale software a pedido de uma ligação não solicitada."
     },
     {
       "id": "q9",
       "topic": "urgency",
-      "question": "Which of the following is the strongest signal that an email is likely a phishing attempt?",
+      "question": "Qual das opções abaixo é o sinal mais forte de que um e-mail provavelmente é phishing?",
       "choices": [
         {
           "id": "a",
-          "label": "It uses your correct name and job title",
-          "hint": "Attackers can easily find names and titles from LinkedIn or company websites."
+          "label": "Ele usa seu nome e cargo corretos",
+          "hint": "Atacantes podem achar nomes e cargos facilmente no LinkedIn ou no site da empresa."
         },
         {
           "id": "b",
-          "label": "It tells you not to contact IT or your manager and to act immediately via the link provided",
-          "hint": "Discouraging verification is a hallmark of phishing."
+          "label": "Ele pede para não contatar a TI ou seu gestor e para agir imediatamente pelo link fornecido",
+          "hint": "Desencorajar verificação é uma marca de phishing."
         },
         {
           "id": "c",
-          "label": "It is well-written with no spelling mistakes",
-          "hint": "Modern phishing emails are often grammatically polished."
+          "label": "Ele é bem escrito e sem erros de ortografia",
+          "hint": "Phishing moderno costuma ser bem escrito."
         },
         {
           "id": "d",
-          "label": "It comes from an address you don't recognize but the email looks professional",
-          "hint": "Professionalism alone is not a safety indicator."
+          "label": "Ele vem de um endereço que você não reconhece, mas parece profissional",
+          "hint": "Aparência profissional, sozinha, não é indicador de segurança."
         }
       ],
       "correctChoiceId": "b",
-      "explanation": "The clearest sign of a phishing attempt is when an email actively discourages you from verifying it. Any legitimate communication from IT, HR, or a vendor will support — not block — your ability to confirm its authenticity."
+      "explanation": "O sinal mais claro de phishing é quando o e-mail desencoraja ativamente a verificação. Uma comunicação legítima da TI, RH ou fornecedor vai ajudar — não impedir — você de confirmar a autenticidade."
     },
     {
       "id": "q10",
       "topic": "types",
-      "question": "A vendor sends an email saying: \"We've updated our banking details. Please use the new account information attached for all future payments. This is urgent as our previous account is being closed.\" What should you do?",
+      "question": "Um fornecedor envia um e-mail dizendo: \"Atualizamos nossos dados bancários. Use as novas informações de conta em anexo para todos os pagamentos futuros. É urgente, pois a conta anterior está sendo encerrada.\" O que você deve fazer?",
       "choices": [
         {
           "id": "a",
-          "label": "Update the payment details — the vendor needs to be paid on time",
-          "hint": "This is one of the most common and costly types of fraud in corporate environments."
+          "label": "Atualizar os dados de pagamento — o fornecedor precisa receber no prazo",
+          "hint": "Esse é um dos tipos de fraude mais comuns e caros em ambientes corporativos."
         },
         {
           "id": "b",
-          "label": "Call the vendor back on a phone number from your records — not from the email — to confirm the change",
-          "hint": "Independent verification through a known channel is the correct step."
+          "label": "Ligar para o fornecedor usando um telefone dos seus registros — não do e-mail — para confirmar a mudança",
+          "hint": "Verificação independente por um canal conhecido é o passo correto."
         },
         {
           "id": "c",
-          "label": "Reply to the email asking them to confirm the new details",
-          "hint": "If the email account is compromised, the attacker will confirm the fake details."
+          "label": "Responder ao e-mail pedindo que confirmem os novos dados",
+          "hint": "Se a conta estiver comprometida, o atacante confirmará dados falsos."
         },
         {
           "id": "d",
-          "label": "Forward to finance and ask them to handle it",
-          "hint": "Finance also needs to be aware this could be fraud — flag it clearly, don't just forward."
+          "label": "Encaminhar para o financeiro e pedir que eles resolvam",
+          "hint": "O financeiro também precisa saber que pode ser fraude — sinalize claramente, não apenas encaminhe."
         }
       ],
       "correctChoiceId": "b",
-      "explanation": "This is invoice fraud / Business Email Compromise. Attackers intercept or spoof vendor emails and redirect payments to fraudulent accounts. Any change to payment details must be verified by calling the vendor directly using a phone number from your existing records — never from the email itself."
+      "explanation": "Isso é fraude de fatura / BEC. Atacantes interceptam ou falsificam e-mails de fornecedores e redirecionam pagamentos para contas fraudulentas. Qualquer mudança em dados de pagamento deve ser verificada ligando diretamente para o fornecedor usando um número dos seus registros — nunca do próprio e-mail."
     }
   ]
 }
