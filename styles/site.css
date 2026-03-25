@@ -658,6 +658,95 @@ main > .section + .section { margin-top: 12px; }
 }
 .module-card.completed .completed-tick { display: flex; }
 
+/* ── INBOX SIMULATOR ──────────────────────────────── */
+.inbox-sim {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 12px;
+  align-items: start;
+}
+.inbox-sim-list,
+.inbox-sim-view {
+  background: rgba(30,33,31,0.62);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+}
+.inbox-sim-items { display: flex; flex-direction: column; gap: 8px; }
+.inbox-sim-item {
+  text-align: left;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.03);
+  padding: 12px;
+  transition: border-color var(--transition), background var(--transition);
+}
+.inbox-sim-item:hover { border-color: var(--border-red); background: rgba(171,35,40,0.07); }
+.inbox-sim-item.active { border-color: rgba(171,35,40,0.35); background: rgba(171,35,40,0.10); }
+.inbox-sim-item-head { display:flex; justify-content: space-between; gap: 10px; margin-bottom: 6px; }
+.inbox-sim-from { font-weight: 700; font-size: 12.5px; color: var(--text); }
+.inbox-sim-time { font-size: 11px; color: var(--text-3); font-family: var(--mono); }
+.inbox-sim-subject { font-size: 13px; color: var(--text-2); line-height: 1.4; margin-bottom: 8px; }
+.inbox-sim-tags { display:flex; flex-wrap: wrap; gap: 6px; }
+.inbox-sim-tag { font-size: 10px; padding: 4px 8px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.10); color: var(--text-3); font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.08em; }
+.inbox-sim-toolbar { display:flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
+.inbox-sim-actions { display:flex; gap: 8px; flex-wrap: wrap; }
+.inbox-sim-message { min-height: 260px; }
+.inbox-sim-header { padding-bottom: 12px; border-bottom: 1px solid var(--border); margin-bottom: 12px; }
+.inbox-sim-body p { margin-bottom: 10px; color: var(--text-2); line-height: 1.7; }
+.inbox-sim-body a.sim-link { color: #fff; text-decoration: underline; text-decoration-color: rgba(171,35,40,0.8); text-underline-offset: 3px; }
+.inbox-sim-hint { margin-top: 14px; padding-top: 10px; border-top: 1px dashed rgba(255,255,255,0.10); }
+.sim-link-preview {
+  position: sticky;
+  bottom: 0;
+  margin-top: 14px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(24,26,25,0.75);
+  color: var(--text-2);
+  font-family: var(--mono);
+  font-size: 11px;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity var(--transition), transform var(--transition);
+}
+.sim-link-preview.show { opacity: 1; transform: translateY(0); }
+.sim-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.62);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+}
+.sim-modal.hidden { display: none; }
+.sim-modal-panel {
+  width: min(920px, 96vw);
+  max-height: 86vh;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(24,26,25,0.92);
+  box-shadow: var(--shadow);
+}
+.sim-modal-head { display:flex; align-items:center; justify-content: space-between; gap: 12px; padding: 12px 14px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.sim-modal-close {
+  width: 34px; height: 34px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  font-size: 18px;
+}
+.sim-modal-body { padding: 14px; overflow: auto; max-height: calc(86vh - 58px); }
+.sim-iframe { width: 100%; height: 420px; border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; background: #0f1111; }
+body.sim-lock { overflow: hidden; }
+
 /* ── MODULE CONTENT ───────────────────────────────── */
 .module-body { display: flex; flex-direction: column; gap: 24px; }
 .content-section {
@@ -1052,6 +1141,7 @@ footer {
   .path-grid { grid-template-columns: 1fr 1fr; }
   .module-grid { grid-template-columns: 1fr; }
   .module-card.full-span { flex-direction: column; grid-column: span 1; }
+  .inbox-sim { grid-template-columns: 1fr; }
   .content-two-col { grid-template-columns: 1fr; }
   .never-grid { grid-template-columns: 1fr 1fr; }
   .qref-grid { grid-template-columns: 1fr; }

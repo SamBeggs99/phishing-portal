@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Microsoft 365 — Sign in (Training Demo)</title>
+  <style>
+    :root { color-scheme: dark; }
+    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; background:#0f1111; color:#f0f1f0; }
+    .wrap { padding: 18px; max-width: 520px; margin: 0 auto; }
+    .card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.10); border-radius: 14px; padding: 16px; }
+    .brand { font-weight: 700; letter-spacing: 0.02em; margin-bottom: 10px; }
+    .note { font-size: 12px; opacity: 0.75; line-height: 1.5; }
+    label { display:block; font-size: 12px; opacity: 0.9; margin: 12px 0 6px; }
+    input { width: 100%; padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.14); background: rgba(0,0,0,0.25); color: #fff; }
+    button { margin-top: 14px; width: 100%; padding: 10px 12px; border-radius: 10px; border: none; background: #AB2328; color: #fff; font-weight: 700; cursor: pointer; }
+    .banner { margin-top: 14px; border-left: 3px solid #F5A623; background: rgba(245,166,35,0.08); padding: 10px 12px; border-radius: 10px; }
+    .banner strong { display:block; margin-bottom: 4px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="brand">Microsoft 365</div>
+      <div class="note">Training demo page — no data is sent anywhere.</div>
+
+      <form id="f">
+        <label for="u">Email address</label>
+        <input id="u" name="u" autocomplete="off" placeholder="name@company.com"/>
+        <label for="p">Password</label>
+        <input id="p" name="p" type="password" autocomplete="off" placeholder="••••••••"/>
+        <button type="submit">Sign in</button>
+      </form>
+
+      <div class="banner" id="b" style="display:none;">
+        <strong>Gotcha (training)</strong>
+        <div class="note">
+          This is what QR/link phishing tries to make you do: sign in from an untrusted page.
+          In real life, close the tab and navigate to the official site yourself—or contact IT via a known channel.
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.getElementById("f").addEventListener("submit", (e) => {
+      e.preventDefault();
+      document.getElementById("b").style.display = "block";
+      document.getElementById("p").value = "";
+    });
+  </script>
+</body>
+</html>
