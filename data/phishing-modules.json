@@ -5,7 +5,7 @@
       "layoutVariant": "mission",
       "missionMode": {
         "title": "Inbox Rescue: Urgency Attack",
-        "brief": "You have 60 seconds before close of day. Choose the safest response at each stage.",
+        "brief": "Optional challenge: try a 60-second timer. Otherwise, take your time and choose the safest response at each stage.",
         "steps": [
           {
             "prompt": "An email says your account will be suspended in 30 minutes unless you verify via link. First move?",
@@ -68,8 +68,14 @@
       },
       "moduleHero": {
         "icon": "⏱️",
+        "iconLabel": "Timer / urgency",
         "title": "Urgency is a social-engineering weapon",
         "description": "Attackers manufacture deadlines so you skip normal checks. Slow down, verify, then act."
+      },
+      "accessibility": {
+        "noTimerDefault": true,
+        "supportsKeyboardOnly": true,
+        "plainLanguage": true
       },
       "redFlagSpotter": {
         "title": "Spot the red flag",
@@ -203,6 +209,11 @@
     },
     "intimidation": {
       "type": "standard",
+      "accessibility": {
+        "noTimerDefault": true,
+        "supportsKeyboardOnly": true,
+        "plainLanguage": true
+      },
       "quickTakeaway": {
         "title": "1-minute takeaway",
         "points": [
@@ -315,6 +326,7 @@
       "layoutVariant": "mission",
       "moduleHero": {
         "icon": "⚖️",
+        "iconLabel": "Legal / pressure",
         "title": "Fear is the payload",
         "description": "If a message makes you anxious or guilty, treat that emotion as a warning signal and verify off-channel."
       },
@@ -402,8 +414,14 @@
     "scarcity": {
       "type": "standard",
       "layoutVariant": "mission",
+      "accessibility": {
+        "noTimerDefault": true,
+        "supportsKeyboardOnly": true,
+        "plainLanguage": true
+      },
       "moduleHero": {
         "icon": "🎁",
+        "iconLabel": "Gift / reward",
         "title": "Scarcity triggers FOMO",
         "description": "Limited-time rewards are designed to rush judgment. Verify through trusted internal channels first."
       },
@@ -599,6 +617,11 @@
     },
     "authority": {
       "type": "standard",
+      "accessibility": {
+        "noTimerDefault": true,
+        "supportsKeyboardOnly": true,
+        "plainLanguage": true
+      },
       "quickTakeaway": {
         "title": "1-minute takeaway",
         "points": [
@@ -711,6 +734,7 @@
       "layoutVariant": "mission",
       "moduleHero": {
         "icon": "👔",
+        "iconLabel": "Leadership / authority",
         "title": "Authority should never bypass process",
         "description": "Executive names can be spoofed. High-stakes requests always require second-channel verification."
       },
