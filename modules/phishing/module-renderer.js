@@ -1,6 +1,6 @@
 import { escapeHtml, setActiveNav, initMobileNav, updateProgressBar, markModuleComplete, renderCheckIn, initCheckIn } from "../../js/shared.js";
 import { getHeaderHTML, getFooterHTML } from "../../js/header.js";
-import { initI18n, getUI, getDataUrl } from "../../js/i18n.js";
+import { initI18n, getUI, fetchDataJson } from "../../js/i18n.js";
 
 export async function renderPhishingModule(topicId) {
   try {
@@ -11,10 +11,13 @@ export async function renderPhishingModule(topicId) {
     document.getElementById("footer-root").innerHTML = getFooterHTML({ rootPrefix: "../..", ui });
     setActiveNav(); initMobileNav(); updateProgressBar();
 
-    const url = getDataUrl("phishing-modules", "../..");
-    const res = await fetch(url);
-    if (!res.ok) { document.getElementById("module-root").innerHTML = `<p class="small-note">Failed to load module.</p>`; return; }
-    const data = await res.json();
+    let data;
+    try {
+      data = await fetchDataJson("phishing-modules", "../..");
+    } catch {
+      document.getElementById("module-root").innerHTML = `<p class="small-note">Failed to load module.</p>`;
+      return;
+    }
     const topic = data.topics[topicId];
     if (!topic) { document.getElementById("module-root").innerHTML = `<p class="small-note">Module not found.</p>`; return; }
 

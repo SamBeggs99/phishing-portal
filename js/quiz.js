@@ -1,6 +1,6 @@
 import { escapeHtml, setActiveNav, initMobileNav, updateProgressBar } from "./shared.js";
 import { getHeaderHTML, getFooterHTML } from "./header.js";
-import { initI18n, getUI, getDataUrl } from "./i18n.js";
+import { initI18n, getUI, fetchDataJson } from "./i18n.js";
 
 function makeCertSVG({ name, score, passed, date, ui }) {
   const q = ui?.quiz || {};
@@ -76,9 +76,13 @@ async function init() {
   const printBtn = document.getElementById("print-certificate");
   if (printBtn) printBtn.textContent = `🖨 ${q.printBtn || "Print"}`;
 
-  const res = await fetch(getDataUrl("quiz", "."));
-  if (!res.ok) { document.getElementById("quiz-questions").innerHTML = `<p class="small-note">Failed to load quiz.</p>`; return; }
-  const quizData = await res.json();
+  let quizData;
+  try {
+    quizData = await fetchDataJson("quiz", ".");
+  } catch {
+    document.getElementById("quiz-questions").innerHTML = `<p class="small-note">Failed to load quiz.</p>`;
+    return;
+  }
   const questions = quizData.questions || [];
   const threshold = Number(quizData.passThresholdPercent ?? 80);
 

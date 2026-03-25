@@ -1,6 +1,6 @@
 import { escapeHtml, setActiveNav, initMobileNav, updateProgressBar, isModuleComplete, markModuleComplete } from "./shared.js";
 import { getHeaderHTML, getFooterHTML } from "./header.js";
-import { initI18n, getDataUrl } from "./i18n.js";
+import { initI18n, fetchDataJson } from "./i18n.js";
 
 async function init() {
   const ui = await initI18n(".");
@@ -15,9 +15,13 @@ async function init() {
   document.querySelector(".page-hero h1").textContent = s.h1 || "Real attacks. Real consequences.";
   document.querySelector(".page-hero p").textContent = s.body || "";
 
-  const res = await fetch(getDataUrl("stories", "."));
-  if (!res.ok) { document.getElementById("stories-root").innerHTML = `<p class="small-note">Failed to load stories.</p>`; return; }
-  const data = await res.json();
+  let data;
+  try {
+    data = await fetchDataJson("stories", ".");
+  } catch {
+    document.getElementById("stories-root").innerHTML = `<p class="small-note">Failed to load stories.</p>`;
+    return;
+  }
   const items = data.examples || [];
 
   document.getElementById("stories-root").innerHTML = items.map((item, i) => {

@@ -1,6 +1,6 @@
 import { escapeHtml, setActiveNav, initMobileNav, updateProgressBar, markModuleComplete, renderCheckIn, initCheckIn } from "../../js/shared.js";
 import { getHeaderHTML, getFooterHTML } from "../../js/header.js";
-import { initI18n, getDataUrl } from "../../js/i18n.js";
+import { initI18n, fetchDataJson } from "../../js/i18n.js";
 
 export async function renderITModule(moduleId) {
   try {
@@ -10,9 +10,13 @@ export async function renderITModule(moduleId) {
     document.getElementById("footer-root").innerHTML = getFooterHTML({ rootPrefix: "../..", ui });
     setActiveNav(); initMobileNav(); updateProgressBar();
 
-    const res = await fetch(getDataUrl("it-security", "../.."));
-    if (!res.ok) { document.getElementById("module-root").innerHTML = `<p class="small-note">Failed to load module.</p>`; return; }
-    const data = await res.json();
+    let data;
+    try {
+      data = await fetchDataJson("it-security", "../..");
+    } catch {
+      document.getElementById("module-root").innerHTML = `<p class="small-note">Failed to load module.</p>`;
+      return;
+    }
     const t = data.topics[moduleId];
     if (!t) { document.getElementById("module-root").innerHTML = `<p class="small-note">Module not found.</p>`; return; }
 
