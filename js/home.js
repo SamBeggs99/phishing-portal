@@ -98,23 +98,24 @@ async function init() {
   if (gameDesc) gameDesc.textContent = h.gameDesc || "";
   if (gameBtn) gameBtn.textContent = (h.gameFullscreen || "Open full screen") + " ↗";
 
-  // Module section cards
-  const sectionLabels = document.querySelectorAll(".mono-label");
-  const sectionH2s = document.querySelectorAll(".section h2");
-  const sectionPs = document.querySelectorAll(".section p.small-note");
-  const sectionBtns = document.querySelectorAll(".section .btn.primary");
+  // Module overview cards (targeted selectors; avoids index-based clobbering)
+  const phLabel = document.getElementById("home-card-phishing-label");
+  const phH2 = document.getElementById("home-card-phishing-h2");
+  const phDesc = document.getElementById("home-card-phishing-desc");
+  const phBtn = document.getElementById("home-card-phishing-btn");
+  if (phLabel) phLabel.textContent = h.phishingLabel || phLabel.textContent;
+  if (phH2) phH2.textContent = h.phishingH2 || phH2.textContent;
+  if (phDesc) phDesc.textContent = h.phishingDesc || phDesc.textContent;
+  if (phBtn) phBtn.textContent = ((h.phishingBtn || "Phishing Modules") + " ›");
 
-  // Phishing section (first .section)
-  if (sectionLabels[0]) sectionLabels[0].textContent = h.phishingLabel || "";
-  if (sectionH2s[0]) sectionH2s[0].textContent = h.phishingH2 || "";
-  if (sectionPs[0]) sectionPs[0].textContent = h.phishingDesc || "";
-  if (sectionBtns[0]) sectionBtns[0].textContent = (h.phishingBtn || "Phishing Modules") + " ›";
-
-  // IT section (second .section)
-  if (sectionLabels[1]) sectionLabels[1].textContent = h.itLabel || "";
-  if (sectionH2s[1]) sectionH2s[1].textContent = h.itH2 || "";
-  if (sectionPs[1]) sectionPs[1].textContent = h.itDesc || "";
-  if (sectionBtns[1]) sectionBtns[1].textContent = (h.itBtn || "IT Security Modules") + " ›";
+  const itLabel = document.getElementById("home-card-it-label");
+  const itH2 = document.getElementById("home-card-it-h2");
+  const itDesc = document.getElementById("home-card-it-desc");
+  const itBtn = document.getElementById("home-card-it-btn");
+  if (itLabel) itLabel.textContent = h.itLabel || itLabel.textContent;
+  if (itH2) itH2.textContent = h.itH2 || itH2.textContent;
+  if (itDesc) itDesc.textContent = h.itDesc || itDesc.textContent;
+  if (itBtn) itBtn.textContent = ((h.itBtn || "IT Security Modules") + " ›");
 
   // "Do this today" section
   const todayTitle = document.querySelector(".today-title");
