@@ -53,31 +53,78 @@
         </div>
 
         <div class="report-lab-ribbon">
-          <button class="report-lab-tab active" type="button" aria-pressed="true">Home</button>
-          <button class="report-lab-tab" type="button" aria-pressed="false">Send / Receive</button>
-          <button class="report-lab-tab" type="button" aria-pressed="false">View</button>
+          <div class="report-lab-tabs" role="tablist" aria-label="Ribbon tabs (simulation)">
+            <button class="report-lab-tab active" type="button" aria-selected="true" role="tab">Home</button>
+            <button class="report-lab-tab" type="button" aria-selected="false" role="tab">Send / Receive</button>
+            <button class="report-lab-tab" type="button" aria-selected="false" role="tab">View</button>
+          </div>
         </div>
 
-        <div class="report-lab-ribbon-row">
-          <div class="report-lab-group" aria-label="Delete group">
-            <div class="report-lab-group-title">Delete</div>
-            <button class="report-lab-btn" type="button" data-action="delete">Delete</button>
-            <button class="report-lab-btn" type="button" data-action="junk">Junk</button>
+        <div class="report-lab-toolbar" aria-label="Ribbon toolbar (simulation)">
+          <div class="report-lab-toolgroup" aria-label="Delete tools">
+            <div class="report-lab-tools">
+              <button class="report-lab-tool" type="button" data-action="ignore" aria-label="Ignore (simulation)">
+                <span class="report-lab-tool-icon" aria-hidden="true">↩</span>
+                <span class="report-lab-tool-label">Ignore</span>
+              </button>
+              <button class="report-lab-tool" type="button" data-action="block" aria-label="Block (simulation)">
+                <span class="report-lab-tool-icon" aria-hidden="true">⛔</span>
+                <span class="report-lab-tool-label">Block</span>
+              </button>
+              <button class="report-lab-tool" type="button" data-action="delete" aria-label="Delete (simulation)">
+                <span class="report-lab-tool-icon" aria-hidden="true">🗑</span>
+                <span class="report-lab-tool-label">Delete</span>
+              </button>
+            </div>
+            <div class="report-lab-toolgroup-title">Delete</div>
           </div>
 
-          <div class="report-lab-group report-lab-group-addins" aria-label="Add-ins group">
-            <div class="report-lab-group-title">Add-ins</div>
-            <button class="report-lab-btn" type="button" data-action="get-addins">Get Add-ins</button>
-            <button class="report-lab-btn report-lab-barracuda" type="button" data-action="barracuda" id="rl-barracuda-btn">
-              <img src="./assets/barracuda-addin.png" alt="" class="report-lab-icon" aria-hidden="true"/>
-              <span>Barracuda</span>
-            </button>
+          <div class="report-lab-toolgroup" aria-label="Respond tools">
+            <div class="report-lab-tools">
+              <button class="report-lab-tool" type="button" data-action="reply" aria-label="Reply (simulation)">
+                <span class="report-lab-tool-icon" aria-hidden="true">↩</span>
+                <span class="report-lab-tool-label">Reply</span>
+              </button>
+              <button class="report-lab-tool" type="button" data-action="reply-all" aria-label="Reply all (simulation)">
+                <span class="report-lab-tool-icon" aria-hidden="true">↩↩</span>
+                <span class="report-lab-tool-label">Reply all</span>
+              </button>
+              <button class="report-lab-tool" type="button" data-action="forward" aria-label="Forward (simulation)">
+                <span class="report-lab-tool-icon" aria-hidden="true">↪</span>
+                <span class="report-lab-tool-label">Forward</span>
+              </button>
+            </div>
+            <div class="report-lab-toolgroup-title">Respond</div>
           </div>
 
-          <div class="report-lab-group" aria-label="Move group">
-            <div class="report-lab-group-title">Move</div>
-            <button class="report-lab-btn" type="button" data-action="move">Move</button>
-            <button class="report-lab-btn" type="button" data-action="rules">Rules</button>
+          <div class="report-lab-toolgroup" aria-label="Move tools">
+            <div class="report-lab-tools">
+              <button class="report-lab-tool" type="button" data-action="move" aria-label="Move (simulation)">
+                <span class="report-lab-tool-icon" aria-hidden="true">📁</span>
+                <span class="report-lab-tool-label">Move</span>
+              </button>
+              <button class="report-lab-tool" type="button" data-action="rules" aria-label="Rules (simulation)">
+                <span class="report-lab-tool-icon" aria-hidden="true">⚡</span>
+                <span class="report-lab-tool-label">Rules</span>
+              </button>
+            </div>
+            <div class="report-lab-toolgroup-title">Move</div>
+          </div>
+
+          <div class="report-lab-toolbar-spacer" aria-hidden="true"></div>
+
+          <div class="report-lab-toolgroup report-lab-toolgroup-addins" aria-label="Add-ins tools">
+            <div class="report-lab-tools">
+              <button class="report-lab-tool" type="button" data-action="more-apps" aria-label="More apps (simulation)">
+                <span class="report-lab-tool-icon" aria-hidden="true">▦</span>
+                <span class="report-lab-tool-label">More apps</span>
+              </button>
+              <button class="report-lab-tool report-lab-tool-barracuda" type="button" data-action="barracuda" id="rl-barracuda-btn" aria-label="Barracuda (simulation)">
+                <img src="./assets/barracuda-addin.png" alt="" class="report-lab-tool-icon-img" aria-hidden="true"/>
+                <span class="report-lab-tool-label">Barracuda</span>
+              </button>
+            </div>
+            <div class="report-lab-toolgroup-title">Add-ins</div>
           </div>
         </div>
 
