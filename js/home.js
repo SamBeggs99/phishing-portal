@@ -63,6 +63,10 @@ async function init() {
     });
   }
 
+  // Facts (statistics) strip label
+  const factsLabel = document.getElementById("home-facts-label");
+  if (factsLabel) factsLabel.textContent = h.factsLabel || factsLabel.textContent;
+
   // Learning path title
   const pathTitle = document.querySelector(".path-rail-label");
   if (pathTitle) pathTitle.textContent = h.pathTitle || "Your Learning Path";
