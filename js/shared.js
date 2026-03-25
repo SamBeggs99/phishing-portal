@@ -59,6 +59,13 @@ function saveProgress(data) {
   try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch {}
 }
 
+export const MODULE_GROUPS = {
+  phishing: ["urgency", "intimidation", "scarcity", "authority", "types-of-phishing"],
+  itSecurity: ["clean-desk", "password-hygiene", "acceptable-use", "physical-security", "social-media", "remote-vpn", "incident-reporting", "ai-acceptable-use"]
+};
+
+export const TRAINING_MODULE_IDS = [...MODULE_GROUPS.phishing, ...MODULE_GROUPS.itSecurity];
+
 export function markModuleComplete(moduleId) {
   const data = getProgress();
   data[moduleId] = true;
@@ -70,18 +77,23 @@ export function isModuleComplete(moduleId) {
   return !!getProgress()[moduleId];
 }
 
-const TOTAL_MODULES = 12;
+export function getTrainingProgress() {
+  const data = getProgress();
+  const completedIds = TRAINING_MODULE_IDS.filter(id => !!data[id]);
+  const total = TRAINING_MODULE_IDS.length;
+  const completed = completedIds.length;
+  const pct = total ? Math.round((completed / total) * 100) : 0;
+  return { completed, total, pct, completedIds, data };
+}
 
 export function updateProgressBar() {
-  const data = getProgress();
-  const completed = Object.keys(data).filter(k => data[k]).length;
-  const pct = Math.round((completed / TOTAL_MODULES) * 100);
+  const { completed, total, pct } = getTrainingProgress();
   const fill = document.getElementById("progress-fill");
   const count = document.getElementById("progress-count");
   if (fill) fill.style.width = pct + "%";
   if (count) {
     const tpl = count.dataset.tpl || "{n} / {total} modules";
-    count.textContent = tpl.replace("{n}", completed).replace("{total}", TOTAL_MODULES);
+    count.textContent = tpl.replace("{n}", completed).replace("{total}", total);
   }
 }
 

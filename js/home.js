@@ -1,4 +1,4 @@
-import { setActiveNav, initMobileNav, updateProgressBar, applyCompletionToCards } from "./shared.js";
+import { setActiveNav, initMobileNav, updateProgressBar, applyCompletionToCards, getTrainingProgress, MODULE_GROUPS } from "./shared.js";
 import { getHeaderHTML, getFooterHTML } from "./header.js";
 import { initI18n, getUI } from "./i18n.js";
 
@@ -12,6 +12,7 @@ async function init() {
   initMobileNav();
   updateProgressBar();
   applyCompletionToCards();
+  initStartHereAndGoals(ui);
 
   const h = ui.home || {};
   const n = ui.nav || {};
@@ -136,6 +137,53 @@ function initLearningPathRailHighlight() {
   );
 
   observer.observe(trigger);
+}
+
+function initStartHereAndGoals(ui) {
+  const { completed, total, pct, data } = getTrainingProgress();
+
+  const goalsPct = document.getElementById("goals-pct");
+  const goalsCount = document.getElementById("goals-count");
+  if (goalsPct) goalsPct.textContent = `${pct}%`;
+  if (goalsCount) goalsCount.textContent = `${completed} / ${total} modules completed`;
+
+  const phishingDone = MODULE_GROUPS.phishing.every(id => !!data[id]);
+  const itDone = MODULE_GROUPS.itSecurity.every(id => !!data[id]);
+
+  const goalsList = document.getElementById("goals-list");
+  if (goalsList) {
+    const rows = [
+      { done: phishingDone, label: "Complete all Phishing modules (5)" },
+      { done: itDone, label: "Complete all IT Security modules (8)" },
+      { done: phishingDone && itDone, label: "Take the quiz and score 80%+ for certification" }
+    ];
+    goalsList.innerHTML = rows.map(r => `
+      <li style="display:flex;gap:10px;align-items:flex-start;">
+        <span aria-hidden="true" style="display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:999px;margin-top:2px;background:${r.done ? "rgba(46,204,113,0.14)" : "rgba(245,166,35,0.12)"};border:1px solid ${r.done ? "rgba(46,204,113,0.35)" : "rgba(245,166,35,0.25)"};color:${r.done ? "#2ECC71" : "#F5A623"};font-size:12px;font-weight:700;">
+          ${r.done ? "✓" : "•"}
+        </span>
+        <span style="color:var(--text-2);line-height:1.6;">${r.label}</span>
+      </li>
+    `).join("");
+  }
+
+  const cta = document.getElementById("start-here-cta");
+  const copy = document.getElementById("start-here-copy");
+  if (!cta || !copy) return;
+
+  if (!phishingDone) {
+    cta.href = "./modules/phishing/index.html";
+    cta.textContent = "Continue: Phishing modules ›";
+    copy.textContent = "Start with the phishing tactics—they’re the fastest way to build the ‘pause and verify’ habit.";
+  } else if (!itDone) {
+    cta.href = "./modules/it-security/index.html";
+    cta.textContent = "Continue: IT Security modules ›";
+    copy.textContent = "Next, lock in the everyday security habits that prevent incidents before they start.";
+  } else {
+    cta.href = "./quiz.html";
+    cta.textContent = "Take the quiz + earn certificate ›";
+    copy.textContent = "You’ve completed the modules. Take the quiz to certify—80%+ earns your certificate.";
+  }
 }
 
 init();

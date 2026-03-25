@@ -458,6 +458,25 @@ main { padding: 42px 0 88px; }
 }
 .path-step.done .path-done-badge { display: flex; }
 
+.path-meta {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  transform: translateX(-28px);
+  padding: 5px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(24,26,25,0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font-size: 10px;
+  color: var(--text-2);
+  font-family: var(--mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
 /* ── BUTTONS ──────────────────────────────────────── */
 .btn {
   display: inline-flex; align-items: center;
