@@ -1,11 +1,10 @@
 export function initMatrixBackground(canvas) {
   if (!canvas) return false;
 
-  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (prefersReduced) return false;
+  const prefersReduced = typeof window.matchMedia === "function"
+    && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const ctx = canvas.getContext("2d");
-  if (!ctx) return false;
 
   let width = 0;
   let height = 0;
@@ -23,9 +22,20 @@ export function initMatrixBackground(canvas) {
     height = window.innerHeight;
     canvas.width = width;
     canvas.height = height;
-    columns = Math.floor(width / fontSize);
-    drops = Array.from({ length: columns }, () => Math.floor(Math.random() * (height / fontSize)));
+    if (ctx && !prefersReduced) {
+      columns = Math.floor(width / fontSize);
+      drops = Array.from({ length: columns }, () => Math.floor(Math.random() * (height / fontSize)));
+    }
   }
+
+  resize();
+  window.addEventListener("resize", resize);
+
+  // No 2D context (rare): still show CSS-driven backdrop on #matrix-bg; avoid matrix-static-bg gap.
+  if (!ctx) return true;
+
+  // Reduced motion: keep the stacked PAC gradients on #matrix-bg (site.css) — do not hide canvas or rely only on body::before (inconsistent on some mobile browsers).
+  if (prefersReduced) return true;
 
   function draw() {
     frame += 1;
@@ -52,8 +62,6 @@ export function initMatrixBackground(canvas) {
     rafId = window.requestAnimationFrame(draw);
   }
 
-  resize();
-  window.addEventListener("resize", resize);
   rafId = window.requestAnimationFrame(draw);
 
   document.addEventListener("visibilitychange", () => {
