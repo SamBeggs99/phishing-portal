@@ -411,6 +411,16 @@
     "types-of-phishing": {
       "type": "types-of-phishing",
       "summary": "Phishing comes in many forms — attackers use as many methods as possible to reach you. Each type works a little differently, but they all share the same goal: get you to click, share, or act in a way that puts your information or your organization at risk. You don't need to memorize all of this — just knowing these methods exist makes you significantly harder to fool.",
+      "qrPhishingDemo": {
+        "title": "Try a QR phishing demo",
+        "entice": "New wellness voucher available — scan to verify your details and claim it before it expires.",
+        "instruction": "This is a training simulation. Scan the code to see what a QR phishing flow looks like.",
+        "safety": "Do not enter any real passwords or personal information. If the page asks you to sign in, stop and close it.",
+        "image": {
+          "src": "../../assets/qr-phishing-demo.png",
+          "alt": "Training QR code for a simulated QR phishing demo page"
+        }
+      },
       "deeperLearning": {
         "title": "When in doubt, always ask — that's how we all stay safe",
         "points": [

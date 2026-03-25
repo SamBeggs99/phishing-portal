@@ -379,6 +379,30 @@ function initMissionMode(mission, ui) {
 }
 
 function renderTypes(topic, m) {
+  const qrDemo = topic.qrPhishingDemo?.image?.src ? `
+      <div class="content-section tone-warning">
+        <div class="mono-label" style="margin-bottom:8px;">${escapeHtml(topic.qrPhishingDemo.title || "QR phishing demo")}</div>
+        <h2 style="margin-bottom:6px;">${escapeHtml(topic.qrPhishingDemo.entice || "Scan the code to continue")}</h2>
+        <p class="small-note" style="margin-bottom:12px;">${escapeHtml(topic.qrPhishingDemo.instruction || "")}</p>
+        <div style="display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap;">
+          <img
+            src="${escapeHtml(topic.qrPhishingDemo.image.src)}"
+            alt="${escapeHtml(topic.qrPhishingDemo.image.alt || "QR code")}"
+            style="width:220px;max-width:100%;border-radius:14px;border:1px solid rgba(255,255,255,0.12);background:#fff;padding:10px;"
+            loading="lazy"
+          />
+          <div style="flex:1;min-width:220px;">
+            <div class="mono-label" style="margin:2px 0 8px;">Before you scan</div>
+            <ul class="list-clean">
+              <li>${escapeHtml(topic.qrPhishingDemo.safety || "Do not enter real credentials. Close the page if it requests sensitive info.")}</li>
+              <li>On phones, your camera app will show a preview. If the domain looks unfamiliar, do not proceed.</li>
+              <li>If you’re on desktop or can’t scan, you can still continue—this demo is optional.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+  ` : "";
+
   const types = (topic.types || []).map(t => {
     const signals = (t.signals || []).map(s => `<li>${escapeHtml(s)}</li>`).join("");
     return `
@@ -406,6 +430,7 @@ function renderTypes(topic, m) {
       <div class="content-section">
         <p style="font-size:15px;color:var(--text-2);line-height:1.75;">${escapeHtml(topic.summary || "")}</p>
       </div>
+      ${qrDemo}
       <div class="grid-2">${types}</div>
       ${additionalGuidance}
     </div>`;
