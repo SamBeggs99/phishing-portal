@@ -1165,13 +1165,73 @@ details > .details-body { padding: 0 16px 14px; border-top: 1px solid var(--bord
   background: rgba(30,33,31,0.62);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 22px 24px;
   transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
   margin-bottom: 12px;
 }
 .story-card:hover { border-color: var(--border-2); box-shadow: var(--shadow); transform: translateY(-1px); }
-.story-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 12px; }
-.story-card h3 { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+
+/* Story accordion (collapsible stories) */
+.story-accordion {
+  padding: 0;
+  overflow: hidden;
+}
+.story-accordion > summary {
+  list-style: none;
+}
+.story-accordion > summary::-webkit-details-marker { display: none; }
+.story-accordion > summary.story-summary {
+  padding: 18px 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  background: transparent;
+  color: var(--text-2);
+}
+.story-accordion > summary.story-summary::before {
+  content: '›';
+  font-family: var(--mono);
+  color: rgba(240,241,240,0.55);
+  font-size: 18px;
+  width: 18px;
+  flex-shrink: 0;
+  transform: rotate(0deg);
+  transition: transform var(--transition), color var(--transition);
+  margin-top: 2px;
+}
+.story-accordion[open] > summary.story-summary::before {
+  transform: rotate(90deg);
+  color: rgba(240,241,240,0.75);
+}
+.story-summary-left { flex: 1; min-width: 0; }
+.story-summary-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+  letter-spacing: -0.01em;
+}
+.story-summary-preview {
+  margin-top: 8px;
+  font-size: 12.5px;
+  color: var(--text-3);
+  line-height: 1.55;
+  max-width: 72ch;
+}
+.story-summary-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.story-body {
+  padding: 0 20px 20px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.story-body > :first-child { margin-top: 16px; }
+
 .story-meta { font-family: var(--mono); font-size: 9px; color: var(--pac-red); text-transform: uppercase; letter-spacing: 0.08em; }
 .story-num { font-family: var(--mono); font-size: 32px; font-weight: 700; color: rgba(171,35,40,0.14); line-height: 1; flex-shrink: 0; }
 .story-excerpt { font-size: 13.5px; color: var(--text-2); line-height: 1.7; margin-bottom: 14px; }

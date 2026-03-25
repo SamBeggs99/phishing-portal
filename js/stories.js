@@ -25,33 +25,37 @@ async function init() {
     const quick = renderStory30(item.story30);
     const checkIn = renderStoryCheckIn(item.checkIn, storyId, i);
     const completed = isModuleComplete(storyId);
+    const scenarioPreview = String(item.scenario || "").trim().split(/\n+/)[0].slice(0, 160);
     return `
-    <div class="story-card ${completed ? "completed" : ""}" data-story-id="${escapeHtml(storyId)}">
-      <div class="story-header">
-        <div>
-          <h3>${escapeHtml(item.title)}</h3>
+    <details class="story-card story-accordion ${completed ? "completed" : ""}" data-story-id="${escapeHtml(storyId)}">
+      <summary class="story-summary">
+        <div class="story-summary-left">
+          <div class="story-summary-title">${escapeHtml(item.title)}</div>
           <div class="story-meta">${escapeHtml(item.meta)}</div>
+          ${scenarioPreview ? `<div class="story-summary-preview">${escapeHtml(scenarioPreview)}${String(item.scenario||"").trim().length > scenarioPreview.length ? "…" : ""}</div>` : ""}
         </div>
-        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;">
+        <div class="story-summary-right">
           <div class="story-complete-badge" aria-label="Completed story"><span aria-hidden="true">✓</span> Completed</div>
           <div class="story-num">0${i+1}</div>
         </div>
+      </summary>
+      <div class="story-body">
+        ${quick}
+        <p class="story-excerpt" style="white-space:pre-wrap;">${escapeHtml(item.scenario)}</p>
+        <div class="mono-label" style="margin-bottom:8px;">${escapeHtml(s.whyWorked?.split("—")[0]?.trim() || "Red flags")}</div>
+        <ul class="list-clean" style="margin-bottom:14px;">
+          ${(item.redFlags||[]).map(f=>`<li>${escapeHtml(f)}</li>`).join("")}
+        </ul>
+        <details>
+          <summary>${escapeHtml(s.whyWorked || "Why it worked — and what you can do differently")}</summary>
+          <div class="details-body">
+            <p class="small-note" style="margin-bottom:10px;"><strong style="color:var(--text);">${escapeHtml(s.whyPhishing || "Why it was phishing")}:</strong> ${escapeHtml(item.whyItWasPhishing)}</p>
+            <p class="small-note"><strong style="color:var(--text);">${escapeHtml(s.whatInstead || "What to do instead")}:</strong> ${escapeHtml(item.whatToDo)}</p>
+          </div>
+        </details>
+        ${checkIn}
       </div>
-      ${quick}
-      <p class="story-excerpt" style="white-space:pre-wrap;">${escapeHtml(item.scenario)}</p>
-      <div class="mono-label" style="margin-bottom:8px;">${escapeHtml(s.whyWorked?.split("—")[0]?.trim() || "Red flags")}</div>
-      <ul class="list-clean" style="margin-bottom:14px;">
-        ${(item.redFlags||[]).map(f=>`<li>${escapeHtml(f)}</li>`).join("")}
-      </ul>
-      <details>
-        <summary>${escapeHtml(s.whyWorked || "Why it worked — and what you can do differently")}</summary>
-        <div class="details-body">
-          <p class="small-note" style="margin-bottom:10px;"><strong style="color:var(--text);">${escapeHtml(s.whyPhishing || "Why it was phishing")}:</strong> ${escapeHtml(item.whyItWasPhishing)}</p>
-          <p class="small-note"><strong style="color:var(--text);">${escapeHtml(s.whatInstead || "What to do instead")}:</strong> ${escapeHtml(item.whatToDo)}</p>
-        </div>
-      </details>
-      ${checkIn}
-    </div>`;
+    </details>`;
   }).join("");
 
   initStoryCheckIns();
