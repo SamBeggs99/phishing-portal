@@ -236,7 +236,9 @@
     const innerH = H - pad * 2;
 
     const descLines = wrapLines(desc, 62).slice(0, 4);
-    const bulletLines = (bullets || []).slice(0, 5).map(b => wrapLines(b, 66)[0]);
+    const bulletLineGroups = (bullets || [])
+      .slice(0, 5)
+      .map(b => wrapLines(b, 66).slice(0, 2)); // allow 2-line bullets
 
     let y = pad + 88;
     const tspan = (x, yy, txt, size = 22, weight = 600, fill = "#F0F1F0") =>
@@ -251,8 +253,12 @@
           <stop offset="0%" stop-color="#181A19"/>
           <stop offset="100%" stop-color="#212322"/>
         </linearGradient>
+        <pattern id="dots" x="0" y="0" width="42" height="42" patternUnits="userSpaceOnUse">
+          <circle cx="21" cy="21" r="0.7" fill="rgba(171,35,40,0.16)"/>
+        </pattern>
       </defs>
       <rect width="${W}" height="${H}" fill="url(#bg)"/>
+      <rect width="${W}" height="${H}" fill="url(#dots)" opacity="0.65"/>
       <rect x="${pad}" y="${pad}" width="${innerW}" height="${innerH}" rx="18" fill="rgba(30,33,31,0.72)" stroke="rgba(255,255,255,0.10)"/>
       <rect x="${pad}" y="${pad+64}" width="${innerW}" height="2" fill="rgba(171,35,40,0.65)"/>
     `;
@@ -274,15 +280,34 @@
     const descSvg = descLines.map((l, i) => tspan(pad + 28, y + i * 26, l, 18, 500, "rgba(240,241,240,0.72)")).join("");
     y += descLines.length * 26 + 28;
 
-    const bulletsSvg = bulletLines.map((b, i) => `
-      <text x="${pad + 52}" y="${y + i * 28}" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="18" fill="rgba(240,241,240,0.74)">
-        <tspan fill="rgba(171,35,40,0.95)" font-weight="700">›</tspan>
-        <tspan dx="10">${svgEscape(b)}</tspan>
-      </text>
-    `).join("");
+    const bulletsStartY = y + 18;
+    const bulletBlock = [];
+    let by = bulletsStartY;
+    for (const lines of bulletLineGroups) {
+      if (!lines?.length) continue;
+      const first = lines[0];
+      const second = lines[1];
+      bulletBlock.push(`
+        <text x="${pad + 52}" y="${by}" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="18" fill="rgba(240,241,240,0.74)">
+          <tspan fill="rgba(171,35,40,0.95)" font-weight="700">›</tspan>
+          <tspan dx="10">${svgEscape(first)}</tspan>
+        </text>
+      `);
+      by += 26;
+      if (second) {
+        bulletBlock.push(`
+          <text x="${pad + 82}" y="${by}" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="18" fill="rgba(240,241,240,0.68)">
+            ${svgEscape(second)}
+          </text>
+        `);
+        by += 26;
+      }
+      by += 10;
+    }
+    const bulletsSvg = bulletBlock.join("");
 
     const footer = `
-      <text x="${pad + 28}" y="${H - pad - 18}" font-family="ui-monospace,monospace" font-size="12" fill="rgba(240,241,240,0.35)" letter-spacing="1">
+      <text x="${pad + 28}" y="${H - pad - 20}" font-family="ui-monospace,monospace" font-size="12" fill="rgba(240,241,240,0.35)" letter-spacing="1">
         Remember: Recognize → Rethink → Report
       </text>
     `;
@@ -292,7 +317,7 @@
       ${head}
       ${body}
       ${descSvg}
-      ${mono(pad + 28, y - 10, "HOW TO DO IT", 12, "rgba(240,241,240,0.45)")}
+      ${mono(pad + 28, y - 6, "HOW TO DO IT", 12, "rgba(240,241,240,0.45)")}
       ${bulletsSvg}
       ${footer}
     </svg>`;
