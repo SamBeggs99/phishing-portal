@@ -38,6 +38,31 @@ async function init() {
   const statKeys = ["statModules","statStories","statQuestions","statGame","statCertify"];
   statLabels.forEach((el, i) => { if (statKeys[i]) el.textContent = h[statKeys[i]] || el.textContent; });
 
+  // Why this matters (brief)
+  const wm = document.getElementById("why-matters");
+  if (wm) {
+    const lbl = wm.querySelector(".mono-label");
+    const h2 = wm.querySelector("h2");
+    const p = wm.querySelector("p.small-note");
+    const cards = wm.querySelectorAll(".grid-3 > div");
+    if (lbl) lbl.textContent = h.whyMattersLabel || lbl.textContent;
+    if (h2) h2.textContent = h.whyMattersH2 || h2.textContent;
+    if (p) p.textContent = h.whyMattersBody || p.textContent;
+    const cardMap = [
+      { t: "whyMattersCard1Title", b: "whyMattersCard1Body" },
+      { t: "whyMattersCard2Title", b: "whyMattersCard2Body" },
+      { t: "whyMattersCard3Title", b: "whyMattersCard3Body" }
+    ];
+    cards.forEach((c, i) => {
+      const t = c.querySelector(".mono-label");
+      const bp = c.querySelector("p");
+      if (cardMap[i]) {
+        if (t && h[cardMap[i].t]) t.textContent = h[cardMap[i].t];
+        if (bp && h[cardMap[i].b]) bp.textContent = h[cardMap[i].b];
+      }
+    });
+  }
+
   // Learning path title
   const pathTitle = document.querySelector(".path-rail-label");
   if (pathTitle) pathTitle.textContent = h.pathTitle || "Your Learning Path";
