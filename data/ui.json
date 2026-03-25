@@ -215,7 +215,17 @@
       "today4": "Encontre o botão 'Relatar Mensagem' no Outlook antes de precisar.",
       "today5label": "05 · Verificar mesa",
       "today5": "Alguma senha anotada? Documentos sigilosos visíveis? Guarde-os hoje.",
-      "reportLabel": "Denunciar phishing"
+      "reportLabel": "Denunciar phishing",
+      "whyMattersLabel": "Por que isso importa",
+      "whyMattersH2": "A cibersegurança é responsabilidade de todos",
+      "whyMattersBody": "A maioria dos incidentes começa com uma mensagem que parece normal. Este treinamento dá a você as habilidades para identificar phishing rapidamente e reportar do jeito PAC — protegendo você, a PAC e nossos clientes.",
+      "whyMattersCard1Title": "Proteja seus dados",
+      "whyMattersCard1Body": "Evite invasões de conta e uso indevido de identidade. Uma pausa de 10 segundos pode economizar horas de recuperação.",
+      "whyMattersCard2Title": "Proteja a empresa",
+      "whyMattersCard2Body": "Phishing leva a credenciais roubadas, fraude de faturas e acesso a sistemas. Reportar rápido ajuda a TI a interromper campanhas cedo.",
+      "whyMattersCard3Title": "Proteja os clientes",
+      "whyMattersCard3Body": "Os clientes confiam suas informações a nós. Bons hábitos reduzem o risco de exposição de dados e protegem relacionamentos.",
+      "factsLabel": "Estatísticas — em resumo"
     },
     "module": {
       "eyebrow": "Módulo",
@@ -360,7 +370,17 @@
       "today4": "在需要之前，先找到Outlook中的\"举报邮件\"按钮。",
       "today5label": "05 · 桌面检查",
       "today5": "是否有写下的密码？是否有敏感文件可见？今天就整理好。",
-      "reportLabel": "举报钓鱼邮件"
+      "reportLabel": "举报钓鱼邮件",
+      "whyMattersLabel": "为什么这很重要",
+      "whyMattersH2": "网络安全是每个人的责任",
+      "whyMattersBody": "大多数事件都始于一条看起来很正常的消息。本培训帮助你快速识别钓鱼并按 PAC 的方式进行举报——从而保护你自己、PAC 以及我们的客户。",
+      "whyMattersCard1Title": "保护你的数据",
+      "whyMattersCard1Body": "防止账号被接管和身份被滥用。停顿 10 秒，可能省下数小时的善后。",
+      "whyMattersCard2Title": "保护公司",
+      "whyMattersCard2Body": "钓鱼会导致凭据被盗、发票诈骗和系统被入侵。快速举报可帮助 IT 尽早阻断攻击活动。",
+      "whyMattersCard3Title": "保护客户",
+      "whyMattersCard3Body": "客户将信息托付给我们。良好习惯能降低数据泄露风险，守护信任关系。",
+      "factsLabel": "统计数据 — 一目了然"
     },
     "module": {
       "eyebrow": "模块",
@@ -505,7 +525,17 @@
       "today4": "Encuentra el botón 'Reportar mensaje' en Outlook antes de necesitarlo.",
       "today5label": "05 · Revisar escritorio",
       "today5": "¿Hay contraseñas anotadas? ¿Documentos confidenciales visibles? Guárdalos hoy.",
-      "reportLabel": "Reportar phishing"
+      "reportLabel": "Reportar phishing",
+      "whyMattersLabel": "Por qué esto importa",
+      "whyMattersH2": "La ciberseguridad es responsabilidad de todos",
+      "whyMattersBody": "La mayoría de los incidentes comienza con un mensaje que parece normal. Esta capacitación te da las habilidades para detectar phishing rápidamente y reportarlo a la manera PAC — así proteges tus datos, a PAC y a nuestros clientes.",
+      "whyMattersCard1Title": "Protege tus datos",
+      "whyMattersCard1Body": "Evita el secuestro de cuentas y el uso indebido de tu identidad. Una pausa de 10 segundos puede ahorrar horas de recuperación.",
+      "whyMattersCard2Title": "Protege a la empresa",
+      "whyMattersCard2Body": "El phishing provoca robo de credenciales, fraude de facturas y acceso a sistemas. Reportar rápido ayuda a TI a frenar campañas a tiempo.",
+      "whyMattersCard3Title": "Protege a los clientes",
+      "whyMattersCard3Body": "Los clientes confían su información en nosotros. Buenos hábitos reducen el riesgo de exposición de datos y protegen las relaciones.",
+      "factsLabel": "Estadísticas — de un vistazo"
     },
     "module": {
       "eyebrow": "Módulo",
