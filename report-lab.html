@@ -7,8 +7,9 @@
   <link rel="stylesheet" href="./styles/site.css"/>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 <div id="header-root"></div>
-<main class="container">
+<main id="main-content" class="container" tabindex="-1">
   <div class="page-hero">
     <div class="page-eyebrow">Report Lab</div>
     <h1>Report phishing the PAC way</h1>
@@ -139,7 +140,7 @@
         </div>
       </div>
 
-      <div class="report-lab-modal hidden" id="rl-modal" role="dialog" aria-modal="true" aria-label="Barracuda report dialog">
+      <div class="report-lab-modal hidden" id="rl-modal" role="dialog" aria-modal="true" aria-label="Barracuda report dialog" aria-hidden="true">
         <div class="report-lab-modal-panel">
           <div class="report-lab-modal-head">
             <div class="mono-label">Barracuda Email Protection</div>

@@ -51,12 +51,50 @@ export function initMobileNav() {
 }
 
 const STORAGE_KEY = "pac_it_training_v4";
+/** Progress expires if nothing new is saved for this long (sliding: each completion refreshes the clock). */
+const PROGRESS_MAX_AGE_MS = 45 * 24 * 60 * 60 * 1000;
+
+function isEnvelope(v) {
+  return (
+    !!v &&
+    typeof v === "object" &&
+    typeof v.savedAt === "number" &&
+    Number.isFinite(v.savedAt) &&
+    v.modules != null &&
+    typeof v.modules === "object"
+  );
+}
 
 function getProgress() {
-  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}"); } catch { return {}; }
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return {};
+    const parsed = JSON.parse(raw);
+    if (isEnvelope(parsed)) {
+      if (Date.now() - parsed.savedAt > PROGRESS_MAX_AGE_MS) {
+        localStorage.removeItem(STORAGE_KEY);
+        try {
+          localStorage.removeItem("pac_quiz_name");
+        } catch {
+          /* ignore */
+        }
+        return {};
+      }
+      return { ...parsed.modules };
+    }
+    const legacy = { ...parsed };
+    saveProgress(legacy);
+    return legacy;
+  } catch {
+    return {};
+  }
 }
-function saveProgress(data) {
-  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch {}
+
+function saveProgress(modules) {
+  try {
+    const payload = { savedAt: Date.now(), modules: { ...modules } };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+  } catch {}
 }
 
 export const MODULE_GROUPS = {

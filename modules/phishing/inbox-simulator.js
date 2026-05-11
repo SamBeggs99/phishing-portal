@@ -77,6 +77,7 @@ const MESSAGES = [
 let selectedId = null;
 let didInspect = false;
 let score = { correct: 0, total: 0 };
+let simModalReturnFocus = null;
 
 async function init() {
   const ui = await initI18n("../..");
@@ -268,12 +269,54 @@ function openDemoPage(href, msg) {
   if (status) status.textContent = `Link opened — now decide: report or delete (Score: ${score.correct} / ${score.total})`;
 }
 
+function getSimModalFocusables() {
+  const modal = document.getElementById("sim-modal");
+  if (!modal) return [];
+  const panel = modal.querySelector(".sim-modal-panel");
+  if (!panel) return [];
+  const sel =
+    "a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex='-1'])";
+  return Array.from(panel.querySelectorAll(sel)).filter((el) => {
+    if (!(el instanceof HTMLElement) || el.tabIndex === -1) return false;
+    return el.offsetParent !== null;
+  });
+}
+
 function wireModal() {
   const modal = document.getElementById("sim-modal");
   const close = document.getElementById("sim-modal-close");
   close?.addEventListener("click", closeModal);
   modal?.addEventListener("click", (e) => { if (e.target === modal) closeModal(); });
-  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
+  document.addEventListener(
+    "keydown",
+    (e) => {
+      const m = document.getElementById("sim-modal");
+      if (!m || m.classList.contains("hidden")) return;
+      if (e.key === "Escape") {
+        e.preventDefault();
+        closeModal();
+        return;
+      }
+      if (e.key !== "Tab") return;
+      const items = getSimModalFocusables();
+      if (!items.length) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      const panel = m.querySelector(".sim-modal-panel");
+      const active = document.activeElement;
+      const inside = panel && active instanceof Node && panel.contains(active);
+      if (e.shiftKey) {
+        if (active === first || !inside) {
+          e.preventDefault();
+          last.focus();
+        }
+      } else if (active === last || !inside) {
+        e.preventDefault();
+        first.focus();
+      }
+    },
+    true
+  );
 }
 
 function openModal(title, html) {
@@ -281,19 +324,40 @@ function openModal(title, html) {
   const body = document.getElementById("sim-modal-body");
   const t = document.getElementById("sim-modal-title");
   if (!modal || !body || !t) return;
+  const wasHidden = modal.classList.contains("hidden");
+  if (wasHidden) {
+    simModalReturnFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+  }
   t.textContent = title;
   body.innerHTML = html;
   modal.classList.remove("hidden");
+  modal.setAttribute("aria-hidden", "false");
   document.body.classList.add("sim-lock");
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      document.getElementById("sim-modal-close")?.focus({ preventScroll: true });
+    });
+  });
 }
 
 function closeModal() {
   const modal = document.getElementById("sim-modal");
   const body = document.getElementById("sim-modal-body");
   if (!modal || !body) return;
+  if (modal.classList.contains("hidden")) return;
   modal.classList.add("hidden");
+  modal.setAttribute("aria-hidden", "true");
   body.innerHTML = "";
   document.body.classList.remove("sim-lock");
+  const el = simModalReturnFocus;
+  simModalReturnFocus = null;
+  if (el && document.contains(el)) {
+    try {
+      el.focus({ preventScroll: true });
+    } catch {
+      /* ignore */
+    }
+  }
 }
 
 init();

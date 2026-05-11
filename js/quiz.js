@@ -10,16 +10,21 @@ function makeCertSVG({ name, score, passed, date, ui }) {
   const subtitle = q.certSubtitle || "has successfully completed the PAC Phishing Awareness Assessment";
   const issuedLabel = q.certIssued || "ISSUED";
   const slogan = q.certSlogan || "INTEGRATED GLOBALLY › IMPLEMENTED LOCALLY";
+  const scoreNum = escapeHtml(String(score ?? ""));
+  const scoreColor = passed ? "#2ECC71" : "#F5A623";
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
-  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#181A19"/><stop offset="100%" stop-color="#212322"/></linearGradient></defs>
-  <rect width="1400" height="900" fill="url(#bg)"/>
-  <pattern id="dots" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="0.7" fill="rgba(171,35,40,0.15)"/></pattern>
-  <rect width="1400" height="900" fill="url(#dots)"/>
-  <rect x="60" y="60" width="1280" height="780" rx="16" fill="none" stroke="rgba(171,35,40,0.22)" stroke-width="1"/>
-  <rect x="72" y="108" width="1256" height="4" rx="2" fill="#AB2328" opacity="0.7"/>
-  <rect x="72" y="788" width="1256" height="2" rx="1" fill="#AB2328" opacity="0.3"/>
-  <g transform="translate(676,145)">
+  <defs>
+    <linearGradient id="cert-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a1c1b"/><stop offset="100%" stop-color="#141615"/></linearGradient>
+  </defs>
+  <rect width="1400" height="900" fill="url(#cert-bg)"/>
+  <pattern id="cert-grain" x="0" y="0" width="6" height="6" patternUnits="userSpaceOnUse">
+    <line x1="0" y1="0" x2="0" y2="6" stroke="rgba(255,255,255,0.02)" stroke-width="1"/>
+  </pattern>
+  <rect width="1400" height="900" fill="url(#cert-grain)"/>
+  <rect x="72" y="72" width="1256" height="756" rx="18" fill="rgba(30,33,31,0.35)" stroke="rgba(171,35,40,0.35)" stroke-width="1"/>
+  <rect x="100" y="100" width="1200" height="4" rx="2" fill="#AB2328" opacity="0.85"/>
+  <g transform="translate(676,152)">
     <polygon points="24,2 28,12 38,12 30,18 33,28 24,22 15,28 18,18 10,12 20,12" fill="none" stroke="#AB2328" stroke-width="1.5" stroke-linejoin="round"/>
     <polygon points="24,7 26,12 31,12 27,15 28.5,20 24,17 19.5,20 21,15 17,12 22,12" fill="#AB2328" opacity="0.25"/>
     <line x1="24" y1="2" x2="24" y2="0" stroke="#AB2328" stroke-width="1.2" stroke-linecap="round"/>
@@ -27,19 +32,17 @@ function makeCertSVG({ name, score, passed, date, ui }) {
     <line x1="24" y1="28" x2="24" y2="30" stroke="#AB2328" stroke-width="1.2" stroke-linecap="round"/>
     <line x1="10" y1="15" x2="8" y2="15" stroke="#AB2328" stroke-width="1.2" stroke-linecap="round"/>
   </g>
-  <text x="700" y="224" text-anchor="middle" font-size="13" font-family="ui-monospace,monospace" fill="rgba(171,35,40,0.9)" letter-spacing="4">THE PAC GROUP · IT SECURITY TRAINING</text>
-  <text x="700" y="274" text-anchor="middle" font-size="20" font-family="ui-sans-serif,system-ui,sans-serif" fill="${statusColor}" font-weight="600">${escapeHtml(statusLabel)}</text>
-  <rect x="600" y="290" width="200" height="1" fill="rgba(255,255,255,0.08)"/>
-  <text x="700" y="428" text-anchor="middle" font-size="54" font-family="ui-sans-serif,system-ui,sans-serif" fill="#F0F1F0" font-weight="600" letter-spacing="-1">${safeName}</text>
-  <text x="700" y="484" text-anchor="middle" font-size="18" font-family="ui-sans-serif,system-ui,sans-serif" fill="rgba(240,241,240,0.6)">${escapeHtml(subtitle)}</text>
-  <rect x="612" y="510" width="176" height="46" rx="8" fill="rgba(171,35,40,0.15)" stroke="rgba(171,35,40,0.3)" stroke-width="1"/>
-  <text x="700" y="529" text-anchor="middle" font-size="11" font-family="ui-monospace,monospace" fill="rgba(171,35,40,0.8)" letter-spacing="2">SCORE</text>
-  <text x="700" y="549" text-anchor="middle" font-size="17" font-family="ui-monospace,monospace" fill="#AB2328" font-weight="700">${score}%</text>
-  <text x="120" y="736" font-size="13" font-family="ui-monospace,monospace" fill="rgba(240,241,240,0.35)" letter-spacing="0.5">${escapeHtml(issuedLabel)}: ${escapeHtml(date)}</text>
-  <text x="1280" y="736" text-anchor="end" font-size="11" font-family="ui-monospace,monospace" fill="rgba(240,241,240,0.3)" letter-spacing="0.5">${escapeHtml(slogan)}</text>
-  <circle cx="120" cy="796" r="5" fill="#AB2328" opacity="0.7"/>
-  <circle cx="136" cy="796" r="5" fill="#AB2328" opacity="0.4"/>
-  <circle cx="152" cy="796" r="5" fill="#AB2328" opacity="0.2"/>
+  <text x="700" y="218" text-anchor="middle" font-size="12" font-family="ui-monospace,monospace" fill="#c75c60" letter-spacing="0.22em">THE PAC GROUP · IT SECURITY TRAINING</text>
+  <text x="700" y="262" text-anchor="middle" font-size="22" font-family="ui-sans-serif,system-ui,sans-serif" fill="${statusColor}" font-weight="600">${escapeHtml(statusLabel)}</text>
+  <line x1="460" y1="288" x2="940" y2="288" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+  <text x="700" y="368" text-anchor="middle" font-size="52" font-family="ui-sans-serif,system-ui,sans-serif" fill="#F0F1F0" font-weight="600" letter-spacing="-0.02em">${safeName}</text>
+  <text x="700" y="418" text-anchor="middle" font-size="17" font-family="ui-sans-serif,system-ui,sans-serif" fill="rgba(240,241,240,0.72)">${escapeHtml(subtitle)}</text>
+  <rect x="530" y="448" width="340" height="88" rx="12" fill="rgba(0,0,0,0.35)" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
+  <text x="700" y="482" text-anchor="middle" font-size="11" font-family="ui-monospace,monospace" fill="rgba(240,241,240,0.55)" letter-spacing="0.2em">SCORE</text>
+  <text x="700" y="520" text-anchor="middle" font-size="32" font-family="ui-monospace,monospace" fill="${scoreColor}" font-weight="700">${scoreNum}%</text>
+  <rect x="100" y="748" width="1200" height="4" rx="2" fill="#AB2328" opacity="0.85"/>
+  <text x="116" y="808" font-size="13" font-family="ui-monospace,monospace" fill="rgba(240,241,240,0.55)" letter-spacing="0.04em">${escapeHtml(issuedLabel)}: ${escapeHtml(date)}</text>
+  <text x="1284" y="808" text-anchor="end" font-size="12" font-family="ui-monospace,monospace" fill="rgba(240,241,240,0.5)" letter-spacing="0.12em">${escapeHtml(slogan)}</text>
 </svg>`;
 }
 

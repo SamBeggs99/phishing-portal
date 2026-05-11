@@ -150,31 +150,31 @@
     {
       "id": "q6",
       "topic": "authority",
-      "question": "Which of the following would your organization's IT team or leadership legitimately ask you to do via email?",
+      "question": "Which statement best matches how legitimate IT teams and leadership handle passwords, logins, and money requests?",
       "choices": [
         {
           "id": "a",
-          "label": "Provide your current password to verify your account",
-          "hint": "No legitimate IT team ever needs your password."
+          "label": "They may email you asking for your current password to verify your account",
+          "hint": "Legitimate IT never needs your password in email or chat."
         },
         {
           "id": "b",
-          "label": "Scan a QR code in the email to validate your credentials",
-          "hint": "Credential validation via QR code in email is a red flag."
+          "label": "They may ask you to validate your identity by scanning a QR code in a generic security email",
+          "hint": "Unexpected QR flows in email are a common quishing pattern."
         },
         {
           "id": "c",
-          "label": "Click a link to reset your password when you have requested a reset yourself",
-          "hint": "Password reset links you requested yourself are expected and legitimate."
+          "label": "They direct you to approved self-service portals or known support channels—not ask for your password in email",
+          "hint": "Sensitive steps belong in systems and processes you already trust, not in email replies."
         },
         {
           "id": "d",
-          "label": "Transfer funds to a new vendor account urgently without going through finance",
-          "hint": "Bypassing normal financial processes is never legitimate."
+          "label": "They may ask you to wire or transfer funds urgently outside normal finance approval",
+          "hint": "Bypassing finance controls is a hallmark of BEC scams."
         }
       ],
       "correctChoiceId": "c",
-      "explanation": "A password reset link you specifically requested is legitimate. Your organization will never email you asking for your password, ask you to validate credentials via a QR code, or request financial transfers that bypass your normal approval process."
+      "explanation": "Real IT uses official portals, tickets, and documented channels for account changes. They do not collect passwords by email, use ad-hoc QR flows to “validate” you, or bypass finance for payments. When in doubt, verify through a channel you already know—not the contact path in the message."
     },
     {
       "id": "q7",

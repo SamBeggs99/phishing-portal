@@ -7,8 +7,9 @@
   <link rel="stylesheet" href="../../styles/site.css"/>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 <div id="header-root"></div>
-<main class="container">
+<main id="main-content" class="container" tabindex="-1">
   <div class="page-hero">
     <div class="page-eyebrow">Phishing Practice</div>
     <h1>Inbox Simulator</h1>
@@ -57,7 +58,7 @@
 </main>
 <div id="footer-root"></div>
 
-<div class="sim-modal hidden" id="sim-modal" role="dialog" aria-modal="true" aria-label="Simulator dialog">
+<div class="sim-modal hidden" id="sim-modal" role="dialog" aria-modal="true" aria-label="Simulator dialog" aria-hidden="true">
   <div class="sim-modal-panel">
     <div class="sim-modal-head">
       <div class="mono-label" id="sim-modal-title">Preview</div>

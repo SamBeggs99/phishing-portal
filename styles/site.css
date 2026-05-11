@@ -43,6 +43,10 @@
 
   --shadow:        0 6px 20px rgba(0,0,0,0.22);
   --shadow-red:    0 6px 18px rgba(171,35,40,0.16);
+
+  /* Keyboard focus ring (WCAG-friendly on dark UI) */
+  --focus-ring:    #f0d78a;
+  --focus-shadow:  0 0 0 3px rgba(240,215,138,0.35);
 }
 
 /* ── RESET ────────────────────────────────────────── */
@@ -111,6 +115,90 @@ main,
 a { color: inherit; text-decoration: none; }
 img, svg { display: block; }
 button { font-family: inherit; cursor: pointer; }
+
+/* ── SKIP LINK + FOCUS VISIBLE ───────────────────── */
+.skip-link {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  z-index: 500;
+  padding: 10px 16px;
+  border-radius: var(--radius);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--focus-ring);
+  border: 2px solid var(--pac-red);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.skip-link:focus,
+.skip-link:focus-visible {
+  clip-path: none;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  outline: none;
+  box-shadow: var(--focus-shadow), 0 8px 24px rgba(0,0,0,0.45);
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+  box-shadow: var(--focus-shadow);
+}
+.btn:focus-visible,
+.nav-quiz-link:focus-visible {
+  outline-offset: 3px;
+}
+.navlinks a:focus-visible,
+.footer-links a:focus-visible,
+.path-rail-step:focus-visible,
+.path-step:focus-visible,
+.module-card:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+  box-shadow: var(--focus-shadow);
+}
+.nav-toggle:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+  border-radius: 8px;
+  box-shadow: var(--focus-shadow);
+}
+.choice:has(:focus-visible),
+.checkin-choice:has(:focus-visible),
+.ms-choice:has(:focus-visible),
+.mission-choice:has(:focus-visible),
+.rf-choice:has(:focus-visible) {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 1px;
+  box-shadow: var(--focus-shadow);
+}
+.inbox-sim-item:focus-visible,
+.report-lab-tool:focus-visible,
+.report-lab-tab:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+  box-shadow: var(--focus-shadow);
+}
+.sim-modal-close:focus-visible,
+.mission-surprise-close:focus-visible,
+.report-lab-modal-close:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
 
 /* ── LAYOUT ───────────────────────────────────────── */
 .container { width: min(1160px, 94vw); margin: 0 auto; }
@@ -1342,7 +1430,7 @@ input[type="text"] {
   transition: border-color var(--transition), box-shadow var(--transition);
 }
 input[type="text"]::placeholder { color: var(--text-4); }
-input[type="text"]:focus {
+input[type="text"]:focus-visible {
   border-color: var(--border-red);
   box-shadow: 0 0 0 3px rgba(171,35,40,0.1);
 }

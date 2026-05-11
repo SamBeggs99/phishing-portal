@@ -25,6 +25,20 @@ const STEPS = [
 let stepIdx = 0;
 let openedDialog = false;
 let reported = false;
+let rlModalReturnFocus = null;
+
+function getRlModalFocusables() {
+  const modal = document.getElementById("rl-modal");
+  if (!modal) return [];
+  const panel = modal.querySelector(".report-lab-modal-panel");
+  if (!panel) return [];
+  const sel =
+    "a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex='-1'])";
+  return Array.from(panel.querySelectorAll(sel)).filter((el) => {
+    if (!(el instanceof HTMLElement) || el.tabIndex === -1) return false;
+    return el.offsetParent !== null;
+  });
+}
 
 async function init() {
   const ui = await initI18n(".");
@@ -72,7 +86,36 @@ function wireModal() {
   document.getElementById("rl-modal-close")?.addEventListener("click", closeModal);
   document.getElementById("rl-modal-cancel")?.addEventListener("click", closeModal);
   document.getElementById("rl-modal")?.addEventListener("click", (e) => { if (e.target?.id === "rl-modal") closeModal(); });
-  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
+  document.addEventListener(
+    "keydown",
+    (e) => {
+      const m = document.getElementById("rl-modal");
+      if (!m || m.classList.contains("hidden")) return;
+      if (e.key === "Escape") {
+        e.preventDefault();
+        closeModal();
+        return;
+      }
+      if (e.key !== "Tab") return;
+      const items = getRlModalFocusables();
+      if (!items.length) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      const panel = m.querySelector(".report-lab-modal-panel");
+      const active = document.activeElement;
+      const inside = panel && active instanceof Node && panel.contains(active);
+      if (e.shiftKey) {
+        if (active === first || !inside) {
+          e.preventDefault();
+          last.focus();
+        }
+      } else if (active === last || !inside) {
+        e.preventDefault();
+        first.focus();
+      }
+    },
+    true
+  );
 
   document.getElementById("rl-modal-report")?.addEventListener("click", () => {
     reported = true;
@@ -81,6 +124,7 @@ function wireModal() {
     setCompletedUI(true);
     if (stepIdx < 2) stepIdx = 2;
     render();
+    closeModal();
   });
 }
 
@@ -122,15 +166,36 @@ function render() {
 function openModal() {
   const modal = document.getElementById("rl-modal");
   if (!modal) return;
+  const wasHidden = modal.classList.contains("hidden");
+  if (wasHidden) {
+    rlModalReturnFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+  }
   modal.classList.remove("hidden");
+  modal.setAttribute("aria-hidden", "false");
   document.body.classList.add("sim-lock");
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      document.getElementById("rl-modal-close")?.focus({ preventScroll: true });
+    });
+  });
 }
 
 function closeModal() {
   const modal = document.getElementById("rl-modal");
   if (!modal) return;
+  if (modal.classList.contains("hidden")) return;
   modal.classList.add("hidden");
+  modal.setAttribute("aria-hidden", "true");
   document.body.classList.remove("sim-lock");
+  const el = rlModalReturnFocus;
+  rlModalReturnFocus = null;
+  if (el && document.contains(el)) {
+    try {
+      el.focus({ preventScroll: true });
+    } catch {
+      /* ignore */
+    }
+  }
 }
 
 function showToast(msg) {
