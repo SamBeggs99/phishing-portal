@@ -1,3 +1,7 @@
+import { TRAINING_MODULE_IDS } from "./shared.js";
+
+const TRAINING_MODULE_TOTAL = TRAINING_MODULE_IDS.length;
+
 export function getHeaderHTML({ rootPrefix = ".", ui = null } = {}) {
   const r = rootPrefix;
   const n = ui?.nav || {};
@@ -60,7 +64,7 @@ export function getHeaderHTML({ rootPrefix = ".", ui = null } = {}) {
   <div class="container progress-inner">
     <span class="progress-label">${p.label || "Your progress"}</span>
     <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
-    <span class="progress-count" id="progress-count" data-tpl="${progressTpl}">0 / 12</span>
+    <span class="progress-count" id="progress-count" data-tpl="${progressTpl}">0 / ${TRAINING_MODULE_TOTAL}</span>
   </div>
 </div>`;
 }

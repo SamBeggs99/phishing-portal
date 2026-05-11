@@ -1,4 +1,12 @@
-import { setActiveNav, initMobileNav, updateProgressBar, applyCompletionToCards, getTrainingProgress, MODULE_GROUPS } from "./shared.js";
+import {
+  setActiveNav,
+  initMobileNav,
+  updateProgressBar,
+  applyCompletionToCards,
+  getTrainingProgress,
+  MODULE_GROUPS,
+  TRAINING_MODULE_IDS,
+} from "./shared.js";
 import { getHeaderHTML, getFooterHTML } from "./header.js";
 import { initI18n, getUI } from "./i18n.js";
 
@@ -32,7 +40,10 @@ async function init() {
   if (ctaBtns[0]) ctaBtns[0].textContent = (h.ctaStart || "Start Your Training") + " ›";
   if (ctaBtns[1]) ctaBtns[1].textContent = h.ctaQuiz || "Take the Quiz";
 
-  // Stats
+  // Stats (module total follows TRAINING_MODULE_IDS in shared.js)
+  const heroModTotal = document.querySelector('.stat-num[data-hero-stat="total-modules"]');
+  if (heroModTotal) heroModTotal.textContent = String(TRAINING_MODULE_IDS.length);
+
   const statLabels = document.querySelectorAll(".stat-label");
   const statKeys = ["statModules","statStories","statQuestions","statGame","statCertify"];
   statLabels.forEach((el, i) => { if (statKeys[i]) el.textContent = h[statKeys[i]] || el.textContent; });

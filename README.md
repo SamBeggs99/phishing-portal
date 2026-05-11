@@ -11,7 +11,7 @@ A fully branded, static security awareness training portal for The PAC Group, de
 |------|------|-------------|
 | Home | `index.html` | PAC-branded hero, learning path, PhishCraft game embed, "Do This Today" checklist |
 | Phishing Modules | `modules/phishing/index.html` | 5 phishing tactic modules |
-| IT Security Modules | `modules/it-security/index.html` | 7 IT security topic modules |
+| IT Security Modules | `modules/it-security/index.html` | 8 IT security topic modules |
 | Defence Strategies | `strategies.html` | Recognize → Rethink → Report + "PAC will never ask" list |
 | Real Stories | `stories.html` | 5 real-world attack stories |
 | Quiz | `quiz.html` | 10-question assessment, 80% pass threshold, PAC certificate |
@@ -19,17 +19,17 @@ A fully branded, static security awareness training portal for The PAC Group, de
 ### Phishing Modules (5)
 - Urgency · Intimidation · Scarcity · Authority · Types of Phishing
 
-### IT Security Modules (7)
+### IT Security Modules (8)
 - Clean Desk Policy · Password Hygiene · Acceptable Use Policy
 - Physical Security & Tailgating · Social Media Safety
-- Working Remotely & VPN · Incident Reporting
+- Working Remotely & VPN · Incident Reporting · AI Acceptable Use
 
 Each IT module includes a real-world story, red flags, and response steps.
 
 ### Features
 - **PhishCraft game** embedded on the home page (hosted at sambeggs99.github.io/PAC_Phishcraft/)
 - **Module completion tracking** — checkmarks appear on cards as modules are visited (localStorage)
-- **Progress bar** — shows how many of 12 modules have been completed
+- **Progress bar** — shows how many of 13 training modules have been completed (5 phishing + 8 IT)
 - **"Do This Today" checklist** — 5 immediate actions on the home page
 - **PAC certificate** — SVG certificate generated in-browser, downloadable and printable
 - **Mobile-first responsive** — works on all screen sizes
