@@ -47,7 +47,27 @@ export function initMobileNav() {
   const toggle = document.getElementById("nav-toggle");
   const mobileNav = document.getElementById("nav-mobile");
   if (!toggle || !mobileNav) return;
-  toggle.addEventListener("click", () => mobileNav.classList.toggle("open"));
+
+  const setOpen = (open) => {
+    mobileNav.classList.toggle("open", open);
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    document.documentElement.classList.toggle("nav-mobile-open", open);
+  };
+
+  toggle.addEventListener("click", () => {
+    setOpen(!mobileNav.classList.contains("open"));
+  });
+
+  mobileNav.querySelectorAll("a").forEach((a) => {
+    a.addEventListener("click", () => setOpen(false));
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key !== "Escape") return;
+    if (!mobileNav.classList.contains("open")) return;
+    setOpen(false);
+    toggle.focus();
+  });
 }
 
 const STORAGE_KEY = "pac_it_training_v4";

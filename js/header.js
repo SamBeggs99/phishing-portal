@@ -26,7 +26,7 @@ export function getHeaderHTML({ rootPrefix = ".", ui = null } = {}) {
     </a>
 
     <div class="nav-actions">
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-mobile">
         <span></span><span></span><span></span>
       </button>
     </div>
