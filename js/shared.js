@@ -162,3 +162,111 @@ export function initCheckIn(questions, ui) {
     });
   });
 }
+
+const MISSION_SURPRISE_CLOSE = "__pacCloseMissionSurprise";
+
+/**
+ * Random-delay mission overlay: Escape to close, Tab trap, focus return, and a stable close hook for post-score teardown.
+ */
+export function setupMissionSurpriseOverlay({ moduleKey, mission, overlay, panel, closeBtn }) {
+  if (!mission?.steps?.length || !overlay || !panel || !closeBtn) return;
+
+  const seenKey = `mission_prompt_seen_${moduleKey}`;
+  if (sessionStorage.getItem(seenKey) === "1") return;
+
+  let savedActive = null;
+  let onKeydown = null;
+
+  const focusableSelector =
+    "a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex='-1'])";
+
+  function getFocusables() {
+    return Array.from(panel.querySelectorAll(focusableSelector)).filter((el) => {
+      if (!(el instanceof HTMLElement)) return false;
+      if (el.tabIndex === -1) return false;
+      return el.offsetParent !== null || el === closeBtn;
+    });
+  }
+
+  function close() {
+    if (onKeydown) {
+      document.removeEventListener("keydown", onKeydown, true);
+      onKeydown = null;
+    }
+    const hadTrap = !overlay.classList.contains("hidden");
+    overlay.classList.add("hidden");
+    panel.classList.add("hidden");
+    overlay.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("mission-lock");
+    sessionStorage.setItem(seenKey, "1");
+    overlay[MISSION_SURPRISE_CLOSE] = undefined;
+    if (hadTrap && savedActive instanceof HTMLElement && document.contains(savedActive)) {
+      try {
+        savedActive.focus({ preventScroll: true });
+      } catch {
+        /* ignore */
+      }
+    }
+    savedActive = null;
+  }
+
+  function open() {
+    if (sessionStorage.getItem(seenKey) === "1") return;
+    savedActive = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    overlay.classList.remove("hidden");
+    panel.classList.remove("hidden");
+    overlay.setAttribute("aria-hidden", "false");
+    document.body.classList.add("mission-lock");
+
+    onKeydown = (e) => {
+      if (overlay.classList.contains("hidden")) return;
+      if (e.key === "Escape") {
+        e.preventDefault();
+        close();
+        return;
+      }
+      if (e.key !== "Tab") return;
+      const items = getFocusables();
+      if (!items.length) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      const active = document.activeElement;
+      const activeInPanel = active instanceof Node && panel.contains(active);
+      if (e.shiftKey) {
+        if (active === first || !activeInPanel) {
+          e.preventDefault();
+          last.focus();
+        }
+      } else if (active === last || !activeInPanel) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener("keydown", onKeydown, true);
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        try {
+          closeBtn.focus({ preventScroll: true });
+        } catch {
+          /* ignore */
+        }
+      });
+    });
+  }
+
+  closeBtn.addEventListener("click", close);
+  overlay[MISSION_SURPRISE_CLOSE] = close;
+
+  const delayMs = (Math.floor(Math.random() * 11) + 5) * 1000;
+  setTimeout(() => {
+    if (sessionStorage.getItem(seenKey) === "1") return;
+    open();
+  }, delayMs);
+}
+
+/** Used after "Score my mission" so Escape handler and focus restore run. */
+export function closeMissionSurpriseOverlayIfPresent() {
+  const overlay = document.getElementById("mission-surprise-overlay");
+  const fn = overlay?.[MISSION_SURPRISE_CLOSE];
+  if (typeof fn === "function") fn();
+}

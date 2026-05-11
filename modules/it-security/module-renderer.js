@@ -1,4 +1,14 @@
-import { escapeHtml, setActiveNav, initMobileNav, updateProgressBar, markModuleComplete, renderCheckIn, initCheckIn } from "../../js/shared.js";
+import {
+  escapeHtml,
+  setActiveNav,
+  initMobileNav,
+  updateProgressBar,
+  markModuleComplete,
+  renderCheckIn,
+  initCheckIn,
+  setupMissionSurpriseOverlay,
+  closeMissionSurpriseOverlayIfPresent
+} from "../../js/shared.js";
 import { getHeaderHTML, getFooterHTML } from "../../js/header.js";
 import { initI18n, fetchDataJson } from "../../js/i18n.js";
 
@@ -302,7 +312,7 @@ function renderExpandableGroup(label, sections) {
 function renderMissionSurprise(missionHTML) {
   if (!missionHTML) return "";
   return `
-    <div id="mission-surprise-overlay" class="mission-surprise-overlay hidden" role="dialog" aria-modal="true" aria-label="Mission Mode">
+    <div id="mission-surprise-overlay" class="mission-surprise-overlay hidden" role="dialog" aria-modal="true" aria-label="Mission Mode" aria-hidden="true">
       <div id="mission-surprise-panel" class="mission-surprise-panel hidden">
         <button class="mission-surprise-close" id="mission-surprise-close" type="button" aria-label="Close mission">×</button>
         <div class="mission-surprise-head">
@@ -316,29 +326,10 @@ function renderMissionSurprise(missionHTML) {
 }
 
 function initMissionSurprise(moduleKey, mission) {
-  if (!mission?.steps?.length) return;
   const overlay = document.getElementById("mission-surprise-overlay");
   const panel = document.getElementById("mission-surprise-panel");
   const closeBtn = document.getElementById("mission-surprise-close");
-  if (!overlay || !panel || !closeBtn) return;
-
-  const seenKey = `mission_prompt_seen_${moduleKey}`;
-  if (sessionStorage.getItem(seenKey) === "1") return;
-
-  const delayMs = (Math.floor(Math.random() * 11) + 5) * 1000;
-  setTimeout(() => {
-    if (sessionStorage.getItem(seenKey) === "1") return;
-    overlay.classList.remove("hidden");
-    panel.classList.remove("hidden");
-    document.body.classList.add("mission-lock");
-  }, delayMs);
-
-  closeBtn.addEventListener("click", () => {
-    overlay.classList.add("hidden");
-    panel.classList.add("hidden");
-    document.body.classList.remove("mission-lock");
-    sessionStorage.setItem(seenKey, "1");
-  });
+  setupMissionSurpriseOverlay({ moduleKey, mission, overlay, panel, closeBtn });
 }
 
 function initMicroScenario(scenario, ui) {
@@ -537,11 +528,7 @@ function initMissionMode(mission, ui) {
     score.textContent = `${total} / ${mission.steps.length}`;
     submit.disabled = true;
     setTimeout(() => {
-      const overlay = document.getElementById("mission-surprise-overlay");
-      const panel = document.getElementById("mission-surprise-panel");
-      if (overlay) overlay.classList.add("hidden");
-      if (panel) panel.classList.add("hidden");
-      document.body.classList.remove("mission-lock");
+      closeMissionSurpriseOverlayIfPresent();
     }, 2000);
   });
 }
