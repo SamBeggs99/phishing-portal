@@ -2,6 +2,36 @@ import { escapeHtml, setActiveNav, initMobileNav, updateProgressBar } from "./sh
 import { getHeaderHTML, getFooterHTML } from "./header.js";
 import { initI18n, getUI, fetchDataJson } from "./i18n.js";
 
+function prefersReducedMotion() {
+  return typeof window.matchMedia === "function"
+    && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
+function scrollIntoViewSafe(el, block = "start") {
+  if (!el || typeof el.scrollIntoView !== "function") return;
+  try {
+    el.scrollIntoView({ block, behavior: prefersReducedMotion() ? "auto" : "smooth" });
+  } catch {
+    try {
+      el.scrollIntoView();
+    } catch {
+      /* ignore */
+    }
+  }
+}
+
+function scrollToTopSafe() {
+  try {
+    window.scrollTo({ top: 0, left: 0, behavior: prefersReducedMotion() ? "auto" : "smooth" });
+  } catch {
+    try {
+      window.scrollTo(0, 0);
+    } catch {
+      /* ignore */
+    }
+  }
+}
+
 function makeCertSVG({ name, score, passed, date, ui }) {
   const q = ui?.quiz || {};
   const safeName = escapeHtml(name || "Participant");
@@ -225,7 +255,7 @@ async function init() {
     } else {
       certSection.classList.add("hidden");
     }
-    resultEl.scrollIntoView({ behavior: "smooth", block: "start" });
+    scrollIntoViewSafe(resultEl, "start");
   }
 
   form.addEventListener("submit", e => e.preventDefault());
@@ -235,7 +265,7 @@ async function init() {
     certSection.classList.add("hidden");
     resetAttempt();
     nameInput2.focus();
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    scrollToTopSafe();
   });
 
   dlBtn2?.addEventListener("click", () => {
@@ -257,9 +287,14 @@ async function init() {
         const canvas = document.createElement("canvas");
         canvas.width = 1400; canvas.height = 900;
         const ctx = canvas.getContext("2d");
+        if (!ctx) {
+          URL.revokeObjectURL(url);
+          return;
+        }
         ctx.drawImage(img, 0, 0, 1400, 900);
         URL.revokeObjectURL(url);
         canvas.toBlob(pngBlob => {
+          if (!pngBlob) return;
           const pngUrl = URL.createObjectURL(pngBlob);
           const a = document.createElement("a"); a.href = pngUrl; a.download = `PAC-cert-${safeName}.png`;
           document.body.appendChild(a); a.click(); a.remove();
@@ -284,7 +319,7 @@ async function init() {
   function showResult(cls, msg) {
     resultEl.className = `result ${cls}`;
     resultEl.innerHTML = `<p class="small-note">${msg}</p>`;
-    resultEl.scrollIntoView({ behavior: "smooth", block: "start" });
+    scrollIntoViewSafe(resultEl, "start");
   }
 }
 

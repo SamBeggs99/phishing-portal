@@ -177,11 +177,12 @@ summary:focus-visible {
   border-radius: 8px;
   box-shadow: var(--focus-shadow);
 }
-.choice:has(:focus-visible),
-.checkin-choice:has(:focus-visible),
-.ms-choice:has(:focus-visible),
-.mission-choice:has(:focus-visible),
-.rf-choice:has(:focus-visible) {
+/* :focus-within works broadly; :has(:focus-visible) is omitted for Safari <15.4 / older engines. */
+.choice:focus-within,
+.checkin-choice:focus-within,
+.ms-choice:focus-within,
+.mission-choice:focus-within,
+.rf-choice:focus-within {
   outline: 2px solid var(--focus-ring);
   outline-offset: 1px;
   box-shadow: var(--focus-shadow);
@@ -1487,6 +1488,13 @@ input[type="text"]:focus-visible {
   font-family: var(--mono); font-size: 9px;
   text-transform: uppercase; letter-spacing: 0.08em;
   margin-bottom: 8px;
+}
+
+/* ── MOTION PREFERENCES ───────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero-dot { animation: none !important; }
+  .mission-surprise-panel::before { animation: none !important; }
 }
 
 /* ── FOOTER ───────────────────────────────────────── */
