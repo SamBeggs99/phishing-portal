@@ -28,7 +28,6 @@ let reported = false;
 
 async function init() {
   const ui = await initI18n(".");
-  window.__setLang = (l) => { localStorage.setItem("pac_lang", l); window.location.reload(); };
 
   document.getElementById("header-root").innerHTML = getHeaderHTML({ rootPrefix: ".", ui });
   document.getElementById("footer-root").innerHTML = getFooterHTML({ rootPrefix: ".", ui });

@@ -4,7 +4,6 @@ import { initI18n, getUI } from "./i18n.js";
 
 async function init() {
   const ui = await initI18n(".");
-  window.__setLang = (l) => { localStorage.setItem("pac_lang", l); window.location.reload(); };
 
   document.getElementById("header-root").innerHTML = getHeaderHTML({ rootPrefix: ".", ui });
   document.getElementById("footer-root").innerHTML = getFooterHTML({ rootPrefix: ".", ui });
@@ -145,11 +144,6 @@ async function init() {
 
   const reportLbl = document.querySelector(".report-lbl");
   if (reportLbl) reportLbl.textContent = h.reportLabel || "Report phishing";
-
-  // Page title
-  const lang = ui.lang || "EN";
-  const titles = { "PT": "Treinamento em Segurança de TI — The PAC Group", "中文": "IT安全培训 — PAC集团", "ES": "Capacitación en Seguridad TI — The PAC Group" };
-  if (titles[lang]) document.title = titles[lang];
 }
 
 function initLearningPathRailHighlight() {

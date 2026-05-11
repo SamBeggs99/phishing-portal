@@ -15,7 +15,6 @@ import { initI18n, fetchDataJson } from "../../js/i18n.js";
 export async function renderITModule(moduleId) {
   try {
     const ui = await initI18n("../..");
-    window.__setLang = (l) => { localStorage.setItem("pac_lang", l); window.location.reload(); };
     document.getElementById("header-root").innerHTML = getHeaderHTML({ rootPrefix: "../..", ui });
     document.getElementById("footer-root").innerHTML = getFooterHTML({ rootPrefix: "../..", ui });
     setActiveNav(); initMobileNav(); updateProgressBar();

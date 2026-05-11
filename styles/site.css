@@ -1040,8 +1040,6 @@ body.sim-lock { overflow: hidden; }
 }
 .mission-surprise-panel::before {
   content: "";
-  position: sticky;
-  top: 0;
   display: block;
   height: 2px;
   margin: -16px -16px 12px -16px;
@@ -1466,27 +1464,6 @@ footer {
   .hero-stats { gap: 16px; }
   main { padding: 28px 0 64px; }
   .game-frame { height: 420px; }
-}
-
-/* ── LANGUAGE SWITCHER ────────────────────────────── */
-.lang-switcher {
-  display: flex; gap: 2px; align-items: center;
-  background: var(--ink-3);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  padding: 3px;
-}
-.lang-btn {
-  padding: 4px 9px; border-radius: 999px;
-  font-family: var(--mono); font-size: 10px;
-  font-weight: 700; letter-spacing: 0.05em;
-  color: var(--text-3); background: transparent;
-  border: none; cursor: pointer;
-  transition: all var(--transition);
-}
-.lang-btn:hover { color: var(--text-2); background: var(--ink-4); }
-.lang-btn.active {
-  background: var(--pac-red); color: #fff;
 }
 
 /* ── QUIZ LINK NAV STYLE ──────────────────────────── */

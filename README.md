@@ -148,36 +148,9 @@ Update `TOTAL_MODULES` in `js/shared.js` when adding new modules to keep the pro
 
 ---
 
-## Translation system (v5)
+## Language
 
-The portal supports four languages: English, Brazilian Portuguese (PT), Simplified Chinese (ZH), and Latin American Spanish (ES).
-
-**Current rollout mode:** Translations are currently feature-flagged OFF at runtime, so the site runs English-only for stability. To re-enable language switching, set `ENABLE_TRANSLATIONS = true` in `js/i18n.js`.
-
-### How it works
-
-1. The language switcher (EN · PT · 中文 · ES) lives in the header on every page
-2. Selecting a language saves the preference to `localStorage` and reloads the page
-3. UI strings (nav, buttons, labels, certificate text) are in `data/ui.json` — **fully translated**
-4. Module content, quiz questions, and stories load from language-specific JSON files
-
-### Translation files
-
-| Language | Files to edit |
-|----------|--------------|
-| English (default) | `phishing-modules.json`, `it-security.json`, `quiz.json`, `stories.json` |
-| Portuguese | `phishing-modules.pt.json`, `it-security.pt.json`, `quiz.pt.json`, `stories.pt.json` |
-| Chinese | `phishing-modules.zh.json`, `it-security.zh.json`, `quiz.zh.json`, `stories.zh.json` |
-| Spanish | `phishing-modules.es.json`, `it-security.es.json`, `quiz.es.json`, `stories.es.json` |
-
-**Current status:** The `*.pt.json`, `*.zh.json`, and `*.es.json` files contain English content as structural placeholders. The UI labels and navigation are fully translated. Replace the `summary`, `redFlags`, `responseSteps`, `story.text`, `question`, and `choices` fields in each file with your professional translations.
-
-### Adding a new language
-
-1. Add the language to `data/ui.json` following the same structure as existing languages
-2. Create `data/*.{lang}.json` files for each content area
-3. Add the language button to `js/header.js` in the `lang-switcher` div
-4. Add the `setLang` case to `js/i18n.js`
+The portal is **English only**. Shared UI labels and navigation strings live in `data/ui.json`. Training content is in `data/phishing-modules.json`, `data/it-security.json`, `data/quiz.json`, and `data/stories.json`.
 
 ---
 
